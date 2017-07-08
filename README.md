@@ -1,23 +1,23 @@
 # API-Security-Checklist
-Checklist of the most important security countermeasures when designing,testing, and releasing your API.
+Checklist of the most important security countermeasures when designing, testing, and releasing your API.
 
 ------------------------------------------------------------------------------
 ## AUTHENTICATION
-- [ ] Don't use `Basic Auth` Use standard authentication (e.g. JWT , OAuth).
-- [ ] Don't reinvent the wheel in `Authentication`, `token generating` , `password storing` use the standards.
+- [ ] Don't use `Basic Auth` Use standard authentication (e.g. JWT, OAuth).
+- [ ] Don't reinvent the wheel in `Authentication`, `token generating`, `password storing` use the standards.
 
-## AUTHENTICATION : JWT (JSON WEB TOKEN)
+## AUTHENTICATION: JWT (JSON WEB TOKEN)
 - [ ] Use random complicated key (`JWT Secret`) to make brute forcing token very hard.
 - [ ] Don't extract the algorithm from the payload. Force algorithm in the backend (`HS256` or `RS256`). 
-- [ ] Make token expiration (`TTL` , `RTTL`) short as possible.
-- [ ] Don't store sensetive data in the JWT payload, it can be decoded easily.
+- [ ] Make token expiration (`TTL`, `RTTL`) short as possible.
+- [ ] Don't store sensitive data in the JWT payload, it can be decoded easily.
 
 
-## AUTHENTICATION : OAUTH
-- [ ] Always validate `redirect_uri` on server side to allow only whitelisted urls.
+## AUTHENTICATION: OAUTH
+- [ ] Always validate `redirect_uri` on server side to allow only whitelisted URLs.
 - [ ] Always try to exchange for code not tokens (don't allow `response_type=token`).
-- [ ] Use `state` parameter with random hash to prevent CSRF on OAuth authentication process.
-- [ ] Define default scope , and validate scope parameter for each application. 
+- [ ] Use `state` parameter with a random hash to prevent CSRF on OAuth authentication process.
+- [ ] Define default scope, and validate scope parameter for each application. 
 
 
 ## ACCESS
@@ -36,9 +36,9 @@ Checklist of the most important security countermeasures when designing,testing,
 - [ ] Check if all endpoint protected behind the authentication to avoid broken authentication.
 - [ ] User own resource id should be avoided. Use `/me/orders` instead of `/user/654321/orders`
 - [ ] Don't use auto increment id's use `UUID` instead.
-- [ ] If you are parsing XML files , make sure entity parsing is not enable to avoid `XXE`.
+- [ ] If you are parsing XML files, make sure entity parsing is not enable to avoid `XXE`.
 - [ ] Use CDN for file uploads.
-- [ ] If you are dealing with huge amount of data , use Workers and Queues to return response fast to avoid HTTP Blocking. 
+- [ ] If you are dealing with huge amount of data, use Workers and Queues to return response fast to avoid HTTP Blocking. 
 - [ ] Do not forget and leave the DEBUG mode on.
 
 
