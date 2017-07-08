@@ -1,5 +1,5 @@
 # API-Security-Checklist
-Checklist of the most important security countermeasures when designing,testing, and releasing your API
+Checklist of the most important security countermeasures when designing,testing, and releasing your API.
 
 
 # AUTHENTICATION : JWT (JSON WEB TOKEN)
@@ -10,7 +10,7 @@ Checklist of the most important security countermeasures when designing,testing,
 
 # AUTHENTICATION : OAUTH
 [] Always validate redirect_uri on server side to allow only whitelisted urls.
-[] Always try to exchange for code not tokens (don't allow response_type=token)
+[] Always try to exchange for code not tokens (don't allow response_type=token).
 [] Use `state` parameter to prevent CSRF on OAuth authentication process.
 
 # ACCESS
@@ -21,7 +21,7 @@ Checklist of the most important security countermeasures when designing,testing,
 # INPUT 
 [] Use proper HTTP method according to operation , GET (read), POST (create), PUT (replace/update) and DELETE (to delete a record).
 [] Validate content-type on request Accept header ( Content Negotiation ) to allow only your supported format (e.g. application/xml , application/json ... etc) and respond with 406 Not Acceptable response if not matched.
-[] Validate content-type of posted data as you accept (e.g. application/x-www-form-urlencoded , multipart/form-data ,application/json ... etc )
+[] Validate content-type of posted data as you accept (e.g. application/x-www-form-urlencoded , multipart/form-data ,application/json ... etc ).
 [] Validate User input to avoid common vulnerabilities (e.g. XSS, SQLI , RCE ... etc).
 [] Don't use any sensetive data ( credentials. Passwords, security tokens, or API keys) in the URL, but use standard Authorization header.
 
@@ -40,4 +40,8 @@ Checklist of the most important security countermeasures when designing,testing,
 [] Send X-Frame-Options: deny header.
 [] Force content-type for your response , if you return application/json then your response content-type is application/json.
 [] Don't return sensetive data like credentials. Passwords, security tokens.
-[] Return proper status code according to operation you done. (e.g. 200 OK , 400 Bad Request , 401 Unauthorized, 405 Method Not Allowed ... etc)
+[] Return proper status code according to operation you done. (e.g. 200 OK , 400 Bad Request , 401 Unauthorized, 405 Method Not Allowed ... etc).
+
+
+## Contribution
+Feel free to contribute , fork -> edit -> submit pull request. For any questions drop us an email at team@shieldfy.io.
