@@ -1,16 +1,16 @@
 # API-Security-Checklist
-Checklist of the most important security countermeasures when designing,testing, and releasing your API.
+Checklist of the most important security countermeasures when designing, testing, and releasing your API.
 
 ------------------------------------------------------------------------------
 ## AUTHENTICATION
 - [ ] Don't use `Basic Auth` Use standard authentication (e.g. JWT , OAuth).
-- [ ] Don't reinvent the wheel in `Authentication`, `token generating` , `password storing` use the standards.
+- [ ] Don't reinvent the wheel in `Authentication`, `token generating`, `password storing` use the standards.
 
 ## AUTHENTICATION : JWT (JSON WEB TOKEN)
 - [ ] Use random complicated key (`JWT Secret`) to make brute forcing token very hard.
 - [ ] Don't extract the algorithm from the payload. Force algorithm in the backend (`HS256` or `RS256`). 
-- [ ] Make token expiration (`TTL` , `RTTL`) short as possible.
-- [ ] Don't store sensetive data in the JWT payload, it can be decoded easily.
+- [ ] Make token expiration (`TTL`, `RTTL`) short as possible.
+- [ ] Don't store sensitive data in the JWT payload, it can be decoded easily.
 
 
 ## AUTHENTICATION : OAUTH
@@ -30,7 +30,7 @@ Checklist of the most important security countermeasures when designing,testing,
 - [ ] Validate `content-type` on request Accept header ( Content Negotiation ) to allow only your supported format (e.g. `application/xml` , `application/json` ... etc) and respond with `406 Not Acceptable` response if not matched.
 - [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded` , `multipart/form-data ,application/json` ... etc ).
 - [ ] Validate User input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection` , `Remote Code Execution` ... etc).
-- [ ] Don't use any sensetive data ( `credentials` , `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
+- [ ] Don't use any sensitive data ( `credentials` , `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
 
 ## PROCESSING
 - [ ] Check if all endpoint protected behind the authentication to avoid broken authentication.
@@ -46,7 +46,7 @@ Checklist of the most important security countermeasures when designing,testing,
 - [ ] Send `X-Content-Type-Options: nosniff` header.
 - [ ] Send `X-Frame-Options: deny` header.
 - [ ] Force `content-type` for your response , if you return `application/json` then your response `content-type` is `application/json`.
-- [ ] Don't return sensetive data like `credentials` , `Passwords`, `security tokens`.
+- [ ] Don't return sensitive data like `credentials` , `Passwords`, `security tokens`.
 - [ ] Return proper status code according to operation you done. (e.g. `200 OK` , `400 Bad Request` , `401 Unauthorized`, `405 Method Not Allowed` ... etc).
 
 
