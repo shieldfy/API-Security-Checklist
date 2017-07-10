@@ -36,7 +36,8 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Check if all endpoint protected behind the authentication to avoid broken authentication.
 - [ ] User own resource id should be avoided. Use `/me/orders` instead of `/user/654321/orders`
 - [ ] Don't use auto increment id's use `UUID` instead.
-- [ ] If you are parsing XML files, make sure entity parsing is not enable to avoid `XXE`.
+- [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
+- [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
 - [ ] Use CDN for file uploads.
 - [ ] If you are dealing with huge amount of data, use Workers and Queues to return response fast to avoid HTTP Blocking. 
 - [ ] Do not forget and leave the DEBUG mode on.
