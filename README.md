@@ -22,7 +22,7 @@ Checklist of the most important security countermeasures when designing, testing
 
 ## Access
 - [ ] Limit requests (Throttling) to avoid DDoS / Bruteforce attacks.
-- [ ] Use HTTPS on server side to avoid MITM.
+- [ ] Use HTTPS on server side to avoid MITM (Man In The Middle Attack).
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
 
 ## Input
@@ -40,7 +40,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
 - [ ] Use CDN for file uploads.
 - [ ] If you are dealing with huge amount of data, use Workers and Queues to return response fast to avoid HTTP Blocking. 
-- [ ] Do not forget and leave the DEBUG mode on.
+- [ ] Do not forget to turn the DEBUG mode OFF.
 
 ## Output
 - [ ] Send `X-Content-Type-Options: nosniff` header.
