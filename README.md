@@ -1,3 +1,5 @@
+(中文版请戳这:[中文版](https://github.com/GrayLand119/API-Security-Checklist/blob/master/README-zh.md))
+
 # API Security Checklist
 Checklist of the most important security countermeasures when designing, testing, and releasing your API.
 
