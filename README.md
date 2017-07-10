@@ -43,6 +43,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Send `X-Content-Type-Options: nosniff` header.
 - [ ] Send `X-Frame-Options: deny` header.
 - [ ] Send `Content-Security-Policy: default-src 'none'` header.
+- [ ] Remove fingerprinting headers - `X-Powered-By`, `Server`, `X-AspNet-Version` etc.
 - [ ] Force `content-type` for your response , if you return `application/json` then your response `content-type` is `application/json`.
 - [ ] Don't return sensitive data like `credentials` , `Passwords`, `security tokens`.
 - [ ] Return the proper status code according to the operation completed. (e.g. `200 OK` , `400 Bad Request` , `401 Unauthorized`, `405 Method Not Allowed` ... etc).
