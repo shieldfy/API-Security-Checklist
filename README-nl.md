@@ -33,13 +33,13 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Gebruik geen gevoelige data ( `credentials` , `Wachtwoorden`, `security tokens`, of `API keys`) in de URL, maar gebruik de standaar Authorization header.
 
 ## Processing
-- [ ] Check if all endpoint protected behind the authentication to avoid broken authentication.
-- [ ] User own resource id should be avoided. Use `/me/orders` instead of `/user/654321/orders`
-- [ ] Gebruik geen auto increment id's use `UUID` instead.
-- [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
-- [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
+- [ ] Controleer dat alle endpoints zijn beschermd achter de authenticatie om broken authentication te voorkomen.
+- [ ] Gebruik `/me/orders` i.p.v. `/user/654321/orders` om het 'lekken' van id's te voorkomen.
+- [ ] Gebruik geen auto increment id's in plaats daarvan gebruik `UUID`.
+- [ ] Als je XML files parsed, controleer dat entity parsing niet aan staat om `XXE` (XML external entity attack) te voorkomen.
+- [ ] Als je XML files parsed, controleer dat entity expansion niet aan staat om `Billion Laughs/XML bomb` te voorkomen via `exponential entity expansion attack`.
 - [ ] Gebruik CDN voor het uploaden van bestanden.
-- [ ] If you are dealing with huge amount of data, use Workers and Queues to return response fast to avoid HTTP Blocking. 
+- [ ] Als er met grote/mega hoeveelheden data gewerkt wordt, gebruik dan Workers en Queues om snel een response te geven en HTTP Blocking te voorkomen. 
 - [ ] Vergeet niet om de DEBUG mode uit te zetten.
 
 ## Output
@@ -54,9 +54,8 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 
 ------------------------------------------------------------------------------
 
-Translation by [S.Holzhauer](https://github.com/SHolzhauer)
+Translation by | Vertaling door :[S.Holzhauer](https://github.com/SHolzhauer)
 
-Vertaling door [S.Holzhauer](https://github.com/SHolzhauer)
 
 # Contribution
 Feel free to contribute , fork -> edit -> submit pull request. For any questions drop us an email at team@shieldfy.io.
