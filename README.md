@@ -1,5 +1,5 @@
 (中文版请戳这:[中文版](./README-zh.md))
-| (Português (Brasil): [README-pt_BR.md](./README-pt_BR.md)
+| (Português (Brasil): [README-pt_BR.md](./README-pt_BR.md))
 
 # API Security Checklist
 Checklist of the most important security countermeasures when designing, testing, and releasing your API.
