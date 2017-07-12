@@ -16,7 +16,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 
 ### OAuth
 - [ ] Valideer **ALTIJD** de `redirect_uri` op de server om alleen toegestane URL te accepteren.
-- [ ] Always try to exchange for code not tokens (don't allow `response_type=token`).
+- [ ] Probeer alijd een exchange voor code, niet voor tokens (sta `response_type=token` niet toe).
 - [ ] Gebruik de `state` parameter met een random hash om CSRF op een OAuth authentication process te voorkomen.
 - [ ] Defineer een standaard scope, en valideer deze scope parameter voor elke applicatie. 
 
