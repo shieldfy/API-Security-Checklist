@@ -1,0 +1,62 @@
+(中文版请戳这:[中文版](https://github.com/GrayLand119/API-Security-Checklist/blob/master/README-zh.md))
+
+# API Security Checklist
+Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uitbrengen van een API.
+
+------------------------------------------------------------------------------
+## Authenticatie
+- [ ] Gebruik geen `Basic Auth` Gebruik industrie standaarden (v.b. JWT, OAuth).
+- [ ] Vind het wiel niet opnieuw uit voor `Authenticatie`, `Genereren van Tokens` en `Opslaan van Wachtwoorden`. Gebruik de standaarden.
+
+### JWT (JSON Web Token)
+- [ ] Gebruik random ingewikkelde keys (`JWT Secret`) om brute forcing lastiger te maken.
+- [ ] Haal het algoritme niet uit de payload. Dwing het algoritme af in de backend (`HS256` or `RS256`). 
+- [ ] Zet de token vervaltijd (`TTL`, `RTTL`) zo kort mogelijk.
+- [ ] Sla geen gevoelige data op in de JWT payload, deze is [makkelijk](https://jwt.io/#debugger-io) te decoden.
+
+### OAuth
+- [ ] Valideer **ALTIJD** de `redirect_uri` op de server om alleen toegestane URL te accepteren.
+- [ ] Always try to exchange for code not tokens (don't allow `response_type=token`).
+- [ ] Gebruik de `state` parameter met een random hash om CSRF op een OAuth authentication process te voorkomen.
+- [ ] Defineer een standaard scope, en valideer deze scope parameter voor elke applicatie. 
+
+## Toegang
+- [ ] Limiteer het aantal requests om DDoS en/of Bruteforce aanvallen te ontkrachten.
+- [ ] Gebruik HTTPS aan de server zijde om MITM (Man In The Middle Attacks) tegen te gaan.
+- [ ] Gebruik de `HSTS` header i.c.m SSL om een SSL Strip attack te ontkrachten.
+
+## Invoer
+- [ ] Gebruik de correcte HTTP methode voor de operatie , `GET (lezen)`, `POST (schrijven)`, `PUT (vervangen/updaten)` and `DELETE (verwijderen)`.
+- [ ] Valideer de `content-type` header bij een request Accept header ( Content Negotiation ) om alleen de ondersteunde formats toe te staan (e.g. `application/xml` , `application/json` ... etc) een stuur een `406 Not Acceptable` response als de `content-type` niet ondersteund is.
+- [ ] Valideer de `content-type` header van gestuurde data (e.g. `application/x-www-form-urlencoded` , `multipart/form-data ,application/json` ... etc ).
+- [ ] Valideer de gebruiker invoer om veel voorkomende kwetsbaarheden te voorkomen (v.b. `XSS`, `SQL-Injection` , `Remote Code Execution` ... etc).
+- [ ] Gebruik geen gevoelige data ( `credentials` , `Wachtwoorden`, `security tokens`, of `API keys`) in de URL, maar gebruik de standaar Authorization header.
+
+## Processing
+- [ ] Check if all endpoint protected behind the authentication to avoid broken authentication.
+- [ ] User own resource id should be avoided. Use `/me/orders` instead of `/user/654321/orders`
+- [ ] Gebruik geen auto increment id's use `UUID` instead.
+- [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
+- [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
+- [ ] Gebruik CDN voor het uploaden van bestanden.
+- [ ] If you are dealing with huge amount of data, use Workers and Queues to return response fast to avoid HTTP Blocking. 
+- [ ] Vergeet niet om de DEBUG mode uit te zetten.
+
+## Output
+- [ ] Stel de `X-Content-Type-Options: nosniff` header in.
+- [ ] Stel de `X-Frame-Options: deny` header in.
+- [ ] Stel de `Content-Security-Policy: default-src 'none'` header in.
+- [ ] Verwijder vingerafdruk headers - `X-Powered-By`, `Server`, `X-AspNet-Version` etc.
+- [ ] Dwing `content-type` headers af voor de response , als je antwoord `application/json` is dan is de `content-type` : `application/json`.
+- [ ] Stuur geen gevoelige data terug: `Gebruikersnamen` , `Wachtwoorden`, `security tokens`.
+- [ ] Geef de correcte HTTP antwoord code terug op basis van de uitgevoerde operatie(e.g. `200 OK` , `400 Bad Request` , `401 Unauthorized`, `405 Method Not Allowed` ... etc).
+
+
+------------------------------------------------------------------------------
+
+Translation by [S.Holzhauer](https://github.com/SHolzhauer)
+
+Vertaling door [S.Holzhauer](https://github.com/SHolzhauer)
+
+# Contribution
+Feel free to contribute , fork -> edit -> submit pull request. For any questions drop us an email at team@shieldfy.io.
