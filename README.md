@@ -33,7 +33,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Don't use any sensitive data ( `credentials` , `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
 
 ## Processing
-- [ ] Check if all endpoint protected behind the authentication to avoid broken authentication.
+- [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
 - [ ] User own resource id should be avoided. Use `/me/orders` instead of `/user/654321/orders`
 - [ ] Don't use auto increment id's use `UUID` instead.
 - [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
