@@ -10,7 +10,7 @@
 - [ ] 使用随机复杂的秘钥 (`JWT Secret`) 以增加暴力破解的难度.
 - [ ] 不要在请求体中直接提取数据, 要对数据进行加密 (`HS256` or `RS256`). 
 - [ ] 是 token 的过期时间尽量的短 (`TTL`, `RTTL`) .
-- [ ] 不要在 JWT 的请求体重存放敏感数据, 它是可破解的 [easily](https://jwt.io/#debugger-io).
+- [ ] 不要在 JWT 的请求体中存放敏感数据, 它是可破解的 [easily](https://jwt.io/#debugger-io).
 
 ### OAuth 授权或认证协议
 - [ ] 始终在后台验证 `redirect_uri` 只允许白名单的 url.
@@ -37,7 +37,7 @@
 - [ ] 如果你正在解析 XML 文件, 确认确保外部实体是关闭的以避免`XXE`攻击.
 - [ ] 在文件上传中使用 CDN.
 - [ ] 如果你在处理大量的数据, 使用 Workers 和 Queues 来快速响应, 从而避免 HTTP 阻塞. 
-- [ ] 不要忘了吧 DEBUG 模式关掉.
+- [ ] 不要忘了把 DEBUG 模式关掉.
 
 ## 输出
 - [ ] 发送 `X-Content-Type-Options: nosniff` 头.
