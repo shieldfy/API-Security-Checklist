@@ -29,7 +29,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
 
 ## Input
-- [ ] Use proper HTTP method according to operation, `GET (read)`, `POST (create)`, `PUT (replace/update)` and `DELETE (to delete a record)`.
+- [ ] Use proper HTTP method according to operation, `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)` and `DELETE (to delete a record)`.
 - [ ] Validate `content-type` on request Accept header (Content Negotiation) to allow only your supported format (e.g. `application/xml`, `application/json` ... etc) and respond with `406 Not Acceptable` response if not matched.
 - [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data ,application/json` ... etc ).
 - [ ] Validate User input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution` ... etc).
