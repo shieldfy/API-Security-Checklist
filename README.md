@@ -1,7 +1,4 @@
-(中文版请戳这:[中文版](./README-zh.md))
-| (Português (Brasil): [README-pt_BR.md](./README-pt_BR.md))
-| (française: [README-fr.md](./README-fr.md))
-| (한국의: [README-ko.md](./README-ko.md))
+[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국의](./README-ko.md) | [Nederlands](./README-nl.md)
 
 # API Security Checklist
 Checklist of the most important security countermeasures when designing, testing, and releasing your API.
@@ -10,6 +7,8 @@ Checklist of the most important security countermeasures when designing, testing
 ## Authentication
 - [ ] Don't use `Basic Auth` Use standard authentication (e.g. JWT, OAuth).
 - [ ] Don't reinvent the wheel in `Authentication`, `token generating`, `password storing` use the standards.
+- [ ] Use `Max Retry` and jail features in Login.
+- [ ] Use encryption on all sensitive data. 
 
 ### JWT (JSON Web Token)
 - [ ] Use random complicated key (`JWT Secret`) to make brute forcing token very hard.
@@ -29,11 +28,12 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
 
 ## Input
-- [ ] Use proper HTTP method according to operation, `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)` and `DELETE (to delete a record)`.
-- [ ] Validate `content-type` on request Accept header (Content Negotiation) to allow only your supported format (e.g. `application/xml`, `application/json` ... etc) and respond with `406 Not Acceptable` response if not matched.
-- [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data ,application/json` ... etc ).
-- [ ] Validate User input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution` ... etc).
-- [ ] Don't use any sensitive data (`credentials`, `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
+- [ ] Use proper HTTP method according to operation, `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)` and `DELETE (to delete a record)` and respond with `405 Method Not Allowed` if requested method don't exists in resource.
+- [ ] Validate `content-type` on request Accept header (Content Negotiation) to allow only your supported format (e.g. `application/xml`, `application/json`... etc) and respond with `406 Not Acceptable` response if not matched.
+- [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data ,application/json`... etc ).
+- [ ] Validate User input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection` , `Remote Code Execution`... etc).
+- [ ] Don't use any sensitive data (`credentials` , `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
+- [ ] Use a API Gateway service to enable caching, Rate Limit, Spike Arrest and deploy API's resourses dynamically
 
 ## Processing
 - [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
@@ -42,7 +42,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
 - [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
 - [ ] Use CDN for file uploads.
-- [ ] If you are dealing with huge amount of data, use Workers and Queues to return response fast to avoid HTTP Blocking.
+- [ ] If you are dealing with huge amount of data, use Workers and Queues to process as much as possible in background and return response fast to avoid HTTP Blocking.
 - [ ] Do not forget to turn the DEBUG mode OFF.
 
 ## Output
@@ -53,6 +53,12 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Force `content-type` for your response, if you return `application/json` then your response `content-type` is `application/json`.
 - [ ] Don't return sensitive data like `credentials`, `Passwords`, `security tokens`.
 - [ ] Return the proper status code according to the operation completed. (e.g. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed` ... etc).
+
+## CI & CD
+- [ ] Audit your design and implementation with unit/integration tests coverage. 
+- [ ] Use a code review process and disregard self-approval.
+- [ ] Ensure that all components of your services are statically scanned by AV software before push to production, including vendor libraries and other dependencies.
+- [ ] Design a rollback solution for deployments.
 
 
 ------------------------------------------------------------------------------
