@@ -45,9 +45,8 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
 - [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
 - [ ] Use CDN for file uploads.
-- [ ] If you are dealing with huge amount of data, use Workers and Queues to return response fast to avoid HTTP Blocking.
+- [ ] If you are dealing with huge amount of data, use Workers and Queues to process as much as possible in background and return response fast to avoid HTTP Blocking.
 - [ ] Do not forget to turn the DEBUG mode OFF.
-- [ ] Use Queues and Workers to process as much as possible in background.
 
 ## Output
 - [ ] Send `X-Content-Type-Options: nosniff` header.
