@@ -1,4 +1,4 @@
-(中文版请戳这:[中文版](https://github.com/GrayLand119/API-Security-Checklist/blob/master/README-zh.md))
+[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국의](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md)
 
 # API 보안 체크리스트
 API를 설계하고 테스트하고 배포할 때 고려해야 할 중요한 보안 대책 체크리스트입니다.
@@ -29,7 +29,7 @@ API를 설계하고 테스트하고 배포할 때 고려해야 할 중요한 보
 - [ ] 각 요청 연산에 맞는 적절한 HTTP 메서드를 사용하세요. `GET (읽기)`, `POST (생성)`, `PUT (대체/갱신)`, `DELETE (삭제)`
 - [ ] 여러분이 지원하는 포맷 (예를 들어 `application/json`이나 `application/json` 등)만을 허용하기 위해서는 요청의 Accept 헤더의 `content-type`을 검증하여 매칭되는게 없을 경우엔 `406 Not Acceptable`로 응답하세요.
 - [ ] 요청 받은 POST 데이터의 `content-type`을 검증하세요. (예를 들어 `application/x-www-form-urlencoded`나 `multipart/form-data` 또는 `application/json` 등)
-- [ ] 일반적인 취약점들을 피하기 위해선 사용자 입력의 유효성을 검증하세요. (예를 들어 `XSS`, `SQL-Injection` 또는 `Remove Code Execution` 등) 
+- [ ] 일반적인 취약점들을 피하기 위해선 사용자 입력의 유효성을 검증하세요. (예를 들어 `XSS`, `SQL-Injection` 또는 `Remove Code Execution` 등)
 - [ ] URL에는 그 어떤 민감한 데이터 (`자격 인증 (crendentials)`, `패스워드`, `보안 토큰` 또는 `API 키`)도 포함하고 있어서는 안되며 이러한 것들은 표준 인증 방식의 헤더를 사용하세요.
 
 ## 서버 처리
@@ -55,4 +55,4 @@ API를 설계하고 테스트하고 배포할 때 고려해야 할 중요한 보
 ------------------------------------------------------------------------------
 
 # Contribution
-Feel free to contribute , fork -> edit -> submit pull request. For any questions drop us an email at team@shieldfy.io.
+Feel free to contribute, fork -> edit -> submit pull request. For any questions drop us an email at team@shieldfy.io.

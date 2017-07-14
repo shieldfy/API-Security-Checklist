@@ -1,3 +1,5 @@
+[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국의](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md)
+
 # Checklist Keamanan API
 Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji, dan melepaskan API ke khalayak
 
@@ -6,7 +8,7 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Jangan gunakan `Basic Auth`. Gunakan autentikasi baku (Contoh: JWT, Oauth)
 - [ ] Gunakan mekanisme baku untuk `autentikasi`, `pembuatan token`, dan `penyimpanan kata sandi`
 - [ ] Gunakan maksimal percobaan berulang dan fitur penjara pada Login.
-- [ ] Gunakan enkripsi untuk seluruh data sensitif. 
+- [ ] Gunakan enkripsi untuk seluruh data sensitif.
 
 ### JWT (JSON Web Token)
 - [ ] Gunakan kunci acak yang rumit (`JWT Secret`) untuk membuat proses pemecahan token secara paksa menjadi sangat susah.
@@ -29,8 +31,8 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Gunakan metode HTTP yang sesuai dengan operasi yang digunakan, `GET untuk membaca catatan`, `POST untuk membuat catatan baru`, `PUT/PATCH untuk mengganti secara keseluruhan/mengubah sebagian catatan`, `DELETE untuk menghapus catatan` dan tanggapan `405 Method Not Allowed` jika metode permintaan tidak dikenali pada sumber daya.
 - [ ] Validasi `content-type` pada tajuk _Accept_ pada permintaan (Negosiasi konten) sehingga hanya mengijinkan format yang dikenali (Contoh: `application/xml`, `application/json`, dan lain sebagainya). Berikan tanggapan `406 Not Acceptable` jika nilai tajuk _Accept_ tidak dikenali.
 - [ ] Validasi `content-type` dari data yang dipos oleh pengguna (Contoh: `application/x-www-form-urlencoded`, `multipart/form-data ,application/json`, dan lain sebagainya).
-- [ ] Validasi masukan dari pengguna untuk menghindari kerentanan umum (Contoh: `XSS`, `SQL-Injection` , `Remote Code Execution`, dan lain sebagainya).
-- [ ] Jangan gunakan data sensitif seperti `kredensial` , `kata sandi`, `token keamanan`, atau `kunci API` pada URL. Gunakan tajuk _Authorization_ baku.
+- [ ] Validasi masukan dari pengguna untuk menghindari kerentanan umum (Contoh: `XSS`, `SQL-Injection`, `Remote Code Execution`, dan lain sebagainya).
+- [ ] Jangan gunakan data sensitif seperti `kredensial`, `kata sandi`, `token keamanan`, atau `kunci API` pada URL. Gunakan tajuk _Authorization_ baku.
 - [ ] Gunakan layanan pintu gerbang API (_API Gateway_) untuk memungkinan singgahan, pembatasan laju, pendeteksian lalu lintas tinggi, dan penyebaran sumber daya API secara dinamis
 
 ## Pemrosesan
@@ -53,7 +55,7 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Kembalikan kode status yang layak sesuai dengan operasi yang diselesaikan (Contoh: `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, dan lain sebagainya).
 
 ## CI & CD
-- [ ] Audit rancangan dan pelaksanaan dengan pengujian unit/integrasi. 
+- [ ] Audit rancangan dan pelaksanaan dengan pengujian unit/integrasi.
 - [ ] Gunakan proses ulasan kode dan kesampingkan persetujuan sendiri.
 - [ ] Pastikan seluruh komponen layanan dipindai secara statis menggunakan anti virus sebelum didorong ke lingkungan produksi, termasuk pustaka-pustaka milik vendor dan ketergantungan lainnya.
 - [ ] Rancang solusi kembali ke versi sebelumnya pada proses penyebaran.
