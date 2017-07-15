@@ -1,3 +1,5 @@
+[English](./README.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국의](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md)
+
 # 开发安全的 API 所需要核对的清单
 以下是当你在设计, 测试以及发布你的 API 的时候所需要核对的重要安全措施.
 
@@ -26,7 +28,7 @@
 ## 输入
 - [ ] 使用与操作相符的 HTTP 操作函数, `GET (读取)`, `POST (创建)`, `PUT (替换/更新)` 以及 `DELETE (删除记录)`.
 - [ ] 在请求头中的 `content-type` 字段使用内容验证来只允许支持的格式 (比如 `application/xml`, `application/json` ...) 并在不满足条件的时候返回 `406 Not Acceptable`.
-- [ ] 验证 `content-type` 的发布数据和你收到的一样 (如 `application/x-www-form-urlencoded`, `multipart/form-data ,application/json` 等等... ).
+- [ ] 验证 `content-type` 的发布数据和你收到的一样 (如 `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json` 等等... ).
 - [ ] 验证用户输入来避免一些普通的易受攻击缺陷 (比如 `XSS`, `SQL-注入`, `远程代码执行` 等等...).
 - [ ] 不要在 URL 中使用任何敏感的数据 (`credentials`, `Passwords`, `security tokens`, or `API keys`), 而是使用标准的认证请求头.
 
