@@ -7,6 +7,8 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 ## Autenticação (_Authentication_)
 - [ ] Não use `Basic Auth`. Use padrões de autenticação (exemplo: JWT, OAuth).
 - [ ] Não reinvente a roda nos quesitos `Autenticação`, `geração de tokens` e `armazenamento de senhas`. Use os padrões recomendados para cada caso.
+- [ ] Use `Max Retry` e os recursos de jail no Login.
+- [ ] Use criptografia em todos os dados confidenciais.
 
 ### JWT (JSON Web Token)
 - [ ] Use uma chave de segurança aleatória e complicada (`JWT Secret`) para tornar ataques de força bruta menos eficientes.
@@ -31,6 +33,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Valide o tipo de conteúdo do conteúdo da requisição informado no cabeçalho `Content-Type` da requisição para permitir apenas os formatos suportados pela sua API (ex. `application/x-www-form-urlencoded`, `multipart/form-data, application/json` ... etc).
 - [ ] Valide o conteúdo da requisição para evitar as vulnerabilidades mais comuns (ex. `XSS`, `SQL-Injection`, `Remote Code Execution` ... etc).
 - [ ] Não utilize nenhuma informação sensível (credenciais, senhas, _tokens_ de autenticação) na URL. Use o cabeçalho `Authorization` da requisição.
+- [ ] Use um serviço gateway de API para habilitar o armazenamento em cache, limite de taxa, prender de spike e implanta os recursos da API dinamicamente.
 
 ## Processamento (_Processing_)
 - [ ] Verifique continuamente os _endpoints_ protegidos por autenticação para evitar falhas na proteção de acesso aos dados.
@@ -51,8 +54,14 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Não retorne dados sensíveis como senhas, credenciais e tokens de autenticação.
 - [ ] Utilize o código de resposta apropriado para cada operação. Ex. `200 OK` (respondido com sucesso), `201 Created` (novo recurso criado), `400 Bad Request` (requisição inválida), `401 Unauthorized` (não autenticado), `405 Method Not Allowed` (método HTTP não permitido) ... etc.
 
+## CI & CD
+- [ ] Auditoria de seu projeto e implementação com cobertura de testes de unidade/integração.
+- [ ] Use um processo de revisão de código e ignore a auto-aprovação.
+- [ ] Certifique-se de que todos os componentes de seus serviços sejam escaneados estaticamente pelo software AV antes de empurrar para a produção, incluindo bibliotecas de fornecedores e outras dependências.
+- [ ] Desenhar uma solução de reversão para implantações.
+
 
 ------------------------------------------------------------------------------
 
 # Contribuindo
-Sinta-se livre para contribuir, dê um _fork_ -> edite -> envie um PR. Dúvidas, envie um e-mail para team@shieldfy.io.
+Sinta-se livre para contribuir, fazendo um fork deste repositório, fazendo algumas alterações e enviando um PR. Dúvidas, envie um e-mail para `team@shieldfy.io`.
