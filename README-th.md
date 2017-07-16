@@ -1,4 +1,4 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국의](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md)
 
 # API Security Checklist
 Checklist ที่ต้องให้ความสำคัญเมื่อมีการสร้าง API ในช่วงการออกแบบ ทดสอบระบบ และการปล่อยให้คนนอกใช้
