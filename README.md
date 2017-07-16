@@ -33,7 +33,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, etc).
 - [ ] Validate User input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc).
 - [ ] Don't use any sensitive data (`credentials`, `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
-- [ ] Use an API Gateway service to enable caching, Rate Limit, Spike Arrest and deploy APIs resources dynamically.
+- [ ] Use an API Gateway service to enable caching, Rate Limit policies (e.g. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) and deploy APIs resources dynamically.
 
 ## Processing
 - [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
