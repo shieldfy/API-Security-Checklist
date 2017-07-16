@@ -5,27 +5,27 @@ APIを設計、テスト、リリースするときの最も重要なセキュ�
 
 ------------------------------------------------------------------------------
 ## 認証
-- [ ] Don't use `Basic Auth` Use standard authentication (e.g. JWT, OAuth).
-- [ ] Don't reinvent the wheel in `Authentication`, `token generating`, `password storing` use the standards.
-- [ ] Use `Max Retry` and jail features in Login.
-- [ ] Use encryption on all sensitive data. 
+- [ ] Basic認証を利用せず、標準的な認証を利用する (例: JWT、OAuth)
+- [ ] 「認証」、「トークンの生成」、「パスワードの保管」の車輪の再発明を行わず、標準のものを利用する
+- [ ] ログインでは「最大再試行回数(Max Retry)」とjail機能を利用する
+- [ ] 全ての機密データは暗号化する
 
 ### JWT (JSON Web Token)
-- [ ] Use random complicated key (`JWT Secret`) to make brute forcing token very hard.
-- [ ] Don't extract the algorithm from the payload. Force algorithm in the backend (`HS256` or `RS256`).
-- [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
-- [ ] Don't store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
+- [ ] ランダムで複雑なキー (`JWT Secret`) を利用し、トークンに対するブルートフォース攻撃を困難にする
+- [ ] ペイロードからアルゴリズムを取り出さない。バックエンドでアルゴリズムを強制する。(`HS256` か `RS256`)
+- [ ] トークンの有効期限 (`TTL`, `RTTL`) を可能な限り短くする。
+- [ ] 機密データをJWTペイロードに格納しない。それは[簡単に](https://jwt.io/#debugger-io)復号できる。
 
 ### OAuth
-- [ ] Always validate `redirect_uri` on server side to allow only whitelisted URLs.
+- [ ] 常に `redirect_uri` をサーバ側でホワイトリストされたURLのみを許可するよう検証する。
 - [ ] Always try to exchange for code not tokens (don't allow `response_type=token`).
-- [ ] Use `state` parameter with a random hash to prevent CSRF on OAuth authentication process.
-- [ ] Define default scope, and validate scope parameter for each application.
+- [ ] `state` パラメータをランダムなハッシュと共に利用し、OAuth認証プロセスでのCSRFを防ぐ。
+- [ ] デフォルトのscopeを定義し、アプリケーション毎にscopeパラメータを検証する。
 
 ## アクセス
-- [ ] Limit requests (Throttling) to avoid DDoS / Bruteforce attacks.
-- [ ] Use HTTPS on server side to avoid MITM (Man In The Middle Attack).
-- [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
+- [ ] DDoS / ブルートフォース攻撃を防ぐためリクエストの制限 (スロットリング) を行う。
+- [ ] HTTPSをサーバ側で利用しMITM (Man In The Middle Attack) を回避する。
+- [ ] `HSTS`ヘッダをSSLと共に利用し、SSL Strip攻撃を回避する。
 
 ## 入力
 - [ ] Use proper HTTP method according to operation, `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)` and `DELETE (to delete a record)` and respond with `405 Method Not Allowed` if requested method don't exists in resource.
