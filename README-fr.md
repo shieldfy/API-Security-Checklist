@@ -7,8 +7,8 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 ## Authentification
 - [ ] Ne pas utiliser une authentification basique http (`Basic Auth`) mais plutôt un standard d'authentification (tel que JWT, OAuth).
 - [ ] Ne pas réinventer la roue lors de `l'authentification`, `la génération de token`, `le stockage de mots de passe` mais utiliser les standards.
-- [ ] Utiliser les `Max Retry` et les fonctionnalités de jail en Login.
-- [ ] Utiliser le cryptage sur toutes les données sensibles.
+- [ ] Lors de l'authentification, mettre en place les fonctionnalités de bannissement (`jail`) avec des seuils de tentatives maximales (`Max Retry`).
+- [ ] Chiffrer toutes les données sensibles.
 
 ### JWT (JSON Web Token)
 - [ ] Utiliser des clés aléatoires complexes (`JWT Secret`) pour rendre les attaques par force brute difficiles.
@@ -32,8 +32,8 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Valider le `content-type` dans l'en-tête HTTP des requêtes (négociation de contenu) pour n'autoriser que les formats supportés (e.g. `application/xml`, `application/json`, etc…) et renvoyer une réponse `406 Not Acceptable` si ça ne correspond pas.
 - [ ] Valider le `content-type` des données postées avec celles acceptées (e.g. `application/x-www-form-urlencoded`, `multipart/form-data, application/json`, etc…).
 - [ ] Valider les entrées utilisateur pour éviter les vulnérabilités classiques (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc…).
-- [ ] N'utiliser aucune donnée sensible (`identifiants`, `mots de passe`, `tokens de sécurité`, ou `clés d'API`) dans l'URL, mais utiliser les en-têtes d'autorisation standards.
-- [ ] Utiliser un service de passerelle API pour activer la mise en cache, limite de taux, arrestation spike et déployer des ressources API dynamiquement.
+- [ ] N'utiliser aucune donnée sensible (`identifiants`, `mots de passe`, `tokens de sécurité`, ou `clés d'API`) dans l'URL, mais utiliser les en-têtes d'autorisations standards.
+- [ ] Utiliser un service de passerelle d'API afin d'obtenir la mise en cache, une limitation de la saturation des ressources, la gestion des pics d'activités et le déploiement automatique des ressources.
 
 ## Traitement
 - [ ] Vérifier qu'aucun point d'entrée dans l'application n'échappe à l'authentification.
@@ -42,7 +42,7 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Dans le cas du traitement de fichiers XML, être sûr que l'analyse des entités n'est pas activée par défaut afin d'éviter les failles `XXE` (XML external entity attack).
 - [ ] Dans le cas du traitement de fichiers XML, être sûr que l'expansion des entités n'est pas activée par défaut afin d'éviter les `Billion Laughs/XML bomb` (exponential entity expansion attack).
 - [ ] Utiliser les réseaux de diffusion de contenu (CDN) pour l'envoie de fichier.
-- [ ] Dans le cas d'un traitement d'importante quantité de données, utiliser des Workers et des Queues pour retourner des réponses rapidement et éviter un blocage HTTP.
+- [ ] Dans le cas du traitement d'importantes quantités de données, utiliser des Workers et des Queues pour retourner les réponses rapidement et éviter un blocage HTTP.
 - [ ] Ne pas oublier de désactiver le mode DEBUG.
 
 ## Sorties
@@ -55,13 +55,13 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Retourner un code de statuts en adéquation avec l'opération effectuée. (e.g. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, etc…).
 
 ## CI & CD
-- [ ] Vérifiez votre conception et votre mise en œuvre avec la couverture des tests d'unité et d'intégration.
-- [ ] Utilisez un processus d'examen de code et ignorez l'auto-approbation.
-- [ ] Assurez-vous que tous les composants de vos services sont scannés de manière statique par un logiciel AV avant de pousser vers la production, inclus des bibliothèques de fournisseurs et autres dépendances.
+- [ ] Vérifiez votre conception et votre implémentation avec une couverture des tests unitaires et d'intégration.
+- [ ] Utilisez un processus de revue de code et ignorez l'auto-approbation.
+- [ ] Assurez-vous que tous les composants de vos services sont scannés par un logiciel anti-virus avant la mise en production, ainsi que les bibliothèques tierces et autres dépendances.
 - [ ] Concevez une solution de rollback pour les déploiements.
 
 
 ------------------------------------------------------------------------------
 
 # Contribution
-N'hésitez pas à contribuer en bifurquant ce repository, faire quelques changements, et soumettre des requêtes pull. Pour toute question, envoyez-nous un courriel à `team@shieldfy.io`.
+N'hésitez pas à contribuer en forkant ce dépôt, faire quelques changements, et soumettre une pull request. Pour toute question, envoyez un courriel à `team@shieldfy.io`.
