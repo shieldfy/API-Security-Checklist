@@ -40,7 +40,7 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 - [ ] Debes evitar los recursos bajo un ID de usuario. Usa `/me/orders` en lugar de `/user/654321/orders`.
 - [ ] No uses IDs auto incrementales. Usa `UUID` en su lugar.
 - [ ] Si estas procesando archivos XML, asegúrate de deshabilitar el procesamiento de entidades para evitar ataques `XXE` (XML external entity attack).
-- [ ] Si estas procesando archivos XML, asegúrate de deshabilitar la expansión de entidades, para evitar un ataque `Billion Laughs/XML bomb` via expansón exponencial de entidades.
+- [ ] Si estas procesando archivos XML, asegúrate de deshabilitar la expansión de entidades, para evitar un ataque `Billion Laughs/XML bomb` via expansión exponencial de entidades.
 - [ ] Utiliza CDN para subidas de ficheros.
 - [ ] Si lidias con grandes cantidades de información, utiliza Workers y Colas para procesar tanto cómo sea posible en segundo plano, y devuelve una respuesta rápido para evitar un bloqueo HTTP.
 - [ ] No olvides deshabilitar el modo Debug.
@@ -56,7 +56,7 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 
 ## CI & CD
 - [ ] Audita tu diseño e implementación con tests unitarios/integración y test coverage.
-- [ ] Usa procesos de revisión de código y evitar la auto aprobación.
+- [ ] Usa procesos de revisión de código y evita la auto aprobación.
 - [ ] Asegura que todos los componentes de tus servicios se escanean estáticamente con un software AV antes de ir a producción, incluyendo librerías de terceros y dependencias.
 - [ ] Diseña un proceso de `rollback` para tus `deploys`.
 
