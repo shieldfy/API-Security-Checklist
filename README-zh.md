@@ -7,7 +7,7 @@
 ## 身份认证
 - [ ] 不要使用 `Basic Auth` 使用标准的认证协议 (比如 JWT, OAuth).
 - [ ] 不要再造 `Authentication`, `token generating`, `password storing` 这些轮子, 使用标准的.
-- [ ] 在登陆中使用 `Max Retry` 和自动封禁功能.
+- [ ] 在登录中使用 `Max Retry` 和自动封禁功能.
 - [ ] 加密所有的敏感数据.
 
 ### JWT (JSON Web Token)
