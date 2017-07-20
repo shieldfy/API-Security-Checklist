@@ -6,7 +6,6 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 ------------------------------------------------------------------------------
 ## Authentifizierung
 - [ ] Verwende kein `Basic Auth`. Nutze standardisierte Authentifizierungsmethoden (bspw. JWT, OAuth).
-- [ ] Don't reinvent the wheel in `Authentication`, `token generating`, `password storing`. Use the standards.
 - [ ] Erfinde das Rad nicht neu für `Authentication`, `Tokengenerierung` oder `Passwort speichern`. Nutze hierfür existierende Standards.
 - [ ] Nutze eine `limitierte Anzahl von Anmeldeversuche` und Aussperrfunktionen (Ban, IP-Block, Permanent) im Loginprozess.
 - [ ] Nutze Verschlüsselung für alle sensitiven Daten.
