@@ -57,7 +57,7 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 ## Kontinuierliche Integration (CI) & Continuous Delivery (CD)
 - [ ] Nutze Unit- und Integrationstest und deren Abdeckung (Test Coverage), um deine Implementierungen und Design zu kontrollieren.
 - [ ] Nutze einen Code Review Prozess, aber bleib sachlich.
-- [ ] Stelle sicher, dass alle verwendeten Komponenten (Bibliotheken und alle anderen Abhängigkeiten) noch einmal statich von einer Anti-Virus Software überprüft wurden bevor diese in die Produktionsumgebung gehen.
+- [ ] Stelle sicher, dass alle verwendeten Komponenten (Bibliotheken und alle anderen Abhängigkeiten) noch einmal statisch von einer Anti-Virus Software überprüft wurden bevor diese in die Produktionsumgebung gehen.
 - [ ] Stelle sicher, dass du im Fehlerfall auch schnell wieder den vorherigen Stand einspielen kannst (Rollback).
 
 ------------------------------------------------------------------------------
