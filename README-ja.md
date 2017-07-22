@@ -28,12 +28,12 @@ APIを設計、テスト、リリースするときの最も重要なセキュ�
 - [ ] `HSTS`ヘッダをSSLと共に利用し、SSL Strip攻撃を回避する。
 
 ## 入力
-- [ ] Use proper HTTP method according to operation, `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)` and `DELETE (to delete a record)` and respond with `405 Method Not Allowed` if requested method don't exists in resource.
-- [ ] Validate `content-type` on request Accept header (Content Negotiation) to allow only your supported format (e.g. `application/xml`, `application/json`... etc) and respond with `406 Not Acceptable` response if not matched.
-- [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data ,application/json`... etc ).
-- [ ] Validate User input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection` , `Remote Code Execution`... etc).
-- [ ] Don't use any sensitive data (`credentials` , `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
-- [ ] Use a API Gateway service to enable caching, Rate Limit, Spike Arrest and deploy API's resourses dynamically
+- [ ] 操作に準じて適切なHTTPメソッドを利用する、`GET (読み込み)`、`POST (作成)`、`PUT/PATCH (置き換え/更新)`、`DELETE (単一レコードの削除)。もし要求されたメソッドがリソースに存在しない場合は `405 Method Not Allowed` を返却する
+- [ ] リクエストのAcceptヘッダ (Content Negotiation) の `content-type` を検証し、サポートしているフォーマットのみを許可し (例: `application/xml`、`application/json` 等)、もし合致しなければ `406 Not Acceptable` レスポンスを応答する。
+- [ ] 受け取るPOSTされたデータの`content-type` を検証する (例: `application/x-www-form-urlencoded`、`multipart/form-data ,application/json` 等)。
+- [ ] 一般的な脆弱性を避けるためユーザ入力を検証する (例: `XSS`, `SQLインジェクション` , `リモートコード実行` 等)。
+- [ ] URL中で機密データ (`クレデンシャル`、`パスワード`、`セキュリティトークン`) を利用せず、標準的な認証ヘッダで利用する
+- [ ] キャッシュ、レート制限、スパイク阻止、そしてAPIリソースのデプロイを動的に行うため、APIゲートウェイサービスを利用する
 
 ## 処理
 - [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
