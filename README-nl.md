@@ -1,4 +1,4 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md)
+[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md)
 
 # API Security Checklist
 Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uitbrengen van een API.
@@ -7,6 +7,8 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 ## Authenticatie
 - [ ] Gebruik geen `Basic Auth` Gebruik industrie standaarden (v.b. JWT, OAuth).
 - [ ] Vind het wiel niet opnieuw uit voor `Authenticatie`, `Genereren van Tokens` en `Opslaan van Wachtwoorden`. Gebruik de standaarden.
+- [ ] Gebruik `Max Retry` en Jail features in de login.
+- [ ] Encrypt alle gevoelige data.
 
 ### JWT (JSON Web Token)
 - [ ] Gebruik random ingewikkelde keys (`JWT Secret`) om brute forcing lastiger te maken.
@@ -31,6 +33,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Valideer de `content-type` header van gestuurde data (e.g. `application/x-www-form-urlencoded`, `multipart/form-data ,application/json` ... etc ).
 - [ ] Valideer de gebruiker invoer om veel voorkomende kwetsbaarheden te voorkomen (v.b. `XSS`, `SQL-Injection`, `Remote Code Execution` ... etc).
 - [ ] Gebruik geen gevoelige data (`credentials`, `Wachtwoorden`, `security tokens`, of `API keys`) in de URL, maar gebruik de standaard Authorization header.
+- [ ] Gebruik een API Gateway service voor caching, policies (b.v. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) en voor het dynamisch deployen van API middelen.
 
 ## Processing
 - [ ] Controleer dat alle endpoints zijn beschermd achter de authenticatie om het omzeilen van authenticatie te voorkomen.
@@ -51,6 +54,11 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Stuur geen gevoelige data terug: `Gebruikersnamen`, `Wachtwoorden`, `security tokens`.
 - [ ] Geef de correcte HTTP antwoord code terug op basis van de uitgevoerde operatie (v.b. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed` ... etc).
 
+## CI & CD
+- [ ] Controleer het ontwerp en de implementatie met unit/integration test dekking.
+- [ ] Gebruik een code review traject en controleer niet zelf je eigen code.
+- [ ] Scan de API voor het naar productie zetten door AV software, niet alleen eigen code maar ook de libraries en andere gebruikte dependencies.
+- [ ] Ontwikkel een terugrol oplossing.
 
 ------------------------------------------------------------------------------
 
