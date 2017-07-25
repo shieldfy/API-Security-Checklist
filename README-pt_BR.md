@@ -58,7 +58,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Monitore a especificação e implementação do escopo da sua API através de testes unitários e de integração.
 - [ ] Use um processo de revisão de código, ignorando sistemas de auto-aprovação.
 - [ ] Certifique-se de que todos os componentes de seus serviços sejam validados por _softwares_ AV (anti-vírus, anti-_malware_) antes de enviar para produção, incluindo as dependências de terceiros utilizadas.
-- [ ] Implemente funcionaliade de reversão de _deploy_ (_rollback_).
+- [ ] Implemente funcionalidade de reversão de _deploy_ (_rollback_).
 
 
 ------------------------------------------------------------------------------
