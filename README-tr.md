@@ -12,15 +12,15 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 
 ### JWT (JSON Web Token)
 - [ ] Brute forcing yönetimi ile oluşturulan token'in çözülmemesi için (`JWT Secret`) gibi rasgele, karmaşık ve zor bir anahtar kullanın.
-- [ ] Don't extract the algorithm from the payload. Force the algorithm in the backend (`HS256` or `RS256`).
+- [ ] Algoritmayı payload üzerinden çekmeyin. Arka planda içinde kullanın. (`HS256` veya `RS256`).
 - [ ] Token'in son kullanma tarihini (`TTL`, `RTTL`) olabildiğince kısa yapın.
 - [ ] Hassas verilerinizi JWT payload'a koymayın, decode edilebilir. [Basit olarak](https://jwt.io/#debugger-io).
 
 ### OAuth
 - [ ] Yalnızca beyaz listeye eklenen URL'lere izin vermek için sunucu tarafındaki `redirect_uri` daima doğrulayın.
-- [ ] Always try to exchange for code and not tokens (don't allow `response_type=token`).
-- [ ] Use `state` parameter with a random hash to prevent CSRF on the OAuth authentication process.
-- [ ] Define the default scope, and validate scope parameters for each application.
+- [ ] Daima kodları değiştirmeyi deneyin tokenları değil (`response_type=token` izin vermeyin).
+- [ ] OAuth kimlik doğrulama işlemi sırasında CSRF'yi önlemek için `state` parametresini rasgele bir hashleyerek kullanın.
+- [ ] Varsayılan kapsamı tanımlayın ve her uygulama için kapsam parametrelerini doğrulayın.
 
 ## Access
 - [ ] DDoS / brute-force saldırılarından korunmak için istekleri sınırlamalısınız.
@@ -28,21 +28,23 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] SSL Strip saldırılarından korunmak için `HSTS` header'ı SSL ile kullan.
 
 ## Input
-- [ ] Use the proper HTTP method according to the operation: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, and `DELETE (to delete a record)`, and respond with `405 Method Not Allowed` if the requested method isn't appropriate for the requested resource.
-- [ ] Validate `content-type` on request Accept header (Content Negotiation) to allow only your supported format (ör. `application/xml`, `application/json`, v.b.) and respond with `406 Not Acceptable` response if not matched.
-- [ ] Validate `content-type` of posted data as you accept (ör. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, v.b.).
-- [ ] Validate User input to avoid common vulnerabilities (ör. `XSS`, `SQL-Injection`, `Remote Code Execution`, v.b.).
-- [ ] Don't use any sensitive data (`credentials`, `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
-- [ ] Use an API Gateway service to enable caching, Rate Limit policies (ör. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) and deploy APIs resources dynamically.
+- [ ] İşleme göre uygun HTTP yöntemini kullanın: `GET (okumak)`, `POST (oluşturmak)`, `PUT/PATCH (değiştirmek/güncellemk)`, ve `DELETE (bir kaydı silmek için)`, eğer istenen yöntem istenen kaynak için uygun değilse `405 Method Not Allowed` mesajı ile cevap verin.
+- [ ] Accept header gelen `content-type` beklediğin ve izin verdiğin formatta olup olmadığını kontrol et. (ör. `application/xml`, `application/json`, v.b.) Format uyuşmuyorsa `406 Not Acceptable` mesajı ile cevap verin.
+- [ ] Gönderilen verileri doğrularken gelen verinin `content-type` de doğrulayın (ör. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, v.b.).
+- [ ] Genel güvenlik açıklarını önlemek için Kullanıcı girişini doğrulayın (ör. `XSS`, `SQL-Injection`, `Remote Code Execution`, v.b.).
+- [ ] URL'de hassas veriler (`credentials`, `Passwords`, `security tokens`, veya `API keys`) kullanmayın, ancak standart Authorization header kullanın.
+- [ ] Önbelleklemeyi etkinleştirmek, hız sınır politikalarını (ör. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) ve API kaynaklarını dinamik olarak dağıtmak için bir API Gateway hizmeti kullanın. 
+
+
 
 ## Processing 
-- [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
-- [ ] User own resource ID should be avoided. Use `/me/orders` instead of `/user/654321/orders`.
-- [ ] Don't auto-increment IDs. Use `UUID` instead.
-- [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
-- [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
+- [ ] Authentication işleminin sonlandırılmasını önlemek için, tüm bitiş noktalarının Authentication arkasında korunup korunmadığını kontrol edin.
+- [ ] Kullanıcı kendi kaynak ID'sinden kaçınmalıdır. `/me/orders` yerine `/user/654321/orders` kullanmalıdır.
+- [ ] Otomotik artan ID'ler kullanmayın. Yerine `UUID` kullanın.
+- [ ] Eğer XML dosyarını (parse) ayrıştırıyorsanız, varlık ayrıştırmasını önlemek için etkin olmadığını doğrulayın `XXE` (XML external entity attack).
+- [ ] Eğer XML dosyarını (parse) ayrıştırıyorsanız, `Billion Laughs/XML bomb` varlık genişletme saldırısı yoluyla,varlığın genişlemesinin önlemek için etkinleştirilmediğinden emin olun .
 - [ ] Dosya yüklemeleri için bir CDN kullanın.
-- [ ] If you are dealing with huge amount of data, use Workers and Queues to process as much as possible in background and return response fast to avoid HTTP Blocking.
+- [ ] Büyük miktarda veri ile uğraşıyorsanız, HTTP engellemeyi önlemek için İşçi ve Kuyrukları arka planda olabildiğince işlem yapmak ve yanıtı hızlı bir şekilde yanıtlamak için kullanın.
 - [ ] DEBUG modunu kapatmayı unutmayın!.
 
 ## Output 
