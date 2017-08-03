@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) 
 
 # Lista de seguridad en APIs
