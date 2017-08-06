@@ -1,9 +1,11 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # Checklist Keamanan API
 Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji, dan melepaskan API ke khalayak
 
-------------------------------------------------------------------------------
+
+---
+
 ## Autentikasi
 - [ ] Jangan gunakan `Basic Auth`. Gunakan autentikasi baku (Contoh: JWT, Oauth)
 - [ ] Gunakan mekanisme baku untuk `autentikasi`, `pembuatan token`, dan `penyimpanan kata sandi`
@@ -61,7 +63,7 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Rancang solusi kembali ke versi sebelumnya pada proses penyebaran.
 
 
-------------------------------------------------------------------------------
+---
 
 # Kontribusi
 Silahkan berkontribusi dengan cara menduplikasi repositori ini, lakukan perubahan, dan kirimkan PR. Jika ada pertanyaan silakan kirim email ke `team@shieldfy.io`.

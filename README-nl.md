@@ -1,9 +1,11 @@
-[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # API Security Checklist
 Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uitbrengen van een API.
 
-------------------------------------------------------------------------------
+
+---
+
 ## Authenticatie
 - [ ] Gebruik geen `Basic Auth` Gebruik industrie standaarden (v.b. JWT, OAuth).
 - [ ] Vind het wiel niet opnieuw uit voor `Authenticatie`, `Genereren van Tokens` en `Opslaan van Wachtwoorden`. Gebruik de standaarden.
@@ -60,10 +62,10 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Scan de API voor het naar productie zetten door AV software, niet alleen eigen code maar ook de libraries en andere gebruikte dependencies.
 - [ ] Ontwikkel een terugrol oplossing.
 
-------------------------------------------------------------------------------
+
+---
 
 Translation by | Vertaling door :[S.Holzhauer](https://github.com/SHolzhauer)
 
-
 # Contribution
-Feel free to contribute, fork -> edit -> submit pull request. For any questions drop us an email at team@shieldfy.io.
+Voel u vrij om bij te helpen door deze repository te fork, wijzigingen aan te brengen, en pull requests in te dienen. Voor vragen kunt u ons mailen op `team@shieldfy.io`.

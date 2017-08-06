@@ -1,9 +1,11 @@
-[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Việt Nam](./README-vi.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
 
 # Danh sách các giải pháp an toàn cho API
 Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm tra và phát hành API cho ứng dụng của bạn.
 
-------------------------------------------------------------------------------
+
+---
+
 ## Xác thực (Authentication)
 - [ ] Không sử dụng `Basic Auth` Sử dụng giao thức xác thực tiêu chuẩn (chẳng hạn. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
 - [ ] Không cung cấp các thông tin `Authentication`, `token generation`, `password storage`. Sử dụng các tiêu chuẩn.
@@ -61,7 +63,7 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Thiết kế một giải pháp rollback (quản lý dữ liệu) cho việc triển khai.
 
 
-------------------------------------------------------------------------------
+---
 
 # Đóng góp
 Hãy đóng góp bằng cách forking kho này, thực hiện một số thay đổi và gửi yêu cầu kéo. Đối với bất kỳ câu hỏi nào, hãy gửi email cho chúng tôi theo địa chỉ `team@shieldfy.io`.

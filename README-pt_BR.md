@@ -1,9 +1,11 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # API Security Checklist
 Lista das mais importantes medidas de segurança para o desenvolvimento, teste e publicação da sua API.
 
-------------------------------------------------------------------------------
+
+---
+
 ## Autenticação (_Authentication_)
 - [ ] Não use `Basic Auth`. Use padrões de autenticação (exemplo: JWT, OAuth).
 - [ ] Não reinvente a roda nos quesitos `Autenticação`, `geração de tokens` e `armazenamento de senhas`. Use os padrões recomendados para cada caso.
@@ -61,7 +63,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Implemente funcionalidade de reversão de _deploy_ (_rollback_).
 
 
-------------------------------------------------------------------------------
+---
 
 # Contribuindo
 Sinta-se livre para contribuir, fazendo um fork deste repositório, fazendo algumas alterações e enviando um PR. Dúvidas, envie um e-mail para `team@shieldfy.io`.

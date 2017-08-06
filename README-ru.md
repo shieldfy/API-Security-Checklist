@@ -1,9 +1,11 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # Контрольный список безопасности API
 Контрольный список наиболее важных контрмер безопасности при разработке, тестировании и выпуске вашего API.
 
-------------------------------------------------------------------------------
+
+---
+
 ## Аутентификация
 - [ ] Не используйте `Basic Auth` Используйте стандартную проверку подлинности (например: JWT, OAuth).
 - [ ] Не "изобретайте колесо" в `аутентификации`, `создании токенов`, `хранении паролей`. Используйте стандарты.
@@ -61,7 +63,7 @@
 - [ ] Создайте решение отката для развертывания.
 
 
-------------------------------------------------------------------------------
+---
 
 # Вклад
 Не стесняйтесь вносить вклад, открывая этот репозиторий, внося некоторые изменения и отправляя `Pull Requests`. По любым вопросам напишите нам письмо по адресу `team@shieldfy.io`.

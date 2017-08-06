@@ -1,9 +1,11 @@
-[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) 
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md)
 
 # API Аюулгүйн жагсаалт
 API гаргах, загварчлах, тестлэхэд аюулгүйн талаас авах сөрөг арга хэмжээний жагсаалт
 
-------------------------------------------------------------------------------
+
+---
+
 ## Authentication
 - [ ] `Basic Auth` бүү ашигла, Стандарт authentication ашигла (Жнь. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
 - [ ] `Authentication` -ын `token generation`, `password storage` зэргийг бүү дахин шинээр хий, стандарт ашигла.
@@ -60,7 +62,8 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 - [ ] Бүх тусдаа хэсгүүд бүр vendor сан, бусад нэмэлт сангууд бүгдийг нь AV програмаар статикаар шалга.
 - [ ] Ямар ч үед deploy хийхэд амар шийдэл гаргах.
 
-------------------------------------------------------------------------------
+
+---
 
 # Оролцоо
 Энэ рэпод оролцох бол fork хийж өөрчлөлтөө оруулаад pull request үүсгэнэ үү. Асуулт байвал бидэнтэй холбогдоорой `team@shieldfy.io`.

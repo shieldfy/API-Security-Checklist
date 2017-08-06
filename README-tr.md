@@ -1,10 +1,12 @@
-[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # API Güvenlik Kontrol Listesi
 API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemlerinin kontrol listesi.
 
-------------------------------------------------------------------------------
-## Authentication (Kimlik doğrulama) 
+
+---
+
+## Authentication (Kimlik doğrulama)
 - [ ] `Basic Auth` kullanmayın. Standard authentication kullanın (ör. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
 - [ ] `Authentication`, `token generation`, `password storage` için tekerleği yeniden icat etmeyin. Standartları kullanın.
 - [ ] `Max Retry` kullanarak giriş hakkını sınırlayın.
@@ -33,11 +35,9 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Gönderilen verileri doğrularken gelen verinin `content-type` de doğrulayın (ör. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, v.b.).
 - [ ] Genel güvenlik açıklarını önlemek için Kullanıcı girişini doğrulayın (ör. `XSS`, `SQL-Injection`, `Remote Code Execution`, v.b.).
 - [ ] URL'de hassas veriler (`credentials`, `Passwords`, `security tokens`, veya `API keys`) kullanmayın, ancak standart Authorization header kullanın.
-- [ ] Önbelleklemeyi etkinleştirmek, hız sınır politikalarını (ör. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) ve API kaynaklarını dinamik olarak dağıtmak için bir API Gateway hizmeti kullanın. 
+- [ ] Önbelleklemeyi etkinleştirmek, hız sınır politikalarını (ör. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) ve API kaynaklarını dinamik olarak dağıtmak için bir API Gateway hizmeti kullanın.
 
-
-
-## Processing 
+## Processing
 - [ ] Authentication işleminin sonlandırılmasını önlemek için, tüm bitiş noktalarının Authentication arkasında korunup korunmadığını kontrol edin.
 - [ ] Kullanıcı kendi kaynak ID'sinden kaçınmalıdır. `/me/orders` yerine `/user/654321/orders` kullanmalıdır.
 - [ ] Otomotik artan ID'ler kullanmayın. Yerine `UUID` kullanın.
@@ -47,7 +47,7 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Büyük miktarda veri ile uğraşıyorsanız, HTTP engellemeyi önlemek için İşçi ve Kuyrukları arka planda olabildiğince işlem yapmak ve yanıtı hızlı bir şekilde yanıtlamak için kullanın.
 - [ ] DEBUG modunu kapatmayı unutmayın!.
 
-## Output 
+## Output
 - [ ] `X-Content-Type-Options: nosniff` header'ı gönder.
 - [ ] `X-Frame-Options: deny` header'ı gönder.
 - [ ] `Content-Security-Policy: default-src 'none'` header'ı gönder.
@@ -63,7 +63,7 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Dağıtımlar için bir geri yükleme çözümü tasarlayın.
 
 
-------------------------------------------------------------------------------
+---
 
 # Destek
 Bu depoyu forklayarak, bazı değişiklikler yaparak ve pull requests göndererek katkıda bulunmaktan çekinmeyin. Herhangi bir sorunuz için bize bir e-posta bırakın: `team@shieldfy.io`.

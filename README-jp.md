@@ -1,9 +1,11 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # API Security Checklist
 これはAPIの設計, テスト, リリース時における、重要なセキュリティ対策チェックリストです。
 
-------------------------------------------------------------------------------
+
+---
+
 ## 認証(Authentication)
 - [ ] `Basic認証`を使用してはならない。標準的な認証を使う。(例 JWT, OAuth)
 - [ ] `認証`, `トークン生成`, `パスワードの保管`において車輪の再発明をしてはならない。
@@ -61,7 +63,7 @@
 - [ ] デプロイのロールバックを用意する。
 
 
-------------------------------------------------------------------------------
+---
 
 # コントリビュート (Contribution)
 お気軽にこのリポジトリをフォークし、変更を加え、プルリクエストを送って下さい。ご質問はこちらのメールアドレスまでお願い致します。`team@shieldfy.io`

@@ -1,9 +1,11 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # Checklist per la sicurezza delle API
 Una checklist per le più importanti contromisure da mettere in pratica quando strutturiamo, testiamo e rilasciamo le nostre API.
 
-------------------------------------------------------------------------------
+
+---
+
 ## Autenticazione
 - [ ] Non usare la `Basic Auth` Utilizzare piuttosto dei sistemi di identification standard (es. JWT, OAuth).
 - [ ] Non re-inventarsi sistemi di `Autenticazione`, `generazione token`, `salvtaggio password`. Utilizzare gli standard.
@@ -60,8 +62,8 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Verifica che tutti i componenti dei tuoi servizi siano controllati da software AV prima di essere messi in produzione, incluse le librerie di terze parti.
 - [ ] Definisci una strategia di rollback per il delpoy.
 
-------------------------------------------------------------------------------
+
+---
 
 # Contribuire
-Sentitivi liberi di contribuire a questo progetto facendo un fork, modificandolo e inviando una pull request.
-Per qualsiasi dubbio inviare un'email all'indirizzo: `team@shieldfy.io`.
+Sentitivi liberi di contribuire a questo progetto facendo un fork, modificandolo e inviando una pull request. Per qualsiasi dubbio inviare un'email all'indirizzo: `team@shieldfy.io`.

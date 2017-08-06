@@ -1,9 +1,11 @@
-[English](./README.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # 开发安全的 API 所需要核对的清单
 以下是当你在设计, 测试以及发布你的 API 的时候所需要核对的重要安全措施.
 
-------------------------------------------------------------------------------
+
+---
+
 ## 身份认证
 - [ ] 不要使用 `Basic Auth` 使用标准的认证协议 (如 JWT, OAuth).
 - [ ] 不要再造 `Authentication`, `token generating`, `password storing` 这些轮子, 使用标准的.
@@ -61,7 +63,7 @@
 - [ ] 为部署设计一个回滚方案.
 
 
-------------------------------------------------------------------------------
+---
 
 # Contribution
 为此存储库创建一个 fork, 进行修改, 并提交 pull request 来贡献. 如果您有任何问题, 请发送邮件至 `team@shieldfy.io`.

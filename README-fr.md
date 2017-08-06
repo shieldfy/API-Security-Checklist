@@ -1,9 +1,11 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # API Security Checklist
 Checklist des points de sécurité les plus importants lors de la conception, du test et de la mise en production de votre API.
 
-------------------------------------------------------------------------------
+
+---
+
 ## Authentification
 - [ ] Ne pas utiliser une authentification basique http (`Basic Auth`) mais plutôt un standard d'authentification (tel que JWT, OAuth).
 - [ ] Ne pas réinventer la roue lors de `l'authentification`, `la génération de token`, `le stockage de mots de passe` mais utiliser les standards.
@@ -61,7 +63,7 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Concevez une solution de rollback pour les déploiements.
 
 
-------------------------------------------------------------------------------
+---
 
 # Contribution
 N'hésitez pas à contribuer en forkant ce dépôt, faire quelques changements, et soumettre une pull request. Pour toute question, envoyez un courriel à `team@shieldfy.io`.

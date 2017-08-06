@@ -1,9 +1,11 @@
-[中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국의](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # APIセキュリティチェックリスト
 APIを設計、テスト、リリースするときの最も重要なセキュリティ対策のチェックリスト
 
-------------------------------------------------------------------------------
+
+---
+
 ## 認証
 - [ ] Basic認証を利用せず、標準的な認証を利用する (例: JWT、OAuth)
 - [ ] 「認証」、「トークンの生成」、「パスワードの保管」の車輪の再発明を行わず、標準のものを利用する
@@ -61,7 +63,7 @@ APIを設計、テスト、リリースするときの最も重要なセキュ�
 - [ ] デプロイについてロールバックソリューションを開発する。
 
 
-------------------------------------------------------------------------------
+---
 
 # コントリビューション
 このリポジトリをforkして、変更し、プルリクエストを送信し、自由にコントリビューションしてください。何か質問があれば `team@shieldfy.io` まで電子メールを送ってください。

@@ -1,9 +1,11 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-jp.md) | [Türkçe](./README-tr.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
 
 # API Security Checkliste
 Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und Veröffentlichen deiner API.
 
-------------------------------------------------------------------------------
+
+---
+
 ## Authentifizierung
 - [ ] Verwende kein `Basic Auth`. Nutze standardisierte Authentifizierungsmethoden (bspw. JWT, OAuth).
 - [ ] Erfinde das Rad nicht neu für `Authentication`, `Tokengenerierung` oder `Passwort speichern`. Nutze hierfür existierende Standards.
@@ -60,7 +62,8 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Stelle sicher, dass alle verwendeten Komponenten (Bibliotheken und alle anderen Abhängigkeiten) noch einmal statisch von einer Anti-Virus Software überprüft wurden bevor diese in die Produktionsumgebung gehen.
 - [ ] Stelle sicher, dass du im Fehlerfall auch schnell wieder den vorherigen Stand einspielen kannst (Rollback).
 
-------------------------------------------------------------------------------
+
+---
 
 # Contribution
 Du kannst gerne etwas beisteuern, indem du einen Fork dieses Repositorys erstellst, Änderungen vornimmst und dann einen Pull Request anlegst. Bei Fragen schick uns eine E-Mail an `team@shieldfy.io`.
