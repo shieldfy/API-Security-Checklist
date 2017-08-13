@@ -62,7 +62,8 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Ensure that all components of your services are statically scanned by AV software before push to production, including vendor libraries and other dependencies.
 - [ ] Design a rollback solution for deployments.
 
-
+## Tools for API testing
+- [ ] [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) makes API development faster, easier, and better. The free app is used by more than 3.8 million developers and 30,000 companies worldwide. Postman is designed with the developer in mind, and packed with features and options.
 ---
 
 # Contribution
