@@ -15,7 +15,7 @@ Checklist of the most important security countermeasures when designing, testing
 ### JWT (JSON Web Token)
 - [ ] Use a random complicated key (`JWT Secret`) to make brute forcing the token very hard.
 - [ ] Don't extract the algorithm from the payload. Force the algorithm in the backend (`HS256` or `RS256`).
-- [ ] Make token expiration (`TTL`, `RTTL`) as short as possible. 1 hour is good to go.
+- [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
 - [ ] Don't store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
 
 ### OAuth
@@ -62,7 +62,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Ensure that all components of your services are statically scanned by AV software before push to production, including vendor libraries and other dependencies.
 - [ ] Design a rollback solution for deployments.
 
-## Softwares for API testing
+## Tools for API testing
 - [ ] [Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop) makes API development faster, easier, and better. The free app is used by more than 3.8 million developers and 30,000 companies worldwide. Postman is designed with the developer in mind, and packed with features and options.
 ---
 
