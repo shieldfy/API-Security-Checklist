@@ -65,5 +65,11 @@
 
 ---
 
+## Смотрите также:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Сбор полезных ресурсов для создания RESTful HTTP+JSON API.
+
+
+---
+
 # Вклад
 Не стесняйтесь вносить вклад, открывая этот репозиторий, внося некоторые изменения и отправляя `Pull Requests`. По любым вопросам напишите нам письмо по адресу `team@shieldfy.io`.

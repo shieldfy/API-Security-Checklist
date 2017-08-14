@@ -56,5 +56,11 @@ API를 설계하고 테스트하고 배포할 때 고려해야 할 중요한 보
 
 ---
 
-# Contribution
-Feel free to contribute, fork -> edit -> submit pull request. For any questions drop us an email at team@shieldfy.io.
+## 참조 :
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON API를 빌드하는 데 유용한 자원의 콜렉션.
+
+
+---
+
+# 기여하는
+Feel free to contribute by forking this repository, making some changes, and submitting pull requests. For any questions drop us an email at `team@shieldfy.io`.

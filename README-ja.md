@@ -65,5 +65,11 @@ APIを設計、テスト、リリースするときの最も重要なセキュ�
 
 ---
 
+## 参照：
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON APIを構築するための有用なリソースの集まり。
+
+
+---
+
 # コントリビューション
 このリポジトリをforkして、変更し、プルリクエストを送信し、自由にコントリビューションしてください。何か質問があれば `team@shieldfy.io` まで電子メールを送ってください。

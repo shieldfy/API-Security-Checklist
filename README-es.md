@@ -65,5 +65,11 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 
 ---
 
+## Ver también:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Una colección de recursos útiles para la creación de APIs RESTful HTTP+JSON.
+
+
+---
+
 # Contribución
 Siéntete libre de contribuir haciendo un fork de éste repositorio, haciendo cambios, y enviando pull requests. Para cualquier pregunta déjanos un email en `team@shieldfy.io`.

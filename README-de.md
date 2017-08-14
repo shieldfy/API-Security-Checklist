@@ -65,5 +65,11 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 
 ---
 
+## Siehe auch:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Eine Sammlung nützlicher Ressourcen für den Aufbau von RESTful HTTP+JSON APIs.
+
+
+---
+
 # Contribution
 Du kannst gerne etwas beisteuern, indem du einen Fork dieses Repositorys erstellst, Änderungen vornimmst und dann einen Pull Request anlegst. Bei Fragen schick uns eine E-Mail an `team@shieldfy.io`.

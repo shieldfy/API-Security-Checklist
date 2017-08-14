@@ -65,5 +65,11 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 
 ---
 
+## Ayrıca bakınız:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON API'leri oluşturmak için kullanışlı kaynakların bir koleksiyonu.
+
+
+---
+
 # Destek
 Bu depoyu forklayarak, bazı değişiklikler yaparak ve pull requests göndererek katkıda bulunmaktan çekinmeyin. Herhangi bir sorunuz için bize bir e-posta bırakın: `team@shieldfy.io`.

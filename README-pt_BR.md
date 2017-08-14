@@ -65,5 +65,11 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 
 ---
 
+## Veja também:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Uma coleção de recursos úteis para a construção de API RESTful HTTP+JSON.
+
+
+---
+
 # Contribuindo
 Sinta-se livre para contribuir, fazendo um fork deste repositório, fazendo algumas alterações e enviando um PR. Dúvidas, envie um e-mail para `team@shieldfy.io`.

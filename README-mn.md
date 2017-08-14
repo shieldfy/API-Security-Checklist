@@ -65,5 +65,11 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 
 ---
 
+## Мөн үзнэ үү:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON API-г бүтээхэд хэрэгтэй нөөцүүдийн цуглуулга.
+
+
+---
+
 # Оролцоо
 Энэ рэпод оролцох бол fork хийж өөрчлөлтөө оруулаад pull request үүсгэнэ үү. Асуулт байвал бидэнтэй холбогдоорой `team@shieldfy.io`.
