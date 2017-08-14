@@ -65,5 +65,11 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 
 ---
 
+## Voir également :
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Une collection de ressources utiles pour créer des API RESTful HTTP+JSON.
+
+
+---
+
 # Contribution
 N'hésitez pas à contribuer en forkant ce dépôt, faire quelques changements, et soumettre une pull request. Pour toute question, envoyez un courriel à `team@shieldfy.io`.

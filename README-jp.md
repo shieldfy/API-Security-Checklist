@@ -65,5 +65,11 @@
 
 ---
 
+## 参照：
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON APIを構築するための有用なリソースの集まり。
+
+
+---
+
 # コントリビュート (Contribution)
 お気軽にこのリポジトリをフォークし、変更を加え、プルリクエストを送って下さい。ご質問はこちらのメールアドレスまでお願い致します。`team@shieldfy.io`

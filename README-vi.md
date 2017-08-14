@@ -65,5 +65,11 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 
 ---
 
+## Xem thêm:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Tập hợp các tài nguyên hữu ích để xây dựng API RESTful HTTP+JSON.
+
+
+---
+
 # Đóng góp
 Hãy đóng góp bằng cách forking kho này, thực hiện một số thay đổi và gửi yêu cầu kéo. Đối với bất kỳ câu hỏi nào, hãy gửi email cho chúng tôi theo địa chỉ `team@shieldfy.io`.

@@ -65,6 +65,12 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 
 ---
 
+## Zie ook:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Een verzameling nuttige bronnen voor het bouwen van RESTful HTTP+JSON API's.
+
+
+---
+
 Translation by | Vertaling door :[S.Holzhauer](https://github.com/SHolzhauer)
 
 # Contribution

@@ -65,5 +65,11 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 
 ---
 
+## Guarda anche:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Una collezione di risorse utili per la creazione di API RESTful HTTP+JSON.
+
+
+---
+
 # Contribuire
 Sentitivi liberi di contribuire a questo progetto facendo un fork, modificandolo e inviando una pull request. Per qualsiasi dubbio inviare un'email all'indirizzo: `team@shieldfy.io`.

@@ -65,5 +65,11 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 
 ---
 
+## Lihat juga:
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Kumpulan sumber yang berguna untuk membangun API RESTful HTTP+JSON.
+
+
+---
+
 # Kontribusi
 Silahkan berkontribusi dengan cara menduplikasi repositori ini, lakukan perubahan, dan kirimkan PR. Jika ada pertanyaan silakan kirim email ke `team@shieldfy.io`.
