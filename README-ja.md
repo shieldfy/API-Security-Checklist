@@ -1,4 +1,4 @@
-[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md)
+[English](./README.md) | [中文版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md)
 
 # APIセキュリティチェックリスト
 APIを設計、テスト、リリースするときの最も重要なセキュリティ対策のチェックリスト
@@ -33,7 +33,7 @@ APIを設計、テスト、リリースするときの最も重要なセキュ�
 - [ ] 操作に準じて適切なHTTPメソッドを利用する、`GET (読み込み)`、`POST (作成)`、`PUT/PATCH (置き換え/更新)`、`DELETE (単一レコードの削除)。もし要求されたメソッドがリソースに存在しない場合は `405 Method Not Allowed` を返却する。
 - [ ] リクエストのAcceptヘッダ (Content Negotiation) の `content-type` を検証し、サポートしているフォーマットのみを許可し (例: `application/xml`、`application/json` 等)、もし合致しなければ `406 Not Acceptable` レスポンスを応答する。
 - [ ] 受け取るPOSTされたデータの`content-type` を検証する (例: `application/x-www-form-urlencoded`、`multipart/form-data ,application/json` 等)。
-- [ ] 一般的な脆弱性を避けるためユーザ入力を検証する (例: `XSS`, `SQLインジェクション` , `リモートコード実行` 等)。
+- [ ] 一般的な脆弱性を避けるためユーザ入力を検証する (例: `XSS`, `SQLインジェクション`, `リモートコード実行` 等)。
 - [ ] URL中で機密データ (`クレデンシャル`、`パスワード`、`セキュリティトークン`) を利用せず、標準的な認証ヘッダで利用する。
 - [ ] キャッシュ、レート制限、スパイク阻止、そしてAPIリソースのデプロイを動的に行うため、APIゲートウェイサービスを利用する。
 
