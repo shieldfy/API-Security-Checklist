@@ -52,7 +52,7 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] `X-Frame-Options: deny` header'ı gönder.
 - [ ] `Content-Security-Policy: default-src 'none'` header'ı gönder.
 - [ ] Parmak izi başlıklarını kaldırın - `X-Powered-By`, `Server`, `X-AspNet-Version` v.b.
-- [ ] Force `content-type` for your response, if you return `application/json` then your response `content-type` is `application/json`.
+- [ ] Response'unda `content-type` kullanmaya zorla, eğer veriyi `application/json` olarak döndürürsen, `content-type` karşılığı `application/json` olur.
 - [ ] Hassas verilerinizi geri göndermeyin `credentials`, `Passwords`, `security tokens`.
 - [ ] İşlem tamamlandıktan sonra uygun durum kodunu döndürür. (ör. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, v.b.).
 
