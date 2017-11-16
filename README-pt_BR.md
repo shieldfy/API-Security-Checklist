@@ -21,7 +21,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 ### OAuth
 - [ ] Sempre valide o `redirect_uri` no seu servidor através de uma lista de URLs conhecidas (previamente cadastradas).
 - [ ] Tente sempre retornar códigos de negociação, não o _token_ de acesso (não permita `response_type=token`).
-- [ ] Utilze o parâmetro `state` com um _hash_ aleatório para previnir CSRF no processo de autenticação OAuth.
+- [ ] Utilize o parâmetro `state` com um _hash_ aleatório para previnir CSRF no processo de autenticação OAuth.
 - [ ] Defina escopo de dados, e valide o parâmetro `scope` para cada aplicação.
 
 ## Acesso (_Access_)
