@@ -17,25 +17,26 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Ustaw wygaszanie tokenów  (`TTL`, `RTTL`) najkrótsze jak to możliwe.
 - [ ] Nie przechowuj wrażliwych danych w `JWT payload`, mogą był łatwo dekodowane przy pomocy [easily](https://jwt.io/#debugger-io).
 
-
 ### OAuth
-- [ ] Always validate `redirect_uri` server-side to allow only whitelisted URLs.
-- [ ] Always try to exchange for code and not tokens (don't allow `response_type=token`).
-- [ ] Use `state` parameter with a random hash to prevent CSRF on the OAuth authentication process.
-- [ ] Define the default scope, and validate scope parameters for each application.
+- [ ] Zawsze waliduj `redirect_uri` po stronie serwera aby zezwolić tylko URL-om z dozwolonej listy (`whitelist`).
+- [ ] Zawsze próbuj wymienić kodem nie tokenami (nie zezwalaj na `response_type=token`).
+- [ ] Użyj parametru `state` z losowym hashem aby zabezpieczyć proces OAuth przed atakiem CSRF.
+- [ ] Zdefiniuj oraz waliduj zakres parametrów dla każdej aplikacji.
 
-## Access
-- [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
-- [ ] Use HTTPS on server side to avoid MITM (Man In The Middle Attack).
-- [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
+## Dostęp
+- [ ] Ustaw limit zapytań (Throttling) aby uniknąć ataku DDoS / brute-force.
+- [ ] Użyj HTTPS aby uniknąć MITM (Man In The Middle Attack) - ataku polegającego na pośrednictwie w wymianie informacji pomiędzy dwoma punktami np. klientem i serwerem.
+- [ ] Użyj nagłówka `HSTS` z SSL aby uniknąć SSL Strip attack.
 
-## Input
-- [ ] Use the proper HTTP method according to the operation: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, and `DELETE (to delete a record)`, and respond with `405 Method Not Allowed` if the requested method isn't appropriate for the requested resource.
-- [ ] Validate `content-type` on request Accept header (Content Negotiation) to allow only your supported format (e.g. `application/xml`, `application/json`, etc) and respond with `406 Not Acceptable` response if not matched.
-- [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, etc).
-- [ ] Validate User input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc).
-- [ ] Don't use any sensitive data (`credentials`, `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
-- [ ] Use an API Gateway service to enable caching, Rate Limit policies (e.g. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) and deploy APIs resources dynamically.
+
+## Wejście
+- [ ] Użyj odpowiedniej metody protokołu HTTP dla danej operacji: `GET (odczyt)`, `POST (tworzenie)`, `PUT/PATCH (zmiana)`, and `DELETE (usuwanie)`, i odpowiadaj `405 Method Not Allowed` jeżeli metoda zapytania jest niepoprawna.
+- [ ] Waliduj `content-type` podczas zapytań i zezwalaj jedynie na wymagane typy danych (np. `application/xml`, `application/json`) oraz odpowiadaj `406 Not Acceptable` jeżeli nie pasują.
+- [ ] Waliduj  `content-type` informacji przekazywanych metodą POST (np. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`).
+- [ ] Waliduj informacje wprowadzane przez użytkownika, aby uniknąć zagrożeń (np.. `XSS`, `SQL-Injection`, `Zdalne Wykonanie Skryptu`).
+- [ ] Nie używaj żadnych wrażliwych danych w URL, zamiast tego użyj standardowego nagłówka Autoryzującego.
+- [ ] Użyj usługi API Gateway aby włączyć caching oraz np. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`.
+
 
 ## Processing
 - [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
