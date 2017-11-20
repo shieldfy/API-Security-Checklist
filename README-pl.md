@@ -1,22 +1,22 @@
-[繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md)
-
-# API Security Checklist
-Checklist of the most important security countermeasures when designing, testing, and releasing your API.
+# Lista kontrolna bezpieczeństw API
+Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, testowania oraz wypuszczania własnego API.
 
 
 ---
 
-## Authentication
-- [ ] Don't use `Basic Auth` Use standard authentication (e.g. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
-- [ ] Don't reinvent the wheel in `Authentication`, `token generation`, `password storage`. Use the standards.
-- [ ] Use `Max Retry` and jail features in Login.
-- [ ] Use encryption on all sensitive data.
+
+## Uwierzytelnianie
+- [ ] Nie używaj `Basic Auth`. Użyj standardów uwierzytelniania (np. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] Nie wynajduj koła na nowo podczas `Uwierzytelniania`, `generowanie tokenów`, `przechowywania haseł`. Użyj sprawdzonych standardów.
+- [ ] Dodaj `Maksymalną ilość prób` oraz inne opcje ograniczające podczas Logowania.
+- [ ] Szyfruj wszystkie wrażliwe (ważne) dane.
 
 ### JWT (JSON Web Token)
-- [ ] Use a random complicated key (`JWT Secret`) to make brute forcing the token very hard.
-- [ ] Don't extract the algorithm from the payload. Force the algorithm in the backend (`HS256` or `RS256`).
-- [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
-- [ ] Don't store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
+- [ ] Użyj losowego, skomplikowanego klucza (`JWT Secret`) aby uczynić token bezpieczniejszym przeciw atakom typu `brute force`.
+- [ ] Algorytmy trzymaj w backendzie, nie upubliczniaj algorytmów.
+- [ ] Ustaw wygaszanie tokenów  (`TTL`, `RTTL`) najkrótsze jak to możliwe.
+- [ ] Nie przechowuj wrażliwych danych w `JWT payload`, mogą był łatwo dekodowane przy pomocy [easily](https://jwt.io/#debugger-io).
+
 
 ### OAuth
 - [ ] Always validate `redirect_uri` server-side to allow only whitelisted URLs.
