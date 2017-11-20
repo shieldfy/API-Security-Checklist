@@ -1,4 +1,4 @@
-# Lista kontrolna bezpieczeństw API
+# Lista kontrolna bezpieczeństwa API
 Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, testowania oraz wypuszczania własnego API.
 
 
