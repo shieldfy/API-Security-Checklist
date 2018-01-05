@@ -1,4 +1,5 @@
 [English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [Polski](./README-pl.md)
+<div dir="rtl">
 
 # API Security Checklist
 قائمة تحتوي على أهم الاحتياطات الامنية حينما تقوم بتخطيط و اختبار و اطلاق ال API الخاصة بك
@@ -73,3 +74,4 @@
 
 # المشاركة
 لا تتردد في المساهمة عن طريق اخذ نسخة من هذه القائمة fork ، وإجراء بعض التغييرات، وتقديم طلبات المراجعة pull request.  أي أسئلة الرجاء مراسلتنا على البريد الإلكتروني `team@shieldfy.io`.
+</div>
