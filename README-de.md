@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](.README-mk.md) | [ລາວ](./README-lo.md)
 
 # API Security Checkliste
 Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und Veröffentlichen deiner API.
@@ -31,9 +31,9 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 
 ## Input
 - [ ] Nutze für Requests die passenden HTTP Methoden: `GET (Lesen)`, `POST (Erzeugen)`, `PUT/PATCH (Ersetzen/Aktualisieren)`, and `DELETE (Datensatz löschen)`, und gib `405 Method Not Allowed`, wenn die angeforderte Methode nicht auf die Ressource passt.
-- [ ] Validiere den `content-type` im "Accept" Header der Anfrage und erlaube nur unterstützte Formate (wie `application/xml`, `application/json`, etc.). Gib den Response `406 Not Acceptable` zurück, wenn keine der übergebenen Content-Typen unterstützt wird.
-- [ ] Validiere den `Content-Type`  im Header der Anfrage für übertragene Daten (bspw. POST oder PUT) wie bspw. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, usw.
-- [ ] Validiere immer alle Eingaben im Request und allen Parametern um allgemeine Angriffsmöglichkeiten zu verhindern (bspw. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc.).
+- [ ] Validiere den `content-type` im "Accept" Header der Anfrage und erlaube nur unterstützte Formate (wie `application/xml`, `application/json`, usw). Gib den Response `406 Not Acceptable` zurück, wenn keine der übergebenen Content-Typen unterstützt wird.
+- [ ] Validiere den `Content-Type` im Header der Anfrage für übertragene Daten (bspw. POST oder PUT) wie bspw. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, usw.
+- [ ] Validiere immer alle Eingaben im Request und allen Parametern um allgemeine Angriffsmöglichkeiten zu verhindern (bspw. `XSS`, `SQL-Injection`, `Remote Code Execution`, usw).
 - [ ] Verwende niemals sensitive Daten (`Anmeldedaten`, `Passwörter`, `Security Tokens`, oder `API-Schlüssel`) in der URL, aber nutze den standardisierten "Authorization" Header.
 - [ ] Nutze ein API Gateway Service für Caching, Rate Limit Regeln (bspw. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) und der Bereitstellung dynamischer API Ressourcen.
 
@@ -51,10 +51,10 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Sende `X-Content-Type-Options: nosniff` im Header.
 - [ ] Sende `X-Frame-Options: deny` im Header.
 - [ ] Sende `Content-Security-Policy: default-src 'none'` im Header.
-- [ ] Entferne Header wie `X-Powered-By`, `Server`, `X-AspNet-Version` etc., um eventuell veraltete Softwareversionen nicht zu verraten.
+- [ ] Entferne Header wie `X-Powered-By`, `Server`, `X-AspNet-Version` usw, um eventuell veraltete Softwareversionen nicht zu verraten.
 - [ ] Sende immer einen `Content-Type` bei Antworten. Wenn du ein JSON lieferst gib als `Content-Type` `application/json` an.
 - [ ] Gib niemals sensitive Daten zurück wie `Anmeldedaten`, `Passwörter` oder `Sicherheitsschlüssel`.
-- [ ] Verwende immer einen passenden HTTP Statuscode je nach Status der Operation (bspw. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, etc.).
+- [ ] Verwende immer einen passenden HTTP Statuscode je nach Status der Operation (bspw. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, usw).
 
 ## Kontinuierliche Integration (CI) & Continuous Delivery (CD)
 - [ ] Nutze Unit- und Integrationstest und deren Abdeckung (Test Coverage), um deine Implementierungen und Design zu kontrollieren.

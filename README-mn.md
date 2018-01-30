@@ -1,7 +1,7 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](.README-mk.md) | [ລາວ](./README-lo.md)
 
 # API Аюулгүйн жагсаалт
-API гаргах, загварчлах, тестлэхэд аюулгүйн талаас авах сөрөг арга хэмжээний жагсаалт
+API гаргах, загварчлах, тестлэхэд аюулгүйн талаас авах сөрөг арга хэмжээний жагсаалт.
 
 
 ---
@@ -31,7 +31,7 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 
 ## Input
 - [ ] Яг зөв HTTP хүсэлтийг ашигла: `GET (унших)`, `POST (үүсгэх)`, `PUT/PATCH (орлуулах/солих)`, мөн `DELETE (устгах)`, бас `405 Method Not Allowed` -ыг хүсэлтийн төрөл тодорхойгүй үед ашигла.
-- [ ] `content-type` -ыг хүсэлтийн header (Content Negotiation) дээр шалгаж зөвхөн дэмжигдсэн төрлийг зөвшөөр (Жнь. `application/xml`, `application/json`, etc) бас төрөл нь таарахгүй бол `406 Not Acceptable` хариу буцаа.
+- [ ] `content-type` -ыг хүсэлтийн header (Content Negotiation) дээр шалгаж зөвхөн дэмжигдсэн төрлийг зөвшөөр (Жнь. `application/xml`, `application/json`, гэх мэт) бас төрөл нь таарахгүй бол `406 Not Acceptable` хариу буцаа.
 - [ ] `content-type` -ыг post хийх өгөгдөл дээр шалга (Жнь. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, г.м).
 - [ ] Хэрэглэгчээс гараас оруулсан утгыг шалгаж түгээмэл нүхнүүдээс сэргийлнэ. (Жнь. `XSS`, `SQL-Injection`, `Remote Code Execution`, г.м).
 - [ ] Чухал өгөгдлүүдийг (`credentials`, `Passwords`, `security tokens`, or `API keys`) URL ээр бүү явуул, оронд нь стандарт Authorization header ашигла.

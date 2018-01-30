@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](.README-mk.md) | [ລາວ](./README-lo.md)
 
 # Checklist per la sicurezza delle API
 Una checklist per le più importanti contromisure da mettere in pratica quando strutturiamo, testiamo e rilasciamo le nostre API.
@@ -32,7 +32,7 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 ## Input
 - [ ] Utilizzare il metodo HTTP appropriato in base all'azione: `GET (lettura)`, `POST (scrittura)`, `PUT/PATCH (sostituzione/modifica)`, e `DELETE (cancellazione)`, e rispondere con uno status `405 Method Not Allowed` se il metodo della richiesta non è appropriato.
 - [ ] Validare il `content-type` rispetto all' Accept header (Content Negotiation) per consentire solo i formati supportati (es. `application/xml`, `application/json`, ecc.) e rispondere con un `406 Not Acceptable` se la risposta non coincide.
-- [ ] Validare il `content-type` in base alle strutture accettate (es. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, etc).
+- [ ] Validare il `content-type` in base alle strutture accettate (es. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, ecc.).
 - [ ] Validare sempre gli input dell'utente per evitare attacchi comuni (es. `XSS`, `SQL-Injection`, `Remote Code Execution`, ecc.).
 - [ ] Non utilizzare mai dati sensibili (`credenziali`, `password`, `security tokens`, o `API keys`) nell'url, utilizzare piuttosto gli Authorization header.
 - [ ] Utilizzare un gateway per abilitare il caching delle API, con sistema di controllo delle chiamate (es. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`).

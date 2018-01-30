@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](.README-mk.md) | [ລາວ](./README-lo.md)
 
 # API Security Checklist
 Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uitbrengen van een API.
@@ -31,9 +31,9 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 
 ## Invoer
 - [ ] Gebruik de correcte HTTP methode voor de operatie, `GET (lezen)`, `POST (schrijven)`, `PUT (vervangen/updaten)` and `DELETE (verwijderen)`.
-- [ ] Valideer de `content-type` header bij een request Accept header (Content Negotiation) om alleen de ondersteunde formaten toe te staan (e.g. `application/xml`, `application/json` ... etc) en stuur een `406 Not Acceptable` response als de `content-type` niet ondersteund is.
-- [ ] Valideer de `content-type` header van gestuurde data (e.g. `application/x-www-form-urlencoded`, `multipart/form-data ,application/json` ... etc ).
-- [ ] Valideer de gebruiker invoer om veel voorkomende kwetsbaarheden te voorkomen (v.b. `XSS`, `SQL-Injection`, `Remote Code Execution` ... etc).
+- [ ] Valideer de `content-type` header bij een request Accept header (Content Negotiation) om alleen de ondersteunde formaten toe te staan (e.g. `application/xml`, `application/json` ... enz) en stuur een `406 Not Acceptable` response als de `content-type` niet ondersteund is.
+- [ ] Valideer de `content-type` header van gestuurde data (e.g. `application/x-www-form-urlencoded`, `multipart/form-data ,application/json` ... enz).
+- [ ] Valideer de gebruiker invoer om veel voorkomende kwetsbaarheden te voorkomen (v.b. `XSS`, `SQL-Injection`, `Remote Code Execution` ... enz).
 - [ ] Gebruik geen gevoelige data (`credentials`, `Wachtwoorden`, `security tokens`, of `API keys`) in de URL, maar gebruik de standaard Authorization header.
 - [ ] Gebruik een API Gateway service voor caching, policies (b.v. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) en voor het dynamisch deployen van API middelen.
 
@@ -51,10 +51,10 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Stel de `X-Content-Type-Options: nosniff` header in.
 - [ ] Stel de `X-Frame-Options: deny` header in.
 - [ ] Stel de `Content-Security-Policy: default-src 'none'` header in.
-- [ ] Verwijder vingerafdruk headers - `X-Powered-By`, `Server`, `X-AspNet-Version` etc.
+- [ ] Verwijder vingerafdruk headers - `X-Powered-By`, `Server`, `X-AspNet-Version` enz.
 - [ ] Dwing `content-type` headers af voor de response. Als je `application/json` antwoordt, dan is de `content-type` : `application/json`.
 - [ ] Stuur geen gevoelige data terug: `Gebruikersnamen`, `Wachtwoorden`, `security tokens`.
-- [ ] Geef de correcte HTTP antwoord code terug op basis van de uitgevoerde operatie (v.b. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed` ... etc).
+- [ ] Geef de correcte HTTP antwoord code terug op basis van de uitgevoerde operatie (v.b. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed` ... enz).
 
 ## CI & CD
 - [ ] Controleer het ontwerp en de implementatie met unit/integration test dekking.
