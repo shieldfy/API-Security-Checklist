@@ -34,7 +34,7 @@ API를 설계하고, 테스트하고, 배포할 때 고려해야 할 중요한 �
 - [ ] 여러분이 지원하는 포맷 (예를 들어 `application/xml`이나 `application/json` 등)만을 허용하려면 요청의 Accept 헤더에서 `content-type`의 유효성을 검사하고 일치하지 않으면 `406 Not Acceptable`로 응답하세요.
 - [ ] 요청받은 POST 데이터의 `content-type`을 검증하세요. (예를 들어 `application/x-www-form-urlencoded`나 `multipart/form-data` 또는 `application/json` 등)
 - [ ] 일반적인 취약점들을 피하기 위해선 사용자 입력의 유효성을 검증하세요. (예를 들어 `XSS`, `SQL-Injection` 또는 `Remote Code Execution` 등)
-- [ ] URL에는 그 어떤 민감한 데이터 (`자격 인증 (crendentials)`, `패스워드`, `보안 토큰` 또는 `API 키`)도 포함하고 있어서는 안 되며 이러한 것들은 표준 인증 방식의 헤더를 사용하세요.
+- [ ] URL에는 그 어떤 민감한 데이터 (`자격 인증 (credentials)`, `패스워드`, `보안 토큰` 또는 `API 키`)도 포함하고 있어서는 안 되며 이러한 것들은 표준 인증 방식의 헤더를 사용하세요.
 - [ ] 캐싱과 속도 제한 정책을 제공하는 API 게이트웨이 서비스 (예를 들어 `Quota`, `Spike Arrest`, `Concurrent Rate Limit`)를 사용하고, API 리소스를 동적으로 배포하세요.
 
 ## 서버 처리
