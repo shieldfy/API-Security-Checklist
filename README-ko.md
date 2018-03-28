@@ -53,7 +53,7 @@ API를 설계하고, 테스트하고, 배포할 때 고려해야 할 중요한 �
 - [ ] `Content-Security-Policy: default-src 'none'` 헤더를 반환하세요.
 - [ ] `X-Powered-By`, `Server`, `X-AspNet-Version` 등의 디지털 지문 (fingerprinting) 성격의 헤더는 제거하세요.
 - [ ] 응답에 `content-type`을 강제하세요. 만약 `application/json` 데이터를 반환하고 있다면 응답의 `content-type`은 `application/json`입니다.
-- [ ] `자격 인증 (crendentials)`, `패스워드`, `보안 토큰`과 같은 민감한 데이터는 반환하지 마세요.
+- [ ] `자격 인증 (credentials)`, `패스워드`, `보안 토큰`과 같은 민감한 데이터는 반환하지 마세요.
 - [ ] 각 작업에 맞는 적절한 상태 코드를 반환하세요. (예를 들어 `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed` 등)
 
 ## CI & CD
