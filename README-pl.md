@@ -16,7 +16,7 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Użyj losowego, skomplikowanego klucza (`JWT Secret`) aby uczynić token bezpieczniejszym przeciw atakom typu `brute force`.
 - [ ] Algorytmy trzymaj w backendzie, nie upubliczniaj algorytmów.
 - [ ] Ustaw wygaszanie tokenów (`TTL`, `RTTL`) najkrótsze jak to możliwe.
-- [ ] Nie przechowuj wrażliwych danych w `JWT payload`, mogą był łatwo dekodowane przy pomocy [easily](https://jwt.io/#debugger-io).
+- [ ] Nie przechowuj wrażliwych danych w payloadzie `JWT`, mogą być one [łatwo zdekodowane](https://jwt.io/#debugger-io).
 
 ### OAuth
 - [ ] Zawsze waliduj `redirect_uri` po stronie serwera aby zezwolić tylko URL-om z dozwolonej listy (`whitelist`).
