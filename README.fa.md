@@ -4,14 +4,16 @@
 Checklist of the most important security countermeasures when designing, testing, and releasing your API.
 
 
+# API لیستی از اقدامات امنیتی برای
+لیستی از مهم ترین اقدامات امنیتی برای زمان طراحی، آزمایش و منتشر کردن ای پی آی شما که باید رعایت کنید.
 
 ---
 
-## Authentication
-- [ ] Don't use `Basic Auth` Use standard authentication (e.g. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
-- [ ] Don't reinvent the wheel in `Authentication`, `token generation`, `password storage`. Use the standards.
-- [ ] Use `Max Retry` and jail features in Login.
-- [ ] Use encryption on all sensitive data.
+## اعتبار سنجی
+- [ ] به اعتبار سنجی ساده قانع نشید حتما سخت گیرانه و پیشرفته اعتبار سنجی کنید  (e.g. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] های استاندارد و موجود استفاده کنید `Authentication`, `token generation`,  `password storage ` چرخی که هست رو از اول اختراع نکنید و از   
+- [ ] برای ورود محدودیت و سقفی تعین کنید، مثلا کاربر بعد سه باز تلاش نا موفق بلاک شود.
+- [ ] روی اطلاعات مهم و حساس حتما از رمز گذاری استفاده کنید.
 
 ### JWT (JSON Web Token)
 - [ ] Use a random complicated key (`JWT Secret`) to make brute forcing the token very hard.
