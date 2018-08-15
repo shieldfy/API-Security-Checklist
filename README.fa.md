@@ -71,7 +71,8 @@ Checklist of the most important security countermeasures when designing, testing
 ---
 
 ## See also:
-- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - A collection of useful resources for building RESTful HTTP+JSON APIs.
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON APIs مجموعه ای از منابع مفید برای ایجاد 
+
 
 
 ---
