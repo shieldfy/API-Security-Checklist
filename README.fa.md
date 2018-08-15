@@ -16,10 +16,12 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] روی اطلاعات مهم و حساس حتما از رمز گذاری استفاده کنید.
 
 ### JWT (JSON Web Token)
-- [ ] Use a random complicated key (`JWT Secret`) to make brute forcing the token very hard.
+- [ ] خیلی پیچیده و غیر قابل شکستن استفاده کنید token برای ایجاد (`JWT Secret`) از یک کلید تصادفی و پیچیده یا  
 - [ ] Don't extract the algorithm from the payload. Force the algorithm in the backend (`HS256` or `RS256`).
-- [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
-- [ ] Don't store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
+- [ ] برای توکن های خود تاریخ انقضا کوتاه تعریف کنید (`TTL`, `RTTL`) با استفاده از    
+- [ ] ذخیره نکنید چون به راحتی رمزگشایی میشوند JWT payload هیچ وقت اطلاعات حساس را در  [easily](https://jwt.io/#debugger-io).
+
+
 
 ### OAuth
 - [ ] Always validate `redirect_uri` server-side to allow only whitelisted URLs.
@@ -51,10 +53,10 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Do not forget to turn the DEBUG mode OFF.
 
 ## Output
-- [ ] Send `X-Content-Type-Options: nosniff` header.
-- [ ] Send `X-Frame-Options: deny` header.
-- [ ] Send `Content-Security-Policy: default-src 'none'` header.
-- [ ] Remove fingerprinting headers - `X-Powered-By`, `Server`, `X-AspNet-Version` etc.
+- [ ] رو ارسال کنید `X-Content-Type-Options: nosniff`هدر 
+- [ ] رو ارسال کنید `X-Frame-Options: deny`هدر  
+- [ ] رو هم ارسال کنید `Content-Security-Policy: default-src 'none'`هدر
+- [ ] رو حذف و ارسال نکنید تا اطلاعات نرم افزاری شما مخفی بماند `X-Powered-By`, `Server`, `X-AspNet-Version` هدر های 
 - [ ] Force `content-type` for your response, if you return `application/json` then your response `content-type` is `application/json`.
 - [ ] Don't return sensitive data like `credentials`, `Passwords`, `security tokens`.
 - [ ] Return the proper status code according to the operation completed. (e.g. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, etc).
