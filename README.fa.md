@@ -1,8 +1,5 @@
 [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](.README-mk.md) | [ລາວ](./README-lo.md) | [فارسی](./README-fa.md)
 
-# API Security Checklist
-Checklist of the most important security countermeasures when designing, testing, and releasing your API.
-
 
 # API لیستی از اقدامات امنیتی برای
 لیستی از مهم ترین اقدامات امنیتی برای زمان طراحی، آزمایش و منتشر کردن ای پی آی شما که باید رعایت کنید.
@@ -77,5 +74,8 @@ Checklist of the most important security countermeasures when designing, testing
 
 ---
 
-# Contribution
-Feel free to contribute by forking this repository, making some changes, and submitting pull requests. For any questions drop us an email at `team@shieldfy.io`.
+.
+
+# مشارکت
+ارسال کنید و اگر هم سوالی داشتید به ما ایمیل بزنید pull request برای مشارکت در این مخزن، آزاد باشید و تغییرات دلخواه خود را اعمال کنید و `team@shieldfy.io`
+
