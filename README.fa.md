@@ -26,10 +26,14 @@
 - [ ] Use `state` parameter with a random hash to prevent CSRF on the OAuth authentication process.
 - [ ] Define the default scope, and validate scope parameters for each application.
 
+
+
 ## Access
-- [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
-- [ ] Use HTTPS on server side to avoid MITM (Man In The Middle Attack).
-- [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
+- [ ] درخواست هارا محدود کنید `DDos / Brute-force` برای جلوگیری از حملات
+- [ ] استفاده کنید HTTPS برای تبادل اطلاعات در سرور از پروتکل  MITM (Man In The Middle Attack)  همچنین برای جلوگیری از حملات   
+- [ ] جلوگیری شود `SSL Strip attack`  استفاده کنید تا از حملات  SSL همراه با `HSTS` از هدر 
+
+
 
 ## Input
 - [ ] Use the proper HTTP method according to the operation: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, and `DELETE (to delete a record)`, and respond with `405 Method Not Allowed` if the requested method isn't appropriate for the requested resource.
@@ -45,7 +49,7 @@
 - [ ] Don't auto-increment IDs. Use `UUID` instead.
 - [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
 - [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
-- [ ] Use a CDN for file uploads.
+- [ ] برای آپلود فایل ها حتما از یک سی دی ان استفاده کنید 
 - [ ] If you are dealing with huge amount of data, use Workers and Queues to process as much as possible in background and return response fast to avoid HTTP Blocking.
 - [ ] Do not forget to turn the DEBUG mode OFF.
 
