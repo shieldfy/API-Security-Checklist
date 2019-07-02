@@ -7,60 +7,59 @@ APIを設計、テスト、リリースするときの最も重要なセキュ�
 ---
 
 ## 認証
-- [ ] Basic認証を利用せず、標準的な認証を利用する (例: JWT、OAuth)
-- [ ] 「認証」、「トークンの生成」、「パスワードの保管」の車輪の再発明を行わず、標準のものを利用する
-- [ ] ログインでは「最大再試行回数(Max Retry)」とjail機能を利用する
-- [ ] 全ての機密データは暗号化する
+- [ ] `Basic認証`を利用せず、標準的な認証を利用する（例: [JWT](https://jwt.io/)、[OAuth](https://oauth.net/)）
+- [ ] `認証`、`トークンの生成`、`パスワードの保管`の車輪の再発明を行わず、標準化されているものを利用する。
+- [ ] ログインでは`最大リトライ回数（Max Retry）`とjail機能を利用する。
+- [ ] 全ての機密情報は暗号化する。
 
 ### JWT (JSON Web Token)
-- [ ] ランダムで複雑なキー (`JWT Secret`) を利用し、トークンに対するブルートフォース攻撃を困難にする
-- [ ] ペイロードからアルゴリズムを取り出さない。バックエンドでアルゴリズムを強制する。(`HS256` か `RS256`)
-- [ ] トークンの有効期限 (`TTL`, `RTTL`) を可能な限り短くする。
-- [ ] 機密データをJWTペイロードに格納しない。それは[簡単に](https://jwt.io/#debugger-io)復号できる。
+- [ ] ブルートフォース攻撃を困難にするため、ランダムで複雑なキー（`JWT Secret`）を使用する。
+- [ ] ペイロードからアルゴリズムを抽出してはいけない。必ずバックエンドで暗号化する（`HS256`または`RS256`）。
+- [ ] トークンの有効期限（`TTL`, `RTTL`）を可能な限り短くする。
+- [ ] JWTのペイロードに機密情報を格納してはいけない。それは[簡単に](https://jwt.io/#debugger-io)復号できる。
 
 ### OAuth
-- [ ] 常に `redirect_uri` をサーバ側でホワイトリストされたURLのみを許可するよう検証する。
-- [ ] 常に token ではなく code を交換するよう試行する (`response_type=token` を許可しない)。
-- [ ] `state` パラメータをランダムなハッシュと共に利用し、OAuth認証プロセスでのCSRFを防ぐ。
+- [ ] サーバサイドで常に`redirect_uri`を検証し、ホワイトリストに含まれるURLのみを許可する。
+- [ ] 常にtokenではなくcodeを交換するようにする（`response_type=token`を許可しない）。
+- [ ] `state`パラメータをランダムなハッシュと共に利用し、OAuth認証プロセスでのCSRFを防ぐ。
 - [ ] デフォルトのscopeを定義し、アプリケーション毎にscopeパラメータを検証する。
 
 ## アクセス
-- [ ] DDoS / ブルートフォース攻撃を防ぐためリクエストの制限 (スロットリング) を行う。
-- [ ] HTTPSをサーバ側で利用しMITM (Man In The Middle Attack) を回避する。
-- [ ] `HSTS`ヘッダをSSLと共に利用し、SSL Strip攻撃を回避する。
+- [ ] DDoSやブルートフォース攻撃を回避するため、リクエストを制限（スロットリング）する。
+- [ ] MITM（Man in the Middle Attack）を防ぐため、サーバサイドではHTTPSを使用する。
+- [ ] SSL Strip attackを防ぐため、SSL化とともに`HSTS`ヘッダを設定する。
 
 ## 入力
-- [ ] 操作に準じて適切なHTTPメソッドを利用する、`GET (読み込み)`、`POST (作成)`、`PUT/PATCH (置き換え/更新)`、`DELETE (単一レコードの削除)。もし要求されたメソッドがリソースに存在しない場合は `405 Method Not Allowed` を返却する。
-- [ ] リクエストのAcceptヘッダ (Content Negotiation) の `content-type` を検証し、サポートしているフォーマットのみを許可し (例: `application/xml`、`application/json` 等)、もし合致しなければ `406 Not Acceptable` レスポンスを応答する。
-- [ ] 受け取るPOSTされたデータの`content-type` を検証する (例: `application/x-www-form-urlencoded`、`multipart/form-data ,application/json` 等)。
-- [ ] 一般的な脆弱性を避けるためユーザ入力を検証する (例: `XSS`, `SQLインジェクション`, `リモートコード実行` 等)。
-- [ ] URL中で機密データ (`クレデンシャル`、`パスワード`、`セキュリティトークン`) を利用せず、標準的な認証ヘッダで利用する。
-- [ ] キャッシュ、レート制限、スパイク阻止、そしてAPIリソースのデプロイを動的に行うため、APIゲートウェイサービスを利用する。
+- [ ] 操作に応じて適切なHTTPメソッドを利用する。`GET（読み込み）`, `POST（作成）`, `PUT/PATCH（置き換え/更新）`, `DELETE（単一レコードの削除）`。リクエストメソッドがリソースに対して適切ではない場合、`405 Method Not Allowed`を返す。
+- [ ] リクエストのAcceptヘッダ（コンテンツネゴシエーション）の`content-type`を検証する。サポートしているフォーマット（例: `application/xml`, `application/json`等）は許可し、そうでない場合は`406 Not Acceptable`を返す。
+- [ ] POSTされたデータの`content-type`が受け入れ可能（例: `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`等）かどうかを検証する。
+- [ ] ユーザーの入力に一般的な脆弱性が含まれていないことを検証する（例: `XSS`, `SQLインジェクション`, `リモートコード実行`等）。
+- [ ] URLの中に機密情報（`認証情報`, `パスワード`, `セキュリティトークン`）を利用せず、標準的な認証ヘッダを使用する。
+- [ ] キャッシュ、Rate Limit policies（例: `Quota`, `Spike Arrest`, `Concurrent Rate Limit`）を有効化し、APIリソースのデプロイを動的に行うため、APIゲートウェイサービスを利用する。
 
 ## 処理
-- [ ] 壊れた認証プロセスを回避するため、全てのエンドポイントが認証の背後で保護されているかを確認する。
-- [ ] ユーザ所有リソースのIDの利用は避ける。`/user/654321/orders` の代わりに `/me/orders` を利用する。
-- [ ] オートインクリメントのIDを利用せず、代わりに`UUID`を利用する。
-- [ ] XMLファイルをパースする場合は、`XXE` (XML external entity attack) を回避するため entity parsing が有効でないことを確認する。
-- [ ] XMLファイルをパースする場合は、exponential entity expansion attack による `Billion Laughs/XML bomb` 攻撃を回避するため entity expansion が有効でないことを確認する。
-- [ ] ファイルアップロードにCDNを利用する。
-- [ ] 非常に多量のデータを扱う場合は、ワーカーとキューを利用して可能な限りバックグラウンドで処理をするようにし、早く応答を返却し、HTTP Blockingを避ける。
-- [ ] DEBUGモードをオフにするのを忘れない。
+- [ ] 壊れた認証プロセスを回避するため、全てのエンドポイントが認証により守られていることを確かめる。
+- [ ] ユーザーに紐付いたリソースIDを使用してはならない。`/user/654321/orders`の代わりに`/me/orders`を利用する。
+- [ ] オートインクリメントなIDを利用せず、代わりに`UUID`を利用する。
+- [ ] XMLファイルをパースする場合、`XXE`（XML external entity attack）を回避するため、entity parsingが有効でないことを確認する。
+- [ ] XMLファイルをパースする場合、exponential entity expansion attackによる`Billion Laughs/XML bomb`攻撃を回避するためentity expansion が有効でないことを確認する。
+- [ ] ファイルアップロードにはCDNを利用する。
+- [ ] 大量のデータを扱う場合、バックグラウンドでWorkerプロセスやキューを出来る限り使用し、レスポンスを速く返すことでHTTPブロッキングを避ける。
 
 ## 出力
-- [ ] `X-Content-Type-Options: nosniff` ヘッダを送信する。
-- [ ] `X-Frame-Options: deny` ヘッダを送信する。
-- [ ] `Content-Security-Policy: default-src 'none'` ヘッダを送信する。
-- [ ] フィンガープリントヘッダを削除する - `X-Powered-By`, `Server`, `X-AspNet-Version` 等。
-- [ ] `content-type` を応答で強制する。もし `application/json` を返却するのなら、レスポンスの `content-type` は `application/json` にする。
-- [ ] `認証情報`、`パスワード`、`セキュリティトークン` といった機密データを返却しない。
-- [ ] 完了した操作に一致した適切なステータスコードを返却する (例: `200 OK`、`400 Bad Request`、`401 Unauthorized`、`405 Method Not Allowed` ... 等)。
+- [ ] `X-Content-Type-Options: nosniff`をヘッダに付与する。
+- [ ] `X-Frame-Options: deny`をヘッダに付与する。
+- [ ] `Content-Security-Policy: default-src 'none'`をヘッダに付与する。
+- [ ] フィンガープリントヘッダを削除する - `X-Powered-By`, `Server`, `X-AspNet-Version`等。
+- [ ] `content-type`を必ず付与する。もし`application/json`を返す場合、`content-type`は`application/json`にする。
+- [ ] `認証情報`, `パスワード`, `セキュリティトークン`といった機密情報を返さない。
+- [ ] 処理の終了時に適切なステータスコードを返す（例: `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`等）。
 
 ## CI & CD (継続的インテグレーションと継続的デリバリー)
-- [ ] 設計と実装をユニットテスト、インテグレーションテストのカバレッジで監査する。
+- [ ] ユニットテスト/結合テストのカバレッジで、設計と実装を継続的に検査する。
 - [ ] コードレビューのプロセスを採用し、自身による承認を無視する。
-- [ ] プロダクションへプッシュする前に、ベンダのライブラリ、その他の依存関係を含め、サービスの全ての要素がアンチウィルスソフトウェアで静的スキャンを確実に実施する。
-- [ ] デプロイについてロールバックソリューションを開発する。
+- [ ] プロダクションへプッシュする前に、ベンダのライブラリ、その他の依存関係を含め、サービスの全ての要素をアンチウイルスソフトで静的スキャンする。
+- [ ] デプロイのロールバックを用意する。
 
 
 ---
