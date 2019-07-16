@@ -28,6 +28,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
 - [ ] Use HTTPS on server side to avoid MITM (Man in the Middle Attack).
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
+- [ ] For private APIs, only allow access from whitelisted IPs/hosts.
 
 ## Input
 - [ ] Use the proper HTTP method according to the operation: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, and `DELETE (to delete a record)`, and respond with `405 Method Not Allowed` if the requested method isn't appropriate for the requested resource.
