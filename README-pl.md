@@ -42,6 +42,7 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Unikaj ukazywania ID użytkownika. Użyj np. `/me/orders` zamiast `/users/654321/orders/`.
 - [ ] Nie używaj auto inkrementacji w polu ID. Zamiast tego użyj `UUID`.
 - [ ] Jeżeli parsujesz pliki XML, upewnij się, że jesteś odporny na `XXE` (XML external entity attack) oraz `Billion Laughs/XML bomb`.
+- [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
 - [ ] Użyj CDN do przechowywania wysyłanych plików.
 - [ ] Jeżeli pracujesz z dużą ilością danych, użyj procesów Workers oraz kolejkowania Queues aby przetworzyć jak najwięcej w tle i zwrócić informacje szybko aby uniknąć blokowania HTTP.
 - [ ] Nie zapomnij o wyłączeniu trybu debugowania.
@@ -66,3 +67,9 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 
 ## Zobacz także:
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - [ENG] Zbiór wartościowych narzędzi do tworzenia REST HTTP+JSON API.
+
+
+---
+
+# Contribution
+Feel free to contribute by forking this repository, making some changes, and submitting pull requests. For any questions drop us an email at `team@shieldfy.io`.

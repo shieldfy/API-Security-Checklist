@@ -39,7 +39,7 @@
 
 ## 处理
 - [ ] 检查是否所有的终端都在身份认证之后, 以避免被破坏了的认证体系.
-- [ ] 避免使用特有的资源 id. 使用 `/me/orders` 替代 `/user/654321/orders`
+- [ ] 避免使用特有的资源 id. 使用 `/me/orders` 替代 `/user/654321/orders`.
 - [ ] 使用 `UUID` 代替自增长的 id.
 - [ ] 如果需要解析 XML 文件, 确保实体解析(entity parsing)是关闭的以避免 `XXE` 攻击.
 - [ ] 如果需要解析 XML 文件, 确保实体扩展(entity expansion)是关闭的以避免通过指数实体扩展攻击实现的 `Billion Laughs/XML bomb`.

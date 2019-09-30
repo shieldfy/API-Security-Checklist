@@ -38,7 +38,7 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Sử dụng API Gateway để kích hoạt cache, Rate Limit policies (chẳng hạng như. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) và deploy APIs resources linh động hơn.
 
 ## Processing
-- [ ] Đảm bảo rằng các endpoint chỉ xử lý dữ liệu sau khi đã qua bước xác thực
+- [ ] Đảm bảo rằng các endpoint chỉ xử lý dữ liệu sau khi đã qua bước xác thực.
 - [ ] Nên tránh việc sử dụng ID của tài nguyên. Sử dụng `/me/orders` thay vì `/user/654321/orders`.
 - [ ] Không nên thiết kế ID dạng tự động tăng. Sử dụng UUID để thay thế.
 - [ ] Nếu bạn muốn parse XML, hãy chắc chắn rằng `entity parsing` không được kích hoạt để tránh tấn công `XXE` (XML external entity attack).
