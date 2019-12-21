@@ -8,14 +8,14 @@
 
 ---
 
-## احراز هویت
+## احراز هویت(Authentication)
 - [ ] هیچگاه از `Basic Auth` استفاده نکنید. از روش های استاندارد کنید (برای مثال از [JWT](https://jwt.io/) و یا [OAuth](https://oauth.net/) استفاده کنید).
 - [ ] سعی در ایجاد روش های جدید و ساخت دوباره چرخ در `Authentication`, `token generation`, `password storage` نکنید.
 - [ ] از `Max Retry` و قابلیت قفل شدن اکانت استفاده کنید .
 - [ ] از رمز نگاری برای رمز کردن تمام اطلاعات مهم و حساس استفاده کنید.
 
-### JWT (JSON Web Token)
-- [ ] Use a random complicated key (`JWT Secret`) to make brute forcing the token very hard.
+### توکن در JSON(JWT (JSON Web Token))
+- [ ] از کلید های پیچیده در (`JWT Secret`) استفاده کنید تا حدس زدن آن ها دشوار تر باشد.
 - [ ] Don't extract the algorithm from the payload. Force the algorithm in the backend (`HS256` or `RS256`).
 - [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
 - [ ] Don't store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
