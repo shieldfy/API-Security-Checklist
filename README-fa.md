@@ -3,13 +3,13 @@
 
 # چک لیست نکات امنیتی API
 
-چک لیست شامل نکات مهم امنیتی در طراح و تست API
+نکات مهم امنیتی در طراح و تست API
 
 
 ---
 
 ## احراز هویت
-- [ ] Don't use `Basic Auth`. Use standard authentication (e.g. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] هیچگاه از `Basic Auth` استفاده نکنید. از روش های استاندارد کنید (برای مثال از [JWT](https://jwt.io/) و یا [OAuth](https://oauth.net/) استفاده کنید).
 - [ ] Don't reinvent the wheel in `Authentication`, `token generation`, `password storage`. Use the standards.
 - [ ] Use `Max Retry` and jail features in Login.
 - [ ] Use encryption on all sensitive data.
