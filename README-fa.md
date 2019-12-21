@@ -27,7 +27,7 @@
 - [ ] مقدار پیش فرضی برای scope تعریف کنید, و مقدار scope را برای هر application جداگانه تعریف کنید.
 
 ## کنترل دسترسی(Access)
-- [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
+- [ ] محدودیت درخواست برای جلوگیری از حملات DDOS یا تکذیب سرور\حملات brute force یا حدس زدن تعریف کنید.
 - [ ] Use HTTPS on server side to avoid MITM (Man in the Middle Attack).
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
 
