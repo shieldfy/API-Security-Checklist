@@ -31,7 +31,7 @@
 - [ ] از پروتکل HTTPS برای جلوگیری از حملات MITM(Man-in-the-middle) یا مرد میانی تعریف کنید.
 - [ ] از `HSTS` در هدر درخواست ها به همراه SSL برای جلوگیری از حملات SSL Strip استفاده کنید.
 
-## Input
+## کنترل ورودی یا Input
 - [ ] Use the proper HTTP method according to the operation: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, and `DELETE (to delete a record)`, and respond with `405 Method Not Allowed` if the requested method isn't appropriate for the requested resource.
 - [ ] Validate `content-type` on request Accept header (Content Negotiation) to allow only your supported format (e.g. `application/xml`, `application/json`, etc.) and respond with `406 Not Acceptable` response if not matched.
 - [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, etc.).
