@@ -33,7 +33,7 @@
 
 ## کنترل ورودی یا Input
 - [ ] برای هر عملیات از متد متناسب در درخواست استفاده کنید: `GET (خواندن)`, `POST (ایجاد)`, `PUT/PATCH (جایگذاری/بروزرسانی)`, و `DELETE (برای حذف رکورد)`, و برای متد های نا متناسب از پاسخ `405 Method Not Allowed` استفاده کنید.
-- [ ] مقدار `content-type` را بررسی و اعتبار سنجی کنید (برای مثال از `application/xml`, `application/json` استفاده کنید) و هرچه به غیر مقادر مجاز را با `406 Not Acceptable` پاسخ دهید.
+- [ ] مقدار `content-type` را بررسی و اعتبار سنجی کنید (برای مثال از `application/xml`, `application/json` استفاده کنید) و هرچه به غیر مقادیر مجاز را با `406 Not Acceptable` پاسخ دهید.
 - [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, etc.).
 - [ ] Validate user input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc.).
 - [ ] Don't use any sensitive data (`credentials`, `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
