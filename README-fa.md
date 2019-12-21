@@ -28,8 +28,8 @@
 
 ## کنترل دسترسی(Access)
 - [ ] محدودیت درخواست برای جلوگیری از حملات DDOS یا تکذیب سرور\حملات brute force یا حدس زدن تعریف کنید.
-- [ ] از پروتکل HTTPS برای جلوگیری از حملات MITM(Man-in-the-middle) .یا مرد میانی تعریف کنید
-- [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
+- [ ] از پروتکل HTTPS برای جلوگیری از حملات MITM(Man-in-the-middle) یا مرد میانی تعریف کنید.
+- [ ] از `HSTS` در هدر درخواست ها به همراه SSL برای جلوگیری از حملات SSL Strip استفاده کنید.
 
 ## Input
 - [ ] Use the proper HTTP method according to the operation: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, and `DELETE (to delete a record)`, and respond with `405 Method Not Allowed` if the requested method isn't appropriate for the requested resource.
