@@ -28,7 +28,7 @@
 
 ## کنترل دسترسی(Access)
 - [ ] محدودیت درخواست برای جلوگیری از حملات DDOS یا تکذیب سرور\حملات brute force یا حدس زدن تعریف کنید.
-- [ ] Use HTTPS on server side to avoid MITM (Man in the Middle Attack).
+- [ ] از پروتکل HTTPS برای جلوگیری از حملات MITM(Man-in-the-middle) .یا مرد میانی تعریف کنید
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
 
 ## Input
