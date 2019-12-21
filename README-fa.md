@@ -26,7 +26,7 @@
 - [ ] از پارامتر `state` با مقدار تصادفی برای جلوگیری از حملات CSRF استفاده کنید.
 - [ ] مقدار پیش فرضی برای scope تعریف کنید, و مقدار scope را برای هر application جداگانه تعریف کنید.
 
-## Access
+## کنترل دسترسی(Access)
 - [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
 - [ ] Use HTTPS on server side to avoid MITM (Man in the Middle Attack).
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
