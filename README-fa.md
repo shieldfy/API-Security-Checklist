@@ -17,7 +17,7 @@
 ### استفاده از JWT (JSON Web Token)
 - [ ] از کلید های پیچیده در (`JWT Secret`) استفاده کنید تا حدس زدن آن ها دشوار تر باشد.
 - [ ] در هیچ صورت از الگوریتم های رمز نگاری در فرانت اند استفاده نکنید. باید از الگوریتم های  (`HS256` یا `RS256`) در بک اند استفاده کنید.
-- [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
+- [ ] برای توکن با استفاده از (`TTL`, `RTTL`) مدت زمان کوتاه اعتبار تعریف کنید.
 - [ ] Don't store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
 
 ### OAuth
