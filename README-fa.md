@@ -39,7 +39,7 @@
 - [ ] اطلاعات مهم مانند (`credentials`, `Passwords`, `security tokens`, یا `API keys`) در URL انتقال ندهید و به جای آن از هدر های استاندارد در درخواست استفاده کنید.
 - [ ] از درگاه برای API برای cache و قوانین rate limit استفاده کنید (برای مثال `Quota`, `Spike Arrest`, یا `Concurrent Rate Limit`) و همچنین منابع مورد نیاز را به صورت پویا بارگذاری کنید.
 
-## Processing
+## پردازی(Processing)
 - [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
 - [ ] User own resource ID should be avoided. Use `/me/orders` instead of `/user/654321/orders`.
 - [ ] Don't auto-increment IDs. Use `UUID` instead.
