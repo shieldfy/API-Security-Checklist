@@ -24,7 +24,7 @@
 - [ ] برای `redirect_uri` در بک اند white list مسیر های مجاز را تعریف کنید.
 - [ ] برای ارتباط بخش های مختلف از کد به جای تو کن استفاده کنید (از `response_type=token` استفاده نکنید).
 - [ ] از پارامتر `state` با مقدار تصادفی برای جلوگیری از حملات CSRF استفاده کنید.
-- [ ] Define the default scope, and validate scope parameters for each application.
+- [ ] مقدار پیش فرضی برای scope تعریف کنید, و مقدار scope را برای هر application جداگانه تعریف کنید.
 
 ## Access
 - [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
