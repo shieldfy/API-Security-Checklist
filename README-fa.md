@@ -14,7 +14,7 @@
 - [ ] از `Max Retry` و قابلیت قفل شدن اکانت استفاده کنید .
 - [ ] از رمز نگاری برای رمز کردن تمام اطلاعات مهم و حساس استفاده کنید.
 
-### توکن در JSON(JWT (JSON Web Token))
+### استفاده از JWT (JSON Web Token)
 - [ ] از کلید های پیچیده در (`JWT Secret`) استفاده کنید تا حدس زدن آن ها دشوار تر باشد.
 - [ ] Don't extract the algorithm from the payload. Force the algorithm in the backend (`HS256` or `RS256`).
 - [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
