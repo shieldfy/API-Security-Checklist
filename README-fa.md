@@ -23,7 +23,7 @@
 ### استفاده از OAuth
 - [ ] برای `redirect_uri` در بک اند white list مسیر های مجاز را تعریف کنید.
 - [ ] برای ارتباط بخش های مختلف از کد به جای تو کن استفاده کنید (از `response_type=token` استفاده نکنید).
-- [ ] Use `state` parameter with a random hash to prevent CSRF on the OAuth authentication process.
+- [ ] از پارامتر `state` با مقدار تصادفی برای جلوگیری از حملات CSRF استفاده کنید.
 - [ ] Define the default scope, and validate scope parameters for each application.
 
 ## Access
