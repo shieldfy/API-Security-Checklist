@@ -37,7 +37,7 @@
 - [ ] همچنین برای `content-type` در متد  post از مقادیر (`application/x-www-form-urlencoded`, `multipart/form-data`, `application/json` و ...) استفاده کنید.
 - [ ] ورودی های سمت کاربر را برای جلوگیری از حملات متداول (مانند `XSS`, `SQL-Injection`, `Remote Code Execution`و ...) کنترل کنید.
 - [ ] اطلاعات مهم مانند (`credentials`, `Passwords`, `security tokens`, یا `API keys`) در URL انتقال ندهید و به جای آن از هدر های استاندارد در درخواست استفاده کنید.
-- [ ] Use an API Gateway service to enable caching, Rate Limit policies (e.g. `Quota`, `Spike Arrest`, or `Concurrent Rate Limit`) and deploy APIs resources dynamically.
+- [ ] از درگاه برای API برای cache و قوانین rate limit استفاده کنید (برای مثال `Quota`, `Spike Arrest`, یا `Concurrent Rate Limit`) و همچنین منابع مورد نیاز را به صورت پویا بارگذاری کنید.
 
 ## Processing
 - [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
