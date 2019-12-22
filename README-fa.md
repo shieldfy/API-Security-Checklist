@@ -60,7 +60,7 @@
 
 ## یکپارچه سازی و تحویل مستمر(CI & CD)
 - [ ] بررسی و ممیزی امنیتی برای تست های unit/integration .
-- [ ] Use a code review process and disregard self-approval.
+- [ ] استفاده از code review در روند توسعه جدا از بررسی کد توسط شخص توسعه دهنده.
 - [ ] Ensure that all components of your services are statically scanned by AV software before pushing to production, including vendor libraries and other dependencies.
 - [ ] Design a rollback solution for deployments.
 
