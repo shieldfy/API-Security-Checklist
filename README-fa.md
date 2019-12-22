@@ -49,8 +49,8 @@
 - [ ] اگر با داده های بسیار زیادی سر و کار دارید, از Workers و Queues برای پردازش استفاده کنید تا پاسخ به درخواست ها سریع تر باشد.
 - [ ] فراموش نکنید حالت DEBUG را غیر فعال کنید.
 
-## Output
-- [ ] Send `X-Content-Type-Options: nosniff` header.
+## خروجی(Output)
+- [ ] پارامتر و مقدار `X-Content-Type-Options: nosniff` در هدر خروجی ارسال کنید.
 - [ ] Send `X-Frame-Options: deny` header.
 - [ ] Send `Content-Security-Policy: default-src 'none'` header.
 - [ ] Remove fingerprinting headers - `X-Powered-By`, `Server`, `X-AspNet-Version`, etc.
