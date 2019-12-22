@@ -41,7 +41,7 @@
 
 ## پردازش(Processing)
 - [ ] تمام نقاظ یا endpoint هایی که برای دسترسی به آن نیاز به احراز هویت است را بررسی کنید.
-- [ ] User own resource ID should be avoided. Use `/me/orders` instead of `/user/654321/orders`.
+- [ ] برای دریافت ID موجودیت ها از این شکل  `/me/orders` به جای این شکل `/user/654321/orders` استفاده کنید.
 - [ ] Don't auto-increment IDs. Use `UUID` instead.
 - [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
 - [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
