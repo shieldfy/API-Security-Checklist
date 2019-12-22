@@ -74,4 +74,4 @@
 ---
 
 # مشارکت کنید
-Feel free to contribute by forking this repository, making some changes, and submitting pull requests. For any questions drop us an email at `team@shieldfy.io`.
+برای مشارکت آزاد کافی است این مخزن را FORK کنید, تغییرات خود را اعمال کنید, و آن را به عنوان pull request ارسال کنید. در صورت هرگونه سوالی با `team@shieldfy.io` درارتباط باشید.
