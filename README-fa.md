@@ -68,7 +68,7 @@
 ---
 
 ## همچنین مشاهده کنید:
-- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - A collection of useful resources for building RESTful HTTP+JSON APIs.
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - مجموعه ای از منابع مفید برای ساخت سرویس های  RESTful HTTP+JSON APIs.
 
 
 ---
