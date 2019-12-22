@@ -52,7 +52,7 @@
 ## خروجی(Output)
 - [ ] پارامتر و مقدار `X-Content-Type-Options: nosniff` در هدر پاسخ ارسال کنید.
 - [ ] پارامتر و مقدار `X-Frame-Options: deny` در هدر پاسخ ارسال کنید.
-- [ ] Send `Content-Security-Policy: default-src 'none'` header.
+- [ ] پارامتر و مقدار `Content-Security-Policy: default-src 'none'` در هدر پاسخ ارسال کنید.
 - [ ] Remove fingerprinting headers - `X-Powered-By`, `Server`, `X-AspNet-Version`, etc.
 - [ ] Force `content-type` for your response, if you return `application/json` then your response `content-type` is `application/json`.
 - [ ] Don't return sensitive data like `credentials`, `Passwords`, or `security tokens`.
