@@ -50,7 +50,7 @@
 - [ ] فراموش نکنید حالت DEBUG را غیر فعال کنید.
 
 ## خروجی(Output)
-- [ ] پارامتر و مقدار `X-Content-Type-Options: nosniff` در هدر خروجی ارسال کنید.
+- [ ] پارامتر و مقدار `X-Content-Type-Options: nosniff` در هدر پاسخ ارسال کنید.
 - [ ] Send `X-Frame-Options: deny` header.
 - [ ] Send `Content-Security-Policy: default-src 'none'` header.
 - [ ] Remove fingerprinting headers - `X-Powered-By`, `Server`, `X-AspNet-Version`, etc.
