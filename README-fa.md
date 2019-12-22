@@ -56,7 +56,7 @@
 - [ ] اطلاعاتی که باعث شناسایی سیستم مورد استفاده می شود را حذف کنید مانند: `X-Powered-By`, `Server`, `X-AspNet-Version`.
 - [ ] مقدار `content-type` در پاسخ را حتما تعیین کنید, اگر نوع خروجی  `application/json` است پس نوع پاسخ یا  `content-type` هم باید `application/json` باشد.
 - [ ] اطلاعات مهم مانند `credentials`, `Passwords`, یا `security tokens` در پاسخ ارسال نکنید.
-- [ ] Return the proper status code according to the operation completed. (e.g. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, etc.).
+- [ ] کد وضیعت پاسخ ارسال شده را تعیین کنید. (مانند `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`.).
 
 ## CI & CD
 - [ ] Audit your design and implementation with unit/integration tests coverage.
