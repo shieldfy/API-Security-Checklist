@@ -73,5 +73,5 @@
 
 ---
 
-# Contribution
+# مشارکت کنید
 Feel free to contribute by forking this repository, making some changes, and submitting pull requests. For any questions drop us an email at `team@shieldfy.io`.
