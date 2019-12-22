@@ -45,7 +45,7 @@
 - [ ] از حالت auto-increment برای ID ها استفاده نکنید. از `UUID` استفاده کنید.
 - [ ] از فایل های xml استفاده می کنید, کدهای دریافت و parse نمودن xml را برای جلوگیری از حملات `XXE` (XML external entity attack) کنترل کنید.
 - [ ] اگر از فایل های xml استفاده می کنید, کدهای دریافت و parse نمودن xml را برای جلوگیری از حملات XXE (XML external entity attack) کنترل کنید..
-- [ ] Use a CDN for file uploads.
+- [ ] از CDN های برای بارگذاری فایل ها استفاده کنید.
 - [ ] If you are dealing with huge amount of data, use Workers and Queues to process as much as possible in background and return response fast to avoid HTTP Blocking.
 - [ ] Do not forget to turn the DEBUG mode OFF.
 
