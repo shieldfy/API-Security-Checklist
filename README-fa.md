@@ -43,7 +43,7 @@
 - [ ] تمام نقاظ یا endpoint هایی که برای دسترسی به آن نیاز به احراز هویت است را بررسی کنید.
 - [ ] برای دریافت ID موجودیت ها از این شکل  `/me/orders` به جای این شکل `/user/654321/orders` استفاده کنید.
 - [ ] از حالت auto-increment برای ID ها استفاده نکنید. از `UUID` استفاده کنید.
-- [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
+- [ ] از فایل های xml استفاده می کنید, کدهای دریافت و parse نمودن xml را برای جلوگیری از حملات `XXE` (XML external entity attack) کنترل کنید.
 - [ ] If you are parsing XML files, make sure entity expansion is not enabled to avoid `Billion Laughs/XML bomb` via exponential entity expansion attack.
 - [ ] Use a CDN for file uploads.
 - [ ] If you are dealing with huge amount of data, use Workers and Queues to process as much as possible in background and return response fast to avoid HTTP Blocking.
