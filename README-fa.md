@@ -40,7 +40,7 @@
 - [ ] از درگاه برای API برای cache و قوانین rate limit استفاده کنید (برای مثال `Quota`, `Spike Arrest`, یا `Concurrent Rate Limit`) و همچنین منابع مورد نیاز را به صورت پویا بارگذاری کنید.
 
 ## پردازش(Processing)
-- [ ] Check if all the endpoints are protected behind authentication to avoid broken authentication process.
+- [ ] تمام نقاظ یا endpoint هایی که برای دسترسی به آن نیاز به احراز هویت است را بررسی کنید.
 - [ ] User own resource ID should be avoided. Use `/me/orders` instead of `/user/654321/orders`.
 - [ ] Don't auto-increment IDs. Use `UUID` instead.
 - [ ] If you are parsing XML files, make sure entity parsing is not enabled to avoid `XXE` (XML external entity attack).
