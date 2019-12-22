@@ -55,7 +55,7 @@
 - [ ] پارامتر و مقدار `Content-Security-Policy: default-src 'none'` در هدر پاسخ ارسال کنید.
 - [ ] اطلاعاتی که باعث شناسایی سیستم مورد استفاده می شود را حذف کنید مانند: `X-Powered-By`, `Server`, `X-AspNet-Version`.
 - [ ] مقدار `content-type` در پاسخ را حتما تعیین کنید, اگر نوع خروجی  `application/json` است پس نوع پاسخ یا  `content-type` هم باید `application/json` باشد.
-- [ ] Don't return sensitive data like `credentials`, `Passwords`, or `security tokens`.
+- [ ] اطلاعات مهم مانند `credentials`, `Passwords`, یا `security tokens` در پاسخ ارسال نکنید.
 - [ ] Return the proper status code according to the operation completed. (e.g. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, etc.).
 
 ## CI & CD
