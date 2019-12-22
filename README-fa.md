@@ -46,7 +46,7 @@
 - [ ] از فایل های xml استفاده می کنید, کدهای دریافت و parse نمودن xml را برای جلوگیری از حملات `XXE` (XML external entity attack) کنترل کنید.
 - [ ] اگر از فایل های xml استفاده می کنید, کدهای دریافت و parse نمودن xml را برای جلوگیری از حملات XXE (XML external entity attack) کنترل کنید..
 - [ ] از CDN های برای بارگذاری فایل ها استفاده کنید.
-- [ ] If you are dealing with huge amount of data, use Workers and Queues to process as much as possible in background and return response fast to avoid HTTP Blocking.
+- [ ] اگر با داده های بسیار زیادی سر و کار دارید, از Workers و Queues برای پردازش استفاده کنید تا پاسخ به درخواست ها سریع تر باشد.
 - [ ] Do not forget to turn the DEBUG mode OFF.
 
 ## Output
