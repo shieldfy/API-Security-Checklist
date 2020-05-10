@@ -7,7 +7,7 @@ Checklist of the most important security countermeasures when designing, testing
 ---
 
 ## Authentication
-- [ ] Don't use `Basic Auth`. Use standard authentication (e.g. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] Don't use `Basic Auth`. Use standard authentication instead (e.g. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
 - [ ] Don't reinvent the wheel in `Authentication`, `token generation`, `password storage`. Use the standards.
 - [ ] Use `Max Retry` and jail features in Login.
 - [ ] Use encryption on all sensitive data.
@@ -52,7 +52,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Send `X-Frame-Options: deny` header.
 - [ ] Send `Content-Security-Policy: default-src 'none'` header.
 - [ ] Remove fingerprinting headers - `X-Powered-By`, `Server`, `X-AspNet-Version`, etc.
-- [ ] Force `content-type` for your response, if you return `application/json` then your response `content-type` is `application/json`.
+- [ ] Force `content-type` for your response. If you return `application/json`, then your `content-type` response is `application/json`.
 - [ ] Don't return sensitive data like `credentials`, `Passwords`, or `security tokens`.
 - [ ] Return the proper status code according to the operation completed. (e.g. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, etc.).
 
