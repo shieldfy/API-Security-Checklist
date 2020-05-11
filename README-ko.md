@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [簡中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](.README-mk.md) | [ລາວ](./README-lo.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](./README-mk.md) | [ລາວ](./README-lo.md)
 
 # API 보안 점검표
 API를 설계하고, 테스트하고, 배포할 때 고려해야 할 중요한 보안 대책에 대한 점검 목록입니다.
@@ -34,7 +34,7 @@ API를 설계하고, 테스트하고, 배포할 때 고려해야 할 중요한 �
 - [ ] 여러분이 지원하는 포맷 (예를 들어 `application/xml`이나 `application/json` 등)만을 허용하려면 요청의 Accept 헤더에서 `content-type`의 유효성을 검사하고 일치하지 않으면 `406 Not Acceptable`로 응답하세요.
 - [ ] 요청받은 POST 데이터의 `content-type`을 검증하세요. (예를 들어 `application/x-www-form-urlencoded`나 `multipart/form-data` 또는 `application/json` 등)
 - [ ] 일반적인 취약점들을 피하기 위해선 사용자 입력의 유효성을 검증하세요. (예를 들어 `XSS`, `SQL-Injection` 또는 `Remote Code Execution` 등)
-- [ ] URL에는 그 어떤 민감한 데이터 (`자격 인증 (crendentials)`, `패스워드`, `보안 토큰` 또는 `API 키`)도 포함하고 있어서는 안 되며 이러한 것들은 표준 인증 방식의 헤더를 사용하세요.
+- [ ] URL에는 그 어떤 민감한 데이터 (`자격 인증 (credentials)`, `패스워드`, `보안 토큰` 또는 `API 키`)도 포함하고 있어서는 안 되며 이러한 것들은 표준 인증 방식의 헤더를 사용하세요.
 - [ ] 캐싱과 속도 제한 정책을 제공하는 API 게이트웨이 서비스 (예를 들어 `Quota`, `Spike Arrest`, `Concurrent Rate Limit`)를 사용하고, API 리소스를 동적으로 배포하세요.
 
 ## 서버 처리
@@ -53,7 +53,7 @@ API를 설계하고, 테스트하고, 배포할 때 고려해야 할 중요한 �
 - [ ] `Content-Security-Policy: default-src 'none'` 헤더를 반환하세요.
 - [ ] `X-Powered-By`, `Server`, `X-AspNet-Version` 등의 디지털 지문 (fingerprinting) 성격의 헤더는 제거하세요.
 - [ ] 응답에 `content-type`을 강제하세요. 만약 `application/json` 데이터를 반환하고 있다면 응답의 `content-type`은 `application/json`입니다.
-- [ ] `자격 인증 (crendentials)`, `패스워드`, `보안 토큰`과 같은 민감한 데이터는 반환하지 마세요.
+- [ ] `자격 인증 (credentials)`, `패스워드`, `보안 토큰`과 같은 민감한 데이터는 반환하지 마세요.
 - [ ] 각 작업에 맞는 적절한 상태 코드를 반환하세요. (예를 들어 `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed` 등)
 
 ## CI & CD
