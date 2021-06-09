@@ -63,6 +63,13 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Ensure that all components of your services are statically scanned by AV software before pushing to production, including vendor libraries and other dependencies.
 - [ ] Design a rollback solution for deployments.
 
+## Monitoring
+- [ ] Use centralized log-ins for all services and components.
+- [ ] Use agents to monitoring all trafic, errors, requests and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch e etc.
+- [ ] Check if you don't log sensitive data like Credit Cards, Passwords and PINs.
+- [ ] Use an IDS or/and IPS system to monitoring your API requests and instances. 
+
 
 ---
 
