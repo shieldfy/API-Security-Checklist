@@ -8,8 +8,8 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 
 ## Kimlik Doğrulama
 
-- [ ] `Basic Auth` kullanmayın. Standart bir kimlik doğrulama yapısı kullanın (ör. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
-- [ ] `Kimlik doğrukama`, `token oluşturma`, `şifreleri kaydetme` için tekerleği yeniden icat etmeye çalışmayın. Standartları kullanın.
+- [ ] `Basic Auth` kullanmayın. Bunun yerine standardlaşmış kimlik doğrulama çözümlerini (örneğin [JWT](https://jwt.io/), [OAuth](https://oauth.net/) gibi) kullanmalısınız.
+- [ ] `Kimlik doğrulama`, `token oluşturma`, `şifreleri kaydetme` için tekerleği yeniden icat etmeye çalışmayın. Standartları kullanın.
 - [ ] `Deneme sayısını` sınırlayarak giriş hakkını kısıtlayın.
 - [ ] Tüm hassas verilerde şifreleme kullanın.
 
