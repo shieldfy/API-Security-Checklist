@@ -45,6 +45,7 @@ APIを設計、テスト、リリースするときの最も重要なセキュ�
 - [ ] XMLファイルをパースする場合、exponential entity expansion attackによる`Billion Laughs/XML bomb`攻撃を回避するためentity expansion が有効でないことを確認する。
 - [ ] ファイルアップロードにはCDNを利用する。
 - [ ] 大量のデータを扱う場合、バックグラウンドでWorkerプロセスやキューを出来る限り使用し、レスポンスを速く返すことでHTTPブロッキングを避ける。
+- [ ] デバッグ・モードを無効にすることを忘れないでください。
 
 ## 出力
 - [ ] `X-Content-Type-Options: nosniff`をヘッダに付与する。

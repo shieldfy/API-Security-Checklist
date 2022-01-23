@@ -31,8 +31,8 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 
 ## Invoer
 - [ ] Gebruik de correcte HTTP methode voor de operatie, `GET (lezen)`, `POST (schrijven)`, `PUT (vervangen/updaten)` and `DELETE (verwijderen)`.
-- [ ] Valideer de `content-type` header bij een request Accept header (Content Negotiation) om alleen de ondersteunde formaten toe te staan (e.g. `application/xml`, `application/json` ... enz) en stuur een `406 Not Acceptable` response als de `content-type` niet ondersteund is.
-- [ ] Valideer de `content-type` header van gestuurde data (e.g. `application/x-www-form-urlencoded`, `multipart/form-data ,application/json` ... enz).
+- [ ] Valideer de `content-type` header bij een request Accept header (Content Negotiation) om alleen de ondersteunde formaten toe te staan (b.v. `application/xml`, `application/json` ... enz) en stuur een `406 Not Acceptable` response als de `content-type` niet ondersteund is.
+- [ ] Valideer de `content-type` header van gestuurde data (b.v. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json` ... enz).
 - [ ] Valideer de gebruiker invoer om veel voorkomende kwetsbaarheden te voorkomen (v.b. `XSS`, `SQL-Injection`, `Remote Code Execution` ... enz).
 - [ ] Gebruik geen gevoelige data (`credentials`, `Wachtwoorden`, `security tokens`, of `API keys`) in de URL, maar gebruik de standaard Authorization header.
 - [ ] Gebruik een API Gateway service voor caching, policies (b.v. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) en voor het dynamisch deployen van API middelen.

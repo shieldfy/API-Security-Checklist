@@ -66,3 +66,9 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 
 ## Zobacz także:
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - [ENG] Zbiór wartościowych narzędzi do tworzenia REST HTTP+JSON API.
+
+
+---
+
+# Contribution
+Feel free to contribute by forking this repository, making some changes, and submitting pull requests. For any questions drop us an email at `team@shieldfy.io`.

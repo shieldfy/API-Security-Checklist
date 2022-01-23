@@ -7,7 +7,7 @@
 ---
 
 ## 身份認證
-- [ ] 不要使用 `Basic Auth` 使用標準的認證協議 (如 JWT, OAuth).
+- [ ] 不要使用 `Basic Auth`, 使用標準的認證協議取而代之 (如 JWT, OAuth).
 - [ ] 不要再造 `Authentication`, `token generating`, `password storing` 這些輪子, 使用標準的.
 - [ ] 在登錄中使用 `Max Retry` 和自動封禁功能.
 - [ ] 加密所有的敏感數據.
