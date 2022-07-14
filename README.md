@@ -48,6 +48,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Use a CDN for file uploads.
 - [ ] If you are dealing with huge amount of data, use Workers and Queues to process as much as possible in background and return response fast to avoid HTTP Blocking.
 - [ ] Do not forget to turn the DEBUG mode OFF.
+- [ ] Make sure id send via params/query string (uid, cid... for example) is owned by user requested API to prevent IODR
 
 ## Output
 - [ ] Send `X-Content-Type-Options: nosniff` header.
