@@ -26,7 +26,7 @@ Checklist of the most important security countermeasures when designing, testing
 
 ## Access
 - [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
-- [ ] Use HTTPS on server side to avoid MITM (Man in the Middle Attack).
+- [ ] Use HTTPS on server side with TLS 1.2+ and secure ciphers to avoid MITM (Man in the Middle Attack).
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
 - [ ] Turn off directory listings.
 - [ ] For private APIs, only allow access from whitelisted IPs/hosts.
