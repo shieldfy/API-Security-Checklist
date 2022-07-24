@@ -14,9 +14,10 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 
 ### JWT (JSON Web Token)
 - [ ] Gunakan kunci acak yang rumit (`JWT Secret`) untuk membuat proses pemecahan token secara paksa menjadi sangat susah.
-- [ ] Jangan gunakan algoritma yang berasal dari muatan yang dikirim oleh pengguna. Paksa penggunaan algoritma di sisi peladen (`HS256` or `RS256`).
+- [ ] Jangan gunakan algoritma yang berasal dari muatan yang dikirim oleh pengguna. Paksa penggunaan algoritma di sisi peladen (`HS256` atau `RS256`).
 - [ ] Gunakan masa tenggat token (`TTL`, `RTTL`) yang sesingkat mungkin.
 - [ ] Jangan simpan data sensitif pada muatan JWT karena muatan JWT dapat diterjemahkan [dengan mudah](https://jwt.io/#debugger-io).
+- [ ] Hindari menyimpan terlalu banyak data. JWT biasanya dibagikan di header dan mereka memiliki batas ukuran.
 
 ### OAuth
 - [ ] Selalu validasi `redirect_uri` di sisi peladen sehingga hanya URL-URL yang ada di dalam daftar putih yang boleh digunakan.
@@ -28,6 +29,8 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Batasi permintaan (_throttling_) di sisi peladen untuk menghindari serangan yang dapat melumpukan sistem (Contoh: DDoS, serangan paksa).
 - [ ] Gunakan HTTPS di sisi peladen untuk menghindari serangan pencegatan / MItM (Man In The Middle Attack).
 - [ ] Gunakan tajuk `HSTS` pada SSL untuk mencegah serangan SSL Strip.
+- [ ] Matikan daftar direktori.
+- [ ] Untuk API pribadi, izinkan akses hanya dari IP/host yang masuk daftar putih.
 
 ## Masuk
 - [ ] Gunakan metode HTTP yang sesuai dengan operasi yang digunakan, `GET untuk membaca catatan`, `POST untuk membuat catatan baru`, `PUT/PATCH untuk mengganti secara keseluruhan/mengubah sebagian catatan`, `DELETE untuk menghapus catatan` dan tanggapan `405 Method Not Allowed` jika metode permintaan tidak dikenali pada sumber daya.

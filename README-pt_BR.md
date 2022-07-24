@@ -17,6 +17,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Não utilize o algoritmo de criptografia informado no cabeçalho do payload. Force o uso de um algoritmo específico no _back-end_ (`HS256` ou `RS256`).
 - [ ] Defina o tempo de vida do _token_ (`TTL`, `RTTL`) o menor possível.
 - [ ] Não armazene informações confidenciais no JWT, pois elas podem ser [facilmente decodificadas](https://jwt.io/#debugger-io).
+- [ ] Evite armazenar muitos dados. JWT geralmente é compartilhado em headers e eles têm um limite de tamanho.
 
 ### OAuth
 - [ ] Sempre valide o `redirect_uri` no seu servidor através de uma lista de URLs conhecidas (previamente cadastradas).
@@ -28,6 +29,8 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Limite a quantidade de requisições (_Throttling_) para evitar ataques DDoS e de força bruta.
 - [ ] Use HTTPS no seu servidor para evitar ataques MITM (_Man In The Middle Attack_).
 - [ ] Use cabeçalho `HSTS` com SSL para evitar ataques _SSL Strip_.
+- [ ] Desative as listagens de diretórios.
+- [ ] Para APIs privadas, permita o acesso apenas de IPs/hosts da lista branca (whitelist).
 
 ## Requisição (_Input_)
 - [ ] Utilize o método HTTP apropriado para cada operação, `GET (obter)`, `POST (criar)`, `PUT/PATCH (trocar/atualizar)` e `DELETE (apagar)`.

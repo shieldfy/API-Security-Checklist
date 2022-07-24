@@ -17,6 +17,7 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Non ricavare l'algoritmo dal payload. Forzare l'algoritmo nel backend (`HS256` o `RS256`).
 - [ ] Rendere la scadenza del token (`TTL`, `RTTL`) il più breve possibile.
 - [ ] Non memorizzare dati sensibili nel payload JWT, può essere decodificato [facilmente](https://jwt.io/#debugger-io).
+- [ ] Evita di archiviare troppi dati. JWT è solitamente condiviso nelle header e hanno un limite di dimensioni.
 
 ### OAuth
 - [ ] Validare sempre il valore di `redirect_uri` lato server permettendo solo url verificati nella whitelist.
@@ -28,6 +29,8 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Limitare le richieste (Throttling) per evitare attacchi DDoS o brute-force.
 - [ ] Utilizzare il protocollo HTTPS per evitare attacchi MITM (Man In The Middle Attack).
 - [ ] Utilizzare l'header `HSTS` per evitare attacchi SSL Strip.
+- [ ] Disattiva gli elenchi di directory.
+- [ ] Per le API private, consenti l'accesso solo da IP/host nella whitelist (lista bianca).
 
 ## Input
 - [ ] Utilizzare il metodo HTTP appropriato in base all'azione: `GET (lettura)`, `POST (scrittura)`, `PUT/PATCH (sostituzione/modifica)`, e `DELETE (cancellazione)`, e rispondere con uno status `405 Method Not Allowed` se il metodo della richiesta non è appropriato.

@@ -17,6 +17,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Haal het algoritme niet uit de payload. Dwing het algoritme af in de backend (`HS256` of `RS256`).
 - [ ] Zet de token vervaltijd (`TTL`, `RTTL`) zo kort mogelijk.
 - [ ] Sla geen gevoelige data op in de JWT payload, deze is [makkelijk](https://jwt.io/#debugger-io) te decoderen.
+- [ ] Vermijd het opslaan van te veel gegevens. JWT wordt meestal gedeeld in headers en ze hebben een maximale grootte.
 
 ### OAuth
 - [ ] Valideer **ALTIJD** de `redirect_uri` op de server om alleen toegestane URL te accepteren.
@@ -28,6 +29,8 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Limiteer het aantal requests om DDoS en/of Bruteforce aanvallen te ontkrachten.
 - [ ] Gebruik HTTPS aan de server zijde om MITM (Man In The Middle Attacks) tegen te gaan.
 - [ ] Gebruik de `HSTS` header i.c.m SSL om een SSL Strip attack te ontkrachten.
+- [ ] Schakel directoryvermeldingen uit.
+- [ ] Sta voor privé-API's alleen toegang toe vanaf op de witte lijst geplaatste IP's/hosts.
 
 ## Invoer
 - [ ] Gebruik de correcte HTTP methode voor de operatie, `GET (lezen)`, `POST (schrijven)`, `PUT (vervangen/updaten)` and `DELETE (verwijderen)`.

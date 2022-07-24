@@ -17,6 +17,7 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Algorytmy trzymaj w backendzie, nie upubliczniaj algorytmów.
 - [ ] Ustaw wygaszanie tokenów (`TTL`, `RTTL`) najkrótsze jak to możliwe.
 - [ ] Nie przechowuj wrażliwych danych w payloadzie `JWT`, mogą być one [łatwo zdekodowane](https://jwt.io/#debugger-io).
+- [ ] Unikaj przechowywania zbyt dużej ilości danych. JWT jest zwykle udostępniany w nagłówkach i ma limit rozmiaru.
 
 ### OAuth
 - [ ] Zawsze waliduj `redirect_uri` po stronie serwera aby zezwolić tylko URL-om z dozwolonej listy (`whitelist`).
@@ -28,6 +29,8 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Ustaw limit zapytań (Throttling) aby uniknąć ataku DDoS / brute-force.
 - [ ] Użyj HTTPS aby uniknąć MITM (Man In The Middle Attack) - Ataku polegającego na pośrednictwie w wymianie informacji pomiędzy dwoma punktami np. klientem i serwerem.
 - [ ] Użyj nagłówka `HSTS` z SSL aby uniknąć SSL Strip attack.
+- [ ] Wyłącz wykazy katalogów.
+- [ ] W przypadku prywatnych API, zezwalaj na dostęp tylko z adresów IP/hostów umieszczonych na białej liście.
 
 ## Wejście
 - [ ] Użyj odpowiedniej metody protokołu HTTP dla danej operacji: `GET (odczyt)`, `POST (tworzenie)`, `PUT/PATCH (zmiana)`, and `DELETE (usuwanie)`, i odpowiadaj `405 Method Not Allowed` jeżeli metoda zapytania jest niepoprawna.

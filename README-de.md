@@ -14,9 +14,10 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 
 ### JWT (JSON Web Token)
 - [ ] Verwende einen per Zufall generierten, komplizierten Schlüssel (`JWT Secret`), um Brute Force Attacken gegen diesen so schwer wie möglich zu machen.
-- [ ] Verwende den Algorithmus des Payloads ausschließlich über das Backend, sodass dieser geheim bleibt (`HS256` or `RS256`).
+- [ ] Verwende den Algorithmus des Payloads ausschließlich über das Backend, sodass dieser geheim bleibt (`HS256` oder `RS256`).
 - [ ] Lege einen möglichst kurzen Gültigkeitszeitraum für den Token fest (`TTL`, `RTTL`).
 - [ ] Speichere keine sensitiven Daten im JWT Payload, denn dieser kann [einfach entkodiert werden](https://jwt.io/#debugger-io).
+- [ ] Vermeiden zu viele Daten zu speichern. JWT wird normalerweise in Headern geteilt und hat eine Größenbeschränkung.
 
 ### OAuth
 - [ ] Überprüfe stets die `redirect_uri` serverseitig und erlaube nur URLs aus einer Whitelist.
@@ -28,6 +29,8 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Limitiere alle Requests (Throttling), um DDoS / Brute-Force Attacken zu verhindern.
 - [ ] Nutze HTTPS serverseitig, um MITM (Man In The Middle Attack) zu verhindern.
 - [ ] Setze `HSTS` (HTTP Strict Transport Security) im Header bei SSL, um SSLStrip Attacken zu verhindern.
+- [ ] Deaktivieren Verzeichniseinträge.
+- [ ] Erlauben für private APIs den Zugriff nur von IPs/Hosts auf der Whitelist.
 
 ## Input
 - [ ] Nutze für Requests die passenden HTTP Methoden: `GET (Lesen)`, `POST (Erzeugen)`, `PUT/PATCH (Ersetzen/Aktualisieren)`, and `DELETE (Datensatz löschen)`, und gib `405 Method Not Allowed`, wenn die angeforderte Methode nicht auf die Ressource passt.

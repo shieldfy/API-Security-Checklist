@@ -17,6 +17,7 @@
 - [ ] 不要在請求體中直接提取數據, 要對數據進行加密 (`HS256` 或 `RS256`).
 - [ ] 使 token 的過期時間儘量的短 (`TTL`, `RTTL`).
 - [ ] 不要在 JWT 的請求體中存放敏感數據, 它是[可破解的](https://jwt.io/#debugger-io).
+- [ ] 避免存儲過多的數據。 JWT 通常在標頭中共享，並且它們有大小限制。
 
 ### OAuth 授權或認證協議
 - [ ] 始終在後台驗證 `redirect_uri`, 只允許白名單的 URL.
@@ -28,13 +29,15 @@
 - [ ] 限制流量來防止 DDoS 攻擊和暴力攻擊.
 - [ ] 在服務端使用 HTTPS 協議來防止 MITM 攻擊.
 - [ ] 使用 `HSTS` 協議防止 SSLStrip 攻擊.
+- [ ] 關閉目錄列表。
+- [ ] 對於私有 API，僅允許從列入白名單的 IP/主機進行訪問。
 
 ## 輸入
 - [ ] 使用與操作相符的 HTTP 操作函數, `GET (讀取)`, `POST (創建)`, `PUT (替換/更新)` 以及 `DELETE (刪除記錄)`, 如果請求的方法不適用於請求的資源則返回 `405 Method Not Allowed`.
 - [ ] 在請求頭中的 `content-type` 欄位使用內容驗證來只允許支持的格式 (如 `application/xml`, `application/json` 等等) 並在不滿足條件的時候返回 `406 Not Acceptable`.
 - [ ] 驗證 `content-type` 的發佈數據和你收到的一樣 (如 `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json` 等等).
 - [ ] 驗證用戶輸入來避免一些普通的易受攻擊缺陷 (如 `XSS`, `SQL-注入`, `遠程代碼執行` 等等).
-- [ ] 不要在 URL 中使用任何敏感的數據 (`credentials`, `Passwords`, `security tokens`, or `API keys`), 而是使用標準的認證請求頭.
+- [ ] 不要在 URL 中使用任何敏感的數據 (`credentials`, `Passwords`, `security tokens`, 或 `API keys`), 而是使用標準的認證請求頭.
 - [ ] 使用一個 API Gateway 服務來啟用緩存、訪問速率限制 (如 `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) 以及動態地部署 APIs resources.
 
 ## 處理

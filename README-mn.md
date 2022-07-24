@@ -14,9 +14,10 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 
 ### JWT (JSON Web Token)
 - [ ] Санамсаргүй үүссэн түлхүүр (`JWT Secret`) ашиглаж token -ыг brute force -оос хамгаал.
-- [ ] Payload -аас алгоритмаа бүү задал. Backend дээрээ хий (`HS256` or `RS256`).
+- [ ] Payload -аас алгоритмаа бүү задал. Backend дээрээ хий (`HS256` эсвэл `RS256`).
 - [ ] Токен дуусах хугацаа (`TTL`, `RTTL`) аль болох бага болго.
 - [ ] Чухал өгөгдлийг JWT payload -д бүү хадгал, decode хийхэд [амархан](https://jwt.io/#debugger-io).
+- [ ] Хэт их мэдээлэл хадгалахаас зайлсхий. JWT нь ихэвчлэн headers хэсэгт хуваагддаг бөгөөд тэдгээр нь хэмжээ хязгаартай байдаг.
 
 ### OAuth
 - [ ] `redirect_uri` -ыг үргэлж сервер талд шалган зөвшөөрөгдсөн URL эсэхийг шалга.
@@ -28,13 +29,15 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 - [ ] Хүсэлтийн тоог хязгаарлаж (Throttling) DDoS / brute-force дайралтаас хамгаална.
 - [ ] HTTPS ашиглаж сервер талдаа MITM (Man In The Middle Attack) дайралтаас хамгаална.
 - [ ] `HSTS` header -ыг SSL дээр ашиглаж SSL Strip дайралтаас хамгаална.
+- [ ] Лавлах жагсаалтыг унтраа.
+- [ ] Хувийн API-уудын хувьд зөвхөн зөвшөөрөгдсөн жагсаалтад орсон IP/хостоос хандахыг зөвшөөрнө үү.
 
 ## Input
 - [ ] Яг зөв HTTP хүсэлтийг ашигла: `GET (унших)`, `POST (үүсгэх)`, `PUT/PATCH (орлуулах/солих)`, мөн `DELETE (устгах)`, бас `405 Method Not Allowed` -ыг хүсэлтийн төрөл тодорхойгүй үед ашигла.
 - [ ] `content-type` -ыг хүсэлтийн header (Content Negotiation) дээр шалгаж зөвхөн дэмжигдсэн төрлийг зөвшөөр (Жнь. `application/xml`, `application/json`, гэх мэт) бас төрөл нь таарахгүй бол `406 Not Acceptable` хариу буцаа.
 - [ ] `content-type` -ыг post хийх өгөгдөл дээр шалга (Жнь. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, г.м).
 - [ ] Хэрэглэгчээс гараас оруулсан утгыг шалгаж түгээмэл нүхнүүдээс сэргийлнэ. (Жнь. `XSS`, `SQL-Injection`, `Remote Code Execution`, г.м).
-- [ ] Чухал өгөгдлүүдийг (`credentials`, `Passwords`, `security tokens`, or `API keys`) URL ээр бүү явуул, оронд нь стандарт Authorization header ашигла.
+- [ ] Чухал өгөгдлүүдийг (`credentials`, `Passwords`, `security tokens`, эсвэл `API keys`) URL ээр бүү явуул, оронд нь стандарт Authorization header ашигла.
 - [ ] API Gateway үйлчилгээ ашиглан Rate Limit Policies (Жнь. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) болон cache хийх, мөн API deploy хийхэд ашигла.
 
 ## Processing

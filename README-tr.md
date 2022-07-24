@@ -17,6 +17,7 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Algoritmayı gelen veri üzerinden belirlemeyin. Arka uçta olmasını sağlayın. (`HS256` veya `RS256`).
 - [ ] Token'in son kullanma tarihini (`TTL`, `RTTL`) olabildiğince kısa yapın.
 - [ ] Hassas verilerinizi JWT payload içine koymayın, [Kolayca](https://jwt.io/#debugger-io) çözülebilir.
+- [ ] Çok fazla veri depolamaktan kaçının. JWT genellikle header'larda paylaşılır ve bunların bir boyut sınırı vardır.
 
 ### OAuth
 - [ ] Yalnızca beyaz listeye eklenen URL'lere izin vermek için sunucu tarafındaki `redirect_uri` bilgisini her zaman doğrulayın.
@@ -28,6 +29,8 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] DDoS ya da kaba kuvvet saldırılarından korunmak için istekleri sınırlamalısınız.
 - [ ] MITM (Man In The Middle Attack) saldırılarında korunmak için sunucu tarafında HTTPS kullanın.
 - [ ] SSL Strip saldırılarından korunmak için `HSTS` header'ı SSL ile kullan.
+- [ ] Dizin listelerini kapatın.
+- [ ] Özel API'ler için, yalnızca beyaz listedeki IP'lerden/host'lardan erişime izin verin.
 
 ## Girdi
 - [ ] İşleme göre uygun HTTP yöntemini kullanın: `GET (okumak)`, `POST (oluşturmak)`, `PUT/PATCH (değiştirmek/güncellemk)`, ve `DELETE (bir kaydı silmek için)`, eğer istenen yöntem istenen kaynak için uygun değilse `405 Method Not Allowed` mesajı ile cevap verin.

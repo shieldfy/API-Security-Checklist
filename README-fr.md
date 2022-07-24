@@ -17,6 +17,7 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Ne pas extraire l'algorithme du payload. Imposer l'algorithme côté serveur (`HS256` ou `RS256`).
 - [ ] Rendre la durée de vie des tokens (`TTL`, `RTTL`) aussi courte que possible.
 - [ ] Ne pas stocker des informations sensibles du payload JWT, son décryptage est très [simple](https://jwt.io/#debugger-io).
+- [ ] Éviter de stocker trop de données. JWT est généralement partagé dans les en-têtes et ils ont une limite de taille.
 
 ### OAuth
 - [ ] Toujours valider la redirection d'uri (`redirect_uri`) côté serveur afin d'accéder uniquement aux URLs autorisées.
@@ -28,6 +29,8 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Limiter le nombre de requêtes (limitation de bande passante) pour éviter les dénis de service et les attaques par force brute.
 - [ ] Utiliser le protocole HTTPS côté serveur afin d'éviter les attaques de l'homme du milieu (MITM).
 - [ ] Utiliser les entêtes `HSTS` avec SSL pour éviter les attaques SSL Strip.
+- [ ] Désactiver les listes du répertoires.
+- [ ] Pour les API privées, n'autorisez l'accès qu'à partir d'adresses IP/hôtes sur liste blanche.
 
 ## Entrées
 - [ ] Utiliser la bonne méthode en fonction de l'opération, `GET (lire)`, `POST (créer)`, `PUT (remplacer/mettre à jour)` et `DELETE (pour supprimer un enregistrement)`.

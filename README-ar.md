@@ -16,9 +16,10 @@
 
 ### JSON Web Token) JWT)
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم مفتاح عشوائي ومعقد (`JWT Secret`) لتجعل هجوم التخمين بالقوة brute forcing صعبا جدا.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تقم باستخراج خوارزمية التشفير من محتوى رمز الـ JWT. قم بإجبار الرمز البرمجي على استخدام خوارزمية (`HS256` or `RS256`).
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تقم باستخراج خوارزمية التشفير من محتوى رمز الـ JWT. قم بإجبار الرمز البرمجي على استخدام خوارزمية (`HS256` أو `RS256`).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اجعل مدة انتهاء الرمز (`TTL`, `RTTL`) قصيرة قدر الإمكان.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تقم بتخزين أي بيانات حساسة داخل محتوى رمز الـ JWT, لأنه يمكن كشف هذه المحتويات بسهولة [easily](https://jwt.io/#debugger-io).
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تجنب تخزين الكثير من البيانات. عادةً ما تتم مشاركة JWT في الرؤوس ولديها حد للحجم.
 
 ### OAuth
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تحقق دائما من `redirect_uri` في الرمز البرمجي للخادوم لتسمح فقط بقائمة محددة من الروابط.
@@ -30,13 +31,15 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حدد الطلبات (Throttling) لتتجنب هجوم حجب الخدمة DDoS وهجوم التخمين بالقوة brute-force.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم HTTPS على الخادوم لتتجنب هجمات التنصت على الطلبات MITM (Man In The Middle Attack).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم `HSTS` header مع الـ SSL لتتجنب هجمات الـ SSL Strip.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بإيقاف تشغيل قوائم الدليل.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بالنسبة لواجهات برمجة التطبيقات الخاصة، اسمح بالوصول فقط من عناوين IP والمضيفين المدرجين في القائمة البيضاء.
 
 ## الإدخال
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم الوسيلة المناسبة HTTP method حسب العملية التي تريد القيام بها : `GET (للقرائة)`, `POST (انتاج أو اضافة)`, `PUT/PATCH (لإستبدال او تحديث)`, and `DELETE (لحذف سجل)`, و قم بالرد بـ `405 Method Not Allowed` في حالة إذا كانت الوسيلة method غير مناسبة .
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بالتحقق من `content-type` في رأس الطلب reuest header أو ما يسمى بـ (Content Negotiation) لتسمح فقط بالتنسيقات المدعومة (مثال `application/xml`, `application/json`, إلى آخره) وقم بالرد بـ `406 Not Acceptable` إذا كان التنسيق غير ذلك.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بالتحقق من `content-type` في محتوى الطلب نفسه posted data (مثال `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, إلى آخره).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بالتحقق من مدخلات المستخدم لتتجنب الثغرات الشائعة (مثال `XSS`, `SQL-Injection`, `Remote Code Execution`, إلى آخره).
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تستخدم أي بيانات حساسة (`credentials`, `Passwords`, `security tokens`, or `API keys`) في الرابط ولكن استخدم الطريقة القياسية وهي رأس الطلب الخاص بالمصادقة Authorization header.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تستخدم أي بيانات حساسة (`credentials`, `Passwords`, `security tokens`, أو `API keys`) في الرابط ولكن استخدم الطريقة القياسية وهي رأس الطلب الخاص بالمصادقة Authorization header.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم واجهة للـ API لتستفيد من التخزين المؤقت caching وسياسات تحديد عدد الطلبات Rate Limit policies (مثال `الحصة Quota`, `التنبية في الارتفاع المفاجئ Spike Arrest`, `وتحديد عدد الطلبات المتزامنة Concurrent Rate Limit`)
 
 ## المعالجة
@@ -76,5 +79,5 @@
 ---
 
 # المشاركة
-لا تتردد في المساهمة عن طريق أخذ نسخة من هذه القائمة fork ، وإجراء بعض التغييرات، وتقديم طلبات المراجعة pull request. أي أسئلة الرجاء مراسلتنا على البريد الإلكتروني `team@shieldfy.io`.
+لا تتردد في المساهمة عن طريق أخذ نسخة من هذه القائمة fork، وإجراء بعض التغييرات، وتقديم طلبات المراجعة pull request. أي أسئلة الرجاء مراسلتنا على البريد الإلكتروني `team@shieldfy.io`.
 </div>

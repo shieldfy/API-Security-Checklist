@@ -29,13 +29,15 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 - [ ] Limita las peticiones (`Throttling`) para prevenir ataques DDoS y de fuerza bruta.
 - [ ] Usa HTTPS en el lado del servidor para evitar ataques MITM (Man In The Middle Attack).
 - [ ] Usa la cabecera `HSTS` con SSL para evitar SSL Strip attack.
+- [ ] Desactive las listados de directorios.
+- [ ] Para las API privadas, permita el acceso solo desde hosts/IP incluidos en la lista blanca.
 
 ## Entradas
 - [ ] Usa el método HTTP apropiado a cada operación: `GET (lectura)`, `POST (creación)`, `PUT/PATCH (reemplazo/actualización)`, y `DELETE (borrado)`, y responde con `405 Method Not Allowed` si el método en la petición no es apropiado para el recurso.
 - [ ] Valida el `content-type` en la cabecera `Accept` de las peticiones (Content Negotiation), para permitir sólo los formatos soportados (e.g. `application/xml`, `application/json`, etc) y responde con `406 Not Acceptable` si no hay coincidencias.
 - [ ] Valida el `content-type` de información enviada en base a la que aceptes (e.g. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, etc).
 - [ ] Valida las entradas que realizan los usuarios para evitar ataques comunes (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc).
-- [ ] No utilices información sensible (`credentials`, `Passwords`, `security tokens`, or `API keys`) en la URL, en su lugar usa la cabecera estándar `Authorization`.
+- [ ] No utilices información sensible (`credentials`, `Passwords`, `security tokens`, o `API keys`) en la URL, en su lugar usa la cabecera estándar `Authorization`.
 - [ ] Usa un servicio de API Gateway para permitir almacenamiento en caché (caching), límite de peticiones (Rate Limit), Spike Arrest y el despliegue de APIs dinámicamente.
 
 ## Procesamiento

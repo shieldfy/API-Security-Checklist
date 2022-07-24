@@ -17,7 +17,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Don't extract the algorithm from the header. Force the algorithm in the backend (`HS256` or `RS256`).
 - [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
 - [ ] Don't store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
-- [ ] Avoid storing too much or growing up data. JWT is usually shared in headers and they have a size limit.
+- [ ] Avoid storing too much data. JWT is usually shared in headers and they have a size limit.
 
 ### OAuth
 - [ ] Always validate `redirect_uri` server-side to allow only whitelisted URLs.
@@ -28,9 +28,9 @@ Checklist of the most important security countermeasures when designing, testing
 ## Access
 - [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
 - [ ] Use HTTPS on server side with TLS 1.2+ and secure ciphers to avoid MITM (Man in the Middle Attack).
-- [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
+- [ ] Use `HSTS` header with SSL to avoid SSL Strip attacks.
 - [ ] Turn off directory listings.
-- [ ] For private APIs, only allow access from whitelisted IPs/hosts.
+- [ ] For private APIs, allow access only from whitelisted IPs/hosts.
 
 ## Input
 - [ ] Use the proper HTTP method according to the operation: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, and `DELETE (to delete a record)`, and respond with `405 Method Not Allowed` if the requested method isn't appropriate for the requested resource.
