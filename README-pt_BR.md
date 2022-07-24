@@ -38,6 +38,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Valide o tipo de conteúdo do conteúdo da requisição informado no cabeçalho `Content-Type` da requisição para permitir apenas os formatos suportados pela sua API (ex. `application/x-www-form-urlencoded`, `multipart/form-data, application/json` ... etc).
 - [ ] Valide o conteúdo da requisição para evitar as vulnerabilidades mais comuns (ex. `XSS`, `SQL-Injection`, `Remote Code Execution` ... etc).
 - [ ] Não utilize nenhuma informação sensível (credenciais, senhas, _tokens_ de autenticação) na URL. Use o cabeçalho `Authorization` da requisição.
+- [ ] Use apenas criptografia do lado do servidor.
 - [ ] Use um serviço _gateway_ para a sua API para habilitar _cache_, limitar acessos sucessivos (ex. por quantidade máxima permitida (_Quota_), por limitar tráfego em situações de estresse (_spike arrest_) ou por limitar o número de conexões simultâneas na sua API (_Concurrent Rate Limit_)), e facilitar o _deploy_ de novas funcionalidades.
 
 ## Processamento (_Processing_)
@@ -49,6 +50,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Use CDN para _uploads_ de arquivos.
 - [ ] Se você estiver trabalhando com uma grande quantidade de dados, use _workers_ e _queues_ (fila de processos) para retornar uma resposta rapidamente e evitar o bloqueio de requisições HTTP.
 - [ ] Não se esqueça de desativar o modo de depuração (_DEBUG mode OFF_).
+- [ ] Use stacks não executáveis quando disponíveis.
 
 ## Resposta (_Output_)
 - [ ] Envie o cabeçalho `X-Content-Type-Options: nosniff`.

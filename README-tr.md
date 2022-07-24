@@ -38,6 +38,7 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Gönderilen verileri doğrularken gelen verinin `content-type` değerini doğrulayın (ör. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, v.b.).
 - [ ] Genel güvenlik açıklarını önlemek için kullanıcıdan gelen her veriyi doğrulayın (ör. `XSS`, `SQL-Injection`, `Remote Code Execution`, v.b.).
 - [ ] URL'de hassas veriler (`credentials`, `Passwords`, `security tokens`, veya `API keys`) kullanmayın, ancak standart Authorization header kullanın.
+- [ ] Yalnızca sunucu tarafı şifreleme kullanın.
 - [ ] Önbelleklemeyi ve hız sınır politikalarını (ör. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) etkinleştirmek için ve API kaynaklarını dinamik olarak dağıtmak için bir API Gateway hizmeti kullanın.
 
 ## İşleme
@@ -48,7 +49,8 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Eğer XML dosyarını (parse) ayrıştırıyorsanız, `Billion Laughs/XML bomb` varlık genişletme saldırısı yoluyla,varlığın genişlemesinin önlemek için etkinleştirilmediğinden emin olun.
 - [ ] Dosya yüklemeleri için bir CDN kullanın.
 - [ ] Büyük miktarda veri ile uğraşıyorsanız, HTTP tıkanmasını engellemeyi önlemek için işleyici (Worker) ve kuyrukları (Queues) yapılarını arka planda işlem yapmak ve yanıtı hızlı bir şekilde yanıtlamak için mümkün oluğu kadar kullanın.
-- [ ] DEBUG modunu kapatmayı unutmayın!.
+- [ ] DEBUG modunu kapatmayı unutmayın!
+- [ ] Varsa yürütülemez yığınları kullanın.
 
 ## Çıktı
 - [ ] `X-Content-Type-Options: nosniff` header'ı gönderin.

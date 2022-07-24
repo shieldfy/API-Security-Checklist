@@ -38,6 +38,7 @@
 - [ ] 验证 `content-type` 中申明的编码和你收到正文编码一致（如 `application/x-www-form-urlencoded`，`multipart/form-data`，`application/json` 等等）。
 - [ ] 验证用户输入来避免一些普通的易受攻击缺陷（如 `XSS`，`SQL-注入`，`远程代码执行` 等等）。
 - [ ] 不要在 URL 中使用任何敏感的数据（`credentials`，`Passwords`，`security tokens`，or `API keys`），而是使用标准的认证请求头。
+- [ ] 仅使用服务器端加密。
 - [ ] 使用一个 API Gateway 服务来启用缓存、限制访问速率（如 `Quota`，`Spike Arrest`，`Concurrent Rate Limit`）以及动态地部署 APIs resources。
 
 ## 处理
@@ -49,6 +50,7 @@
 - [ ] 在文件上传中使用 CDN。
 - [ ] 如果数据处理量很大，尽可能使用队列或者 Workers 在后台处理来避免阻塞请求，从而快速响应客户端。
 - [ ] 不要忘了把 DEBUG 模式关掉。
+- [ ] 可用时使用不可执行的堆栈。
 
 ## 输出
 - [ ] 增加请求返回头 `X-Content-Type-Options: nosniff`。

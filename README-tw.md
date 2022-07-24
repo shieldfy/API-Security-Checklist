@@ -38,6 +38,7 @@
 - [ ] 驗證 `content-type` 的發佈數據和你收到的一樣 (如 `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json` 等等).
 - [ ] 驗證用戶輸入來避免一些普通的易受攻擊缺陷 (如 `XSS`, `SQL-注入`, `遠程代碼執行` 等等).
 - [ ] 不要在 URL 中使用任何敏感的數據 (`credentials`, `Passwords`, `security tokens`, 或 `API keys`), 而是使用標準的認證請求頭.
+- [ ] 僅使用服務器端加密。
 - [ ] 使用一個 API Gateway 服務來啟用緩存、訪問速率限制 (如 `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) 以及動態地部署 APIs resources.
 
 ## 處理
@@ -49,6 +50,7 @@
 - [ ] 在文件上傳中使用 CDN.
 - [ ] 如果需要處理大量的數據, 使用 Workers 和 Queues 來快速響應, 從而避免 HTTP 阻塞.
 - [ ] 不要忘了把 DEBUG 模式關掉.
+- [ ] 可用時使用不可執行的堆棧。
 
 ## 輸出
 - [ ] 發送 `X-Content-Type-Options: nosniff` 頭.

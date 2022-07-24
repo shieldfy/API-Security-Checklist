@@ -39,6 +39,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مقدار `content-type` در داده‌ی پست‌شده را اعتبارسنجی کن (مثلا `application/x-www-form-urlencoded`، `multipart/form-data`، `application/json` و ...).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ورودی کاربر را اعتبارسنجی کن تا از آسیب‌پذیری‌های معمول جلوگیری شود (مثلا `XSS`، `SQL-Injection` و `Remote Code Execution`).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هیچ داده‌ی حساسی مثل (داده‌های اعتبارسنجی، پسوورد‌ها، توکن‌های امنیتی یا کلید‌های API) را داخل URL قرار نده و از هدر Authorization استاندارد استفاده کن.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;فقط از رمزگذاری سمت سرور استفاده کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از یک سرویس API Gateway استفاده کن تا کش‌کردن و سیاست‌های Rate Limit (مثلا `Quota`، `Spike Arrest` یا `Concurrent Rate Limit`) فعال شوند و منابع APIها را به صورت داینامیک دپلوی کن.
 
 ## پردازش
@@ -50,6 +51,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از یک CDN برای آپلودهای فایل استفاده کن.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اگر با مقادیر بسیار حجیمی از داده باید کار کنی، از Workerها و Queueها استفاده کن تا حداکثر پردازش در بک‌گراند انجام شود و سریع پاسخ را برگردان تا از HTTP Blocking جلوگیری شود.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خاموش کردن حالت DEBUG را فراموش نکن.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;در صورت وجود از پشته های غیر قابل اجرا استفاده کنید.
 
 ## خروجی
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هدر `X-Content-Type-Options: nosniff` را ارسال کن.

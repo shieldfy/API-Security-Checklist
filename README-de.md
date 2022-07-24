@@ -38,6 +38,7 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Validiere den `Content-Type` im Header der Anfrage für übertragene Daten (bspw. POST oder PUT) wie bspw. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, usw.
 - [ ] Validiere immer alle Eingaben im Request und allen Parametern um allgemeine Angriffsmöglichkeiten zu verhindern (bspw. `XSS`, `SQL-Injection`, `Remote Code Execution`, usw).
 - [ ] Verwende niemals sensitive Daten (`Anmeldedaten`, `Passwörter`, `Security Tokens`, oder `API-Schlüssel`) in der URL, aber nutze den standardisierten "Authorization" Header.
+- [ ] Verwenden nur serverseitige Verschlüsselung.
 - [ ] Nutze ein API Gateway Service für Caching, Rate Limit Regeln (bspw. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) und der Bereitstellung dynamischer API Ressourcen.
 
 ## Verarbeitung
@@ -49,6 +50,7 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Nutze CDN für Dateiuploads.
 - [ ] Wenn du eine große Menge an Daten verarbeiten musst, nutze Worker und Queues, um so viel wie möglich im Hintergrund zu verarbeiten und schnelle Antwortzeiten zu gewährleisten.
 - [ ] Vergiss nicht den DEBUG Modus zu deaktivieren.
+- [ ] Verwenden nicht ausführbare Stacks sofern verfügbar.
 
 ## Output
 - [ ] Sende `X-Content-Type-Options: nosniff` im Header.

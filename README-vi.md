@@ -38,6 +38,7 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Xác nhận dữ liệu `content-type` được chấp nhận khi gửi lên (chẳng hạn như. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`...).
 - [ ] Kiểm tra dữ liệu truyền lên từ người dùng để tránh các lỗ hổng phổ biến (chẳng hạn như `XSS`, `SQL-Injection`, `Remote Code Execution`...).
 - [ ] Không sử dụng các dữ liệu nhạy cảm như (`credentials`, `Passwords`, `security tokens`, hoặc `API keys`) tại URL, sử dụng header Authorization để xác thực.
+- [ ] Chỉ sử dụng mã hóa phía máy chủ.
 - [ ] Sử dụng API Gateway để kích hoạt cache, Rate Limit policies (chẳng hạng như. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) và deploy APIs resources linh động hơn.
 
 ## Processing
@@ -49,6 +50,7 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Sử dụng CDN để tải lên tệp tin.
 - [ ] Nếu bạn đang cần xử lý với lượng dữ liệu lớn, sử dụng các kỹ thuật Workers và Queues để xử lý tác vụ dưới nền càng nhiều càng tốt và giúp phản hồi nhanh để tránh bị timeout HTTP.
 - [ ] Đừng quên tắt chế độ DEBUG.
+- [ ] Sử dụng stack không thực thi khi có sẵn.
 
 ## Output
 - [ ] Thêm `X-Content-Type-Options: nosniff` vào response headers.

@@ -40,6 +40,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بالتحقق من `content-type` في محتوى الطلب نفسه posted data (مثال `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, إلى آخره).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بالتحقق من مدخلات المستخدم لتتجنب الثغرات الشائعة (مثال `XSS`, `SQL-Injection`, `Remote Code Execution`, إلى آخره).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تستخدم أي بيانات حساسة (`credentials`, `Passwords`, `security tokens`, أو `API keys`) في الرابط ولكن استخدم الطريقة القياسية وهي رأس الطلب الخاص بالمصادقة Authorization header.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم فقط التشفير من جانب الخادم.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم واجهة للـ API لتستفيد من التخزين المؤقت caching وسياسات تحديد عدد الطلبات Rate Limit policies (مثال `الحصة Quota`, `التنبية في الارتفاع المفاجئ Spike Arrest`, `وتحديد عدد الطلبات المتزامنة Concurrent Rate Limit`)
 
 ## المعالجة
@@ -51,6 +52,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم شبكات تسليم المحتوى CDN لرفع الملفات.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لو كنت تتعامل مع حجم بيانات ضخم، استخدم عمليات منفصلة Workers, Queues لمعالجة البيانات في الخلفية والرد على المستخدم بسرعة لتجنب حجب الطلب HTTP Blocking.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تترك وضع التصحيح DEBUG mode في حالة التشغيل.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم مكدسات غير قابلة للتنفيذ عند توفرها.
 
 ## المخرجات
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم `X-Content-Type-Options: nosniff` في رأس الطلب header.
