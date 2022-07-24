@@ -59,6 +59,8 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Przetestuj wszystkie rozwiązania stosując testy jednostkowe.
 - [ ] Oddaj kod do przejrzenia innym, poddaj go `code review`.
 - [ ] Upewnij się, że wszystkie komponenty twojej usługi są skanowane przez oprogramowanie antywirusowe przed wejściem na produkcje. Uwzględnij także zewnętrzne biblioteki.
+- [ ] Continuously run security tests (static/dynamic analysis) on your code.
+- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] Stwórz możliwość szybkiego wycofania udostępnionego wdrożenia.
 
 

@@ -60,6 +60,8 @@
 - [ ] 使用单元测试以及集成测试的覆盖率来保障你的设计和实现。
 - [ ] 引入代码审查流程，禁止私自合并代码。
 - [ ] 在推送到生产环境之前确保服务的所有组件都用杀毒软件静态地扫描过，包括第三方库和其它依赖。
+- [ ] Continuously run security tests (static/dynamic analysis) on your code.
+- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] 为部署设计一个回滚方案。
 
 

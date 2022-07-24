@@ -47,19 +47,21 @@
 - [ ] यदि आप बड़ी मात्रा में डेटा के साथ काम कर रहे हैं, तो Workers और Queues का उपयोग पृष्ठभूमि में यथासंभव प्रक्रिया करने के लिए और HTTP अवरोधन(Blocking) से बचने के लिए तेज़ी से return response करें।
 - [ ] DEBUG मोड बंद करने के लिए मत भूलना।
 
- ## Output
+## Output
 - [ ] `X-Content-Type-Options: nosniff` हेडर भेजें।
 - [ ] `X-Frame-Options: deny`हेडर भेजें।
 - [ ] `Content-Security-Policy: default-src 'none'`हेडर भेजें।
 - [ ] `X-Powered-By`, `Server`, `X-AspNet-Version` फिंगरप्रिंटिंग हेडर हटाएं।
 - [ ] आपकी प्रतिक्रिया के लिए `content-type` को बल दें, यदि आप `application/json` वापस करते हैं तो आपकी प्रतिक्रिया `content-type` `application/json` है।
 - [ ] `credentials`, `Passwords`, `security tokens` जैसे संवेदनशील डेटा वापस न करें।
- ऑपरेशन के अनुसार उचित स्थिति कोड वापस करें। (जैसे `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, आदि)।
+- [ ] ऑपरेशन के अनुसार उचित स्थिति कोड वापस करें। (जैसे `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, आदि)।
 
- ## CI & CD
+## CI & CD
 - [ ] unit/integration परीक्षण कवरेज के साथ अपने डिजाइन और कार्यान्वयन की जांच करें।
 - [ ] कोड समीक्षा प्रक्रिया का उपयोग करें और स्वयं-स्वीकृति की उपेक्षा करें।
 - [ ] सुनिश्चित करें कि आपकी सेवाओं के सभी components को AV सॉफ्टवेयर द्वारा स्कैन करने से पहले उत्पादक को push. vendor libraries और अन्य dependencies शामिल हैं।
+- [ ] Continuously run security tests (static/dynamic analysis) on your code.
+- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] तैनाती के लिए एक रोलबैक समाधान तैयार करें।
 
 

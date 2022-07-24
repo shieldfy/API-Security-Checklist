@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](./README-mk.md) | [ລາວ](./README-lo.md) | [فارسی](./README-fa.md) | [മലയാളം](./README-ml.md) 
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](./README-mk.md) | [ລາວ](./README-lo.md) | [فارسی](./README-fa.md) | [മലയാളം](./README-ml.md)
 
 # API λίστα ελέγχου ασφαλείας
 Λίστα με τα πιο σημαντικά μέτρα ασφαλείας στον σχεδιασμό, έλεγχο, και την έκδοση του API σας.
@@ -60,6 +60,8 @@
 - [ ] Ελέγξτε το σχεδιασμό και την κατάσταση της εφαρμογή σας με επαρκή κάλυψη τεστ Unit / integration.
 - [ ] Χρησιμοποιήτε code review διαδικασίες και μη δέχεστε self-approval απο την ομάδα.
 - [ ] Εξασφαλίστε ότι όλα τα στοιχέια των υπηρεσιών σας περνούν απο στατικό έλεγχο με AV software πριν τα αναρτήσετε στο production, συμπεριλαμβανομένου οποιασδήποτε εξωτερικής βιβλιοθήκης που μπορει να χρησιμοποιήτε.
+- [ ] Continuously run security tests (static/dynamic analysis) on your code.
+- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] Σχεδιάστε rollback διαδικασίες για deployments.
 
 

@@ -60,6 +60,8 @@ APIを設計、テスト、リリースするときの最も重要なセキュ�
 - [ ] ユニットテスト/結合テストのカバレッジで、設計と実装を継続的に検査する。
 - [ ] コードレビューのプロセスを採用し、自身による承認を無視する。
 - [ ] プロダクションへプッシュする前に、ベンダのライブラリ、その他の依存関係を含め、サービスの全ての要素をアンチウイルスソフトで静的スキャンする。
+- [ ] Continuously run security tests (static/dynamic analysis) on your code.
+- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] デプロイのロールバックを用意する。
 
 

@@ -60,6 +60,8 @@
 - [ ] 使用單元測試和整合測試來審計你的設計和實現.
 - [ ] 引入代碼審查流程, 不要自行批准更改.
 - [ ] 在推送到生產環境之前確保服務的所有組件都用殺毒軟件靜態地掃瞄過, 包括第三方庫和其它依賴.
+- [ ] Continuously run security tests (static/dynamic analysis) on your code.
+- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] 為部署設計一個回滾方案.
 
 

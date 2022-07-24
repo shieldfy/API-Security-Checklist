@@ -34,7 +34,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از متد HTTP مناسب با توجه به نوع عملیات استفاده کن: `GET` برای خواندن، `POST` برای ایجاد کردن، `PUT/PATCH` برای جایگزین یا بروزرسانی و `DELETE` برای حذف یک رکورد، و در صورتیکه متد درخواستی برای منبع درخواست‌شده مناسب نیست با `405 Method Not Allowed` پاسخ بده.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مقدار `content-type` را در هدر Accept رکوئست (مذاکره محتوا یا Content Negotiation) اعتبارسنجی کن تا فقط به فرمت‌های مورد پشتیبانی اجازه داده شود (مثلا `application/xml`، `application/json` و ...).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مقدار `content-type` در داده‌ی پست‌شده را اعتبارسنجی کن (مثلا `application/x-www-form-urlencoded`، `multipart/form-data`، `application/json` و ...).
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ورودی کاربر را اعتبارسنجی کن تا از آسیب‌پذیری‌های معمول جلوگیری شود (مثلا `XSS`، `SQL-Injection` و `Remote Code Execution`). 
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ورودی کاربر را اعتبارسنجی کن تا از آسیب‌پذیری‌های معمول جلوگیری شود (مثلا `XSS`، `SQL-Injection` و `Remote Code Execution`).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هیچ داده‌ی حساسی مثل (داده‌های اعتبارسنجی، پسوورد‌ها، توکن‌های امنیتی یا کلید‌های API) را داخل URL قرار نده و از هدر Authorization استاندارد استفاده کن.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از یک سرویس API Gateway استفاده کن تا کش‌کردن و سیاست‌های Rate Limit (مثلا `Quota`، `Spike Arrest` یا `Concurrent Rate Limit`) فعال شوند و منابع APIها را به صورت داینامیک دپلوی کن.
 
@@ -61,13 +61,15 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;طراحی و پیاده سازی خودت را با پوشش تست‌های unit/integration بازرسی کن.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از یک پروسه‌ی مرور کد استفاده کن و خود-تاییدی را نادیده بگیر.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مطمئن شو تا تمامی اجزای سرویس‌هایت، شامل کتابخانه‌های استفاده‌شده و دیگر وابستگی‌ها، قبل از انتشار در حالت production، به طور ایستا توسط نرم‌افزارهای آنتی‌ویروس اسکن شده‌اند.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Continuously run security tests (static/dynamic analysis) on your code.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای دپلوی، یک راه‌حل با قابلیت عقبگرد (rollback) طراحی کن.
 
 
 ---
 
 ## نگاهی بیانداز به:
-- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - یک مجموعه از منابع بردردبخور برای ساختن APIهای RESTful با HTTP و JSON - 
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - یک مجموعه از منابع بردردبخور برای ساختن APIهای RESTful با HTTP و JSON -
 
 
 ---

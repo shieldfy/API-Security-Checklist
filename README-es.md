@@ -61,6 +61,8 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 - [ ] Audita tu diseño e implementación con tests unitarios/integración y test coverage.
 - [ ] Usa procesos de revisión de código y evita la auto aprobación.
 - [ ] Asegura que todos los componentes de tus servicios se escanean estáticamente con un software AV antes de ir a producción, incluyendo librerías de terceros y dependencias.
+- [ ] Continuously run security tests (static/dynamic analysis) on your code.
+- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] Diseña un proceso de `rollback` para tus `deploys`.
 
 

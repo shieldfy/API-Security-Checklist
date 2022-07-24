@@ -60,6 +60,8 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 - [ ] unit/integration тест ашиглан системийн загварчлал, хэрэгжилтийг шалгах.
 - [ ] Код шалгалт ашигла, мөн өөрөө өөрийгөө ч шалга.
 - [ ] Бүх тусдаа хэсгүүд бүр vendor сан, бусад нэмэлт сангууд бүгдийг нь AV програмаар статикаар шалга.
+- [ ] Continuously run security tests (static/dynamic analysis) on your code.
+- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] Ямар ч үед deploy хийхэд амар шийдэл гаргах.
 
 
