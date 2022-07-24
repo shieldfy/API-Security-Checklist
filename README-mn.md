@@ -38,6 +38,7 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 - [ ] `content-type` -ыг post хийх өгөгдөл дээр шалга (Жнь. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, г.м).
 - [ ] Хэрэглэгчээс гараас оруулсан утгыг шалгаж түгээмэл нүхнүүдээс сэргийлнэ. (Жнь. `XSS`, `SQL-Injection`, `Remote Code Execution`, г.м).
 - [ ] Чухал өгөгдлүүдийг (`credentials`, `Passwords`, `security tokens`, эсвэл `API keys`) URL ээр бүү явуул, оронд нь стандарт Authorization header ашигла.
+- [ ] Зөвхөн сервер талын шифрлэлтийг ашиглана уу.
 - [ ] API Gateway үйлчилгээ ашиглан Rate Limit Policies (Жнь. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) болон cache хийх, мөн API deploy хийхэд ашигла.
 
 ## Processing
@@ -49,6 +50,7 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 - [ ] Файл upload хийхэд CDN ашигла.
 - [ ] Их хэмжээний өгөгдөлтэй ажиллах үед Workers болон Queue ашиглан үйлдлийг аль болох background -д ажиллуулж хариуг хурдан явуулах нь HTTP Blocking -оос сэргийлнэ.
 - [ ] DEBUG горимыг унтраах.
+- [ ] Боломжтой үед гүйцэтгэх боломжгүй stack ашигла.
 
 ## Output
 - [ ] `X-Content-Type-Options: nosniff` header дээр явуул.

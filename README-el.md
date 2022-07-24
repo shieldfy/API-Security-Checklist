@@ -38,6 +38,7 @@
 - [ ] Επικυρώστε `content-type` δεδομένα που στέλνετε, με τον ίδιο τρόπο όπως τα δέχεστε (π.χ. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, κτλ.).
 - [ ] Επικυρώστε την οποιαδήποτε είσοδο δεδομένων απο τους χρήστες, για να αποφύγετε τα κοινά κενά ασφαλείας (π.χ. `XSS`, `SQL-Injection`, `Remote Code Execution`, κτλ.).
 - [ ] Μη χρησιμοποιήτε ευαίσθητα δεδομένα (`credentials`, `Passwords`, `security tokens`, ή `API keys`) στο URL, αλλά χρησιμοποιήστε τη κοινή Authorization κεφαλίδα (standard Authorization header).
+- [ ] Χρησιμοποιήστε μόνο κρυπτογράφηση από την πλευρά του διακομιστή.
 - [ ] Χρησιμοποιήστε API Gateway service για να ενεργοποιήσετε caching, Rate Limit policies (π.χ. `Quota`, `Spike Arrest`, ή `Concurrent Rate Limit`) και κάντε deploy APIs resources δυναμικά.
 
 ## Επεξεργασία (Processing)
@@ -49,6 +50,7 @@
 - [ ] Χρησιμοποιήστε CDN για την φόρτωση αρχείων (file uploads).
 - [ ] Εάν επεξεργάζεστε μεγάλο αριθμο δεδομένων, χρησιμοποιήστε Workers και Queues για να γίνετε η επεξεργασία στο background και να γίνεται η επιστροφή απάντησης πολύ πιο γρήγορα, αποφεύγοντας HTTP Blocking.
 - [ ] Μην ξεχνάτε να απενεργοποιήσετε το DEBUG mode.
+- [ ] Χρησιμοποιήστε μη εκτελέσιμες στοίβες όταν είναι διαθέσιμες.
 
 ## Αποστολή/Επιστροφή δεδομένων (Output)
 - [ ] Αποστέλετε `X-Content-Type-Options: nosniff` κεφαλίδα (header).

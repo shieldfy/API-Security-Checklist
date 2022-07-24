@@ -38,6 +38,7 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Validasi `content-type` dari data yang dipos oleh pengguna (Contoh: `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, dan lain sebagainya).
 - [ ] Validasi masukan dari pengguna untuk menghindari kerentanan umum (Contoh: `XSS`, `SQL-Injection`, `Remote Code Execution`, dan lain sebagainya).
 - [ ] Jangan gunakan data sensitif seperti `kredensial`, `kata sandi`, `token keamanan`, atau `kunci API` pada URL. Gunakan tajuk _Authorization_ baku.
+- [ ] Gunakan hanya enkripsi sisi server.
 - [ ] Gunakan layanan pintu gerbang API (_API Gateway_) untuk memungkinan singgahan, pembatasan laju, pendeteksian lalu lintas tinggi, dan penyebaran sumber daya API secara dinamis.
 
 ## Pemrosesan
@@ -49,6 +50,7 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Gunakan CDN untuk unggah berkas.
 - [ ] Jika berhubungan dengan jumlah data yang sangat besar, gunakan Pekerja dan Antrian untuk memproses sebanyak mungkin di balik layar dan kembalikan tanggapan cepat untuk menghindari pemblokiran HTTP.
 - [ ] Jangan lupa untuk mematikan mode DEBUG.
+- [ ] Gunakan stack yang tidak dapat dieksekusi jika tersedia.
 
 ## Keluaran
 - [ ] Kirim tajuk `X-Content-Type-Options: nosniff`.

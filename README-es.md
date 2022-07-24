@@ -38,6 +38,7 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 - [ ] Valida el `content-type` de información enviada en base a la que aceptes (e.g. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, etc).
 - [ ] Valida las entradas que realizan los usuarios para evitar ataques comunes (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc).
 - [ ] No utilices información sensible (`credentials`, `Passwords`, `security tokens`, o `API keys`) en la URL, en su lugar usa la cabecera estándar `Authorization`.
+- [ ] Use solo cifrado del lado del servidor.
 - [ ] Usa un servicio de API Gateway para permitir almacenamiento en caché (caching), límite de peticiones (Rate Limit), Spike Arrest y el despliegue de APIs dinámicamente.
 
 ## Procesamiento
@@ -49,6 +50,7 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 - [ ] Utiliza CDN para subidas de ficheros.
 - [ ] Si lidias con grandes cantidades de información, utiliza Workers y Colas para procesar tanto cómo sea posible en segundo plano, y devuelve una respuesta rápido para evitar un bloqueo HTTP.
 - [ ] No olvides deshabilitar el modo Debug.
+- [ ] Utilice stacks no ejecutables cuando estén disponibles.
 
 ## Salidas
 - [ ] Envía la cabecera `X-Content-Type-Options: nosniff`.

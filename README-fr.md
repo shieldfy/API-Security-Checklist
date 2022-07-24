@@ -38,6 +38,7 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Valider le `content-type` des données postées avec celles acceptées (e.g. `application/x-www-form-urlencoded`, `multipart/form-data, application/json`, etc…).
 - [ ] Valider les entrées utilisateur pour éviter les vulnérabilités classiques (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc…).
 - [ ] N'utiliser aucune donnée sensible (`identifiants`, `mots de passe`, `tokens de sécurité`, ou `clés d'API`) dans l'URL, mais utiliser les en-têtes d'autorisations standards.
+- [ ] Utiliser uniquement le chiffrement côté serveur.
 - [ ] Utiliser un service de passerelle d'API afin d'obtenir la mise en cache, une limitation de la saturation des ressources, la gestion des pics d'activités et le déploiement automatique des ressources.
 
 ## Traitement
@@ -49,6 +50,7 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Utiliser les réseaux de diffusion de contenu (CDN) pour l'envoie de fichier.
 - [ ] Dans le cas du traitement d'importantes quantités de données, utiliser des Workers et des Queues pour retourner les réponses rapidement et éviter un blocage HTTP.
 - [ ] Ne pas oublier de désactiver le mode DEBUG.
+- [ ] Utiliser des piles non exécutables lorsqu'elles sont disponibles.
 
 ## Sorties
 - [ ] Envoyer l'en-tête `X-Content-Type-Options: nosniff`.

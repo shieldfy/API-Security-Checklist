@@ -38,6 +38,7 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Waliduj `content-type` informacji przekazywanych metodą POST (np. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`).
 - [ ] Waliduj informacje wprowadzane przez użytkownika, aby uniknąć zagrożeń (np.. `XSS`, `SQL-Injection`, `Zdalne Wykonanie Skryptu`).
 - [ ] Nie używaj żadnych wrażliwych danych w URL, zamiast tego użyj standardowego nagłówka Autoryzującego.
+- [ ] Użyj tylko szyfrowania po stronie serwera.
 - [ ] Użyj usługi API Gateway aby włączyć caching oraz np. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`.
 
 ## Przetwarzanie
@@ -48,6 +49,7 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Użyj CDN do przechowywania wysyłanych plików.
 - [ ] Jeżeli pracujesz z dużą ilością danych, użyj procesów Workers oraz kolejkowania Queues aby przetworzyć jak najwięcej w tle i zwrócić informacje szybko aby uniknąć blokowania HTTP.
 - [ ] Nie zapomnij o wyłączeniu trybu debugowania.
+- [ ] Użyj niewykonywalnych stacks jeśli są dostępne.
 
 ## Wyjście
 - [ ] Wyślij nagłówek `X-Content-Type-Options: nosniff`.

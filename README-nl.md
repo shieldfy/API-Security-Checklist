@@ -38,6 +38,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Valideer de `content-type` header van gestuurde data (b.v. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json` ... enz).
 - [ ] Valideer de gebruiker invoer om veel voorkomende kwetsbaarheden te voorkomen (v.b. `XSS`, `SQL-Injection`, `Remote Code Execution` ... enz).
 - [ ] Gebruik geen gevoelige data (`credentials`, `Wachtwoorden`, `security tokens`, of `API keys`) in de URL, maar gebruik de standaard Authorization header.
+- [ ] Gebruik alleen versleuteling aan de serverzijde.
 - [ ] Gebruik een API Gateway service voor caching, policies (b.v. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) en voor het dynamisch deployen van API middelen.
 
 ## Processing
@@ -49,6 +50,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Gebruik CDN voor het uploaden van bestanden.
 - [ ] Als er met grote/mega hoeveelheden data gewerkt wordt, gebruik dan Workers en Queues om snel een response te geven en HTTP Blocking te voorkomen.
 - [ ] Vergeet niet om de DEBUG mode uit te zetten.
+- [ ] Gebruik niet-uitvoerbare stacks indien beschikbaar.
 
 ## Output
 - [ ] Stel de `X-Content-Type-Options: nosniff` header in.

@@ -38,6 +38,7 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Validare il `content-type` in base alle strutture accettate (es. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, ecc.).
 - [ ] Validare sempre gli input dell'utente per evitare attacchi comuni (es. `XSS`, `SQL-Injection`, `Remote Code Execution`, ecc.).
 - [ ] Non utilizzare mai dati sensibili (`credenziali`, `password`, `security tokens`, o `API keys`) nell'url, utilizzare piuttosto gli Authorization header.
+- [ ] Utilizzare solo la crittografia lato server.
 - [ ] Utilizzare un gateway per abilitare il caching delle API, con sistema di controllo delle chiamate (es. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`).
 
 ## Processing
@@ -49,6 +50,7 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Utilizzare una CDN per l'upload dei file.
 - [ ] Se stai gestendo grandi moli di dati, utilizza Workers e Queues per processare i dati in background evitando che la chiamata HTTP vada in blocco.
 - [ ] Ricordarsi sempre di disattivare le eventuali modalità di DEBUG.
+- [ ] Utilizzare stack non eseguibili quando disponibili.
 
 ## Output
 - [ ] Inviare l'header `X-Content-Type-Options: nosniff`.
