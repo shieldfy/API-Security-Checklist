@@ -65,8 +65,8 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Kiểm tra thiết kế và thực hiện đầy đủ việc test với unit/integration.
 - [ ] Áp dụng quy trình đánh giá code và bỏ qua việc tự phê duyệt.
 - [ ] Đảm bảo các thành phần của dịch vụ được quét với các anti virus trước khi đưa ra phiên bản production, bao gồm các thư viện và các gói khác.
-- [ ] Continuously run security tests (static/dynamic analysis) on your code.
-- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] Liên tục chạy các bài kiểm tra bảo mật (phân tích tĩnh/động) trên mã của bạn.
+- [ ] Kiểm tra các phần phụ thuộc của bạn (cả phần mềm và hệ điều hành) để tìm các lỗ hổng đã biết.
 - [ ] Thiết kế một giải pháp rollback cho việc triển khai.
 
 

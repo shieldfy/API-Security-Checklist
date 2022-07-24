@@ -65,8 +65,8 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Verificare il design attraverso gli unit/integration tests.
 - [ ] Definire e utilizzare una procedura di code review per il rilascio, evitando l'auto approvazione.
 - [ ] Verificare che tutti i componenti dei servizi siano controllati da software AV prima di essere messi in produzione, incluse le librerie di terze parti.
-- [ ] Continuously run security tests (static/dynamic analysis) on your code.
-- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] Esegui continuamente test di sicurezza (analisi statica/dinamica) sul tuo codice.
+- [ ] Controlla le tue dipendenze (sia software che sistema operativo) per le vulnerabilità note.
 - [ ] Definire una strategia di rollback per il deploy.
 
 

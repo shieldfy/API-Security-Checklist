@@ -65,8 +65,8 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Audit rancangan dan pelaksanaan dengan pengujian unit/integrasi.
 - [ ] Gunakan proses ulasan kode dan kesampingkan persetujuan sendiri.
 - [ ] Pastikan seluruh komponen layanan dipindai secara statis menggunakan anti virus sebelum didorong ke lingkungan produksi, termasuk pustaka-pustaka milik vendor dan ketergantungan lainnya.
-- [ ] Continuously run security tests (static/dynamic analysis) on your code.
-- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] Jalankan uji keamanan (analisis statis/dinamis) secara terus-menerus pada kode Anda.
+- [ ] Memeriksa dependensi Anda (perangkat lunak dan OS) untuk mengetahui kerentanannya.
 - [ ] Rancang solusi kembali ke versi sebelumnya pada proses penyebaran.
 
 

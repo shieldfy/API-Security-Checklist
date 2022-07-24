@@ -65,8 +65,8 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Controleer het ontwerp en de implementatie met unit/integration test dekking.
 - [ ] Gebruik een code review traject en controleer niet zelf je eigen code.
 - [ ] Scan de API voor het naar productie zetten door AV software, niet alleen eigen code maar ook de libraries en andere gebruikte dependencies.
-- [ ] Continuously run security tests (static/dynamic analysis) on your code.
-- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] Voer continu beveiligingstests (statische/dynamische analyse) uit op uw code.
+- [ ] Controleer uw afhankelijkheden (zowel software en besturingssysteem) op bekende kwetsbaarheden.
 - [ ] Ontwikkel een terugrol oplossing.
 
 

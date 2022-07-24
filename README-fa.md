@@ -18,6 +18,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;الگوریتم را از هدر استخراج نکنید. در بک‌اند الگوریتم را تحمیل کنید (`HS256` یا `RS256`).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;انقضای توکن (`TTL` یا `RTTL`) را تا حد ممکن کوتاه کن.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اطلاعات حساس را در پی‌لود JWT ذخیره نکنید چون [به راحتی](https://jwt.io/#debugger-io) قابل رمزگشایی است.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از ذخیره بیش از حد داده ها خودداری کنید. JWT معمولاً در هدر به اشتراک گذاشته می شود و محدودیت اندازه دارند.
 
 ### OAuth
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;همیشه `redirect_uri` را در سمت سرور اعتبارسنجی کنید تا تنها به URLهای مجاز اجازه داده شود.
@@ -29,6 +30,8 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رکوئست‌ها را محدود کنید (Throttling) تا از حملات DDos یا بروت‌فورس جلوگیری شود.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;در سمت سرور از HTTPS استفاده کنید تا از حملات مرد میانی جلوگیری شود.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از هدر `HSTS` استفاده کنید تا از حمله‌ی SSL Strip جلوگیری شود.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لیست های دایرکتوری را خاموش کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای APIهای خصوصی، فقط از IPها/میزبانهای لیست سفید اجازه دسترسی داشته باشید.
 
 ## ورودی
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از متد HTTP مناسب با توجه به نوع عملیات استفاده کنید: `GET` برای خواندن، `POST` برای ایجاد کردن، `PUT/PATCH` برای جایگزین یا بروزرسانی و `DELETE` برای حذف یک رکورد، و در صورتی‌که متد درخواستی برای منبع درخواست‌شده مناسب نباشد با `405 Method Not Allowed` پاسخ بدهید.
@@ -36,6 +39,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مقدار `content-type` در داده‌ی پست‌شده را اعتبارسنجی کنید (مثلا `application/x-www-form-urlencoded`، `multipart/form-data`، `application/json` و ...).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ورودی کاربر را اعتبارسنجی کنید تا از آسیب‌پذیری‌های معمول جلوگیری شود (مثلا `XSS`، `SQL-Injection` و `Remote Code Execution`). 
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هیچ داده‌ی حساسی مثل (داده‌های اعتبارسنجی، پسوورد‌ها، توکن‌های امنیتی یا کلید‌های API) را داخل URL قرار ندهید و از هدر Authorization استاندارد استفاده کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;فقط از رمزگذاری سمت سرور استفاده کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از یک سرویس API Gateway استفاده کنید تا کش‌کردن و سیاست‌های Rate Limit (مثلا `Quota`، `Spike Arrest` یا `Concurrent Rate Limit`) فعال شوند و منابع APIها را به صورت داینامیک دپلوی کنید.
 
 ## پردازش
@@ -47,6 +51,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از یک CDN برای آپلودهای فایل استفاده کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اگر با مقادیر بسیار حجیمی از داده سر و کار دارید، از Workerها و Queueها استفاده کنید تا حد الامکان پردازش در بک‌گراند انجام شود و سریع پاسخ را برگردانید تا از HTTP Blocking جلوگیری شود.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;خاموش کردن حالت DEBUG را فراموش نکنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;در صورت وجود از پشته های غیر قابل اجرا استفاده کنید.
 
 ## خروجی
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هدر `X-Content-Type-Options: nosniff` را ارسال کنید.

@@ -65,8 +65,8 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Nutze Unit- und Integrationstest und deren Abdeckung (Test Coverage), um deine Implementierungen und Design zu kontrollieren.
 - [ ] Nutze einen Code Review Prozess, aber bleib sachlich.
 - [ ] Stelle sicher, dass alle verwendeten Komponenten (Bibliotheken und alle anderen Abhängigkeiten) noch einmal statisch von einer Anti-Virus Software überprüft wurden bevor diese in die Produktionsumgebung gehen.
-- [ ] Continuously run security tests (static/dynamic analysis) on your code.
-- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] Führen kontinuierlich Sicherheitstests (statische/dynamische Analyse) für Ihren Code.
+- [ ] Überprüfen Ihre Abhängigkeiten (Software und Betriebssystem) auf bekannte Schwachstellen.
 - [ ] Stelle sicher, dass du im Fehlerfall auch schnell wieder den vorherigen Stand einspielen kannst (Rollback).
 
 

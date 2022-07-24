@@ -65,8 +65,8 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] unit/integration testi kapsamı ölçümleri ile tasarımınızı ve uygulamanızı denetleyin.
 - [ ] Bir kod inceleme süreci kullanın ve kendi onayınızı dikkate almayın.
 - [ ] Kodunuzu canlıya göndemreden önce harici kitaplıkları ve diğer bağımlılıklar da dahil olmak üzere hizmetlerinizin tüm bileşenlerinin AntiVirus yazılımıyla statik olarak tarandığından emin olun.
-- [ ] Continuously run security tests (static/dynamic analysis) on your code.
-- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] Kodunuz üzerinde sürekli olarak güvenlik testleri (statik/dinamik analiz) çalıştırın.
+- [ ] Bilinen güvenlik açıkları için bağımlılıklarınızı (hem yazılım hem de işletim sistemi) kontrol edin.
 - [ ] Dağıtımlar için bir geriye dönme çözümü tasarlayın.
 
 

@@ -65,8 +65,8 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Vérifiez votre conception et votre implémentation avec une couverture des tests unitaires et d'intégration.
 - [ ] Utilisez un processus de revue de code et ignorez l'auto-approbation.
 - [ ] Assurez-vous que tous les composants de vos services sont scannés par un logiciel anti-virus avant la mise en production, ainsi que les bibliothèques tierces et autres dépendances.
-- [ ] Continuously run security tests (static/dynamic analysis) on your code.
-- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] Exécutez en continu des tests de sécurité (analyse statique/dynamique) sur votre code.
+- [ ] Vérifiez vos dépendances (logiciel et système d'exploitation) pour les vulnérabilités connues.
 - [ ] Concevez une solution de rollback pour les déploiements.
 
 

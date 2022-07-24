@@ -65,8 +65,8 @@ API를 설계하고, 테스트하고, 배포할 때 고려해야 할 중요한 �
 - [ ] 단위/통합 테스트 범위로 설계 및 구현을 검토하세요.
 - [ ] 코드 리뷰 절차를 사용하고 자체 승인을 무시하세요.
 - [ ] 제품 출시전에 백신 소프트웨어로 공급 업체의 라이브러리 및 기타 종속적인 것을 포함한 서비스의 모든 구성 요소들을 정적으로 검사했는지 확인하세요.
-- [ ] Continuously run security tests (static/dynamic analysis) on your code.
-- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] 코드에 대한 보안 테스트(정적/동적 분석)를 지속해서 실행합니다.
+- [ ] 알려진 취약점이 있는지 종속성(소프트웨어 및 OS 모두)을 확인하십시오.
 - [ ] 배포에 대한 롤백 솔루션을 설계하세요.
 
 

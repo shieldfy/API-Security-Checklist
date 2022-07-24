@@ -67,8 +67,8 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مراجعة التصميم الخاص بك والتنفيذ مع وحدة / التكامل اختبارات الاختبار unit/integration tests coverage.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدام عملية مراجعة الرمز البرمجي وتجاهل الموافقة على الرمز البرمجي الذي قمت بكتابته.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تأكد من أن جميع مكونات الخدمات الخاصة بك يتم فحصها بشكل ثابت بواسطة برامج الفيروسات قبل إرسالها إلى الإنتاج، بما في ذلك المكتبات الخارجية وغيرها من التبعيات.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Continuously run security tests (static/dynamic analysis) on your code.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بإجراء اختبارات الأمان باستمرار (التحليل الثابت/الديناميكي) على التعليمات البرمجية الخاصة بك.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تحقق من تبعياتك (البرنامج ونظام التشغيل) بحثًا عن نقاط الضعف المعروفة.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تصميم حل التراجع عن عمليات النشر rollback.
 
 

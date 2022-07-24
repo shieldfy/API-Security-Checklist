@@ -65,8 +65,8 @@
 - [ ] unit/integration परीक्षण कवरेज के साथ अपने डिजाइन और कार्यान्वयन की जांच करें।
 - [ ] कोड समीक्षा प्रक्रिया का उपयोग करें और स्वयं-स्वीकृति की उपेक्षा करें।
 - [ ] सुनिश्चित करें कि आपकी सेवाओं के सभी components को AV सॉफ्टवेयर द्वारा स्कैन करने से पहले उत्पादक को push. vendor libraries और अन्य dependencies शामिल हैं।
-- [ ] Continuously run security tests (static/dynamic analysis) on your code.
-- [ ] Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] अपने कोड पर लगातार सुरक्षा परीक्षण (स्थिर/गतिशील विश्लेषण) चलाएं।
+- [ ] ज्ञात कमजोरियों के लिए अपनी निर्भरता (सॉफ्टवेयर और ओएस दोनों) की जाँच करें।
 - [ ] तैनाती के लिए एक रोलबैक समाधान तैयार करें।
 
 
