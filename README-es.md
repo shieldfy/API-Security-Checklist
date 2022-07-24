@@ -17,6 +17,7 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 - [ ] No extraigas el algoritmo del contenido. Fuerza el algoritmo en el backend (`HS256` o `RS256`).
 - [ ] Haz que la expiración del token (`TTL`, `RTTL`) sea tan corta como sea posible.
 - [ ] No almacenes información sensible en el contenido del JWT, puede ser descodificado [fácilmente](https://jwt.io/#debugger-io).
+- [ ] Evita almacenar datos muy grandes o crecientes. JWT se transmite en las headers y éstas tienen un tamaño máximo.
 
 ### OAuth
 - [ ] Siempre valida `redirect_uri` en el lado del servidor para permitir sólo ciertas URLs.
