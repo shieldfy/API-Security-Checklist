@@ -28,6 +28,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
 - [ ] Use HTTPS on server side to avoid MITM (Man in the Middle Attack).
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attack.
+- [ ] Turn off directory listings.
 - [ ] For private APIs, only allow access from whitelisted IPs/hosts.
 
 ## Input
@@ -36,6 +37,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Validate `content-type` of posted data as you accept (e.g. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, etc.).
 - [ ] Validate user input to avoid common vulnerabilities (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc.).
 - [ ] Don't use any sensitive data (`credentials`, `Passwords`, `security tokens`, or `API keys`) in the URL, but use standard Authorization header.
+- [ ] Use only server side encryption.
 - [ ] Use an API Gateway service to enable caching, Rate Limit policies (e.g. `Quota`, `Spike Arrest`, or `Concurrent Rate Limit`) and deploy APIs resources dynamically.
 
 ## Processing
@@ -47,6 +49,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Use a CDN for file uploads.
 - [ ] If you are dealing with huge amount of data, use Workers and Queues to process as much as possible in background and return response fast to avoid HTTP Blocking.
 - [ ] Do not forget to turn the DEBUG mode OFF.
+- [ ] Use non-executable stacks when available.
 
 ## Output
 - [ ] Send `X-Content-Type-Options: nosniff` header.
