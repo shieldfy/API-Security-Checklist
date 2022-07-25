@@ -17,6 +17,7 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Algorytmy trzymaj w backendzie, nie upubliczniaj algorytmów.
 - [ ] Ustaw wygaszanie tokenów (`TTL`, `RTTL`) najkrótsze jak to możliwe.
 - [ ] Nie przechowuj wrażliwych danych w payloadzie `JWT`, mogą być one [łatwo zdekodowane](https://jwt.io/#debugger-io).
+- [ ] Unikaj przechowywania zbyt dużej ilości danych. JWT jest zwykle udostępniany w nagłówkach i ma limit rozmiaru.
 
 ### OAuth
 - [ ] Zawsze waliduj `redirect_uri` po stronie serwera aby zezwolić tylko URL-om z dozwolonej listy (`whitelist`).
@@ -28,6 +29,8 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Ustaw limit zapytań (Throttling) aby uniknąć ataku DDoS / brute-force.
 - [ ] Użyj HTTPS aby uniknąć MITM (Man In The Middle Attack) - Ataku polegającego na pośrednictwie w wymianie informacji pomiędzy dwoma punktami np. klientem i serwerem.
 - [ ] Użyj nagłówka `HSTS` z SSL aby uniknąć SSL Strip attack.
+- [ ] Wyłącz wykazy katalogów.
+- [ ] W przypadku prywatnych API, zezwalaj na dostęp tylko z adresów IP/hostów umieszczonych na białej liście.
 
 ## Wejście
 - [ ] Użyj odpowiedniej metody protokołu HTTP dla danej operacji: `GET (odczyt)`, `POST (tworzenie)`, `PUT/PATCH (zmiana)`, and `DELETE (usuwanie)`, i odpowiadaj `405 Method Not Allowed` jeżeli metoda zapytania jest niepoprawna.
@@ -35,6 +38,7 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Waliduj `content-type` informacji przekazywanych metodą POST (np. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`).
 - [ ] Waliduj informacje wprowadzane przez użytkownika, aby uniknąć zagrożeń (np.. `XSS`, `SQL-Injection`, `Zdalne Wykonanie Skryptu`).
 - [ ] Nie używaj żadnych wrażliwych danych w URL, zamiast tego użyj standardowego nagłówka Autoryzującego.
+- [ ] Użyj tylko szyfrowania po stronie serwera.
 - [ ] Użyj usługi API Gateway aby włączyć caching oraz np. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`.
 
 ## Przetwarzanie
@@ -45,6 +49,7 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Użyj CDN do przechowywania wysyłanych plików.
 - [ ] Jeżeli pracujesz z dużą ilością danych, użyj procesów Workers oraz kolejkowania Queues aby przetworzyć jak najwięcej w tle i zwrócić informacje szybko aby uniknąć blokowania HTTP.
 - [ ] Nie zapomnij o wyłączeniu trybu debugowania.
+- [ ] Użyj niewykonywalnych stacks jeśli są dostępne.
 
 ## Wyjście
 - [ ] Wyślij nagłówek `X-Content-Type-Options: nosniff`.
@@ -59,6 +64,8 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Przetestuj wszystkie rozwiązania stosując testy jednostkowe.
 - [ ] Oddaj kod do przejrzenia innym, poddaj go `code review`.
 - [ ] Upewnij się, że wszystkie komponenty twojej usługi są skanowane przez oprogramowanie antywirusowe przed wejściem na produkcje. Uwzględnij także zewnętrzne biblioteki.
+- [ ] Ciągle uruchamiaj testy bezpieczeństwa (analiza statyczna/dynamiczna) w swoim kodzie.
+- [ ] Sprawdź swoje zależności (zarówno oprogramowanie i system operacyjny) pod kątem znanych luk w zabezpieczeniach.
 - [ ] Stwórz możliwość szybkiego wycofania udostępnionego wdrożenia.
 
 

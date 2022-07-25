@@ -17,6 +17,7 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Ne pas extraire l'algorithme du payload. Imposer l'algorithme côté serveur (`HS256` ou `RS256`).
 - [ ] Rendre la durée de vie des tokens (`TTL`, `RTTL`) aussi courte que possible.
 - [ ] Ne pas stocker des informations sensibles du payload JWT, son décryptage est très [simple](https://jwt.io/#debugger-io).
+- [ ] Éviter de stocker trop de données. JWT est généralement partagé dans les en-têtes et ils ont une limite de taille.
 
 ### OAuth
 - [ ] Toujours valider la redirection d'uri (`redirect_uri`) côté serveur afin d'accéder uniquement aux URLs autorisées.
@@ -28,6 +29,8 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Limiter le nombre de requêtes (limitation de bande passante) pour éviter les dénis de service et les attaques par force brute.
 - [ ] Utiliser le protocole HTTPS côté serveur afin d'éviter les attaques de l'homme du milieu (MITM).
 - [ ] Utiliser les entêtes `HSTS` avec SSL pour éviter les attaques SSL Strip.
+- [ ] Désactiver les listes du répertoires.
+- [ ] Pour les API privées, n'autorisez l'accès qu'à partir d'adresses IP/hôtes sur liste blanche.
 
 ## Entrées
 - [ ] Utiliser la bonne méthode en fonction de l'opération, `GET (lire)`, `POST (créer)`, `PUT (remplacer/mettre à jour)` et `DELETE (pour supprimer un enregistrement)`.
@@ -35,6 +38,7 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Valider le `content-type` des données postées avec celles acceptées (e.g. `application/x-www-form-urlencoded`, `multipart/form-data, application/json`, etc…).
 - [ ] Valider les entrées utilisateur pour éviter les vulnérabilités classiques (e.g. `XSS`, `SQL-Injection`, `Remote Code Execution`, etc…).
 - [ ] N'utiliser aucune donnée sensible (`identifiants`, `mots de passe`, `tokens de sécurité`, ou `clés d'API`) dans l'URL, mais utiliser les en-têtes d'autorisations standards.
+- [ ] Utiliser uniquement le chiffrement côté serveur.
 - [ ] Utiliser un service de passerelle d'API afin d'obtenir la mise en cache, une limitation de la saturation des ressources, la gestion des pics d'activités et le déploiement automatique des ressources.
 
 ## Traitement
@@ -46,6 +50,7 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Utiliser les réseaux de diffusion de contenu (CDN) pour l'envoie de fichier.
 - [ ] Dans le cas du traitement d'importantes quantités de données, utiliser des Workers et des Queues pour retourner les réponses rapidement et éviter un blocage HTTP.
 - [ ] Ne pas oublier de désactiver le mode DEBUG.
+- [ ] Utiliser des piles non exécutables lorsqu'elles sont disponibles.
 
 ## Sorties
 - [ ] Envoyer l'en-tête `X-Content-Type-Options: nosniff`.
@@ -60,6 +65,8 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Vérifiez votre conception et votre implémentation avec une couverture des tests unitaires et d'intégration.
 - [ ] Utilisez un processus de revue de code et ignorez l'auto-approbation.
 - [ ] Assurez-vous que tous les composants de vos services sont scannés par un logiciel anti-virus avant la mise en production, ainsi que les bibliothèques tierces et autres dépendances.
+- [ ] Exécutez en continu des tests de sécurité (analyse statique/dynamique) sur votre code.
+- [ ] Vérifiez vos dépendances (logiciel et système d'exploitation) pour les vulnérabilités connues.
 - [ ] Concevez une solution de rollback pour les déploiements.
 
 

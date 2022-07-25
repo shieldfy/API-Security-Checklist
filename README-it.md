@@ -17,6 +17,7 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Non ricavare l'algoritmo dal payload. Forzare l'algoritmo nel backend (`HS256` o `RS256`).
 - [ ] Rendere la scadenza del token (`TTL`, `RTTL`) il più breve possibile.
 - [ ] Non memorizzare dati sensibili nel payload JWT, può essere decodificato [facilmente](https://jwt.io/#debugger-io).
+- [ ] Evita di archiviare troppi dati. JWT è solitamente condiviso nelle header e hanno un limite di dimensioni.
 
 ### OAuth
 - [ ] Validare sempre il valore di `redirect_uri` lato server permettendo solo url verificati nella whitelist.
@@ -28,6 +29,8 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Limitare le richieste (Throttling) per evitare attacchi DDoS o brute-force.
 - [ ] Utilizzare il protocollo HTTPS per evitare attacchi MITM (Man In The Middle Attack).
 - [ ] Utilizzare l'header `HSTS` per evitare attacchi SSL Strip.
+- [ ] Disattiva gli elenchi di directory.
+- [ ] Per le API private, consenti l'accesso solo da IP/host nella whitelist (lista bianca).
 
 ## Input
 - [ ] Utilizzare il metodo HTTP appropriato in base all'azione: `GET (lettura)`, `POST (scrittura)`, `PUT/PATCH (sostituzione/modifica)`, e `DELETE (cancellazione)`, e rispondere con uno status `405 Method Not Allowed` se il metodo della richiesta non è appropriato.
@@ -35,6 +38,7 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Validare il `content-type` in base alle strutture accettate (es. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, ecc.).
 - [ ] Validare sempre gli input dell'utente per evitare attacchi comuni (es. `XSS`, `SQL-Injection`, `Remote Code Execution`, ecc.).
 - [ ] Non utilizzare mai dati sensibili (`credenziali`, `password`, `security tokens`, o `API keys`) nell'url, utilizzare piuttosto gli Authorization header.
+- [ ] Utilizzare solo la crittografia lato server.
 - [ ] Utilizzare un gateway per abilitare il caching delle API, con sistema di controllo delle chiamate (es. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`).
 
 ## Processing
@@ -46,6 +50,7 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Utilizzare una CDN per l'upload dei file.
 - [ ] Se stai gestendo grandi moli di dati, utilizza Workers e Queues per processare i dati in background evitando che la chiamata HTTP vada in blocco.
 - [ ] Ricordarsi sempre di disattivare le eventuali modalità di DEBUG.
+- [ ] Utilizzare stack non eseguibili quando disponibili.
 
 ## Output
 - [ ] Inviare l'header `X-Content-Type-Options: nosniff`.
@@ -60,6 +65,8 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Verificare il design attraverso gli unit/integration tests.
 - [ ] Definire e utilizzare una procedura di code review per il rilascio, evitando l'auto approvazione.
 - [ ] Verificare che tutti i componenti dei servizi siano controllati da software AV prima di essere messi in produzione, incluse le librerie di terze parti.
+- [ ] Esegui continuamente test di sicurezza (analisi statica/dinamica) sul tuo codice.
+- [ ] Controlla le tue dipendenze (sia software che sistema operativo) per le vulnerabilità note.
 - [ ] Definire una strategia di rollback per il deploy.
 
 

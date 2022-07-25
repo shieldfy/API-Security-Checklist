@@ -17,6 +17,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Haal het algoritme niet uit de payload. Dwing het algoritme af in de backend (`HS256` of `RS256`).
 - [ ] Zet de token vervaltijd (`TTL`, `RTTL`) zo kort mogelijk.
 - [ ] Sla geen gevoelige data op in de JWT payload, deze is [makkelijk](https://jwt.io/#debugger-io) te decoderen.
+- [ ] Vermijd het opslaan van te veel gegevens. JWT wordt meestal gedeeld in headers en ze hebben een maximale grootte.
 
 ### OAuth
 - [ ] Valideer **ALTIJD** de `redirect_uri` op de server om alleen toegestane URL te accepteren.
@@ -28,6 +29,8 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Limiteer het aantal requests om DDoS en/of Bruteforce aanvallen te ontkrachten.
 - [ ] Gebruik HTTPS aan de server zijde om MITM (Man In The Middle Attacks) tegen te gaan.
 - [ ] Gebruik de `HSTS` header i.c.m SSL om een SSL Strip attack te ontkrachten.
+- [ ] Schakel directoryvermeldingen uit.
+- [ ] Sta voor privé-API's alleen toegang toe vanaf op de witte lijst geplaatste IP's/hosts.
 
 ## Invoer
 - [ ] Gebruik de correcte HTTP methode voor de operatie, `GET (lezen)`, `POST (schrijven)`, `PUT (vervangen/updaten)` and `DELETE (verwijderen)`.
@@ -35,6 +38,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Valideer de `content-type` header van gestuurde data (b.v. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json` ... enz).
 - [ ] Valideer de gebruiker invoer om veel voorkomende kwetsbaarheden te voorkomen (v.b. `XSS`, `SQL-Injection`, `Remote Code Execution` ... enz).
 - [ ] Gebruik geen gevoelige data (`credentials`, `Wachtwoorden`, `security tokens`, of `API keys`) in de URL, maar gebruik de standaard Authorization header.
+- [ ] Gebruik alleen versleuteling aan de serverzijde.
 - [ ] Gebruik een API Gateway service voor caching, policies (b.v. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) en voor het dynamisch deployen van API middelen.
 
 ## Processing
@@ -46,6 +50,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Gebruik CDN voor het uploaden van bestanden.
 - [ ] Als er met grote/mega hoeveelheden data gewerkt wordt, gebruik dan Workers en Queues om snel een response te geven en HTTP Blocking te voorkomen.
 - [ ] Vergeet niet om de DEBUG mode uit te zetten.
+- [ ] Gebruik niet-uitvoerbare stacks indien beschikbaar.
 
 ## Output
 - [ ] Stel de `X-Content-Type-Options: nosniff` header in.
@@ -60,6 +65,8 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Controleer het ontwerp en de implementatie met unit/integration test dekking.
 - [ ] Gebruik een code review traject en controleer niet zelf je eigen code.
 - [ ] Scan de API voor het naar productie zetten door AV software, niet alleen eigen code maar ook de libraries en andere gebruikte dependencies.
+- [ ] Voer continu beveiligingstests (statische/dynamische analyse) uit op uw code.
+- [ ] Controleer uw afhankelijkheden (zowel software en besturingssysteem) op bekende kwetsbaarheden.
 - [ ] Ontwikkel een terugrol oplossing.
 
 

@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](./README-mk.md) | [ລາວ](./README-lo.md) | [فارسی](./README-fa.md) | [മലയാളം](./README-ml.md) 
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](./README-mk.md) | [ລາວ](./README-lo.md) | [فارسی](./README-fa.md) | [മലയാളം](./README-ml.md)
 
 # API Security Checkliste
 Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und Veröffentlichen deiner API.
@@ -14,9 +14,10 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 
 ### JWT (JSON Web Token)
 - [ ] Verwende einen per Zufall generierten, komplizierten Schlüssel (`JWT Secret`), um Brute Force Attacken gegen diesen so schwer wie möglich zu machen.
-- [ ] Verwende den Algorithmus des Payloads ausschließlich über das Backend, sodass dieser geheim bleibt (`HS256` or `RS256`).
+- [ ] Verwende den Algorithmus des Payloads ausschließlich über das Backend, sodass dieser geheim bleibt (`HS256` oder `RS256`).
 - [ ] Lege einen möglichst kurzen Gültigkeitszeitraum für den Token fest (`TTL`, `RTTL`).
 - [ ] Speichere keine sensitiven Daten im JWT Payload, denn dieser kann [einfach entkodiert werden](https://jwt.io/#debugger-io).
+- [ ] Vermeiden zu viele Daten zu speichern. JWT wird normalerweise in Headern geteilt und hat eine Größenbeschränkung.
 
 ### OAuth
 - [ ] Überprüfe stets die `redirect_uri` serverseitig und erlaube nur URLs aus einer Whitelist.
@@ -28,6 +29,8 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Limitiere alle Requests (Throttling), um DDoS / Brute-Force Attacken zu verhindern.
 - [ ] Nutze HTTPS serverseitig, um MITM (Man In The Middle Attack) zu verhindern.
 - [ ] Setze `HSTS` (HTTP Strict Transport Security) im Header bei SSL, um SSLStrip Attacken zu verhindern.
+- [ ] Deaktivieren Verzeichniseinträge.
+- [ ] Erlauben für private APIs den Zugriff nur von IPs/Hosts auf der Whitelist.
 
 ## Input
 - [ ] Nutze für Requests die passenden HTTP Methoden: `GET (Lesen)`, `POST (Erzeugen)`, `PUT/PATCH (Ersetzen/Aktualisieren)`, and `DELETE (Datensatz löschen)`, und gib `405 Method Not Allowed`, wenn die angeforderte Methode nicht auf die Ressource passt.
@@ -35,6 +38,7 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Validiere den `Content-Type` im Header der Anfrage für übertragene Daten (bspw. POST oder PUT) wie bspw. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, usw.
 - [ ] Validiere immer alle Eingaben im Request und allen Parametern um allgemeine Angriffsmöglichkeiten zu verhindern (bspw. `XSS`, `SQL-Injection`, `Remote Code Execution`, usw).
 - [ ] Verwende niemals sensitive Daten (`Anmeldedaten`, `Passwörter`, `Security Tokens`, oder `API-Schlüssel`) in der URL, aber nutze den standardisierten "Authorization" Header.
+- [ ] Verwenden nur serverseitige Verschlüsselung.
 - [ ] Nutze ein API Gateway Service für Caching, Rate Limit Regeln (bspw. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) und der Bereitstellung dynamischer API Ressourcen.
 
 ## Verarbeitung
@@ -46,6 +50,7 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Nutze CDN für Dateiuploads.
 - [ ] Wenn du eine große Menge an Daten verarbeiten musst, nutze Worker und Queues, um so viel wie möglich im Hintergrund zu verarbeiten und schnelle Antwortzeiten zu gewährleisten.
 - [ ] Vergiss nicht den DEBUG Modus zu deaktivieren.
+- [ ] Verwenden nicht ausführbare Stacks sofern verfügbar.
 
 ## Output
 - [ ] Sende `X-Content-Type-Options: nosniff` im Header.
@@ -60,6 +65,8 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Nutze Unit- und Integrationstest und deren Abdeckung (Test Coverage), um deine Implementierungen und Design zu kontrollieren.
 - [ ] Nutze einen Code Review Prozess, aber bleib sachlich.
 - [ ] Stelle sicher, dass alle verwendeten Komponenten (Bibliotheken und alle anderen Abhängigkeiten) noch einmal statisch von einer Anti-Virus Software überprüft wurden bevor diese in die Produktionsumgebung gehen.
+- [ ] Führen kontinuierlich Sicherheitstests (statische/dynamische Analyse) für Ihren Code.
+- [ ] Überprüfen Ihre Abhängigkeiten (Software und Betriebssystem) auf bekannte Schwachstellen.
 - [ ] Stelle sicher, dass du im Fehlerfall auch schnell wieder den vorherigen Stand einspielen kannst (Rollback).
 
 

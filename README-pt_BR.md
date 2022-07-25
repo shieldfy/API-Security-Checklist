@@ -17,6 +17,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Não utilize o algoritmo de criptografia informado no cabeçalho do payload. Force o uso de um algoritmo específico no _back-end_ (`HS256` ou `RS256`).
 - [ ] Defina o tempo de vida do _token_ (`TTL`, `RTTL`) o menor possível.
 - [ ] Não armazene informações confidenciais no JWT, pois elas podem ser [facilmente decodificadas](https://jwt.io/#debugger-io).
+- [ ] Evite armazenar muitos dados. JWT geralmente é compartilhado em headers e eles têm um limite de tamanho.
 
 ### OAuth
 - [ ] Sempre valide o `redirect_uri` no seu servidor através de uma lista de URLs conhecidas (previamente cadastradas).
@@ -28,6 +29,8 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Limite a quantidade de requisições (_Throttling_) para evitar ataques DDoS e de força bruta.
 - [ ] Use HTTPS no seu servidor para evitar ataques MITM (_Man In The Middle Attack_).
 - [ ] Use cabeçalho `HSTS` com SSL para evitar ataques _SSL Strip_.
+- [ ] Desative as listagens de diretórios.
+- [ ] Para APIs privadas, permita o acesso apenas de IPs/hosts da lista branca (whitelist).
 
 ## Requisição (_Input_)
 - [ ] Utilize o método HTTP apropriado para cada operação, `GET (obter)`, `POST (criar)`, `PUT/PATCH (trocar/atualizar)` e `DELETE (apagar)`.
@@ -35,6 +38,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Valide o tipo de conteúdo do conteúdo da requisição informado no cabeçalho `Content-Type` da requisição para permitir apenas os formatos suportados pela sua API (ex. `application/x-www-form-urlencoded`, `multipart/form-data, application/json` ... etc).
 - [ ] Valide o conteúdo da requisição para evitar as vulnerabilidades mais comuns (ex. `XSS`, `SQL-Injection`, `Remote Code Execution` ... etc).
 - [ ] Não utilize nenhuma informação sensível (credenciais, senhas, _tokens_ de autenticação) na URL. Use o cabeçalho `Authorization` da requisição.
+- [ ] Use apenas criptografia do lado do servidor.
 - [ ] Use um serviço _gateway_ para a sua API para habilitar _cache_, limitar acessos sucessivos (ex. por quantidade máxima permitida (_Quota_), por limitar tráfego em situações de estresse (_spike arrest_) ou por limitar o número de conexões simultâneas na sua API (_Concurrent Rate Limit_)), e facilitar o _deploy_ de novas funcionalidades.
 
 ## Processamento (_Processing_)
@@ -46,6 +50,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Use CDN para _uploads_ de arquivos.
 - [ ] Se você estiver trabalhando com uma grande quantidade de dados, use _workers_ e _queues_ (fila de processos) para retornar uma resposta rapidamente e evitar o bloqueio de requisições HTTP.
 - [ ] Não se esqueça de desativar o modo de depuração (_DEBUG mode OFF_).
+- [ ] Use stacks não executáveis quando disponíveis.
 
 ## Resposta (_Output_)
 - [ ] Envie o cabeçalho `X-Content-Type-Options: nosniff`.
@@ -60,6 +65,8 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Monitore a especificação e implementação do escopo da sua API através de testes unitários e de integração.
 - [ ] Use um processo de revisão de código, ignorando sistemas de auto-aprovação.
 - [ ] Certifique-se de que todos os componentes de seus serviços sejam validados por _softwares_ AV (anti-vírus, anti-_malware_) antes de enviar para produção, incluindo as dependências de terceiros utilizadas.
+- [ ] Execute continuamente testes de segurança (análise estática/dinâmica) em seu código.
+- [ ] Verifique suas dependências (software e sistema operacional) para vulnerabilidades conhecidas.
 - [ ] Implemente funcionalidade de reversão de _deploy_ (_rollback_).
 
 

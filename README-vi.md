@@ -17,6 +17,7 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Không sử dụng các thuật toán có trong `Payload` của người dùng. Bắt buộc sử dụng thuật toán phía backend (`HS256` hoặc `RS256`).
 - [ ] Đặt thời hạn token (`TTL`, `RTTL`) càng ngắn càng tốt.
 - [ ] Không lưu các thông tin nhạy cảm trong JWT, nó có thể [dễ dàng](https://jwt.io/#debugger-io) được giải mã.
+- [ ] Tránh lưu trữ quá nhiều dữ liệu. JWT thường được chia sẻ trong header và chúng có giới hạn về kích thước.
 
 ### OAuth Ủy quyền hoặc chứng thực giao thức
 - [ ] Luôn xác nhận `redirect_uri` phía server để chỉ cho phép redirect đến các URL tin cậy.
@@ -28,13 +29,16 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Giới hạn request (Throttling) để phòng tránh các tấn công DDoS / brute-force.
 - [ ] Sử dụng giao thức HTTPS ở phía server để tránh MITM (Man In The Middle Attack).
 - [ ] Sử dụng `HSTS` header với SSL để tránh tấn công SSL Strip.
+- [ ] Tắt danh sách thư mục.
+- [ ] Đối với các API riêng tư, chỉ cho phép truy cập từ các IP / máy chủ có trong danh sách cho phép / danh sách trắng / whitelist.
 
 ## Input
 - [ ] Sử dụng các HTTP method phù hợp với từng hành động: `GET (đọc)`, `POST (tạo mới)`, `PUT/PATCH (cập nhật/sửa)`, `DELETE (để xóa bản ghi)`, và phản hồi `405 Method Not Allowed` nếu HTTP method không phù hợp với tài nguyên được request.
 - [ ] Xác nhận dữ liệu `content-type` ở mỗi tiêu đề (Content Negotiation) chỉ cho phép những định dạng được hỗ trợ (chẳng hạn như. `application/xml`, `application/json`, vv) và phản hồi `406 Not Acceptable` nếu không khớp.
 - [ ] Xác nhận dữ liệu `content-type` được chấp nhận khi gửi lên (chẳng hạn như. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`...).
 - [ ] Kiểm tra dữ liệu truyền lên từ người dùng để tránh các lỗ hổng phổ biến (chẳng hạn như `XSS`, `SQL-Injection`, `Remote Code Execution`...).
-- [ ] Không sử dụng các dữ liệu nhạy cảm như (`credentials`, `Passwords`, `security tokens`, or `API keys`) tại URL, sử dụng header Authorization để xác thực.
+- [ ] Không sử dụng các dữ liệu nhạy cảm như (`credentials`, `Passwords`, `security tokens`, hoặc `API keys`) tại URL, sử dụng header Authorization để xác thực.
+- [ ] Chỉ sử dụng mã hóa phía máy chủ.
 - [ ] Sử dụng API Gateway để kích hoạt cache, Rate Limit policies (chẳng hạng như. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) và deploy APIs resources linh động hơn.
 
 ## Processing
@@ -46,6 +50,7 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Sử dụng CDN để tải lên tệp tin.
 - [ ] Nếu bạn đang cần xử lý với lượng dữ liệu lớn, sử dụng các kỹ thuật Workers và Queues để xử lý tác vụ dưới nền càng nhiều càng tốt và giúp phản hồi nhanh để tránh bị timeout HTTP.
 - [ ] Đừng quên tắt chế độ DEBUG.
+- [ ] Sử dụng stack không thực thi khi có sẵn.
 
 ## Output
 - [ ] Thêm `X-Content-Type-Options: nosniff` vào response headers.
@@ -60,6 +65,8 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Kiểm tra thiết kế và thực hiện đầy đủ việc test với unit/integration.
 - [ ] Áp dụng quy trình đánh giá code và bỏ qua việc tự phê duyệt.
 - [ ] Đảm bảo các thành phần của dịch vụ được quét với các anti virus trước khi đưa ra phiên bản production, bao gồm các thư viện và các gói khác.
+- [ ] Liên tục chạy các bài kiểm tra bảo mật (phân tích tĩnh/động) trên mã của bạn.
+- [ ] Kiểm tra các phần phụ thuộc của bạn (cả phần mềm và hệ điều hành) để tìm các lỗ hổng đã biết.
 - [ ] Thiết kế một giải pháp rollback cho việc triển khai.
 
 
