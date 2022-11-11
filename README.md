@@ -7,7 +7,7 @@ Checklist of the most important security countermeasures when designing, testing
 ---
 
 ## Authentication
-- [ ] Don't use `Basic Auth`. Use standard authentication instead (e.g., [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] Don't use `Basic Auth`. Use standard authentication instead (e.g., [JWT](https://jwt.io/)).
 - [ ] Don't reinvent the wheel in `Authentication`, `token generation`, `password storage`. Use the standards.
 - [ ] Use `Max Retry` and jail features in Login.
 - [ ] Use encryption on all sensitive data.
@@ -19,18 +19,20 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Don't store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
 - [ ] Avoid storing too much data. JWT is usually shared in headers and they have a size limit.
 
-### OAuth
-- [ ] Always validate `redirect_uri` server-side to allow only whitelisted URLs.
-- [ ] Always try to exchange for code and not tokens (don't allow `response_type=token`).
-- [ ] Use `state` parameter with a random hash to prevent CSRF on the OAuth authentication process.
-- [ ] Define the default scope, and validate scope parameters for each application.
-
 ## Access
 - [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
 - [ ] Use HTTPS on server side with TLS 1.2+ and secure ciphers to avoid MITM (Man in the Middle Attack).
 - [ ] Use `HSTS` header with SSL to avoid SSL Strip attacks.
 - [ ] Turn off directory listings.
 - [ ] For private APIs, allow access only from whitelisted IPs/hosts.
+
+## Authorization
+
+### OAuth
+- [ ] Always validate `redirect_uri` server-side to allow only whitelisted URLs.
+- [ ] Always try to exchange for code and not tokens (don't allow `response_type=token`).
+- [ ] Use `state` parameter with a random hash to prevent CSRF on the OAuth authorization process.
+- [ ] Define the default scope, and validate scope parameters for each application.
 
 ## Input
 - [ ] Use the proper HTTP method according to the operation: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, and `DELETE (to delete a record)`, and respond with `405 Method Not Allowed` if the requested method isn't appropriate for the requested resource.
