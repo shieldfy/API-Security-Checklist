@@ -19,18 +19,20 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Non memorizzare dati sensibili nel payload JWT, può essere decodificato [facilmente](https://jwt.io/#debugger-io).
 - [ ] Evita di archiviare troppi dati. JWT è solitamente condiviso nelle header e hanno un limite di dimensioni.
 
-### OAuth
-- [ ] Validare sempre il valore di `redirect_uri` lato server permettendo solo url verificati nella whitelist.
-- [ ] Tentare sempre lo scambio attraverso il codice e non tramite token (non permettere `response_type=token`).
-- [ ] Utilizzare il parametro `state` con un hash random per prevenire il CSRF durante il processo di autenticazione OAuth.
-- [ ] Definire lo scope di default e validare i parametri dello scope per ogni singola applicazione.
-
 ## Accesso
 - [ ] Limitare le richieste (Throttling) per evitare attacchi DDoS o brute-force.
 - [ ] Utilizzare il protocollo HTTPS per evitare attacchi MITM (Man In The Middle Attack).
 - [ ] Utilizzare l'header `HSTS` per evitare attacchi SSL Strip.
 - [ ] Disattiva gli elenchi di directory.
 - [ ] Per le API private, consenti l'accesso solo da IP/host nella whitelist (lista bianca).
+
+## Authorization
+
+### OAuth
+- [ ] Validare sempre il valore di `redirect_uri` lato server permettendo solo url verificati nella whitelist.
+- [ ] Tentare sempre lo scambio attraverso il codice e non tramite token (non permettere `response_type=token`).
+- [ ] Utilizzare il parametro `state` con un hash random per prevenire il CSRF durante il processo di autenticazione OAuth.
+- [ ] Definire lo scope di default e validare i parametri dello scope per ogni singola applicazione.
 
 ## Input
 - [ ] Utilizzare il metodo HTTP appropriato in base all'azione: `GET (lettura)`, `POST (scrittura)`, `PUT/PATCH (sostituzione/modifica)`, e `DELETE (cancellazione)`, e rispondere con uno status `405 Method Not Allowed` se il metodo della richiesta non è appropriato.
@@ -68,6 +70,13 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Esegui continuamente test di sicurezza (analisi statica/dinamica) sul tuo codice.
 - [ ] Controlla le tue dipendenze (sia software che sistema operativo) per le vulnerabilità note.
 - [ ] Definire una strategia di rollback per il deploy.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

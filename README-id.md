@@ -19,18 +19,20 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Jangan simpan data sensitif pada muatan JWT karena muatan JWT dapat diterjemahkan [dengan mudah](https://jwt.io/#debugger-io).
 - [ ] Hindari menyimpan terlalu banyak data. JWT biasanya dibagikan di header dan mereka memiliki batas ukuran.
 
-### OAuth
-- [ ] Selalu validasi `redirect_uri` di sisi peladen sehingga hanya URL-URL yang ada di dalam daftar putih yang boleh digunakan.
-- [ ] Selalu coba untuk mempertukarkan kode bukan token (jangan ijinkan `response_type=token`).
-- [ ] Gunakan parameter `state` dengan campuran nilai acak (_random hash_) untuk mencegah CSRF pada proses autentikasi.
-- [ ] Tetapkan cakupan baku dan validasi parameter cakupan untuk setiap aplikasi.
-
 ## Akses
 - [ ] Batasi permintaan (_throttling_) di sisi peladen untuk menghindari serangan yang dapat melumpukan sistem (Contoh: DDoS, serangan paksa).
 - [ ] Gunakan HTTPS di sisi peladen untuk menghindari serangan pencegatan / MItM (Man In The Middle Attack).
 - [ ] Gunakan tajuk `HSTS` pada SSL untuk mencegah serangan SSL Strip.
 - [ ] Matikan daftar direktori.
 - [ ] Untuk API pribadi, izinkan akses hanya dari IP/host yang masuk daftar putih.
+
+## Authorization
+
+### OAuth
+- [ ] Selalu validasi `redirect_uri` di sisi peladen sehingga hanya URL-URL yang ada di dalam daftar putih yang boleh digunakan.
+- [ ] Selalu coba untuk mempertukarkan kode bukan token (jangan ijinkan `response_type=token`).
+- [ ] Gunakan parameter `state` dengan campuran nilai acak (_random hash_) untuk mencegah CSRF pada proses autentikasi.
+- [ ] Tetapkan cakupan baku dan validasi parameter cakupan untuk setiap aplikasi.
 
 ## Masuk
 - [ ] Gunakan metode HTTP yang sesuai dengan operasi yang digunakan, `GET untuk membaca catatan`, `POST untuk membuat catatan baru`, `PUT/PATCH untuk mengganti secara keseluruhan/mengubah sebagian catatan`, `DELETE untuk menghapus catatan` dan tanggapan `405 Method Not Allowed` jika metode permintaan tidak dikenali pada sumber daya.
@@ -68,6 +70,13 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Jalankan uji keamanan (analisis statis/dinamis) secara terus-menerus pada kode Anda.
 - [ ] Memeriksa dependensi Anda (perangkat lunak dan OS) untuk mengetahui kerentanannya.
 - [ ] Rancang solusi kembali ke versi sebelumnya pada proses penyebaran.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

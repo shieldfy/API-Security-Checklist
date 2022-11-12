@@ -21,18 +21,20 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تقم بتخزين أي بيانات حساسة داخل محتوى رمز الـ JWT, لأنه يمكن كشف هذه المحتويات بسهولة [easily](https://jwt.io/#debugger-io).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تجنب تخزين الكثير من البيانات. عادةً ما تتم مشاركة JWT في الرؤوس ولديها حد للحجم.
 
-### OAuth
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تحقق دائما من `redirect_uri` في الرمز البرمجي للخادوم لتسمح فقط بقائمة محددة من الروابط.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;دائما حاول أن تقوم بالتبادل والرد برمز برمجي وليس بالرمز (لا تسمح `response_type=token`).
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم متغير `state` في الرابط مع مزيج عشوائي من الحروف لتمنع هجمات الـ CSRF على عملية المصادقة الخاصة بالـ OAuth.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حدد الصلاحية والنطاق الافتراضي scope، وقم بالتحقق منه مع كل تطبيق.
-
 ## الوصول
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حدد الطلبات (Throttling) لتتجنب هجوم حجب الخدمة DDoS وهجوم التخمين بالقوة brute-force.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم HTTPS على الخادوم لتتجنب هجمات التنصت على الطلبات MITM (Man In The Middle Attack).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم `HSTS` header مع الـ SSL لتتجنب هجمات الـ SSL Strip.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بإيقاف تشغيل قوائم الدليل.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;بالنسبة لواجهات برمجة التطبيقات الخاصة، اسمح بالوصول فقط من عناوين IP والمضيفين المدرجين في القائمة البيضاء.
+
+## Authorization
+
+### OAuth
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تحقق دائما من `redirect_uri` في الرمز البرمجي للخادوم لتسمح فقط بقائمة محددة من الروابط.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;دائما حاول أن تقوم بالتبادل والرد برمز برمجي وليس بالرمز (لا تسمح `response_type=token`).
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم متغير `state` في الرابط مع مزيج عشوائي من الحروف لتمنع هجمات الـ CSRF على عملية المصادقة الخاصة بالـ OAuth.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حدد الصلاحية والنطاق الافتراضي scope، وقم بالتحقق منه مع كل تطبيق.
 
 ## الإدخال
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم الوسيلة المناسبة HTTP method حسب العملية التي تريد القيام بها : `GET (للقرائة)`, `POST (انتاج أو اضافة)`, `PUT/PATCH (لإستبدال او تحديث)`, and `DELETE (لحذف سجل)`, و قم بالرد بـ `405 Method Not Allowed` في حالة إذا كانت الوسيلة method غير مناسبة .
@@ -70,6 +72,13 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بإجراء اختبارات الأمان باستمرار (التحليل الثابت/الديناميكي) على التعليمات البرمجية الخاصة بك.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تحقق من تبعياتك (البرنامج ونظام التشغيل) بحثًا عن نقاط الضعف المعروفة.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تصميم حل التراجع عن عمليات النشر rollback.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

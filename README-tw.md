@@ -19,18 +19,20 @@
 - [ ] 不要在 JWT 的請求體中存放敏感數據, 它是[可破解的](https://jwt.io/#debugger-io).
 - [ ] 避免存儲過多的數據。 JWT 通常在標頭中共享，並且它們有大小限制。
 
-### OAuth 授權或認證協議
-- [ ] 始終在後台驗證 `redirect_uri`, 只允許白名單的 URL.
-- [ ] 每次交換令牌的時候不要加 token (不允許 `response_type=token`).
-- [ ] 使用 `state` 參數並填充隨機的哈希數來防止跨站請求偽造(CSRF).
-- [ ] 對不同的應用分別定義默認的作用域和各自有效的作用域參數.
-
 ## 訪問
 - [ ] 限制流量來防止 DDoS 攻擊和暴力攻擊.
 - [ ] 在服務端使用 HTTPS 協議來防止 MITM 攻擊.
 - [ ] 使用 `HSTS` 協議防止 SSLStrip 攻擊.
 - [ ] 關閉目錄列表。
 - [ ] 對於私有 API，僅允許從列入白名單的 IP/主機進行訪問。
+
+## Authorization
+
+### OAuth 授權或認證協議
+- [ ] 始終在後台驗證 `redirect_uri`, 只允許白名單的 URL.
+- [ ] 每次交換令牌的時候不要加 token (不允許 `response_type=token`).
+- [ ] 使用 `state` 參數並填充隨機的哈希數來防止跨站請求偽造(CSRF).
+- [ ] 對不同的應用分別定義默認的作用域和各自有效的作用域參數.
 
 ## 輸入
 - [ ] 使用與操作相符的 HTTP 操作函數, `GET (讀取)`, `POST (創建)`, `PUT (替換/更新)` 以及 `DELETE (刪除記錄)`, 如果請求的方法不適用於請求的資源則返回 `405 Method Not Allowed`.
@@ -68,6 +70,13 @@
 - [ ] 對您的代碼持續運行安全測試（靜態/動態分析）。
 - [ ] 檢查您的依賴項（軟件和操作系統）是否存在已知漏洞。
 - [ ] 為部署設計一個回滾方案.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

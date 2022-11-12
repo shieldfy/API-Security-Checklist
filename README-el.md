@@ -19,18 +19,20 @@
 - [ ] Μη καταχωρείτε ευαίσθητα δεδομένα στο JWT payload, μπορεί να αποκρυπτογραφηθεί εύκολα [easily](https://jwt.io/#debugger-io).
 - [ ] Αποφύγετε την αποθήκευση πάρα πολλών δεδομένων. JWT είναι συνήθως κοινόχρηστο σε headers και έχουν όριο μεγέθους.
 
-### OAuth
-- [ ] Πάντα να επαληθεύετε το `redirect_uri` στο server-side και επιτρέπετε μόνο whitelisted URLs.
-- [ ] Πάντα να προσπαθήτε να ανταλλάσετε auth code και όχι tokens (μην επιτρέπετε `response_type=token`).
-- [ ] Χρησιμοποιήστε `state` παράμετρο με τυχαίο περίπλοκο κλειδί (hash) για να αποτρέψετε CSRF κατα τη διάρκεια της OAuth authentication διαδικασίας.
-- [ ] Ορίστε το προεπιλεγμένο πεδίο (default scope), και επικυρώστε τις παραμέτρους πεδίου (scope parameters) για κάθε εφαρμογή.
-
 ## Πρόσβαση (Access)
 - [ ] Περιορίστε τα αιτήματα (requests) (Throttling) για να αποφύγετε επιθέσεις DDoS / brute-force.
 - [ ] Χρησιμοποιήστε HTTPS στο server side για να αποφύγετε επιθέσεις MITM (Man in the Middle Attack).
 - [ ] Χρησιμοποιήστε `HSTS` κεφαλίδα (header) με SSL για να αποφύγετε SSL Strip επιθέσεις.
 - [ ] Απενεργοποιήστε τις καταχωρίσεις directory.
 - [ ] Για ιδιωτικά API, επιτρέπεται η πρόσβαση μόνο από IP/κεντρικούς στη λίστα επιτρεπόμενων.
+
+## Authorization
+
+### OAuth
+- [ ] Πάντα να επαληθεύετε το `redirect_uri` στο server-side και επιτρέπετε μόνο whitelisted URLs.
+- [ ] Πάντα να προσπαθήτε να ανταλλάσετε auth code και όχι tokens (μην επιτρέπετε `response_type=token`).
+- [ ] Χρησιμοποιήστε `state` παράμετρο με τυχαίο περίπλοκο κλειδί (hash) για να αποτρέψετε CSRF κατα τη διάρκεια της OAuth authentication διαδικασίας.
+- [ ] Ορίστε το προεπιλεγμένο πεδίο (default scope), και επικυρώστε τις παραμέτρους πεδίου (scope parameters) για κάθε εφαρμογή.
 
 ## Είσοδος δεδομένων (Input)
 - [ ] Χρησιμοποιήστε την κατάλληλη HTTP μέθοδο σύμφωνα με τη λειτουργία που χρειάζεστε: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, και `DELETE (για διαγραφή αρχείου)`, και απαντήστε με `405 Method Not Allowed` εάν η ζητούμενη μέθοδος δεν είναι κατάλληλη για την αιτούμενη εφαρμογή.
@@ -68,6 +70,13 @@
 - [ ] Εκτελείτε συνεχώς δοκιμές ασφαλείας (στατική/δυναμική ανάλυση) στον κώδικά σας.
 - [ ] Ελέγξτε τις εξαρτήσεις σας (τόσο το λογισμικό όσο και το λειτουργικό σύστημα) για γνωστά τρωτά σημεία.
 - [ ] Σχεδιάστε rollback διαδικασίες για deployments.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

@@ -19,18 +19,20 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 - [ ] Чухал өгөгдлийг JWT payload -д бүү хадгал, decode хийхэд [амархан](https://jwt.io/#debugger-io).
 - [ ] Хэт их мэдээлэл хадгалахаас зайлсхий. JWT нь ихэвчлэн headers хэсэгт хуваагддаг бөгөөд тэдгээр нь хэмжээ хязгаартай байдаг.
 
-### OAuth
-- [ ] `redirect_uri` -ыг үргэлж сервер талд шалган зөвшөөрөгдсөн URL эсэхийг шалга.
-- [ ] Аль болох токен биш код солилц (`response_type=token` -ыг зөвшөөрч болохгүй).
-- [ ] OAuth authentication -ын үед `state` параметрийг санамсаргүй үүссэн hash ашиглан CSRF ээс сэргийлнэ.
-- [ ] Хувьсагчид анхны утга заавал оноож өг, утгыг байнга шалга.
-
 ## Access
 - [ ] Хүсэлтийн тоог хязгаарлаж (Throttling) DDoS / brute-force дайралтаас хамгаална.
 - [ ] HTTPS ашиглаж сервер талдаа MITM (Man In The Middle Attack) дайралтаас хамгаална.
 - [ ] `HSTS` header -ыг SSL дээр ашиглаж SSL Strip дайралтаас хамгаална.
 - [ ] Лавлах жагсаалтыг унтраа.
 - [ ] Хувийн API-уудын хувьд зөвхөн зөвшөөрөгдсөн жагсаалтад орсон IP/хостоос хандахыг зөвшөөрнө үү.
+
+## Authorization
+
+### OAuth
+- [ ] `redirect_uri` -ыг үргэлж сервер талд шалган зөвшөөрөгдсөн URL эсэхийг шалга.
+- [ ] Аль болох токен биш код солилц (`response_type=token` -ыг зөвшөөрч болохгүй).
+- [ ] OAuth authentication -ын үед `state` параметрийг санамсаргүй үүссэн hash ашиглан CSRF ээс сэргийлнэ.
+- [ ] Хувьсагчид анхны утга заавал оноож өг, утгыг байнга шалга.
 
 ## Input
 - [ ] Яг зөв HTTP хүсэлтийг ашигла: `GET (унших)`, `POST (үүсгэх)`, `PUT/PATCH (орлуулах/солих)`, мөн `DELETE (устгах)`, бас `405 Method Not Allowed` -ыг хүсэлтийн төрөл тодорхойгүй үед ашигла.
@@ -68,6 +70,13 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 - [ ] Код дээрээ аюулгүй байдлын тестийг (статик/динамик анализ) тасралтгүй ажиллуул.
 - [ ] Мэдэгдэж буй сул талуудыг өөрийн хамаарлыг (програм хангамж болон үйлдлийн систем) шалгана уу.
 - [ ] Ямар ч үед deploy хийхэд амар шийдэл гаргах.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

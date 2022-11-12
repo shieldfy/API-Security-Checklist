@@ -19,18 +19,20 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Hassas verilerinizi JWT payload içine koymayın, [Kolayca](https://jwt.io/#debugger-io) çözülebilir.
 - [ ] Çok fazla veri depolamaktan kaçının. JWT genellikle header'larda paylaşılır ve bunların bir boyut sınırı vardır.
 
-### OAuth
-- [ ] Yalnızca beyaz listeye eklenen URL'lere izin vermek için sunucu tarafındaki `redirect_uri` bilgisini her zaman doğrulayın.
-- [ ] Her zaman code değiştirmeyi deneyin token değiştirmeyi değil (`response_type=token` kullanımına izin vermeyin).
-- [ ] OAuth kimlik doğrulama işlemi sırasında CSRF'yi önlemek için `state` parametresini rasgele hashleyerek kullanın.
-- [ ] Varsayılan kapsamı tanımlayın ve her uygulama için kapsam parametrelerini doğrulayın.
-
 ## Erişim
 - [ ] DDoS ya da kaba kuvvet saldırılarından korunmak için istekleri sınırlamalısınız.
 - [ ] MITM (Man In The Middle Attack) saldırılarında korunmak için sunucu tarafında HTTPS kullanın.
 - [ ] SSL Strip saldırılarından korunmak için `HSTS` header'ı SSL ile kullan.
 - [ ] Dizin listelerini kapatın.
 - [ ] Özel API'ler için, yalnızca beyaz listedeki IP'lerden/host'lardan erişime izin verin.
+
+## Authorization
+
+### OAuth
+- [ ] Yalnızca beyaz listeye eklenen URL'lere izin vermek için sunucu tarafındaki `redirect_uri` bilgisini her zaman doğrulayın.
+- [ ] Her zaman code değiştirmeyi deneyin token değiştirmeyi değil (`response_type=token` kullanımına izin vermeyin).
+- [ ] OAuth kimlik doğrulama işlemi sırasında CSRF'yi önlemek için `state` parametresini rasgele hashleyerek kullanın.
+- [ ] Varsayılan kapsamı tanımlayın ve her uygulama için kapsam parametrelerini doğrulayın.
 
 ## Girdi
 - [ ] İşleme göre uygun HTTP yöntemini kullanın: `GET (okumak)`, `POST (oluşturmak)`, `PUT/PATCH (değiştirmek/güncellemk)`, ve `DELETE (bir kaydı silmek için)`, eğer istenen yöntem istenen kaynak için uygun değilse `405 Method Not Allowed` mesajı ile cevap verin.
@@ -68,6 +70,13 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Kodunuz üzerinde sürekli olarak güvenlik testleri (statik/dinamik analiz) çalıştırın.
 - [ ] Bilinen güvenlik açıkları için bağımlılıklarınızı (hem yazılım hem de işletim sistemi) kontrol edin.
 - [ ] Dağıtımlar için bir geriye dönme çözümü tasarlayın.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

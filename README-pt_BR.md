@@ -19,18 +19,20 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Não armazene informações confidenciais no JWT, pois elas podem ser [facilmente decodificadas](https://jwt.io/#debugger-io).
 - [ ] Evite armazenar muitos dados. JWT geralmente é compartilhado em headers e eles têm um limite de tamanho.
 
-### OAuth
-- [ ] Sempre valide o `redirect_uri` no seu servidor através de uma lista de URLs conhecidas (previamente cadastradas).
-- [ ] Tente sempre retornar códigos de negociação, não o _token_ de acesso (não permita `response_type=token`).
-- [ ] Utilize o parâmetro `state` com um _hash_ aleatório para previnir CSRF no processo de autenticação OAuth.
-- [ ] Defina escopo de dados, e valide o parâmetro `scope` para cada aplicação.
-
 ## Acesso (_Access_)
 - [ ] Limite a quantidade de requisições (_Throttling_) para evitar ataques DDoS e de força bruta.
 - [ ] Use HTTPS no seu servidor para evitar ataques MITM (_Man In The Middle Attack_).
 - [ ] Use cabeçalho `HSTS` com SSL para evitar ataques _SSL Strip_.
 - [ ] Desative as listagens de diretórios.
 - [ ] Para APIs privadas, permita o acesso apenas de IPs/hosts da lista branca (whitelist).
+
+## Authorization
+
+### OAuth
+- [ ] Sempre valide o `redirect_uri` no seu servidor através de uma lista de URLs conhecidas (previamente cadastradas).
+- [ ] Tente sempre retornar códigos de negociação, não o _token_ de acesso (não permita `response_type=token`).
+- [ ] Utilize o parâmetro `state` com um _hash_ aleatório para previnir CSRF no processo de autenticação OAuth.
+- [ ] Defina escopo de dados, e valide o parâmetro `scope` para cada aplicação.
 
 ## Requisição (_Input_)
 - [ ] Utilize o método HTTP apropriado para cada operação, `GET (obter)`, `POST (criar)`, `PUT/PATCH (trocar/atualizar)` e `DELETE (apagar)`.
@@ -68,6 +70,13 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Execute continuamente testes de segurança (análise estática/dinâmica) em seu código.
 - [ ] Verifique suas dependências (software e sistema operacional) para vulnerabilidades conhecidas.
 - [ ] Implemente funcionalidade de reversão de _deploy_ (_rollback_).
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

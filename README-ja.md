@@ -19,18 +19,20 @@ APIを設計、テスト、リリースするときの最も重要なセキュ�
 - [ ] JWTのペイロードに機密情報を格納してはいけない。それは[簡単に](https://jwt.io/#debugger-io)復号できる。
 - [ ] あまり多くのデータを保存するに避けるください。JWTは通常header「ヘッダー」に共有され、サイズ制限があります。
 
-### OAuth
-- [ ] サーバサイドで常に`redirect_uri`を検証し、ホワイトリストに含まれるURLのみを許可する。
-- [ ] 常にtokenではなくcodeを交換するようにする（`response_type=token`を許可しない）。
-- [ ] `state`パラメータをランダムなハッシュと共に利用し、OAuth認証プロセスでのCSRFを防ぐ。
-- [ ] デフォルトのscopeを定義し、アプリケーション毎にscopeパラメータを検証する。
-
 ## アクセス
 - [ ] DDoSやブルートフォース攻撃を回避するため、リクエストを制限（スロットリング）する。
 - [ ] MITM（Man in the Middle Attack）を防ぐため、サーバサイドではHTTPSを使用する。
 - [ ] SSL Strip attackを防ぐため、SSL化とともに`HSTS`ヘッダを設定する。
 - [ ] ディレクトリ・リストをオフにしてください。
 - [ ] プライベートAPIの場合、ホワイト・リストに登録されたIP/ホストからのアクセスのみを許可します。
+
+## Authorization
+
+### OAuth
+- [ ] サーバサイドで常に`redirect_uri`を検証し、ホワイトリストに含まれるURLのみを許可する。
+- [ ] 常にtokenではなくcodeを交換するようにする（`response_type=token`を許可しない）。
+- [ ] `state`パラメータをランダムなハッシュと共に利用し、OAuth認証プロセスでのCSRFを防ぐ。
+- [ ] デフォルトのscopeを定義し、アプリケーション毎にscopeパラメータを検証する。
 
 ## 入力
 - [ ] 操作に応じて適切なHTTPメソッドを利用する。`GET（読み込み）`, `POST（作成）`, `PUT/PATCH（置き換え/更新）`, `DELETE（単一レコードの削除）`。リクエストメソッドがリソースに対して適切ではない場合、`405 Method Not Allowed`を返す。
@@ -68,6 +70,13 @@ APIを設計、テスト、リリースするときの最も重要なセキュ�
 - [ ] コードに対してセキュリティ・テスト（静的/動的分析）を継続的に実行して。
 - [ ] 既知の脆弱性について、依存関係（ソフトウェアとOSの両方）を確認して。
 - [ ] デプロイのロールバックを用意する。
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

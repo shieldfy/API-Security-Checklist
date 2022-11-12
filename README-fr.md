@@ -19,18 +19,20 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Ne pas stocker des informations sensibles du payload JWT, son décryptage est très [simple](https://jwt.io/#debugger-io).
 - [ ] Éviter de stocker trop de données. JWT est généralement partagé dans les en-têtes et ils ont une limite de taille.
 
-### OAuth
-- [ ] Toujours valider la redirection d'uri (`redirect_uri`) côté serveur afin d'accéder uniquement aux URLs autorisées.
-- [ ] Toujours utiliser un échange de code plutôt que des tokens (ne pas autoriser `response_type=token`).
-- [ ] Utiliser le paramètre d'état (`state`) avec un hash aléatoire pour prévenir les CSRF sur le processus d'authentification OAuth.
-- [ ] Définir la portée par défaut et valider le paramètre de portée pour chaque application.
-
 ## Accès
 - [ ] Limiter le nombre de requêtes (limitation de bande passante) pour éviter les dénis de service et les attaques par force brute.
 - [ ] Utiliser le protocole HTTPS côté serveur afin d'éviter les attaques de l'homme du milieu (MITM).
 - [ ] Utiliser les entêtes `HSTS` avec SSL pour éviter les attaques SSL Strip.
 - [ ] Désactiver les listes du répertoires.
 - [ ] Pour les API privées, n'autorisez l'accès qu'à partir d'adresses IP/hôtes sur liste blanche.
+
+## Authorization
+
+### OAuth
+- [ ] Toujours valider la redirection d'uri (`redirect_uri`) côté serveur afin d'accéder uniquement aux URLs autorisées.
+- [ ] Toujours utiliser un échange de code plutôt que des tokens (ne pas autoriser `response_type=token`).
+- [ ] Utiliser le paramètre d'état (`state`) avec un hash aléatoire pour prévenir les CSRF sur le processus d'authentification OAuth.
+- [ ] Définir la portée par défaut et valider le paramètre de portée pour chaque application.
 
 ## Entrées
 - [ ] Utiliser la bonne méthode en fonction de l'opération, `GET (lire)`, `POST (créer)`, `PUT (remplacer/mettre à jour)` et `DELETE (pour supprimer un enregistrement)`.
@@ -68,6 +70,13 @@ Checklist des points de sécurité les plus importants lors de la conception, du
 - [ ] Exécutez en continu des tests de sécurité (analyse statique/dynamique) sur votre code.
 - [ ] Vérifiez vos dépendances (logiciel et système d'exploitation) pour les vulnérabilités connues.
 - [ ] Concevez une solution de rollback pour les déploiements.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

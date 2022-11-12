@@ -19,18 +19,20 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Sla geen gevoelige data op in de JWT payload, deze is [makkelijk](https://jwt.io/#debugger-io) te decoderen.
 - [ ] Vermijd het opslaan van te veel gegevens. JWT wordt meestal gedeeld in headers en ze hebben een maximale grootte.
 
-### OAuth
-- [ ] Valideer **ALTIJD** de `redirect_uri` op de server om alleen toegestane URL te accepteren.
-- [ ] Probeer altijd een exchange voor code, niet voor tokens (sta `response_type=token` niet toe).
-- [ ] Gebruik de `state` parameter met een random hash om CSRF op een OAuth authentication process te voorkomen.
-- [ ] Definieer een standaard scope, en valideer deze scope parameter voor elke applicatie.
-
 ## Toegang
 - [ ] Limiteer het aantal requests om DDoS en/of Bruteforce aanvallen te ontkrachten.
 - [ ] Gebruik HTTPS aan de server zijde om MITM (Man In The Middle Attacks) tegen te gaan.
 - [ ] Gebruik de `HSTS` header i.c.m SSL om een SSL Strip attack te ontkrachten.
 - [ ] Schakel directoryvermeldingen uit.
 - [ ] Sta voor privé-API's alleen toegang toe vanaf op de witte lijst geplaatste IP's/hosts.
+
+## Authorization
+
+### OAuth
+- [ ] Valideer **ALTIJD** de `redirect_uri` op de server om alleen toegestane URL te accepteren.
+- [ ] Probeer altijd een exchange voor code, niet voor tokens (sta `response_type=token` niet toe).
+- [ ] Gebruik de `state` parameter met een random hash om CSRF op een OAuth authentication process te voorkomen.
+- [ ] Definieer een standaard scope, en valideer deze scope parameter voor elke applicatie.
 
 ## Invoer
 - [ ] Gebruik de correcte HTTP methode voor de operatie, `GET (lezen)`, `POST (schrijven)`, `PUT (vervangen/updaten)` and `DELETE (verwijderen)`.
@@ -68,6 +70,13 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Voer continu beveiligingstests (statische/dynamische analyse) uit op uw code.
 - [ ] Controleer uw afhankelijkheden (zowel software en besturingssysteem) op bekende kwetsbaarheden.
 - [ ] Ontwikkel een terugrol oplossing.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

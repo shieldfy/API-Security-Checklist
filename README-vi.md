@@ -19,18 +19,20 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Không lưu các thông tin nhạy cảm trong JWT, nó có thể [dễ dàng](https://jwt.io/#debugger-io) được giải mã.
 - [ ] Tránh lưu trữ quá nhiều dữ liệu. JWT thường được chia sẻ trong header và chúng có giới hạn về kích thước.
 
-### OAuth Ủy quyền hoặc chứng thực giao thức
-- [ ] Luôn xác nhận `redirect_uri` phía server để chỉ cho phép redirect đến các URL tin cậy.
-- [ ] Ưu tiên sử dụng `response_type=code` thay vì `response_type=token`).
-- [ ] Sử dụng tham số `state` cùng một giá trị hash ngẫu nhiên để chống lại tấn công CSRF trong quá trình xác thực OAuth.
-- [ ] Định nghĩa phạm vi mặc định, và xác nhận các tham số phạm vi cho mỗi ứng dụng.
-
 ## Quyền
 - [ ] Giới hạn request (Throttling) để phòng tránh các tấn công DDoS / brute-force.
 - [ ] Sử dụng giao thức HTTPS ở phía server để tránh MITM (Man In The Middle Attack).
 - [ ] Sử dụng `HSTS` header với SSL để tránh tấn công SSL Strip.
 - [ ] Tắt danh sách thư mục.
 - [ ] Đối với các API riêng tư, chỉ cho phép truy cập từ các IP / máy chủ có trong danh sách cho phép / danh sách trắng / whitelist.
+
+## Authorization
+
+### OAuth Ủy quyền hoặc chứng thực giao thức
+- [ ] Luôn xác nhận `redirect_uri` phía server để chỉ cho phép redirect đến các URL tin cậy.
+- [ ] Ưu tiên sử dụng `response_type=code` thay vì `response_type=token`).
+- [ ] Sử dụng tham số `state` cùng một giá trị hash ngẫu nhiên để chống lại tấn công CSRF trong quá trình xác thực OAuth.
+- [ ] Định nghĩa phạm vi mặc định, và xác nhận các tham số phạm vi cho mỗi ứng dụng.
 
 ## Input
 - [ ] Sử dụng các HTTP method phù hợp với từng hành động: `GET (đọc)`, `POST (tạo mới)`, `PUT/PATCH (cập nhật/sửa)`, `DELETE (để xóa bản ghi)`, và phản hồi `405 Method Not Allowed` nếu HTTP method không phù hợp với tài nguyên được request.
@@ -68,6 +70,13 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Liên tục chạy các bài kiểm tra bảo mật (phân tích tĩnh/động) trên mã của bạn.
 - [ ] Kiểm tra các phần phụ thuộc của bạn (cả phần mềm và hệ điều hành) để tìm các lỗ hổng đã biết.
 - [ ] Thiết kế một giải pháp rollback cho việc triển khai.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

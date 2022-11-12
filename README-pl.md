@@ -19,18 +19,20 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Nie przechowuj wrażliwych danych w payloadzie `JWT`, mogą być one [łatwo zdekodowane](https://jwt.io/#debugger-io).
 - [ ] Unikaj przechowywania zbyt dużej ilości danych. JWT jest zwykle udostępniany w nagłówkach i ma limit rozmiaru.
 
-### OAuth
-- [ ] Zawsze waliduj `redirect_uri` po stronie serwera aby zezwolić tylko URL-om z dozwolonej listy (`whitelist`).
-- [ ] Zawsze próbuj wymienić kodem nie tokenami (nie zezwalaj na `response_type=token`).
-- [ ] Użyj parametru `state` z losowym hashem aby zabezpieczyć proces OAuth przed atakiem CSRF.
-- [ ] Zdefiniuj oraz waliduj zakres parametrów dla każdej aplikacji.
-
 ## Dostęp
 - [ ] Ustaw limit zapytań (Throttling) aby uniknąć ataku DDoS / brute-force.
 - [ ] Użyj HTTPS aby uniknąć MITM (Man In The Middle Attack) - Ataku polegającego na pośrednictwie w wymianie informacji pomiędzy dwoma punktami np. klientem i serwerem.
 - [ ] Użyj nagłówka `HSTS` z SSL aby uniknąć SSL Strip attack.
 - [ ] Wyłącz wykazy katalogów.
 - [ ] W przypadku prywatnych API, zezwalaj na dostęp tylko z adresów IP/hostów umieszczonych na białej liście.
+
+## Authorization
+
+### OAuth
+- [ ] Zawsze waliduj `redirect_uri` po stronie serwera aby zezwolić tylko URL-om z dozwolonej listy (`whitelist`).
+- [ ] Zawsze próbuj wymienić kodem nie tokenami (nie zezwalaj na `response_type=token`).
+- [ ] Użyj parametru `state` z losowym hashem aby zabezpieczyć proces OAuth przed atakiem CSRF.
+- [ ] Zdefiniuj oraz waliduj zakres parametrów dla każdej aplikacji.
 
 ## Wejście
 - [ ] Użyj odpowiedniej metody protokołu HTTP dla danej operacji: `GET (odczyt)`, `POST (tworzenie)`, `PUT/PATCH (zmiana)`, and `DELETE (usuwanie)`, i odpowiadaj `405 Method Not Allowed` jeżeli metoda zapytania jest niepoprawna.
@@ -67,6 +69,13 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Ciągle uruchamiaj testy bezpieczeństwa (analiza statyczna/dynamiczna) w swoim kodzie.
 - [ ] Sprawdź swoje zależności (zarówno oprogramowanie i system operacyjny) pod kątem znanych luk w zabezpieczeniach.
 - [ ] Stwórz możliwość szybkiego wycofania udostępnionego wdrożenia.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

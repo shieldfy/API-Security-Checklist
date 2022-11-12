@@ -19,18 +19,20 @@ API를 설계하고, 테스트하고, 배포할 때 고려해야 할 중요한 �
 - [ ] JWT 페이로드는 [디코딩이 쉽기](https://jwt.io/#debugger-io) 때문에 민감한 데이터는 저장하지 마세요.
 - [ ] 너무 많은 데이터를 저장하지 마십시오. JWT는 일반적으로 header서 공유되며 크기 제한이 있습니다.
 
-### OAuth
-- [ ] 허용된 URL만 받기 위해서는 서버 단에서 `redirect_uri`의 유효성을 항상 검증하세요.
-- [ ] 항상 토큰 대신 코드를 주고받으세요. (`response_type=token`을 허용하지 마세요)
-- [ ] OAuth 인증 프로세스에서 CSRF를 방지하기 위해 랜덤 해쉬값을 가진 `state` 파라미터를 사용하세요.
-- [ ] 디폴트 스코프를 정의하고 각 애플리케이션마다 스코프 파라미터의 유효성을 검증하세요.
-
 ## 접근 (Access)
 - [ ] DDoS나 무작위 대입 공격을 피하려면 요청 수를 제한하세요. (Throttling)
 - [ ] MITM (중간자 공격)을 피하려면 서버 단에서 HTTPS를 사용하세요.
 - [ ] SSL Strip 공격을 피하려면 `HSTS` 헤더를 SSL과 함께 사용하세요.
 - [ ] 디렉토리 목록을 끕니다.
 - [ ] 프라이빗 API의 경우, 화이트리스트에 있는 IP/호스트에서만 액세스를 허용합니다.
+
+## Authorization
+
+### OAuth
+- [ ] 허용된 URL만 받기 위해서는 서버 단에서 `redirect_uri`의 유효성을 항상 검증하세요.
+- [ ] 항상 토큰 대신 코드를 주고받으세요. (`response_type=token`을 허용하지 마세요)
+- [ ] OAuth 인증 프로세스에서 CSRF를 방지하기 위해 랜덤 해쉬값을 가진 `state` 파라미터를 사용하세요.
+- [ ] 디폴트 스코프를 정의하고 각 애플리케이션마다 스코프 파라미터의 유효성을 검증하세요.
 
 ## 입력 및 요청 (Input)
 - [ ] 각 요청의 연산에 맞는 적절한 HTTP 메서드를 사용하세요. `GET (읽기)`, `POST (생성)`, `PUT (대체/갱신)`, `DELETE (삭제)`. 그리고 요청 메소드가 리소스에 적합하지 않은 경우 `405 Method Not Allowed`로 응답하세요.
@@ -68,6 +70,13 @@ API를 설계하고, 테스트하고, 배포할 때 고려해야 할 중요한 �
 - [ ] 코드에 대한 보안 테스트(정적/동적 분석)를 지속해서 실행합니다.
 - [ ] 알려진 취약점이 있는지 종속성(소프트웨어 및 OS 모두)을 확인하십시오.
 - [ ] 배포에 대한 롤백 솔루션을 설계하세요.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

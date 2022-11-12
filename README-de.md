@@ -19,18 +19,20 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Speichere keine sensitiven Daten im JWT Payload, denn dieser kann [einfach entkodiert werden](https://jwt.io/#debugger-io).
 - [ ] Vermeiden zu viele Daten zu speichern. JWT wird normalerweise in Headern geteilt und hat eine Größenbeschränkung.
 
-### OAuth
-- [ ] Überprüfe stets die `redirect_uri` serverseitig und erlaube nur URLs aus einer Whitelist.
-- [ ] Frage immer mit einem Access-Code (vom initialen Request) einen Access-Token ab (verbiete `response_type=token`).
-- [ ] Nutze den `state` Parameter immer mit einem zufälligem Hash, um CSRF auf den OAuth Authentifizierungsprozess zu verhindern.
-- [ ] Definiere einen Standard-Scope und validiere alle Scope Parameter für jede Applikation.
-
 ## Zugriff
 - [ ] Limitiere alle Requests (Throttling), um DDoS / Brute-Force Attacken zu verhindern.
 - [ ] Nutze HTTPS serverseitig, um MITM (Man In The Middle Attack) zu verhindern.
 - [ ] Setze `HSTS` (HTTP Strict Transport Security) im Header bei SSL, um SSLStrip Attacken zu verhindern.
 - [ ] Deaktivieren Verzeichniseinträge.
 - [ ] Erlauben für private APIs den Zugriff nur von IPs/Hosts auf der Whitelist.
+
+## Authorization
+
+### OAuth
+- [ ] Überprüfe stets die `redirect_uri` serverseitig und erlaube nur URLs aus einer Whitelist.
+- [ ] Frage immer mit einem Access-Code (vom initialen Request) einen Access-Token ab (verbiete `response_type=token`).
+- [ ] Nutze den `state` Parameter immer mit einem zufälligem Hash, um CSRF auf den OAuth Authentifizierungsprozess zu verhindern.
+- [ ] Definiere einen Standard-Scope und validiere alle Scope Parameter für jede Applikation.
 
 ## Input
 - [ ] Nutze für Requests die passenden HTTP Methoden: `GET (Lesen)`, `POST (Erzeugen)`, `PUT/PATCH (Ersetzen/Aktualisieren)`, and `DELETE (Datensatz löschen)`, und gib `405 Method Not Allowed`, wenn die angeforderte Methode nicht auf die Ressource passt.
@@ -68,6 +70,13 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Führen kontinuierlich Sicherheitstests (statische/dynamische Analyse) für Ihren Code.
 - [ ] Überprüfen Ihre Abhängigkeiten (Software und Betriebssystem) auf bekannte Schwachstellen.
 - [ ] Stelle sicher, dass du im Fehlerfall auch schnell wieder den vorherigen Stand einspielen kannst (Rollback).
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

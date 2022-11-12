@@ -20,18 +20,20 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اطلاعات حساس را در پی‌لود JWT ذخیره نکنید چون [به راحتی](https://jwt.io/#debugger-io) قابل رمزگشایی است.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از ذخیره بیش از حد داده ها خودداری کنید. JWT معمولاً در هدر به اشتراک گذاشته می شود و محدودیت اندازه دارند.
 
-### OAuth
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;همیشه `redirect_uri` را در سمت سرور اعتبارسنجی کنید تا تنها به URLهای مجاز اجازه داده شود.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;همیشه تلاش کنید تا code را به جای token تبادل کنید (اجازه `response_type=token` را ندهید).
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از پارامتر `state` با یک هش تصادفی استفاده کنید تا از CSRF روی پروسه‌ی احراز هویت OAuth جلوگیری کنید.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مقدار scope پیش‌فرض را تعریف کنید و پارامترهای scope را برای هر اپلیکیشن اعتبارسنجی کنید.
-
 ## دسترسی
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;رکوئست‌ها را محدود کنید (Throttling) تا از حملات DDos یا بروت‌فورس جلوگیری شود.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;در سمت سرور از HTTPS استفاده کنید تا از حملات مرد میانی جلوگیری شود.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از هدر `HSTS` استفاده کنید تا از حمله‌ی SSL Strip جلوگیری شود.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لیست های دایرکتوری را خاموش کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای APIهای خصوصی، فقط از IPها/میزبانهای لیست سفید اجازه دسترسی داشته باشید.
+
+## Authorization
+
+### OAuth
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;همیشه `redirect_uri` را در سمت سرور اعتبارسنجی کنید تا تنها به URLهای مجاز اجازه داده شود.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;همیشه تلاش کنید تا code را به جای token تبادل کنید (اجازه `response_type=token` را ندهید).
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از پارامتر `state` با یک هش تصادفی استفاده کنید تا از CSRF روی پروسه‌ی احراز هویت OAuth جلوگیری کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مقدار scope پیش‌فرض را تعریف کنید و پارامترهای scope را برای هر اپلیکیشن اعتبارسنجی کنید.
 
 ## ورودی
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از متد HTTP مناسب با توجه به نوع عملیات استفاده کنید: `GET` برای خواندن، `POST` برای ایجاد کردن، `PUT/PATCH` برای جایگزین یا بروزرسانی و `DELETE` برای حذف یک رکورد، و در صورتی‌که متد درخواستی برای منبع درخواست‌شده مناسب نباشد با `405 Method Not Allowed` پاسخ بدهید.
@@ -69,6 +71,13 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;به صورت پیوسته روی کدتان تست‌های امنیتی (آنالیز ایستا و پویا)، اجرا کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;وابستگی‌هایتان (نرم افزار و سیستم عامل، هردو) را برای آسیب‌پذیری‌های شناخته شده، چک کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای دپلوی‌هایتان، یک راه‌حل با قابلیت عقبگرد (rollback) طراحی کنید.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---

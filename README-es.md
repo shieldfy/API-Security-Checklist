@@ -19,18 +19,20 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 - [ ] No almacenes información sensible en el contenido del JWT, puede ser descodificado [fácilmente](https://jwt.io/#debugger-io).
 - [ ] Evita almacenar datos muy grandes o crecientes. JWT se transmite en las headers y éstas tienen un tamaño máximo.
 
-### OAuth
-- [ ] Siempre valida `redirect_uri` en el lado del servidor para permitir sólo ciertas URLs.
-- [ ] Trata siempre de intercambiar código y no tokens (no permitas `response_type=token`).
-- [ ] Usa el parámetro `state` con un hash aleatorio para prevenir CSRF en el proceso de autenticación OAuth.
-- [ ] Define el ámbito (`scope`) por defecto, y valida los parámetros de ámbito para cada aplicación.
-
 ## Acceso
 - [ ] Limita las peticiones (`Throttling`) para prevenir ataques DDoS y de fuerza bruta.
 - [ ] Usa HTTPS en el lado del servidor para evitar ataques MITM (Man In The Middle Attack).
 - [ ] Usa la cabecera `HSTS` con SSL para evitar SSL Strip attack.
 - [ ] Desactive las listados de directorios.
 - [ ] Para las API privadas, permita el acceso solo desde hosts/IP incluidos en la lista blanca.
+
+## Authorization
+
+### OAuth
+- [ ] Siempre valida `redirect_uri` en el lado del servidor para permitir sólo ciertas URLs.
+- [ ] Trata siempre de intercambiar código y no tokens (no permitas `response_type=token`).
+- [ ] Usa el parámetro `state` con un hash aleatorio para prevenir CSRF en el proceso de autenticación OAuth.
+- [ ] Define el ámbito (`scope`) por defecto, y valida los parámetros de ámbito para cada aplicación.
 
 ## Entradas
 - [ ] Usa el método HTTP apropiado a cada operación: `GET (lectura)`, `POST (creación)`, `PUT/PATCH (reemplazo/actualización)`, y `DELETE (borrado)`, y responde con `405 Method Not Allowed` si el método en la petición no es apropiado para el recurso.
@@ -68,6 +70,13 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 - [ ] Ejecute continuamente pruebas de seguridad (análisis estático/dinámico) en su código.
 - [ ] Verifique sus dependencias (tanto software como sistema operativo) en busca de vulnerabilidades conocidas.
 - [ ] Diseña un proceso de `rollback` para tus `deploys`.
+
+## Monitoring
+- [ ] Use centralized logins for all services and components.
+- [ ] Use agents to monitor all traffic, errors, requests, and responses.
+- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
 
 
 ---
