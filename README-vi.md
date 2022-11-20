@@ -26,7 +26,7 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Tắt danh sách thư mục.
 - [ ] Đối với các API riêng tư, chỉ cho phép truy cập từ các IP / máy chủ có trong danh sách cho phép / danh sách trắng / whitelist.
 
-## Authorization
+## Ủy quyền (Authorization)
 
 ### OAuth Ủy quyền hoặc chứng thực giao thức
 - [ ] Luôn xác nhận `redirect_uri` phía server để chỉ cho phép redirect đến các URL tin cậy.
@@ -63,7 +63,7 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Không trả về client các thông tin nhạy cảm như `credentials`, `Passwords`, `security tokens`.
 - [ ] Trả về status code tương ứng với hành động đã hoàn thành. (chẳng hạn. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`...).
 
-## CI & CD ( Tích hợp và triển khai liên tục)
+## CI & CD (Tích hợp và triển khai liên tục)
 - [ ] Kiểm tra thiết kế và thực hiện đầy đủ việc test với unit/integration.
 - [ ] Áp dụng quy trình đánh giá code và bỏ qua việc tự phê duyệt.
 - [ ] Đảm bảo các thành phần của dịch vụ được quét với các anti virus trước khi đưa ra phiên bản production, bao gồm các thư viện và các gói khác.
@@ -71,12 +71,12 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Kiểm tra các phần phụ thuộc của bạn (cả phần mềm và hệ điều hành) để tìm các lỗ hổng đã biết.
 - [ ] Thiết kế một giải pháp rollback cho việc triển khai.
 
-## Monitoring
-- [ ] Use centralized logins for all services and components.
-- [ ] Use agents to monitor all traffic, errors, requests, and responses.
-- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
-- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Use an IDS and/or IPS system to monitor your API requests and instances.
+## Giám sát (Monitoring)
+- [ ] Sử dụng đăng nhập tập trung cho tất cả các dịch vụ và thành phần.
+- [ ] Sử dụng các tác nhân để giám sát tất cả lưu lượng truy cập, lỗi, yêu cầu, và phản hồi.
+- [ ] Sử dụng cảnh báo cho SMS, Slack, Email, Telegram, Kibana, Cloudwatch, vv.
+- [ ] Đảm bảo rằng bạn không ghi nhật ký bất kỳ dữ liệu nhạy cảm nào thẻ tín dụng, mật khẩu, mã PIN, vv.
+- [ ] Sử dụng hệ thống IDS và/hoặc IPS để giám sát các yêu cầu và phản hồi của API của bạn.
 
 
 ---

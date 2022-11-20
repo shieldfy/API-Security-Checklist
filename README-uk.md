@@ -26,7 +26,7 @@
 - [ ] Вимкніть списки каталогів.
 - [ ] Для приватних API, дозвольте доступ лише з IP-адрес/хостів із білого списку.
 
-## Authorization
+## Авторизація
 
 ### OAuth
 - [ ] Завжди перевіряйте `redirect_uri` на стороні сервера, щоб дозволяти тільки URL-адреси з білими списками.
@@ -71,12 +71,12 @@
 - [ ] Перевірте свої залежності (як програмне забезпечення, так і ОС) на відомі вразливості.
 - [ ] Створіть рішення відкату для розгортання.
 
-## Monitoring
-- [ ] Use centralized logins for all services and components.
-- [ ] Use agents to monitor all traffic, errors, requests, and responses.
-- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
-- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Use an IDS and/or IPS system to monitor your API requests and instances.
+## Моніторинг
+- [ ] Використовуйте централізований вхід для всіх служб і компонентів.
+- [ ] Використовуйте агентів для моніторингу всього трафіку, помилок, запитів і відповідей.
+- [ ] Використовуйте сповіщення для SMS, Slack, Email, Telegram, Kibana, Cloudwatch, тощо.
+- [ ] Переконайтеся, що ви не реєструєте жодних конфіденційних даних, таких як кредитні картки, паролі, PIN-коди, тощо.
+- [ ] Використовуйте систему IDS та/або IPS для моніторингу запитів і екземплярів API.
 
 
 ---

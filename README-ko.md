@@ -26,7 +26,7 @@ API를 설계하고, 테스트하고, 배포할 때 고려해야 할 중요한 �
 - [ ] 디렉토리 목록을 끕니다.
 - [ ] 프라이빗 API의 경우, 화이트리스트에 있는 IP/호스트에서만 액세스를 허용합니다.
 
-## Authorization
+## 권한 부여 (Authorization)
 
 ### OAuth
 - [ ] 허용된 URL만 받기 위해서는 서버 단에서 `redirect_uri`의 유효성을 항상 검증하세요.
@@ -71,7 +71,7 @@ API를 설계하고, 테스트하고, 배포할 때 고려해야 할 중요한 �
 - [ ] 알려진 취약점이 있는지 종속성(소프트웨어 및 OS 모두)을 확인하십시오.
 - [ ] 배포에 대한 롤백 솔루션을 설계하세요.
 
-## Monitoring
+## 모니터링 (Monitoring)
 - [ ] Use centralized logins for all services and components.
 - [ ] Use agents to monitor all traffic, errors, requests, and responses.
 - [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.

@@ -26,7 +26,7 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Dizin listelerini kapatın.
 - [ ] Özel API'ler için, yalnızca beyaz listedeki IP'lerden/host'lardan erişime izin verin.
 
-## Authorization
+## Yetki
 
 ### OAuth
 - [ ] Yalnızca beyaz listeye eklenen URL'lere izin vermek için sunucu tarafındaki `redirect_uri` bilgisini her zaman doğrulayın.
@@ -71,12 +71,12 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Bilinen güvenlik açıkları için bağımlılıklarınızı (hem yazılım hem de işletim sistemi) kontrol edin.
 - [ ] Dağıtımlar için bir geriye dönme çözümü tasarlayın.
 
-## Monitoring
-- [ ] Use centralized logins for all services and components.
-- [ ] Use agents to monitor all traffic, errors, requests, and responses.
-- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
-- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Use an IDS and/or IPS system to monitor your API requests and instances.
+## İzleme
+- [ ] Tüm hizmetler ve bileşenler için merkezi login kullanın.
+- [ ] Tüm trafiği, hataları, istekleri ve yanıtları izlemek için aracıları kullanın.
+- [ ] SMS, Slack, E-posta, Telegram, Kibana, Cloudwatch, vb. için uyarıları kullanın.
+- [ ] Kredi kartları, parolalar, PIN'ler, vb. hassas verileri günlüğe kaydetmediğinizden emin olun.
+- [ ] API isteklerinizi ve örneklerinizi izlemek için bir IDS ve/veya IPS sistemi kullanın.
 
 
 ---
