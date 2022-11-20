@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [Português (Brasil)](./README-pt_BR.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](./README-mk.md) | [ລາວ](./README-lo.md) | [فارسی](./README-fa.md) | [മലയാളം](./README-ml.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [বাংলা](./README-bn.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
 
 # Checklist per la sicurezza delle API
 Una checklist per le più importanti contromisure da mettere in pratica quando strutturiamo, testiamo e rilasciamo le nostre API.
@@ -26,7 +26,7 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Disattiva gli elenchi di directory.
 - [ ] Per le API private, consenti l'accesso solo da IP/host nella whitelist (lista bianca).
 
-## Authorization
+## Autorizzazione
 
 ### OAuth
 - [ ] Validare sempre il valore di `redirect_uri` lato server permettendo solo url verificati nella whitelist.
@@ -71,12 +71,12 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Controlla le tue dipendenze (sia software che sistema operativo) per le vulnerabilità note.
 - [ ] Definire una strategia di rollback per il deploy.
 
-## Monitoring
-- [ ] Use centralized logins for all services and components.
-- [ ] Use agents to monitor all traffic, errors, requests, and responses.
-- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
-- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
+## Monitoraggio
+- [ ] Utilizza accessi centralizzati per tutti i servizi e i componenti.
+- [ ] Utilizza gli agenti per monitorare tutto il traffico, gli errori, le richieste, e le risposte.
+- [ ] Utilizza gli avvisi per SMS, Slack, Email, Telegram, Kibana, Cloudwatch, ecc.
+- [ ] Assicurati di non registrare dati sensibili come carte di credito, password, PIN, ecc.
+- [ ] Utilizza un sistema IDS e/o IPS per monitorare le richieste e le istanze della tua API.
 
 
 ---

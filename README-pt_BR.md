@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [Français](./README-fr.md) | [한국어](./README-ko.md) | [Nederlands](./README-nl.md) | [Indonesia](./README-id.md) | [ไทย](./README-th.md) | [Русский](./README-ru.md) | [Українська](./README-uk.md) | [Español](./README-es.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [Deutsch](./README-de.md) | [Türkçe](./README-tr.md) | [Tiếng Việt](./README-vi.md) | [Монгол](./README-mn.md) | [हिंदी](./README-hi.md) | [العربية](./README-ar.md) | [Polski](./README-pl.md) | [Македонски](./README-mk.md) | [ລາວ](./README-lo.md) | [فارسی](./README-fa.md) | [മലയാളം](./README-ml.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [বাংলা](./README-bn.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
 
 # API Security Checklist
 Lista das mais importantes medidas de segurança para o desenvolvimento, teste e publicação da sua API.
@@ -26,7 +26,7 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Desative as listagens de diretórios.
 - [ ] Para APIs privadas, permita o acesso apenas de IPs/hosts da lista branca (whitelist).
 
-## Authorization
+## Autorização (_Authorization_)
 
 ### OAuth
 - [ ] Sempre valide o `redirect_uri` no seu servidor através de uma lista de URLs conhecidas (previamente cadastradas).
@@ -71,12 +71,12 @@ Lista das mais importantes medidas de segurança para o desenvolvimento, teste e
 - [ ] Verifique suas dependências (software e sistema operacional) para vulnerabilidades conhecidas.
 - [ ] Implemente funcionalidade de reversão de _deploy_ (_rollback_).
 
-## Monitoring
-- [ ] Use centralized logins for all services and components.
-- [ ] Use agents to monitor all traffic, errors, requests, and responses.
-- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
-- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Use an IDS or/and IPS system to monitor your API requests and instances.
+## Monitoramento (_Monitoring_)
+- [ ] Use logins centralizados para todos os serviços e componentes.
+- [ ] Use agentes para monitorar todo o tráfego, erros, solicitações, e respostas.
+- [ ] Use alertas para SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Verifique se você não está registrando dados confidenciais, como cartões de crédito, senhas, PINs, etc.
+- [ ] Use um sistema IDS e/ou IPS para monitorar as solicitações e instâncias de sua API.
 
 
 ---
