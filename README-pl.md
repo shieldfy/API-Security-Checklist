@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [বাংলা](./README-bn.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [বাংলা](./README-bn.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
 
 # Lista kontrolna bezpieczeństwa API
 Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, testowania oraz wypuszczania własnego API.
@@ -70,12 +70,12 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Sprawdź swoje zależności (zarówno oprogramowanie i system operacyjny) pod kątem znanych luk w zabezpieczeniach.
 - [ ] Stwórz możliwość szybkiego wycofania udostępnionego wdrożenia.
 
-## Monitoring
-- [ ] Use centralized logins for all services and components.
-- [ ] Use agents to monitor all traffic, errors, requests, and responses.
-- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
-- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Use an IDS and/or IPS system to monitor your API requests and instances.
+## Monitorowanie
+- [ ] Użyj ze scentralizowanych logowań dla wszystkich usług i komponentów.
+- [ ] Użyj agentów do monitorowania całego ruchu, błędów, żądań i odpowiedzi.
+- [ ] Użyj alertów dla SMS, Slack, Email, Telegram, Kibana, Cloudwatch, itp.
+- [ ] Upewnij się, że nie rejestrujesz żadnych poufnych danych, takich jak karty kredytowe, hasła, kody PIN, itp.
+- [ ] Użyj systemu IDS i/lub IPS do monitorowania żądań i instancji API.
 
 
 ---

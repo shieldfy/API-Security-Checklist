@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [বাংলা](./README-bn.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [বাংলা](./README-bn.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
 
 # API Security Checklist
 Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uitbrengen van een API.
@@ -72,11 +72,11 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Ontwikkel een terugrol oplossing.
 
 ## Monitoring
-- [ ] Use centralized logins for all services and components.
-- [ ] Use agents to monitor all traffic, errors, requests, and responses.
-- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
-- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Use an IDS and/or IPS system to monitor your API requests and instances.
+- [ ] Gebruik gecentraliseerde aanmeldingen voor alle services en componenten.
+- [ ] Gebruik agents om al het verkeer, fouten, verzoeken en reacties te monitoren.
+- [ ] Gebruik waarschuwingen voor SMS, Slack, E-mail, Telegram, Kibana, Cloudwatch, etc.
+- [ ] Zorg ervoor dat u geen gevoelige gegevens registreert, zoals creditcards, wachtwoorden, pincodes, enz.
+- [ ] Gebruik een IDS- en/of IPS-systeem om uw API-verzoeken en instanties te monitoren.
 
 
 ---
