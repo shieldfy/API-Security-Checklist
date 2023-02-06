@@ -73,11 +73,11 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای دپلوی‌هایتان، یک راه‌حل با قابلیت عقبگرد (rollback) طراحی کنید.
 
 ## Monitoring
-- [ ] Use centralized logins for all services and components.
-- [ ] Use agents to monitor all traffic, errors, requests, and responses.
-- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
-- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Use an IDS and/or IPS system to monitor your API requests and instances.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از لاگین های متمرکز برای همه سرویس ها و مؤلفه ها استفاده کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از agent ها برای مانیتور همه ترافیک, خطاها, درخواست‌ها و پاسخ‌ها استفاده کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از alert ها برای اس ام اس, Slack, ایمیل, Telegram, Kibana, Cloudwatch و غیره استفاده کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اطمینان حاصل کنید که هیچ گونه داده حساسی مانند کارت های اعتباری، رمزهای عبور، پین ها و غیره را ثبت نمی کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از یک سیستم IDS و/یا IPS برای مانیتور درخواست ها API و نمونه های خود استفاده کنید.
 
 
 ---
