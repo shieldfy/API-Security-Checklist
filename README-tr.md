@@ -78,14 +78,12 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] Kredi kartları, parolalar, PIN'ler, vb. hassas verileri günlüğe kaydetmediğinizden emin olun.
 - [ ] API isteklerinizi ve örneklerinizi izlemek için bir IDS ve/veya IPS sistemi kullanın.
 
-
 ---
 
 ## Ek kaynaklar:
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON API'leri oluşturmak için kullanışlı kaynakların bir koleksiyonu.
 
-
 ---
 
-# katkı
+# Katkı
 Bu depoyu forklayarak, bazı değişiklikler yaparak ve pull requests göndererek katkıda bulunmaktan çekinmeyin. Herhangi bir sorunuz için bize bir e-posta bırakın: `team@shieldfy.io`.
