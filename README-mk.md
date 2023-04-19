@@ -26,7 +26,7 @@
 - [ ] Исклучете ги списоците на директориуми.
 - [ ] За приватни API, дозволете пристап само од IP-а/домаќини на белата листа.
 
-## Authorization
+## Овластување
 
 ### OAuth
 - [ ] Секогаш проверувајте ја `redirect_uri` од страна на серверот за да дозволите само бела листа на адреси.
@@ -43,7 +43,7 @@
 - [ ] Користете само шифрирање од страна на серверот.
 - [ ] Користете API Gateway-услуга за да овозможите кеширање, политики за ограничување на тарифите (пр. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) и динамички да ги распоредите ресурсите за API-то.
 
-## Processing
+## Обработка
 - [ ] Проверете дали сите крајните точки се заштитени зад автентичност за да се избегне скршен процес на автентикација.
 - [ ] Треба да се избегнува идентификација на сопствени ресурси на сопственикот. Користете `/ me / orders` наместо` / user / 654321 / orders`.
 - [ ] Не автоматско зголемување на ID-ите. Наместо тоа, употребете `UUID`.
@@ -71,12 +71,12 @@
 - [ ] Проверете ги вашите зависности (и софтвер и ОС) за познати пропусти.
 - [ ] Дизајн на rollback за во продукција.
 
-## Monitoring
-- [ ] Use centralized logins for all services and components.
-- [ ] Use agents to monitor all traffic, errors, requests, and responses.
-- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
-- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Use an IDS and/or IPS system to monitor your API requests and instances.
+## Мониторинг
+- [ ] Користете централизирани логин за сите услуги и компоненти.
+- [ ] Користете агенти за следење на целиот сообраќај, грешки, барања и одговори.
+- [ ] Користете предупредувања за SMS, Slack, Е-пошта, Telegram, Kibana, Cloudwatch, итн.
+- [ ] Осигурете се дека не внесувате чувствителни податоци како кредитни картички, лозинки, PIN-кодови, итн.
+- [ ] Користете IDS и/или IPS систем за следење на вашите барања и примери на API.
 
 
 ---
@@ -87,5 +87,5 @@
 
 ---
 
-# Contribution
-Feel free to contribute by forking this repository, making some changes, and submitting pull requests. For any questions drop us an email at `team@shieldfy.io`.
+# Придонес
+Слободно можете да придонесете со forking на ова repository, правење некои промени и поднесување pull request. За какви било прашања испратете ни е-пошта на `team@shieldfy.io`.

@@ -87,4 +87,4 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 ---
 
 # Contribution
-Feel free to contribute by forking this repository, making some changes, and submitting pull requests. For any questions drop us an email at `team@shieldfy.io`.
+Możesz wnieść swój wkład, tworząc fork tego repozytorium, wprowadzając pewne zmiany i przesyłając pull request. W przypadku jakichkolwiek pytań napisz do nas email na adres `team@shieldfy.io`.
