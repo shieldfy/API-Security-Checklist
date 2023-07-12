@@ -72,11 +72,11 @@
 - [ ] ഡിപ്ലോയ്‌മെന്റിനായി ഒരു റോൾബാക്ക് പരിഹാരം രൂപകൽപ്പന ചെയ്യുക.
 
 ## Monitoring
-- [ ] Use centralized logins for all services and components.
-- [ ] Use agents to monitor all traffic, errors, requests, and responses.
-- [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
-- [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Use an IDS and/or IPS system to monitor your API requests and instances.
+- [ ] എല്ലാ സേവനങ്ങൾക്കും ഘടകങ്ങൾക്കുമായി കേന്ദ്രീകൃത ലോഗിനുകൾ ഉപയോഗിക്കുക.
+- [ ] എല്ലാ ട്രാഫിക്കും എററുകളും റിക്യുസ്റ്റുകളും റെസ്പോണ്ട്സുകളും നിരീക്ഷിക്കാൻ ഏജന്റ്സ് ഉപയോഗിക്കുക.
+- [ ] SMS, Slack, Email, Telegram, Kibana, Cloudwatch മുതലായവയ്‌ക്കായി അലേർട്ടുകൾ ഉപയോഗിക്കുക.
+- [ ] ക്രെഡിറ്റ് കാർഡുകൾ, പാസ്‌വേഡുകൾ, പിന്നുകൾ മുതലായവ പോലുള്ള സെൻസിറ്റീവ് ഡാറ്റയൊന്നും നിങ്ങൾ ലോഗ് ചെയ്യുന്നില്ലെന്ന് ഉറപ്പാക്കുക.
+- [ ] നിങ്ങളുടെ API റിക്യുസ്റ്റുകളും ഇൻസ്റ്റൻസുകളും നിരീക്ഷിക്കാൻ ഒരു IDS കൂടാതെ/അല്ലെങ്കിൽ IPS സിസ്റ്റം ഉപയോഗിക്കുക.
 
 
 ---
