@@ -7,7 +7,7 @@ API-nizi tərtib edərkən, sınaqdan keçirərkən və dərc edərkən ən vaci
 ---
 
 ## Autentifikasiya
-- [ ] `Basic Auth' istifadə etməyin. Bunun əvəzinə standart identifikasiya həllərindən (məsələn: [JWT](https://jwt.io/), [OAuth](https://oauth.net/) kimi) istifadə edin.
+- [ ] `Basic Auth` istifadə etməyin. Bunun əvəzinə standart identifikasiya həllərindən (məsələn: [JWT](https://jwt.io/), [OAuth](https://oauth.net/) kimi) istifadə edin.
 - [ ] `Autentifikasiya`, `tokenlərin yaradılması`, `parolların saxlanması` üçün təkəri yenidən kəşf etməyə çalışmayın. Standartlardan istifadə edin.
 - [ ] `Cəhdlərin sayını` məhdudlaşdırmaqla giriş hüquqlarını məhdudlaşdırın.
 - [ ] Bütün həssas məlumatlarda şifrələmədən istifadə edin.
