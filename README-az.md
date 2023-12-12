@@ -74,15 +74,14 @@ API-nizi tərtib edərkən, sınaqdan keçirərkən və dərc edərkən ən vaci
 ## İzləmə
 - [ ] Bütün xidmətlər və komponentlər üçün mərkəzi girişdən istifadə edin.
 - [ ] Bütün trafikə, səhvlərə, sorğulara və cavablara nəzarət etmək üçün agentlərdən istifadə edin.
-- [ ] SMS, Slack, E-poçt, Telegram, Kibana, Cloudwatch və s. üçün xəbərdarlıqlardan istifadə edin.
+- [ ] SMS, Slack, E-poçt, Telegram, Kibana, Cloudwatch və s. xəbərdarlıqlardan istifadə edin.
 - [ ] Kredit kartları, parollar, PIN-lər və s. Həssas məlumatları daxil etmədiyinizə əmin olun.
 - [ ] API sorğularınızı və nümunələrinizi izləmək üçün IDS və/və ya IPS sistemindən istifadə edin.
 
 ---
 
 ## Əlavə resurslar:
-- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON API qurmaq üçün faydalı resurslar toplusu.
-
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP + JSON API qurmaq üçün faydalı resurslar toplusu.
 ---
 
 # Töhfə
