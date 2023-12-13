@@ -1,18 +1,20 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [বাংলা](./README-bn.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [Azərbaycan](./README-az.md) | [বাংলা](./README-bn.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
 
 # API Security Checklist
-Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uitbrengen van een API.
 
+Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uitbrengen van een API.
 
 ---
 
 ## Authenticatie
+
 - [ ] Gebruik geen `Basic Auth` Gebruik industrie standaarden (v.b. JWT, OAuth).
 - [ ] Vind het wiel niet opnieuw uit voor `Authenticatie`, `Genereren van Tokens` en `Opslaan van Wachtwoorden`. Gebruik de standaarden.
 - [ ] Gebruik `Max Retry` en Jail features in de login.
 - [ ] Encrypt alle gevoelige data.
 
 ### JWT (JSON Web Token)
+
 - [ ] Gebruik random ingewikkelde keys (`JWT Secret`) om brute forcing lastiger te maken.
 - [ ] Haal het algoritme niet uit de payload. Dwing het algoritme af in de backend (`HS256` of `RS256`).
 - [ ] Zet de token vervaltijd (`TTL`, `RTTL`) zo kort mogelijk.
@@ -20,6 +22,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Vermijd het opslaan van te veel gegevens. JWT wordt meestal gedeeld in headers en ze hebben een maximale grootte.
 
 ## Toegang
+
 - [ ] Limiteer het aantal requests om DDoS en/of Bruteforce aanvallen te ontkrachten.
 - [ ] Gebruik HTTPS aan de server zijde om MITM (Man In The Middle Attacks) tegen te gaan.
 - [ ] Gebruik de `HSTS` header i.c.m SSL om een SSL Strip attack te ontkrachten.
@@ -29,12 +32,14 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 ## Authorization
 
 ### OAuth
+
 - [ ] Valideer **ALTIJD** de `redirect_uri` op de server om alleen toegestane URL te accepteren.
 - [ ] Probeer altijd een exchange voor code, niet voor tokens (sta `response_type=token` niet toe).
 - [ ] Gebruik de `state` parameter met een random hash om CSRF op een OAuth authentication process te voorkomen.
 - [ ] Definieer een standaard scope, en valideer deze scope parameter voor elke applicatie.
 
 ## Invoer
+
 - [ ] Gebruik de correcte HTTP methode voor de operatie, `GET (lezen)`, `POST (schrijven)`, `PUT (vervangen/updaten)` and `DELETE (verwijderen)`.
 - [ ] Valideer de `content-type` header bij een request Accept header (Content Negotiation) om alleen de ondersteunde formaten toe te staan (b.v. `application/xml`, `application/json` ... enz) en stuur een `406 Not Acceptable` response als de `content-type` niet ondersteund is.
 - [ ] Valideer de `content-type` header van gestuurde data (b.v. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json` ... enz).
@@ -44,6 +49,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Gebruik een API Gateway service voor caching, policies (b.v. `Quota`, `Spike Arrest`, `Concurrent Rate Limit`) en voor het dynamisch deployen van API middelen.
 
 ## Processing
+
 - [ ] Controleer dat alle endpoints zijn beschermd achter de authenticatie om het omzeilen van authenticatie te voorkomen.
 - [ ] Gebruik `/me/orders` i.p.v. `/user/654321/orders` om het 'lekken' van id's te voorkomen.
 - [ ] Gebruik geen auto increment id's. Maak gebruik van `UUID`.
@@ -55,6 +61,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Gebruik niet-uitvoerbare stacks indien beschikbaar.
 
 ## Output
+
 - [ ] Stel de `X-Content-Type-Options: nosniff` header in.
 - [ ] Stel de `X-Frame-Options: deny` header in.
 - [ ] Stel de `Content-Security-Policy: default-src 'none'` header in.
@@ -64,6 +71,7 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Geef de correcte HTTP antwoord code terug op basis van de uitgevoerde operatie (v.b. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed` ... enz).
 
 ## CI & CD
+
 - [ ] Controleer het ontwerp en de implementatie met unit/integration test dekking.
 - [ ] Gebruik een code review traject en controleer niet zelf je eigen code.
 - [ ] Scan de API voor het naar productie zetten door AV software, niet alleen eigen code maar ook de libraries en andere gebruikte dependencies.
@@ -72,22 +80,23 @@ Checklist met de belangrijkste tegenmaatregelen bij het ontwerpen, testen en uit
 - [ ] Ontwikkel een terugrol oplossing.
 
 ## Monitoring
+
 - [ ] Gebruik gecentraliseerde aanmeldingen voor alle services en componenten.
 - [ ] Gebruik agents om al het verkeer, fouten, verzoeken en reacties te monitoren.
 - [ ] Gebruik waarschuwingen voor SMS, Slack, E-mail, Telegram, Kibana, Cloudwatch, etc.
 - [ ] Zorg ervoor dat u geen gevoelige gegevens registreert, zoals creditcards, wachtwoorden, pincodes, enz.
 - [ ] Gebruik een IDS- en/of IPS-systeem om uw API-verzoeken en instanties te monitoren.
 
-
 ---
 
 ## Zie ook:
-- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Een verzameling nuttige bronnen voor het bouwen van RESTful HTTP+JSON API's.
 
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Een verzameling nuttige bronnen voor het bouwen van RESTful HTTP+JSON API's.
 
 ---
 
 Translation by | Vertaling door :[S.Holzhauer](https://github.com/SHolzhauer)
 
 # Contribution
+
 Voel u vrij om bij te helpen door deze repository te fork, wijzigingen aan te brengen, en pull requests in te dienen. Voor vragen kunt u ons mailen op `team@shieldfy.io`.

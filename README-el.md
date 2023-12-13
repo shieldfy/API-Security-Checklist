@@ -1,18 +1,20 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [বাংলা](./README-bn.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [Azərbaycan](./README-az.md) | [বাংলা](./README-bn.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
 
 # API λίστα ελέγχου ασφαλείας
-Λίστα με τα πιο σημαντικά μέτρα ασφαλείας στον σχεδιασμό, έλεγχο, και την έκδοση του API σας.
 
+Λίστα με τα πιο σημαντικά μέτρα ασφαλείας στον σχεδιασμό, έλεγχο, και την έκδοση του API σας.
 
 ---
 
 ## Επικύρωση ασφαλείας (Authentication)
+
 - [ ] Μη χρησιμοποιήτε `Basic Auth`. Χρησιμοποιήστε standard authentication (π.χ. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
 - [ ] Μην προσπαθήσετε να επανεφεύρετε τον τροχό για `Authentication`, `token generation`, `password storage`. Χρησιμοποιήστε ήδη υπάρχων βιβλιοθήκες.
 - [ ] Χρησιμοποιήστε `Max Retry` και jail features κατά τη σύνδεση (Login).
 - [ ] Χρησιμοποιήστε κρυπτογράφηση (encryption) για όλα τα σημαντικά δεδομένα.
 
 ### JWT (JSON Web Token)
+
 - [ ] Χρησιμοποιήστε τυχαίο περίπλοκο κλειδί (`JWT Secret`) για να γίνει αρκετά δύσκολο να αποκρυπτογραφηθεί με brute forcing.
 - [ ] Μη χρησιμοποιήτε/αφαιρήτε τον αλγόριθμο απο το payload. Ο αλγόριθμος πρέπει να πραγματοποιήτε στο backend (`HS256` ή `RS256`).
 - [ ] Κάντε το token να λήγει (token expiration) (`TTL`, `RTTL`) όσο πιο σύντομα γίνεται.
@@ -20,6 +22,7 @@
 - [ ] Αποφύγετε την αποθήκευση πάρα πολλών δεδομένων. JWT είναι συνήθως κοινόχρηστο σε headers και έχουν όριο μεγέθους.
 
 ## Πρόσβαση (Access)
+
 - [ ] Περιορίστε τα αιτήματα (requests) (Throttling) για να αποφύγετε επιθέσεις DDoS / brute-force.
 - [ ] Χρησιμοποιήστε HTTPS στο server side για να αποφύγετε επιθέσεις MITM (Man in the Middle Attack).
 - [ ] Χρησιμοποιήστε `HSTS` κεφαλίδα (header) με SSL για να αποφύγετε SSL Strip επιθέσεις.
@@ -29,12 +32,14 @@
 ## Authorization
 
 ### OAuth
+
 - [ ] Πάντα να επαληθεύετε το `redirect_uri` στο server-side και επιτρέπετε μόνο whitelisted URLs.
 - [ ] Πάντα να προσπαθήτε να ανταλλάσετε auth code και όχι tokens (μην επιτρέπετε `response_type=token`).
 - [ ] Χρησιμοποιήστε `state` παράμετρο με τυχαίο περίπλοκο κλειδί (hash) για να αποτρέψετε CSRF κατα τη διάρκεια της OAuth authentication διαδικασίας.
 - [ ] Ορίστε το προεπιλεγμένο πεδίο (default scope), και επικυρώστε τις παραμέτρους πεδίου (scope parameters) για κάθε εφαρμογή.
 
 ## Είσοδος δεδομένων (Input)
+
 - [ ] Χρησιμοποιήστε την κατάλληλη HTTP μέθοδο σύμφωνα με τη λειτουργία που χρειάζεστε: `GET (read)`, `POST (create)`, `PUT/PATCH (replace/update)`, και `DELETE (για διαγραφή αρχείου)`, και απαντήστε με `405 Method Not Allowed` εάν η ζητούμενη μέθοδος δεν είναι κατάλληλη για την αιτούμενη εφαρμογή.
 - [ ] Επικυρώστε `content-type` στη ζητούμενη Accept κεφαλίδα (Content Negotiation) για να επιτρέψετε μόνο το format που υποστηρίζετε (π.χ. `application/xml`, `application/json`, κτλ.) και απαντήστε με `406 Not Acceptable` εάν δεν το υποστηρίζετε.
 - [ ] Επικυρώστε `content-type` δεδομένα που στέλνετε, με τον ίδιο τρόπο όπως τα δέχεστε (π.χ. `application/x-www-form-urlencoded`, `multipart/form-data`, `application/json`, κτλ.).
@@ -44,6 +49,7 @@
 - [ ] Χρησιμοποιήστε API Gateway service για να ενεργοποιήσετε caching, Rate Limit policies (π.χ. `Quota`, `Spike Arrest`, ή `Concurrent Rate Limit`) και κάντε deploy APIs resources δυναμικά.
 
 ## Επεξεργασία (Processing)
+
 - [ ] Ελέγξτε ότι όλα τα endpoints είναι προστατευμένα πίσω από επικύρωση ασφαλείας(authentication) για να αποφύγετε προβλήματα λανθασμένης επικύρωσης (broken authentication process).
 - [ ] Μη χρησιμοποιήτε το ID των χρηστών. Χρησιμοποιήστε `/me/orders` αντί `/user/654321/orders`.
 - [ ] Μη χρησιμοποιήτε την αυτόματη αύξηση των IDs. Χρησιμοποιήστε `UUID` αντι αυτου.
@@ -55,6 +61,7 @@
 - [ ] Χρησιμοποιήστε μη εκτελέσιμες στοίβες όταν είναι διαθέσιμες.
 
 ## Αποστολή/Επιστροφή δεδομένων (Output)
+
 - [ ] Αποστέλετε `X-Content-Type-Options: nosniff` κεφαλίδα (header).
 - [ ] Αποστέλετε `X-Frame-Options: deny` κεφαλίδα (header).
 - [ ] Αποστέλετε `Content-Security-Policy: default-src 'none'` κεφαλίδα (header).
@@ -64,6 +71,7 @@
 - [ ] Επιστρέψτε τον κατάλληλο κωδικό κατάστασης σύμφωνα με τη διαδικασία που ολοκληρώθηκε. (π.χ. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, κτλ.).
 
 ## CI & CD
+
 - [ ] Ελέγξτε το σχεδιασμό και την κατάσταση της εφαρμογή σας με επαρκή κάλυψη τεστ Unit / integration.
 - [ ] Χρησιμοποιήτε code review διαδικασίες και μη δέχεστε self-approval απο την ομάδα.
 - [ ] Εξασφαλίστε ότι όλα τα στοιχέια των υπηρεσιών σας περνούν απο στατικό έλεγχο με AV software πριν τα αναρτήσετε στο production, συμπεριλαμβανομένου οποιασδήποτε εξωτερικής βιβλιοθήκης που μπορει να χρησιμοποιήτε.
@@ -72,20 +80,21 @@
 - [ ] Σχεδιάστε rollback διαδικασίες για deployments.
 
 ## Monitoring
+
 - [ ] Use centralized logins for all services and components.
 - [ ] Use agents to monitor all traffic, errors, requests, and responses.
 - [ ] Use alerts for SMS, Slack, Email, Telegram, Kibana, Cloudwatch, etc.
 - [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
 - [ ] Use an IDS and/or IPS system to monitor your API requests and instances.
 
-
 ---
 
 ## Δείτε επίσης:
-- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Λίστα με χρήσιμες πληροφορίες για τον σχεδιασμό RESTful HTTP+JSON APIs.
 
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Λίστα με χρήσιμες πληροφορίες για τον σχεδιασμό RESTful HTTP+JSON APIs.
 
 ---
 
 # Συνεισφορά
+
 Μη διστάσετε να συμβάλλετε με το να κάνετε forking αυτό το repository, κάνοντας αλλαγές και υποβάλλοντας pull requests. Για οποιεσδήποτε ερωτήσεις στείλτε μας ένα email στο `team@shieldfy.io`.
