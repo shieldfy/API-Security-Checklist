@@ -3,6 +3,7 @@
 # Llista de verificació de seguretat per a APIs
 
 Llista de comprovació de les contramesures de seguretat més importants a l'hora de dissenyar, provar i llançar la vostra API.
+
 ---
 
 ## Autenticació

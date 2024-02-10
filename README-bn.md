@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [Azərbaycan](./README-az.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [Azərbaycan](./README-az.md) | [Català](./README-ca.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
 
 # API নিরাপত্তা তালিকা
 
@@ -56,7 +56,7 @@
 - [ ] যদি আপনি XML তথ্য parsing করছেন, তাহলে নিশ্চিত হয়ে নিন যেন entity parsing চালু না থাকে `XXE` (XML external entity attack) আক্রমণ এড়ানোর জন্য।
 - [ ] যদি আপনি XML, YAML অথবা অন্য কোন ভাষা anchors এবং refs দিয়ে parsing করছেন, তাহলে নিশ্চিত হয়ে নিন যেন entity expansion চালু না থাকে `Billion Laughs/XML bomb` via exponential entity expansion আক্রমণ এড়ানোর জন্য।
 - [ ] CDN ব্যাবহার করুন ফাইল আপলোড এর জন্য।
-- [ ] যদি আপনি অনেক গুলো তথ্য নিয়ে কাজ করেন তাহলে, Workers এবং Queues পটভূমিতে যত সম্ভব  ব্যবহার করুন এবং তাড়াতাড়ি প্রতিক্রিয়া জানান HTTP Blocking না করার জন্য।
+- [ ] যদি আপনি অনেক গুলো তথ্য নিয়ে কাজ করেন তাহলে, Workers এবং Queues পটভূমিতে যত সম্ভব ব্যবহার করুন এবং তাড়াতাড়ি প্রতিক্রিয়া জানান HTTP Blocking না করার জন্য।
 - [ ] DEBUG মোড বন্ধ করতে ভুলবেন না।
 - [ ] non-executable stacks ব্যবহার করবেন যখন সম্ভব।
 
@@ -65,7 +65,7 @@
 - [ ] `X-Content-Type-Options: nosniff` header পাঠান।
 - [ ] `X-Frame-Options: deny` header পাঠান।
 - [ ] `Content-Security-Policy: default-src 'none'` পাঠান।
-- [ ] Fingerprinting headers গুলো সরিয়ে দিন  - `X-Powered-By`, `Server`, `X-AspNet-Version`, ইত্যাদি।
+- [ ] Fingerprinting headers গুলো সরিয়ে দিন - `X-Powered-By`, `Server`, `X-AspNet-Version`, ইত্যাদি।
 - [ ] আপনার প্রতিক্রিয়ায় `content-type` থাকতে বাধ্য করুন. যদি আপনি `application/json` পাঠান, তাহলে আপনার `content-type` প্রতিক্রিয়া হবে `application/json`।
 - [ ] সংবেদনশীল তথ্য পাঠাবেন না যেমন `credentials`, `passwords`, or `security tokens`।
 - [ ] অপারেশন অনুযায়ী যথাযথ status code পাঠাবেন (যেমন, `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, ইত্যাদি)।
@@ -85,13 +85,13 @@
 - [ ] ট্র্যাফিক, ত্রুটি, অনুরোধ এবং প্রতিক্রিয়াগুলো নিরীক্ষণ করতে এজেন্ট ব্যবহার করুন।
 - [ ] SMS, Slack, Email, Telegram, Kibana, Cloudwatch, ইত্যাদির জন্য সতর্কতা ব্যবহার করুন।
 - [ ] আপনি কোন সংবেদনশীল তথ্য লগ করছেন না তা নিশ্চিত করুন যেমন credit cards, passwords, PINs, ইত্যাদি।
-- [ ] IDS অথবা IPS পদ্ধতি ব্যবহার করুন  API requests এবং instances মূল্যায়ন করতে।
+- [ ] IDS অথবা IPS পদ্ধতি ব্যবহার করুন API requests এবং instances মূল্যায়ন করতে।
 
 ---
 
 ## আরও দেখুন:
 
-- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) -  RESTful HTTP+JSON APIs নির্মাণ করার একটি দরকারী সংগ্রহ।
+- [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON APIs নির্মাণ করার একটি দরকারী সংগ্রহ।
 
 ---
 
