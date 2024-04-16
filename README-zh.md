@@ -9,7 +9,7 @@
 ## 身份认证
 
 - [ ] 不要使用 `Basic Auth` ，请使用标准的认证协议（如 [JWT](https://jwt.io/)，[OAuth](https://oauth.net/)）。
-- [ ] 不要重新实现 `Authentication`、`token generating` 和 `password storing`，请使用标准库。
+- [ ] 不要重新实现 `Authentication`、`token generating` 和 `password storage`，请使用标准库。
 - [ ] 限制密码错误尝试次数，并且增加账号冻结功能。
 - [ ] 密码或账号登录失败时返回模糊的提示信息，防止暴力破解攻击。
 - [ ] 加密所有的敏感数据。
