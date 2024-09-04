@@ -64,6 +64,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] Keep track Dependabot report from github to detect package vulnerabilities
 - [ ] Don't use too old/deprecated package which might have performance or security issue
+- [ ] Ensure no text testing, log test on production code
 - [ ] Design a backup and rollback solution for disaster recovery.
 
 ## Monitoring
