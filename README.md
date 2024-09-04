@@ -26,7 +26,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Turn off directory listings.
 - [ ] For private APIs, allow access only from whitelisted IPs/hosts.
 - [ ] Swagger (Api documentation) page should have basic authentication.
-- [ ] Turn off swagger on production code.
+- [ ] Turn off Swagger on production environment.
 - [ ] Create admin account with strong password (recommend using password generator 1password, LastPass).
 
 ## Authorization
@@ -64,7 +64,7 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Check your dependencies (both software and OS) for known vulnerabilities.
 - [ ] Keep track Dependabot report from github to detect package vulnerabilities
 - [ ] Don't use too old/deprecated package which might have performance or security issue
-- [ ] Ensure no text testing, log test on production code
+- [ ] Ensure no text testing, log test on production environment
 - [ ] Design a backup and rollback solution for disaster recovery.
 
 ## Monitoring
