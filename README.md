@@ -25,6 +25,8 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Don't create an endpoint with `/public`
 - [ ] Turn off directory listings.
 - [ ] For private APIs, allow access only from whitelisted IPs/hosts.
+- [ ] Swagger (Api documentation) page should have basic authentication
+- [ ] Turn off swagger on production code
 
 ## Authorization
 
