@@ -8,11 +8,11 @@ Checklist of the most important security countermeasures when designing, testing
 
 - [ ] Use standard authentication instead (recommend **Bearer Authentication**) (e.g., [JWT](https://jwt.io/)).
 - [ ] Use `Rate limit` in Login to prevent brute force attack
-- [ ] Use encryption on all sensitive data. (password, user information)
+- [ ] Use encryption on all sensitive data. (password, user information, ...)
 
 ### JWT (JSON Web Token)
 
-- [ ] Use a random complicated key (`JWT Secret`) to make brute-forcing the token very hard.
+- [ ] Use a random complicated key (`JWT Secret`) to make brute-forcing the token very hard (recommend using password generator 1password, Lastpast).
 - [ ] Don't extract the algorithm from the header. Force the algorithm in the backend (`HS256` or `RS256`).
 - [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
 - [ ] Don't store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
@@ -25,8 +25,9 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Don't create an endpoint with `/public`
 - [ ] Turn off directory listings.
 - [ ] For private APIs, allow access only from whitelisted IPs/hosts.
-- [ ] Swagger (Api documentation) page should have basic authentication
-- [ ] Turn off swagger on production code
+- [ ] Swagger (Api documentation) page should have basic authentication.
+- [ ] Turn off swagger on production code.
+- [ ] Create admin account with strong password (recommend using password generator 1password, LastPass).
 
 ## Authorization
 
@@ -59,8 +60,10 @@ Checklist of the most important security countermeasures when designing, testing
 ## Source code
 
 - [ ] Use a code review process and disregard self-approval.
-- [ ] Continuously run security tests (static/dynamic analysis) on your code.
+- [ ] Continuously run security tests (static/dynamic analysis) on your code (recommend using Snyk, SonarQue for code security scanning).
 - [ ] Check your dependencies (both software and OS) for known vulnerabilities.
+- [ ] Keep track Dependabot report from github to detect package vulnerabilities
+- [ ] Don't use too old/deprecated package which might have performance or security issue
 - [ ] Design a backup and rollback solution for disaster recovery.
 
 ## Monitoring
