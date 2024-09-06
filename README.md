@@ -65,15 +65,46 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Keep track Dependabot report from github to detect package vulnerabilities
 - [ ] Don't use too old/deprecated package which might have performance or security issue
 - [ ] Ensure no text testing, log test on production environment
-- [ ] Design a backup and rollback solution for disaster recovery.
+
+
+# Infrastructure Security Checklist
+
+Checklist of the most important security countermeasures when setting up your infrastructure.
+
+---
+
+## Kubernetes
+
+- [ ] Create ServiceAccount with limit RBAC for dev
+
+## Database
+
+- [ ] Production database only accepts connections from IP whitelisted
+- [ ] Production database only opens ports for db client connection and closes every unsued ports
+- [ ] Setup and Document Restore and Backup
+- [ ] Only Devops keep production credentials in password management (1password, LastPass)
+- [ ] Database alerts
+- [ ] Production database must have authentication setup properly with a strong password
+
+## Image Registry
+
+- [ ] Setup private image registry
+- [ ] Image scan security turn on if you use Dockerhub
+
+## Controlling Access
+
+- [ ] The cloud environment restricted to authorized personnel only
+- [ ] Enabled two-factor authentication (2FA) for all user accounts
+- [ ] Strong passwords enforced whenever create or update password
+- [ ] Access to sensitive data restricted based on job roles and responsibilities
+
+## Network Security
+
+- [ ] Firewalls in place to protect the cloud environment
+- [ ] Virtual private networks (VPNs) used to secure remote access
 
 ## Monitoring
 
 - [ ] Use centralized logins for all services and components.
 - [ ] Use agents to monitor all traffic, errors, requests, and responses.
 - [ ] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
-- [ ] Production database only accept request from IP whitelisted
-- [ ] Production database must have authentication setup properly with a strong password
-
-
----
