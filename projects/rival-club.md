@@ -70,17 +70,17 @@ Checklist of the most important security countermeasures when setting up your in
 
 ## Kubernetes
 
-- [x] Create ServiceAccount with limit RBAC for dev **No Dev account**
+- [x] ~~Create ServiceAccount with limit RBAC for dev~~ **We don't have dev account in K8s cluster**
 - [x] Only Devops has Cluster Admin permisison (k8s config)
 - [x] Sensitive config should be stored as Secret
-- [x] Review helm chart before helm install (verify docker image, sidecar container, owner or that helm chart)
+- [x] Review helm chart before helm install (verify docker image, sidecar container, owner, or that helm chart)
 
 ## Database
 
 - [x] Production database only accepts connections from IP whitelisted
-- [x] Production database only opens ports for db client connection and closes every unsued ports
+- [x] Production database only opens ports for db client connection and closes every unused ports
 - [x] Setup and Document Restore and Backup
-- [x] Only Devops keep production credentials in password management (1password, LastPass)
+- [x] Only DevOps keep production credentials in password management (1password, LastPass)
 - [x] Production database must have authentication setup properly with a strong password
 
 ## Image Registry
@@ -90,16 +90,16 @@ Checklist of the most important security countermeasures when setting up your in
 
 ## Controlling Access
 
-- [x] The cloud environment restricted to authorized personnel only
+- [x] The cloud environment is restricted to authorized personnel only
 - [x] Enabled two-factor authentication (2FA) for all user accounts
-- [x] Strong passwords enforced whenever create or update password
+- [x] Strong passwords enforced whenever creating or update a password
 - [x] Access to sensitive data restricted based on job roles and responsibilities
 
 ## Network Security
 
 - [x] Firewalls in place to protect the cloud environment
-- [x] Authentication between cross service communication
-- [x] Virtual private networks (VPNs) used to secure remote access **No Remove Access**
+- [x] Authentication between cross-service communication
+- [x] ~~Virtual private networks (VPNs) used to secure remote access~~ **No setup because we don't have remote access to our cluster**
 
 ## Monitoring
 
