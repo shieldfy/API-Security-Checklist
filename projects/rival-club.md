@@ -59,8 +59,8 @@ Checklist of the most important security countermeasures when designing, testing
 
 - [x] Check your dependencies (both software and OS) for known vulnerabilities.
 - [x] Don't use too old/deprecated package which might have performance or security issue.
-- [ ] Keep track Dependabot report from github to detect package vulnerabilities.
-- [ ] Continuously run security tests (static/dynamic analysis) on your code (recommend using Snyk, SonarQue for code security scanning).
+- [x] ~~Keep track Dependabot report from github to detect package vulnerabilities.~~ **Will need to discuss with client because it's a paid feature**
+- [x] ~~Continuously run security tests (static/dynamic analysis) on your code (recommend using Snyk, SonarQue for code security scanning).~~ **Will need to discuss with client because it's a paid feature**
 
 # Infrastructure Security Checklist
 
@@ -86,7 +86,7 @@ Checklist of the most important security countermeasures when setting up your in
 ## Image Registry
 
 - [x] Setup private image registry
-- [ ] Image scan security turn on if you use Dockerhub
+- [x] ~~Image scan security turn on if you use Dockerhub~~ **Will need to discuss with client because it's a paid feature**
 
 ## Controlling Access
 
@@ -106,3 +106,12 @@ Checklist of the most important security countermeasures when setting up your in
 - [x] Use centralized logins for all services and components.
 - [x] Use agents to monitor all traffic, errors, requests, and responses.
 - [x] Ensure that you aren't logging any sensitive data like credit cards, passwords, PINs, etc.
+
+--- 
+Explanations:
+
+- [x] we have reviewed
+
+~~line-stroke~~ we haven't implemented
+
+**bold** reason why we haven't implemented it
