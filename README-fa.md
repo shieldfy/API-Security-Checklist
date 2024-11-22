@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [Azərbaycan](./README-az.md) | [বাংলা](./README-bn.md) | [Català](./README-ca.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [Azərbaycan](./README-az.md) | [Български](./README-bg.md) | [বাংলা](./README-bn.md) | [Català](./README-ca.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
 
 <div dir="rtl">
 
@@ -12,7 +12,7 @@
 
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از `Basic Auth` یا همان `اصالت‌سنجی برای دسترسی‌های اولیه` استفاده نکنید. به جای آن از روش‌های استاندارد احراز هویت استفاده کنید (مثلا [JWT](https://jwt.io/) یا [OAuth](https://oauth.net/)).
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای کارهایی مثل `احراز هویت`، `تولید توکن` و `ذخیره پسوورد` چرخ را دوباره اختراع نکنید. از استانداردها استفاده کنید.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای لاگین محدودیت‌های `تعداد ماکسیمم تلاش مجدد`  و تعداد دفعات ورود را قرار بدید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای لاگین محدودیت‌های `تعداد ماکسیمم تلاش مجدد` و تعداد دفعات ورود را قرار بدید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;همه‌ی داده‌های حساس را رمزگذاری کنید.
 
 ### JWT (JSON Web Token)

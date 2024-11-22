@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [বাংলা](./README-bn.md) | [Català](./README-ca.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [Български](./README-bg.md) | [বাংলা](./README-bn.md) | [Català](./README-ca.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Türkçe](./README-tr.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
 
 # API təhlükəsizlik yoxlama siyahısı
 
@@ -70,7 +70,7 @@ API-nizi tərtib edərkən, sınaqdan keçirərkən və dərc edərkən ən vaci
 - [ ] Nəticədə "etimadnamələr", "parollar" və ya "təhlükəsizlik nişanları" kimi həssas məlumatları göndərməyin.
 - [ ] Əməliyyat başa çatdıqdan sonra müvafiq status kodunu qaytarın. (məsələn, `200 OK`, `400 Bad Sorğu`, `401 İcazəsiz`, `405 Metod İcazə Verilmir` və s.).
 
-## CI&CD
+## CI & CD
 
 - [ ] Vahid/inteqrasiya testi əhatə ölçüləri ilə dizayn və tətbiqinizi yoxlayın.
 - [ ] Kodun nəzərdən keçirilməsi prosesindən istifadə edin və öz təsdiqinizə məhəl qoymayın.
@@ -97,4 +97,4 @@ API-nizi tərtib edərkən, sınaqdan keçirərkən və dərc edərkən ən vaci
 
 # Töhfə
 
-Bu deponu budaqlamaq, bəzi dəyişikliklər etmək və pull requests göndərməklə töhfə verməkdən çəkinməyin. Hər hansı bir sual üçün bizə bir e-poçt yazın: `team@shieldfy.io `.
+Bu deponu budaqlamaq, bəzi dəyişikliklər etmək və pull requests göndərməklə töhfə verməkdən çəkinməyin. Hər hansı bir sual üçün bizə bir e-poçt yazın: `team@shieldfy.io`.

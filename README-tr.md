@@ -1,4 +1,4 @@
-[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [Azərbaycan](./README-az.md) | [বাংলা](./README-bn.md) | [Català](./README-ca.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
+[English](./README.md) | [繁中版](./README-tw.md) | [简中版](./README-zh.md) | [العربية](./README-ar.md) | [Azərbaycan](./README-az.md) | [Български](./README-bg.md) | [বাংলা](./README-bn.md) | [Català](./README-ca.md) | [Čeština](./README-cs.md) | [Deutsch](./README-de.md) | [Ελληνικά](./README-el.md) | [Español](./README-es.md) | [فارسی](./README-fa.md) | [Français](./README-fr.md) | [हिंदी](./README-hi.md) | [Indonesia](./README-id.md) | [Italiano](./README-it.md) | [日本語](./README-ja.md) | [한국어](./README-ko.md) | [ພາສາລາວ](./README-lo.md) | [Македонски](./README-mk.md) | [മലയാളം](./README-ml.md) | [Монгол](./README-mn.md) | [Nederlands](./README-nl.md) | [Polski](./README-pl.md) | [Português (Brasil)](./README-pt_BR.md) | [Русский](./README-ru.md) | [ไทย](./README-th.md) | [Українська](./README-uk.md) | [Tiếng Việt](./README-vi.md)
 
 # API Güvenlik Kontrol Listesi
 
@@ -67,7 +67,7 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] `Content-Security-Policy: default-src 'none'` header'ı gönderin.
 - [ ] Parmak izi header'larını kaldırın - `X-Powered-By`, `Server`, `X-AspNet-Version` v.b.
 - [ ] İsteğe verilen cevapta `content-type` kullanmaya zorlayın, eğer veriyi `application/json` olarak döndürürseniz, `content-type` karşılığı `application/json` olmalı.
-- [ ] `kimlik bilgileri` , `şifreleri` veya `güvenlik token'ları` gibi hassas verileri sonuç içinde göndermeyin.
+- [ ] `kimlik bilgileri`, `şifreleri` veya `güvenlik token'ları` gibi hassas verileri sonuç içinde göndermeyin.
 - [ ] İşlem tamamlandıktan sonra uygun durum kodunu döndürün. (ör. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, v.b.).
 
 ## CI & CD
