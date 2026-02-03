@@ -13,14 +13,6 @@ Checklist of the most important security countermeasures when designing, testing
 - [ ] Use `Max Retry` and jail features in Login.
 - [ ] Use encryption on all sensitive data.
 
-### JWT (JSON Web Token)
-
-- [ ] Use a random complicated key (`JWT Secret`) to make brute forcing the token very hard.
-- [ ] Don't extract the algorithm from the header. Force the algorithm in the backend (`HS256` or `RS256`).
-- [ ] Make token expiration (`TTL`, `RTTL`) as short as possible.
-- [ ] Don't store sensitive data in the JWT payload, it can be decoded [easily](https://jwt.io/#debugger-io).
-- [ ] Avoid storing too much data. JWT is usually shared in headers and they have a size limit.
-
 ## Access
 
 - [ ] Limit requests (Throttling) to avoid DDoS / brute-force attacks.
@@ -93,6 +85,7 @@ Checklist of the most important security countermeasures when designing, testing
 ## See also:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - A collection of useful resources for building RESTful HTTP+JSON APIs.
+- You don't need JWT, in general just use bearer tokens. If you need asymetric encryption or tamper prevention [here are some alternative suggestions](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/)
 
 ---
 
