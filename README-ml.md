@@ -8,18 +8,10 @@
 
 ## ഒതെന്റിക്കേഷൻ
 
-- [ ] `Basic Auth` ഉപയോഗിക്കരുത്. പകരം സ്റ്റാൻഡേർഡ് ഓതെന്റിക്കേഷൻ ഉപയോഗിക്കുക (e.g. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] `Basic Auth` ഉപയോഗിക്കരുത്. പകരം സ്റ്റാൻഡേർഡ് ഓതെന്റിക്കേഷൻ ഉപയോഗിക്കുക.
 - [ ] `Authentication`, `token generation`, `password storage` എന്നിവയിൽ മുമ്പ് സൃഷ്ടിച്ച അടിസ്ഥാന രീതിയുടെ ആവർത്തനം ഉണ്ടാകരുത്. മാനദണ്ഡങ്ങൾ പാലിക്കുക.
 - [ ] ലോഗിനിൽ `Max Retry` യും ജയിൽ ഫീച്ചേഴ്സും ഉപയോഗിക്കുക.
 - [ ] എല്ലാ സെൻസിറ്റീവ് ഡാറ്റയിലും എൻക്രിപ്ഷൻ ഉപയോഗിക്കുക.
-
-### JWT (JSON വെബ് ടോക്കൺ)
-
-- [ ] ഒരു റാൻഡം കോംപ്ലിക്കേറ്റഡ് കീ ( `JWT Secret`) ഉപയോഗിച്ച് ടോക്കണിനെ ബ്രൂട്ട് ഫോഴ്‌സ് ചെയ്യുന്നത് ബുദ്ധിമുട്ടുള്ളതാക്കാം.
-- [ ] ഹെയ്ഡറിൽ നിന്ന് അൽഗോരിതം വേര്തിരിച്ചെടുക്കരുത്. അൽഗോരിതത്തെ ബേക്ക്എന്റിൽ തന്നെ നിലനിർത്തുക (`HS256` അല്ലെങ്കിൽ `RS256`).
-- [ ] ടോക്കൺ കാലഹരണപ്പെടൽ (` TTL`, `RTTL`) കഴിയുന്നത്ര ചെറുതാക്കുക.
-- [ ] സെൻസിറ്റീവ് ഡാറ്റ JWT പേലോഡിൽ സൂക്ഷിക്കരുത്, അത് [എളുപ്പത്തിൽ](https://jwt.io/#debugger-io) ഡീകോഡ് ചെയ്യാം .
-- [ ] വളരെയധികം ഡാറ്റ സൂക്ഷിക്കുന്നത് ഒഴിവാക്കുക. JWT സാധാരണയായി headerകളിൽ പങ്കിടുന്നു, അവയ്‌ക്ക് വലുപ്പ പരിധിയുണ്ട്.
 
 ## ആക്സസ്
 
@@ -67,6 +59,7 @@
 - [ ] `Content-Security-Policy: default-src 'none'` ഹെഡ്‍ർ അയയ്ക്കുക.
 - [ ] ഫിംഗർപ്രിന്റിങ് ഹെൽഡറുകൾ നീക്കം ചെയ്യുക - `X-Powered-By`, `Server`, `X-AspNet-Version` മുതലായവ.
 - [ ] `content-type` നെ നിങ്ങളുടെ പ്രതികരണത്തിനായി നിർബന്ധിക്കുക. നിങ്ങളുടെ പ്രതികരണം `application/json` ആണെങ്കിൽ, നിങ്ങളുടെ `content-type` പ്രതികരണവും `application/json` ആയിരിക്കും.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] `Credentials`, `passwords` അല്ലെങ്കിൽ `security tokens` പോലുള്ള സെൻസിറ്റീവ് ഡാറ്റ നൽകരുത്.
 - [ ] പൂർത്തിയാക്കിയ പ്രവർത്തനത്തിനനുസരിച്ച് ശരിയായ സ്റ്റാറ്റസ് കോഡ് തിരികെ നൽകുക. (ഉദാ: `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, മുതലായവ).
 
@@ -92,6 +85,35 @@
 ## ഇതും കാണുക:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON API-കൾ നിർമ്മിക്കുന്നതിനുള്ള ഉപയോഗപ്രദമായ വിഭവങ്ങളുടെ ഒരു ശേഖരം.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

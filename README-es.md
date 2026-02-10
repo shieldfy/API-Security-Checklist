@@ -8,18 +8,10 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 
 ## Autenticación
 
-- [ ] No uses `Basic Auth` Usa autenticación estándar (e.g. JWT, OAuth).
+- [ ] No usa `Basic Auth`. Usa la autenticación estándar en su lugar.
 - [ ] No reinventes la rueda en `autenticación`, `generación de tokens`, `almacenamiento de contraseñas`. Usa los estándares.
 - [ ] Usa políticas de límite de reintentos (`Max Retry`) y funcionalidades de jailing en el Login.
 - [ ] Usa encriptación en toda la información que sea sensible.
-
-### JWT (JSON Web Token)
-
-- [ ] Usa claves aleatorias complejas (`JWT Secret`) para dificultar los ataques por fuerza bruta.
-- [ ] No extraigas el algoritmo del contenido. Fuerza el algoritmo en el backend (`HS256` o `RS256`).
-- [ ] Haz que la expiración del token (`TTL`, `RTTL`) sea tan corta como sea posible.
-- [ ] No almacenes información sensible en el contenido del JWT, puede ser descodificado [fácilmente](https://jwt.io/#debugger-io).
-- [ ] Evita almacenar datos muy grandes o crecientes. JWT se transmite en las headers y éstas tienen un tamaño máximo.
 
 ## Acceso
 
@@ -67,6 +59,7 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 - [ ] Envía la cabecera `Content-Security-Policy: default-src 'none'`.
 - [ ] Elimina cabeceras que dejen huellas - `X-Powered-By`, `Server`, `X-AspNet-Version` etc.
 - [ ] Fuerza `content-type` para tus respuestas, si devuelves un `json` entonces tu `content-type` es `application/json`.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] No devuelvas información sensible cómo `credenciales`, `contraseñas`, `tokens de seguridad`.
 - [ ] Devuelve el código HTTP acorde a la operación completada. (e.g. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, etc).
 
@@ -92,6 +85,35 @@ Lista de las contramedidas de seguridad más importantes en cuanto al diseño, t
 ## Ver también:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Una colección de recursos útiles para la creación de APIs RESTful HTTP+JSON.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

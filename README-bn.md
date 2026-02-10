@@ -8,18 +8,10 @@
 
 ## প্রমাণীকরণ
 
-- [ ] `Basic Auth` ব্যাবহার করবেন না । এর পরিবর্তে standard প্রমাণীকরণ ব্যবহার করুন (যেমন [JWT](https://jwt.io/)).
-- [ ] `Authentication`, `token generation`, `password storage` এ নতুন করে চাকা উদ্ভাবন করবেন না । standards গুলোই ব্যবহার করুন ।
-- [ ] `Max Retry` এবং জেলে দেওয়া(block) বৈশিষ্ট্য সম্পূর্ণ করুন
-- [ ] সংবেদনশীল তথ্য গোপন(encryption) করে ব্যবহার করন
-
-### JWT (JSON Web Token)
-
-- [ ] একটি এলোমেলো জটিল পিন (`JWT Secret`) ব্যবহার করুন brute forcing প্রক্রিয়া কে অনেক কঠিন করতে।
-- [ ] header থেকে অ্যালগরিদম নির্যাস(extract) করবেন না।অ্যালগরিদম টি কে ব্যাকএন্ড(backend) এ পাঠিয়ে দিন (`HS256` অথবা `RS256`) ।
-- [ ] টোকেন (`TTL`, `RTTL`) মেয়াদকাল যত কম করা যায় তা করেন ।
-- [ ] সংবেদনশীল তথ্য JWT payload এ সংরক্ষণ করবেন না। এটি খুব সহজে ডিকোড করা যায় [easily](https://jwt.io/#debugger-io)।
-- [ ] অনেক বেশি তথ্য সংরক্ষণ করবেন না। JWT এটি সাধারণত হেডার এ ভাগ করে এবং এটার একটা আয়তন সীমা আছে।
+- [ ] `Basic Auth` ব্যাবহার করবেন না। এর পরিবর্তে standard প্রমাণীকরণ ব্যবহার করুন।
+- [ ] `Authentication`, `token generation`, `password storage` এ নতুন করে চাকা উদ্ভাবন করবেন না। standards গুলোই ব্যবহার করুন।
+- [ ] `Max Retry` এবং জেলে দেওয়া(block) বৈশিষ্ট্য সম্পূর্ণ করুন।
+- [ ] সংবেদনশীল তথ্য গোপন(encryption) করে ব্যবহার করন।
 
 ## অ্যাক্সেস
 
@@ -67,6 +59,7 @@
 - [ ] `Content-Security-Policy: default-src 'none'` পাঠান।
 - [ ] Fingerprinting headers গুলো সরিয়ে দিন - `X-Powered-By`, `Server`, `X-AspNet-Version`, ইত্যাদি।
 - [ ] আপনার প্রতিক্রিয়ায় `content-type` থাকতে বাধ্য করুন. যদি আপনি `application/json` পাঠান, তাহলে আপনার `content-type` প্রতিক্রিয়া হবে `application/json`।
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] সংবেদনশীল তথ্য পাঠাবেন না যেমন `credentials`, `passwords`, or `security tokens`।
 - [ ] অপারেশন অনুযায়ী যথাযথ status code পাঠাবেন (যেমন, `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, ইত্যাদি)।
 
@@ -92,6 +85,35 @@
 ## আরও দেখুন:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON APIs নির্মাণ করার একটি দরকারী সংগ্রহ।
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

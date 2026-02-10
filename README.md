@@ -85,7 +85,7 @@ Checklist of the most important security countermeasures when designing, testing
 ## See also:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - A collection of useful resources for building RESTful HTTP+JSON APIs.
-- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/)
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
 
 ---
 

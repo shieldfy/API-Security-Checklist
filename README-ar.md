@@ -9,17 +9,10 @@
 ---
 
 ## المصادقة (Authentication)
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تستخدم `Basic Auth` لكن استخدم المعايير القياسية للمصادقة (مثال [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تستخدم `Basic Auth` لكن استخدم المعايير القياسية للمصادقة.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تعد اختراع العجلة في `المصادقة`، `توليد الرموز`، `تخزين كلمات المرور`. قم باستخدام المعايير القياسية.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم `تحديد عدد المحاولات` و`الحرمان من الدخول jail feature` في تسجيل الدخول.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم التشفير في كل البيانات الحساسة.
-
-### JSON Web Token) JWT)
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم مفتاح عشوائي ومعقد (`JWT Secret`) لتجعل هجوم التخمين بالقوة brute forcing صعبا جدا.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تقم باستخراج خوارزمية التشفير من محتوى رمز الـ JWT. قم بإجبار الرمز البرمجي على استخدام خوارزمية (`HS256` أو `RS256`).
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اجعل مدة انتهاء الرمز (`TTL`, `RTTL`) قصيرة قدر الإمكان.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تقم بتخزين أي بيانات حساسة داخل محتوى رمز الـ JWT, لأنه يمكن كشف هذه المحتويات بسهولة [easily](https://jwt.io/#debugger-io).
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تجنب تخزين الكثير من البيانات. عادةً ما تتم مشاركة JWT في الرؤوس ولديها حد للحجم.
 
 ## الوصول
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;حدد الطلبات (Throttling) لتتجنب هجوم حجب الخدمة DDoS وهجوم التخمين بالقوة brute-force.
@@ -62,6 +55,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;استخدم `Content-Security-Policy: default-src 'none'` في رأس الطلب header.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;احذف الرؤوس headers التي تدل عليك - `X-Powered-By`, `Server`, `X-AspNet-Version` إلى آخره.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بإجبار إرسال `content-type` مع الرد، لو قمت بالرد بمحتويات من توع `application/json` فمن المستحسن أن يكون الرد ب`content-type` `application/json`.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لا تقم بالرد بمعلومات وبيانات حساسة مثل `credentials`, `Passwords`, `security tokens`.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;قم بالرد بكود حالة صحيح status code طبقا للعملية التي تقوم بها. (مثال `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, إلى آخره).
 
@@ -85,7 +79,35 @@
 
 ## انظر أيضا:
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - مجموعة من الادوات و المصادر لبناء RESTful HTTP+JSON APIs.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
 
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

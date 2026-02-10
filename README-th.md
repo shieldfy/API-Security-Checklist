@@ -8,18 +8,10 @@ Checklist ที่ต้องให้ความสำคัญเมื่�
 
 ## Authentication (การพิสูจน์ตัวตน)
 
-- [ ] ไม่ควรใช้ `Basic Auth` (การ authen ปกติด้วยusername password) สำหรับการพิสูจน์ตัวตน แต่ให้ใช้รูปแบบมาตรฐานสากลแทน(e.g. JWT, OAuth).
-- [ ] ไม่ต้องเสียเวลาสร้างวิธี Authentication ใหม่ขึ้นมา ให้ใช้ที่มีอยู่ในมาตรฐานไปเลย
-- [ ] ให้มีการจำกัดจำนวนครั้งในการพยายาม authen และสร้างระบบล็อคกรณีพยายามเกินกำหนด
+- [ ] ไม่ควรใช้ `Basic Auth` (การ authen ปกติด้วยusername password) สำหรับการพิสูจน์ตัวตน แต่ให้ใช้รูปแบบมาตรฐานสากลแทน.
+- [ ] ไม่ต้องเสียเวลาสร้างวิธี Authentication ใหม่ขึ้นมา ให้ใช้ที่มีอยู่ในมาตรฐานไปเลย.
+- [ ] ให้มีการจำกัดจำนวนครั้งในการพยายาม authen และสร้างระบบล็อคกรณีพยายามเกินกำหนด.
 - [ ] ข้อมูลที่สำคัญควรมีการเข้ารหัสเสมอ
-
-### JWT (JSON Web Token)
-
-- [ ] key ในการ generate token ควรมีความซับซ้อนสูง เพื่อป้องกันการ brute force หาตัวเข้ารหัส
-- [ ] ไม่ควรมีการแกะข้อมูลหรือขั้นตอนการถอดข้อมูลในฝั่ง client. ให้มีเฉพาะในฝั่ง server เท่านั้น โดยอาจใช้วิธีเข้ารหัสด้วย HS256 หรือ RS256 เอา
-- [ ] พยายามให้ token หมดอายุให้ไวที่สุดเท่าที่จะเป็นไปได้ (`TTL`, `RTTL`)
-- [ ] ไม่ควรเก็บข้อมูลสำคัญใน payload ของ JWT เพราะอาจถูกแกะได้ [ง่าย](https://jwt.io/#debugger-io).
-- [ ] หลีกเลี่ยงการจัดเก็บข้อมูลมากเกินไป. JWT มักใช้ร่วมกันใน header และมีขนาดจำกัด.
 
 ## Access
 
@@ -67,6 +59,7 @@ Checklist ที่ต้องให้ความสำคัญเมื่�
 - [ ] ตั้ง `Content-Security-Policy: default-src 'none'` ในheader.
 - [ ] เอา fingerprinting headers ออก - `X-Powered-By`, `Server`, `X-AspNet-Version` etc.
 - [ ] กำหนด content-type ใน response เช่นถ้าต้องการส่งข้อมูลที่เป็น json กลับไป ก็เซ็ต `content-type` เป็น `application/json` ไปเลย
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] ไม่ต้องส่งข้อมูลส่งข้อมูลสำคัญกลับไปหา client (`credentials`, `Passwords`, `security tokens`).
 - [ ] ตอบ status code ที่ตรงกับ operation กลับไป (e.g. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed` ... etc).
 
@@ -92,6 +85,35 @@ Checklist ที่ต้องให้ความสำคัญเมื่�
 ## ดูสิ่งนี้ด้วย:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - ชุดของแหล่งข้อมูลที่เป็นประโยชน์สำหรับการสร้าง API RESTful HTTP+JSON.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

@@ -8,18 +8,10 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 
 ## Autentikasi
 
-- [ ] Jangan gunakan `Basic Auth`. Gunakan autentikasi baku (Contoh: JWT, Oauth).
+- [ ] Jangan gunakan `Basic Auth`. Gunakan autentikasi baku.
 - [ ] Gunakan mekanisme baku untuk `autentikasi`, `pembuatan token`, dan `penyimpanan kata sandi`.
 - [ ] Gunakan maksimal percobaan berulang dan fitur penjara pada Login.
 - [ ] Gunakan enkripsi untuk seluruh data sensitif.
-
-### JWT (JSON Web Token)
-
-- [ ] Gunakan kunci acak yang rumit (`JWT Secret`) untuk membuat proses pemecahan token secara paksa menjadi sangat susah.
-- [ ] Jangan gunakan algoritma yang berasal dari muatan yang dikirim oleh pengguna. Paksa penggunaan algoritma di sisi peladen (`HS256` atau `RS256`).
-- [ ] Gunakan masa tenggat token (`TTL`, `RTTL`) yang sesingkat mungkin.
-- [ ] Jangan simpan data sensitif pada muatan JWT karena muatan JWT dapat diterjemahkan [dengan mudah](https://jwt.io/#debugger-io).
-- [ ] Hindari menyimpan terlalu banyak data. JWT biasanya dibagikan di header dan mereka memiliki batas ukuran.
 
 ## Akses
 
@@ -67,6 +59,7 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 - [ ] Kirim tajuk `Content-Security-Policy: default-src 'none'`.
 - [ ] Hapus tajuk sidik jari - `X-Powered-By`, `Server`, `X-AspNet-Version` dan lain sebagainya.
 - [ ] Paksa `content-type` pada tanggapan. Jika mengambalikan `application/json` maka tajuk `content-type` adalah `application/json`.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] Jangan kembalikan data sensitif seperti `kredensial`, `kata sandi`, dan `token keamanan`.
 - [ ] Kembalikan kode status yang layak sesuai dengan operasi yang diselesaikan (Contoh: `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, dan lain sebagainya).
 
@@ -92,6 +85,35 @@ Checklist penanggulangan keamanan yang paling penting ketika merancang, menguji,
 ## Lihat juga:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Kumpulan sumber yang berguna untuk membangun API RESTful HTTP+JSON.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

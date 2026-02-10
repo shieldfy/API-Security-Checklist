@@ -10,18 +10,10 @@
 
 ## احراز هویت
 
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از `Basic Auth` یا همان `اصالت‌سنجی برای دسترسی‌های اولیه` استفاده نکنید. به جای آن از روش‌های استاندارد احراز هویت استفاده کنید (مثلا [JWT](https://jwt.io/) یا [OAuth](https://oauth.net/)).
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از `Basic Auth` یا همان `اصالت‌سنجی برای دسترسی‌های اولیه` استفاده نکنید. به جای آن از روش‌های استاندارد احراز هویت استفاده کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای کارهایی مثل `احراز هویت`، `تولید توکن` و `ذخیره پسوورد` چرخ را دوباره اختراع نکنید. از استانداردها استفاده کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای لاگین محدودیت‌های `تعداد ماکسیمم تلاش مجدد` و تعداد دفعات ورود را قرار بدید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;همه‌ی داده‌های حساس را رمزگذاری کنید.
-
-### JWT (JSON Web Token)
-
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از یک کلید پیچیده‌ی تصادفی برای `JWT Secret` استفاده کنید تا حمله‌ی بروت‌فورس به توکن بسیار سخت باشد.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;الگوریتم را از هدر استخراج نکنید. در بک‌اند الگوریتم را تحمیل کنید (`HS256` یا `RS256`).
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;انقضای توکن (`TTL` یا `RTTL`) را تا حد ممکن کوتاه کن.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اطلاعات حساس را در پی‌لود JWT ذخیره نکنید چون [به راحتی](https://jwt.io/#debugger-io) قابل رمزگشایی است.
-- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از ذخیره بیش از حد داده ها خودداری کنید. JWT معمولاً در هدر به اشتراک گذاشته می شود و محدودیت اندازه دارند.
 
 ## دسترسی
 
@@ -69,6 +61,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هدر `'Content-Security-Policy: default-src 'none` را ارسال کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هدرهایی که به نوعی اثرانگشت برجای می‌گذارند را حذف کنید، مثلا `X-Powered-By`، `Server` و ‍`X-AspNet-Version`.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مقدار `content-type` را برای پاسخ اجباری کنید. اگر `application/json` برمیگردانید، پس `content-type` پاسخ، `application/json` است.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اطلاعات حساس مثل `داده‌های اعتبارسنجی`، `رمز های عبور` و `توکن‌های امنیتی` را برنگردانید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;با توجه به عملیات انجام‌شده، status code مناسب را برگردانِد. مثلا `200 OK`، `400 Bad Request`، `401 Unauthorized` و `405 Method Not Allowed`.
 
@@ -94,6 +87,35 @@
 ## نگاهی بیاندازید به:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - یک مجموعه از منابع مفید برای ساختن APIهای RESTful با HTTP و JSON -
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

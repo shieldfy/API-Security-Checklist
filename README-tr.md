@@ -8,18 +8,10 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 
 ## Kimlik Doğrulama
 
-- [ ] `Basic Auth` kullanmayın. Bunun yerine standardlaşmış kimlik doğrulama çözümlerini (örneğin [JWT](https://jwt.io/), [OAuth](https://oauth.net/) gibi) kullanmalısınız.
+- [ ] `Basic Auth` kullanmayın. Bunun yerine standardlaşmış kimlik doğrulama çözümlerini kullanmalısınız.
 - [ ] `Kimlik doğrulama`, `token oluşturma`, `şifreleri kaydetme` için tekerleği yeniden icat etmeye çalışmayın. Standartları kullanın.
 - [ ] `Deneme sayısını` sınırlayarak giriş hakkını kısıtlayın.
 - [ ] Tüm hassas verilerde şifreleme kullanın.
-
-### JWT (JSON Web Token)
-
-- [ ] (`JWT Secret`) gibi rastgele, karmaşık ve zor bir anahtar kullanarak kaba kuvvet ile token çözmeyi olabildiğince zorlaştırın.
-- [ ] Algoritmayı gelen veri üzerinden belirlemeyin. Arka uçta olmasını sağlayın. (`HS256` veya `RS256`).
-- [ ] Token'in son kullanma tarihini (`TTL`, `RTTL`) olabildiğince kısa yapın.
-- [ ] Hassas verilerinizi JWT payload içine koymayın, [Kolayca](https://jwt.io/#debugger-io) çözülebilir.
-- [ ] Çok fazla veri depolamaktan kaçının. JWT genellikle header'larda paylaşılır ve bunların bir boyut sınırı vardır.
 
 ## Erişim
 
@@ -67,6 +59,7 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 - [ ] `Content-Security-Policy: default-src 'none'` header'ı gönderin.
 - [ ] Parmak izi header'larını kaldırın - `X-Powered-By`, `Server`, `X-AspNet-Version` v.b.
 - [ ] İsteğe verilen cevapta `content-type` kullanmaya zorlayın, eğer veriyi `application/json` olarak döndürürseniz, `content-type` karşılığı `application/json` olmalı.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] `kimlik bilgileri`, `şifreleri` veya `güvenlik token'ları` gibi hassas verileri sonuç içinde göndermeyin.
 - [ ] İşlem tamamlandıktan sonra uygun durum kodunu döndürün. (ör. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, v.b.).
 
@@ -92,6 +85,35 @@ API'nizi tasarlarken, test ederken ve yayınlarken en önemli güvenlik önlemle
 ## Ek kaynaklar:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON API'leri oluşturmak için kullanışlı kaynakların bir koleksiyonu.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

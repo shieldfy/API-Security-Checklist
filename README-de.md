@@ -8,18 +8,10 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 
 ## Authentifizierung
 
-- [ ] Verwende kein `Basic Auth`. Nutze standardisierte Authentifizierungsmethoden (bspw. JWT, OAuth).
+- [ ] Verwende kein `Basic Auth`. Nutze standardisierte Authentifizierungsmethoden.
 - [ ] Erfinde das Rad nicht neu für `Authentication`, `Tokengenerierung` oder `Passwort speichern`. Nutze hierfür existierende Standards.
 - [ ] Nutze eine `limitierte Anzahl von Anmeldeversuche` und Aussperrfunktionen (Ban, IP-Block, Permanent) im Loginprozess.
 - [ ] Nutze Verschlüsselung für alle sensitiven Daten.
-
-### JWT (JSON Web Token)
-
-- [ ] Verwende einen per Zufall generierten, komplizierten Schlüssel (`JWT Secret`), um Brute Force Attacken gegen diesen so schwer wie möglich zu machen.
-- [ ] Verwende den Algorithmus des Payloads ausschließlich über das Backend, sodass dieser geheim bleibt (`HS256` oder `RS256`).
-- [ ] Lege einen möglichst kurzen Gültigkeitszeitraum für den Token fest (`TTL`, `RTTL`).
-- [ ] Speichere keine sensitiven Daten im JWT Payload, denn dieser kann [einfach entkodiert werden](https://jwt.io/#debugger-io).
-- [ ] Vermeiden zu viele Daten zu speichern. JWT wird normalerweise in Headern geteilt und hat eine Größenbeschränkung.
 
 ## Zugriff
 
@@ -67,6 +59,7 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 - [ ] Sende `Content-Security-Policy: default-src 'none'` im Header.
 - [ ] Entferne Header wie `X-Powered-By`, `Server`, `X-AspNet-Version` usw, um eventuell veraltete Softwareversionen nicht zu verraten.
 - [ ] Sende immer einen `Content-Type` bei Antworten. Wenn du ein JSON lieferst gib als `Content-Type` `application/json` an.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] Gib niemals sensitive Daten zurück wie `Anmeldedaten`, `Passwörter` oder `Sicherheitsschlüssel`.
 - [ ] Verwende immer einen passenden HTTP Statuscode je nach Status der Operation (bspw. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, usw).
 
@@ -92,6 +85,35 @@ Checkliste für die wichtigsten Sicherheitsmaßnahmen beim Designen, Testen und 
 ## Siehe auch:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Eine Sammlung nützlicher Ressourcen für den Aufbau von RESTful HTTP+JSON APIs.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

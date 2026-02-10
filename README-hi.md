@@ -8,18 +8,10 @@
 
 ## प्रमाणीकरण (Authentication)
 
-- [ ] `बेसिक एथ` का उपयोग मानक प्रमाणन का उपयोग न करें (जैसे [JWT](https://jwt.io/), [OAuth](https://oauth.net/))।
+- [ ] `बेसिक एथ` का उपयोग मानक प्रमाणन का उपयोग न करें (जैसे।
 - [ ] `प्रमाणीकरण`, `टोकन पीढ़ी`, `पासवर्ड भंडारण` में पहिया को फिर से न बदलें। मानकों का उपयोग करें।
 - [ ] लॉग इन में `मैक्स पुन: प्रयास` और `जेल` सुविधाओं का उपयोग करें।
 - [ ] सभी संवेदनशील डेटा पर एन्क्रिप्शन का उपयोग करें।
-
-### JWT (JSON वेब टोकन)
-
-- [ ] एक यादृच्छिक जटिल कुंजी (`JWT सीक्रेट`) का प्रयोग करें ताकि brute force करने के लिए टोकन बहुत कठिन हो।
-- [ ] पेलोड से एल्गोरिदम न निकालें। बैकएण्ड (`HS256` या `RS256`) में एल्गोरिथम को बल दें।
-- [ ] टोकन की समाप्ति (`टीटीएल`, `आरटीटीएल`) को यथासंभव कम करें।
-- [ ] JWT पेलोड में संवेदनशील डेटा को संचित न करें, इसे [आसानी](https://jwt.io/#debugger-io) से डिकोड किया जा सकता है।
-- [ ] ज्यादा डाटा स्टोर करने से बचें। JWT को आमतौर पर headers में साझा किया जाता है और उनकी एक आकार सीमा होती है।
 
 ## Access
 
@@ -67,6 +59,7 @@
 - [ ] `Content-Security-Policy: default-src 'none'`हेडर भेजें।
 - [ ] `X-Powered-By`, `Server`, `X-AspNet-Version` फिंगरप्रिंटिंग हेडर हटाएं।
 - [ ] आपकी प्रतिक्रिया के लिए `content-type` को बल दें, यदि आप `application/json` वापस करते हैं तो आपकी प्रतिक्रिया `content-type` `application/json` है।
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] `credentials`, `Passwords`, `security tokens` जैसे संवेदनशील डेटा वापस न करें।
 - [ ] ऑपरेशन के अनुसार उचित स्थिति कोड वापस करें। (जैसे `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, आदि)।
 
@@ -92,6 +85,35 @@
 ## यह भी देखें:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) RESTful HTTP+JSON APIs के निर्माण के लिए उपयोगी संसाधनों का संग्रह।
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

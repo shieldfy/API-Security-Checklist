@@ -8,18 +8,10 @@
 
 ## Επικύρωση ασφαλείας (Authentication)
 
-- [ ] Μη χρησιμοποιήτε `Basic Auth`. Χρησιμοποιήστε standard authentication (π.χ. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] Μη χρησιμοποιήτε `Basic Auth`. Χρησιμοποιήστε standard authentication.
 - [ ] Μην προσπαθήσετε να επανεφεύρετε τον τροχό για `Authentication`, `token generation`, `password storage`. Χρησιμοποιήστε ήδη υπάρχων βιβλιοθήκες.
 - [ ] Χρησιμοποιήστε `Max Retry` και jail features κατά τη σύνδεση (Login).
 - [ ] Χρησιμοποιήστε κρυπτογράφηση (encryption) για όλα τα σημαντικά δεδομένα.
-
-### JWT (JSON Web Token)
-
-- [ ] Χρησιμοποιήστε τυχαίο περίπλοκο κλειδί (`JWT Secret`) για να γίνει αρκετά δύσκολο να αποκρυπτογραφηθεί με brute forcing.
-- [ ] Μη χρησιμοποιήτε/αφαιρήτε τον αλγόριθμο απο το payload. Ο αλγόριθμος πρέπει να πραγματοποιήτε στο backend (`HS256` ή `RS256`).
-- [ ] Κάντε το token να λήγει (token expiration) (`TTL`, `RTTL`) όσο πιο σύντομα γίνεται.
-- [ ] Μη καταχωρείτε ευαίσθητα δεδομένα στο JWT payload, μπορεί να αποκρυπτογραφηθεί εύκολα [easily](https://jwt.io/#debugger-io).
-- [ ] Αποφύγετε την αποθήκευση πάρα πολλών δεδομένων. JWT είναι συνήθως κοινόχρηστο σε headers και έχουν όριο μεγέθους.
 
 ## Πρόσβαση (Access)
 
@@ -67,6 +59,7 @@
 - [ ] Αποστέλετε `Content-Security-Policy: default-src 'none'` κεφαλίδα (header).
 - [ ] Αφαιρέστε fingerprinting κεφαλίδεs (headers) - `X-Powered-By`, `Server`, `X-AspNet-Version`, κτλ.
 - [ ] Εξαναγκάστε το `content-type` να υπάρχει στην απάντηση (response), εάν η απάντηση είναι `application/json` τότε η απάντηση `content-type` πρέπει να είναι `application/json`.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] Μην επιστρέφετε ευαίσθητα δεδομένα, όπως: `credentials`, `Passwords`, ή `security tokens`.
 - [ ] Επιστρέψτε τον κατάλληλο κωδικό κατάστασης σύμφωνα με τη διαδικασία που ολοκληρώθηκε. (π.χ. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, κτλ.).
 
@@ -92,6 +85,35 @@
 ## Δείτε επίσης:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Λίστα με χρήσιμες πληροφορίες για τον σχεδιασμό RESTful HTTP+JSON APIs.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

@@ -8,18 +8,10 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 
 ## Autenticazione
 
-- [ ] Non usare la `Basic Auth` Utilizzare piuttosto dei sistemi standard di identificazione (es. JWT, OAuth).
+- [ ] Non usare la `Basic Auth` Utilizzare piuttosto dei sistemi standard di identificazione.
 - [ ] Non re-inventarsi sistemi di `autenticazione`, `generazione token`, `salvataggio password`. Utilizzare gli standard.
 - [ ] Utilizzare `Max Retry` e le jail features per il Login.
 - [ ] Utilizzare la cifratura per tutti i dati sensibili.
-
-### JWT (JSON Web Token)
-
-- [ ] Utilizzare una chiave random complessa (`JWT Secret`) per rendere assai difficile il brute force del token.
-- [ ] Non ricavare l'algoritmo dal payload. Forzare l'algoritmo nel backend (`HS256` o `RS256`).
-- [ ] Rendere la scadenza del token (`TTL`, `RTTL`) il più breve possibile.
-- [ ] Non memorizzare dati sensibili nel payload JWT, può essere decodificato [facilmente](https://jwt.io/#debugger-io).
-- [ ] Evita di archiviare troppi dati. JWT è solitamente condiviso nelle header e hanno un limite di dimensioni.
 
 ## Accesso
 
@@ -67,6 +59,7 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 - [ ] Inviare l'header `Content-Security-Policy: default-src 'none'`.
 - [ ] Rimuovere header che permettono il riconoscimento - `X-Powered-By`, `Server`, `X-AspNet-Version` ecc.
 - [ ] Forzare il `content-type` nella chiamata di risposta: se per esempio viene ritornato un `application/json` forzare il `content-type` a `application/json`.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] Non ritornare mai dati sensibili come `credenziali`, `password`, `security tokens`.
 - [ ] Ritornare sempre lo status code corretto in base all'esito della chiamata. (es. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, ecc).
 
@@ -92,6 +85,35 @@ Una checklist per le più importanti contromisure da mettere in pratica quando s
 ## Guarda anche:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Una collezione di risorse utili per la creazione di API RESTful HTTP+JSON.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

@@ -8,18 +8,10 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 
 ## Xác thực (Authentication)
 
-- [ ] Không sử dụng `Basic Auth`. Sử dụng giao thức xác thực tiêu chuẩn (chẳng hạn [JWT](https://jwt.io/) hay [OAuth](https://oauth.net/)).
+- [ ] Không sử dụng `Basic Auth`. Sử dụng giao thức xác thực tiêu chuẩn.
 - [ ] Không tự thiết kế lại các giải pháp `Authentication`, `token generation`, `password storage`. Hãy sử dụng các giải pháp tiêu chuẩn.
 - [ ] Sử dụng `Max Retry` và chức năng Auto Block ở trang Login.
 - [ ] Mã hóa các dữ liệu nhạy cảm.
-
-### JWT (JSON Web Token)
-
-- [ ] Sử dụng khóa ngẫu nhiên (`JWT Secret`) để tăng sự khó khăn của việc tấn công Brute Force.
-- [ ] Không sử dụng các thuật toán có trong `Payload` của người dùng. Bắt buộc sử dụng thuật toán phía backend (`HS256` hoặc `RS256`).
-- [ ] Đặt thời hạn token (`TTL`, `RTTL`) càng ngắn càng tốt.
-- [ ] Không lưu các thông tin nhạy cảm trong JWT, nó có thể [dễ dàng](https://jwt.io/#debugger-io) được giải mã.
-- [ ] Tránh lưu trữ quá nhiều dữ liệu. JWT thường được chia sẻ trong header và chúng có giới hạn về kích thước.
 
 ## Quyền
 
@@ -67,6 +59,7 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 - [ ] Thêm `Content-Security-Policy: default-src 'none'` vào response headers.
 - [ ] Loại bỏ các header chứa thông tin nhạy cảm như phiên bản web server, ví dụ: `X-Powered-By`, `Server`, `X-AspNet-Version`, v.v...
 - [ ] Bắt buộc có `content-type` trong response headers, nếu bạn trả về `application/json` thì header `content-type` sẽ có giá trị `application/json`.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] Không trả về client các thông tin nhạy cảm như `credentials`, `Passwords`, `security tokens`.
 - [ ] Trả về status code tương ứng với hành động đã hoàn thành. (chẳng hạn. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`...).
 
@@ -92,6 +85,35 @@ Những giải pháp an toàn và cách khắc phục khi thiết kế, kiểm t
 ## Xem thêm:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Tập hợp các tài nguyên hữu ích để xây dựng API RESTful HTTP+JSON.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

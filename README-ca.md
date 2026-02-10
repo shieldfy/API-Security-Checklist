@@ -8,18 +8,10 @@ Llista de comprovació de les contramesures de seguretat més importants a l'hor
 
 ## Autenticació
 
-- [ ] No utilitzeu `Basic Auth`. Utilitzeu l'autenticació estàndard en el seu lloc (per exemple, [JWT](https://jwt.io/)).
+- [ ] No utilitzeu `Basic Auth`. Utilitzeu l'autenticació estàndard en el seu lloc.
 - [ ] No reinventeu la roda en `Autenticació`, `generació de tokens`, `emmagatzematge de contrasenyes`. Utilitzeu els estàndards.
 - [ ] Utilitzeu polítiques de límit de reintents (`Max Retry`) i funcionalitats de jailing al Login.
 - [ ] Utilitzeu el xifratge en totes les dades sensibles.
-
-### JWT (JSON Web Token)
-
-- [ ] Utilitzeu una clau complicada aleatòria (`JWT Secret`) per fer que forçar el token sigui molt difícil.
-- [ ] No extregueu l'algorisme de l'encapçalament. Forci l'algorisme al backend (`HS256` o `RS256`).
-- [ ] Feu l'expiració del token (`TTL`, `RTTL`) el més curt possible.
-- [ ] No emmagatzemeu dades sensibles en la càrrega útil del JWT, es pot descodificar [fàcilment](https://jwt.io/#debugger-io).
-- [ ] Eviteu emmagatzemar massa dades. El JWT normalment es comparteix en encapçalaments i tenen un límit de mida.
 
 ## Accés
 
@@ -67,6 +59,7 @@ Llista de comprovació de les contramesures de seguretat més importants a l'hor
 - [ ] Envia l'encapçalament `Content-Security-Policy: default-src 'none'`.
 - [ ] Elimina els encapçalaments d'identificació - `X-Powered-By`, `Server`, `X-AspNet-Version`, etc.
 - [ ] Força `content-type` per a la teva resposta. Si tornes `application/json`, llavors la teva resposta de `content-type` és `application/json`.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] No retornis dades sensibles com `credencials`, `contrasenyes` o `tokens de seguretat`.
 - [ ] Retorna el codi d'estat adequat segons l'operació completada. (per exemple, `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, etc.).
 
@@ -92,6 +85,35 @@ Llista de comprovació de les contramesures de seguretat més importants a l'hor
 ## També podeu veure:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Una col·lecció de recursos útils per a la construcció de RESTful HTTP+JSON APIs.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

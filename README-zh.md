@@ -8,21 +8,13 @@
 
 ## 身份认证
 
-- [ ] 不要使用 `Basic Auth` ，请使用标准的认证协议（如 [JWT](https://jwt.io/)，[OAuth](https://oauth.net/)）。
+- [ ] 不要使用 `Basic Auth` ，请使用标准的认证协议。
 - [ ] 不要重新实现 `Authentication`、`token generating` 和 `password storage`，请使用标准库。
 - [ ] 限制密码错误尝试次数，并且增加账号冻结功能。
 - [ ] 密码或账号登录失败时返回模糊的提示信息，防止暴力破解攻击。
 - [ ] 加密所有的敏感数据。
 - [ ] 不要将API Key，云组件Key等硬编码到前端页面或APP中。
 - [ ] 使用开源框架时禁止使用默认Key，比如Shiro。
-
-### JWT（JSON Web Token）
-
-- [ ] 使用随机复杂的密钥（`JWT Secret`）以增加暴力破解的难度。
-- [ ] 不要在请求体中直接提取数据，要对数据进行加密（`HS256` 或 `RS256`）。
-- [ ] 使 token 的过期时间尽量的短（`TTL`，`RTTL`）。
-- [ ] 不要在 JWT 的请求体中存放敏感数据，因为它是[可解码的](https://jwt.io/#debugger-io)。
-- [ ] 避免存储过多的数据。 JWT 通常在标头中共享，并且它们有大小限制。
 
 ## 访问
 
@@ -77,6 +69,7 @@
 - [ ] 增加请求返回头 `Content-Security-Policy: default-src 'none'`。
 - [ ] 删除请求返回中的指纹头 - `X-Powered-By`，`Server`，`X-AspNet-Version` 等等。
 - [ ] 在响应中遵循请求的 `content-type`，如果你的请求类型是 `application/json` 那么你返回的 `content-type` 就是 `application/json`。
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] 不要返回敏感的数据，如 `credentials`，`Passwords`，`security tokens`。
 - [ ] 给请求返回使用合理的 HTTP 响应代码。（如 `200 OK`，`400 Bad Request`，`401 Unauthorized`，`405 Method Not Allowed` 等等）。
 - [ ] 返回统一的错误页面，误将调用堆栈等信息在错误页面中展示。
@@ -107,6 +100,35 @@
 ## 也可以看看
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - 用于构建 RESTful HTTP + JSON API 的有用资源集合。
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

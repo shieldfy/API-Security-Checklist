@@ -8,18 +8,10 @@
 
 ## Удостоверяване
 
-- [ ] Не използвайте `Basic Auth`. Използвайте стандартно удостоверяване ( например: [JWT](https://jwt.io/), OAuth).
+- [ ] Не използвайте `Basic Auth`. Използвайте стандартно удостоверяване.
 - [ ] Не преоткривайте нови начини за `удостоверяване`, `генериране на токени`, `съхранение на пароли`. Придържайте се към стандартите.
 - [ ] Използвайте `Max Retry` и jail функции по време на удостоверяване.
 - [ ] Използвайте криптиране на всички чувствителни данни.
-
-### JWT (JSON Web Token)
-
-- [ ] Използвайте произволен сложен ключ (`JWT Secret`), за да направите грубото форсиране на токена по- трудно.
-- [ ] Не извличайте алгоритъма от заглавката. Принудете алгоритъма в бекенда (`HS256` or `RS256`).
-- [ ] Направете токена, така че да изтече (`TTL`, `RTTL`), за възможно най-кратко време.
-- [ ] Не съхранявайте чувствителни данни в JWT, те могат да бъдат декодирани [лесно](https://jwt.io/#debugger-io).
-- [ ] Избягвайте да съхранявате твърде много данни. JWT обикновено се споделя в заглавки, а те имат ограничение на размера.
 
 ## Достъп
 
@@ -67,6 +59,7 @@
 - [ ] Изпратете заглавката `Content-Security-Policy: default-src 'none'`.
 - [ ] Премахнете заглавките, които биха могли да помогнат на атакуващ да провери вашия ресурс за уязвимости - `X-Powered-By`, `Server`, `X-AspNet-Version`и т.н.
 - [ ] Фиксирайте `content-type` за вашия отговор. Ако изпращате отговор `application/json`, то тогава заявката трябва да бъде в `application/json`
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] Не изпращайте в отговорите чувствителни данни като `идентификационни данни`, `пароли` или `токени`.
 - [ ] Върнете правилния код на състоянието въз основа на резултатите от операцията. (например: `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed` и т.н.).
 
@@ -92,6 +85,35 @@
 ## Вижте също:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - Колекция от полезни ресурси за създаване на RESTful HTTP+JSON API.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

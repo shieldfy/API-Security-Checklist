@@ -8,18 +8,10 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 
 ## Uwierzytelnianie
 
-- [ ] Nie używaj `Basic Auth`. Użyj standardów uwierzytelniania (np. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] Nie używaj `Basic Auth`. Użyj standardów uwierzytelniania.
 - [ ] Nie wynajduj koła na nowo podczas `Uwierzytelniania`, `generowanie tokenów`, `przechowywania haseł`. Użyj sprawdzonych standardów.
 - [ ] Dodaj `Maksymalną ilość prób` oraz inne opcje ograniczające podczas Logowania.
 - [ ] Szyfruj wszystkie wrażliwe (ważne) dane.
-
-### JWT (JSON Web Token)
-
-- [ ] Użyj losowego, skomplikowanego klucza (`JWT Secret`) aby uczynić token bezpieczniejszym przeciw atakom typu `brute force`.
-- [ ] Algorytmy trzymaj w backendzie, nie upubliczniaj algorytmów.
-- [ ] Ustaw wygaszanie tokenów (`TTL`, `RTTL`) najkrótsze jak to możliwe.
-- [ ] Nie przechowuj wrażliwych danych w payloadzie `JWT`, mogą być one [łatwo zdekodowane](https://jwt.io/#debugger-io).
-- [ ] Unikaj przechowywania zbyt dużej ilości danych. JWT jest zwykle udostępniany w nagłówkach i ma limit rozmiaru.
 
 ## Dostęp
 
@@ -66,6 +58,7 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 - [ ] Wyślij nagłówek `Content-Security-Policy: default-src 'none'`.
 - [ ] Usuń nagłówki cyfrowego odcisku palca (digital fingerprint) - `X-Powered-By`, `Server`, `X-AspNet-Version`.
 - [ ] Wymuś `content-type` podczas zwracania danych. Jeżeli zwracasz `application/json` wtedy twój `content-type` to `application/json`.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] Nie zwracaj ważnych informacji jak `dane uwierzytelniające`, `hasła`, `tokeny bezpieczeństwa`.
 - [ ] Zwróc odpowiedni status w zależności od operacji. (np. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`).
 
@@ -91,6 +84,35 @@ Lista kontrolna najważniejszych metod zabezpieczenia podczas projektowania, tes
 ## Zobacz także:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - [ENG] Zbiór wartościowych narzędzi do tworzenia REST HTTP+JSON API.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

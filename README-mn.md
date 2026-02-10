@@ -8,18 +8,10 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 
 ## Authentication
 
-- [ ] `Basic Auth` бүү ашигла, Стандарт authentication ашигла (Жнь. [JWT](https://jwt.io/), [OAuth](https://oauth.net/)).
+- [ ] `Basic Auth` бүү ашигла, Стандарт authentication ашигла.
 - [ ] `Authentication` -ын `token generation`, `password storage` зэргийг бүү дахин шинээр хий, стандарт ашигла.
 - [ ] Нэвтрэх(Login) үед `Max Retry` ашиглан хорилт хий.
 - [ ] Чухал өгөгдлүүдийг encrupt хий.
-
-### JWT (JSON Web Token)
-
-- [ ] Санамсаргүй үүссэн түлхүүр (`JWT Secret`) ашиглаж token -ыг brute force -оос хамгаал.
-- [ ] Payload -аас алгоритмаа бүү задал. Backend дээрээ хий (`HS256` эсвэл `RS256`).
-- [ ] Токен дуусах хугацаа (`TTL`, `RTTL`) аль болох бага болго.
-- [ ] Чухал өгөгдлийг JWT payload -д бүү хадгал, decode хийхэд [амархан](https://jwt.io/#debugger-io).
-- [ ] Хэт их мэдээлэл хадгалахаас зайлсхий. JWT нь ихэвчлэн headers хэсэгт хуваагддаг бөгөөд тэдгээр нь хэмжээ хязгаартай байдаг.
 
 ## Access
 
@@ -67,6 +59,7 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 - [ ] `Content-Security-Policy: default-src 'none'` header дээр явуул.
 - [ ] Ул мөр үлдээх `X-Powered-By`, `Server`, `X-AspNet-Version` header үүдыг устга.
 - [ ] `content-type` -ыг хүсэлтийн хариуд нь харгалзан буцаах, Хэрвээ `application/json` хүсэлт явсан бол хариуд нь `content-type` нь `application/json` байх.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] Чухал өгөгдлүүд `credentials`, `Passwords`, `security tokens` бүү буцаа.
 - [ ] Тухайн ажилд тохирсон статус код илгээх. (Жнь. `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed`, г.м).
 
@@ -92,6 +85,35 @@ API гаргах, загварчлах, тестлэхэд аюулгүйн та
 ## Мөн үзнэ үү:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP+JSON API-г бүтээхэд хэрэгтэй нөөцүүдийн цуглуулга.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

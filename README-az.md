@@ -8,18 +8,10 @@ API-nizi tərtib edərkən, sınaqdan keçirərkən və dərc edərkən ən vaci
 
 ## Autentifikasiya
 
-- [ ] `Basic Auth` istifadə etməyin. Bunun əvəzinə standart identifikasiya həllərindən (məsələn: [JWT](https://jwt.io/), [OAuth](https://oauth.net/) kimi) istifadə edin.
+- [ ] `Basic Auth` istifadə etməyin. Bunun əvəzinə standart identifikasiya həllərindən istifadə edin.
 - [ ] `Autentifikasiya`, `tokenlərin yaradılması`, `parolların saxlanması` üçün təkəri yenidən kəşf etməyə çalışmayın. Standartlardan istifadə edin.
 - [ ] `Cəhdlərin sayını` məhdudlaşdırmaqla giriş hüquqlarını məhdudlaşdırın.
 - [ ] Bütün həssas məlumatlarda şifrələmədən istifadə edin.
-
-### JWT (JSON Veb Token)
-
-- [ ] (`JWT Secret`) kimi təsadüfi, mürəkkəb və çətin açardan istifadə edərək, kobud qüvvə ilə şifrənin açılmasını mümkün qədər çətinləşdirin.
-- [ ] Daxil olan məlumatlara əsasən alqoritmi təyin etməyin. Bunu arxa planda reallaşdırın. ('HS256' və ya 'RS256').
-- [ ] Tokenin son istifadə tarixini (`TTL`, `RTTL`) mümkün qədər qısa edin.
-- [ ] Həssas məlumatlarınızı JWT faydalı yükünə qoymayın, o [Asanlıqla](https://jwt.io/#debugger-io) deşifrə edilə bilər.
-- [ ] Çox məlumat saxlamaqdan çəkinin. JWT adətən başlıqlarda paylaşılır və onların ölçü limiti var.
 
 ## Giriş
 
@@ -92,6 +84,35 @@ API-nizi tərtib edərkən, sınaqdan keçirərkən və dərc edərkən ən vaci
 ## Əlavə resurslar:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - RESTful HTTP + JSON API qurmaq üçün faydalı resurslar toplusu.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 

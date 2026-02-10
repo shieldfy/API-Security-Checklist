@@ -8,18 +8,10 @@ Checklist ທີ່ຕ້ອງໃຫ້ຄວາມສຳຄັນເມື່�
 
 ## Authentication (ການພິສູດຕົວຕົນ)
 
-- [ ] ບໍ່ຄວນໃຊ້ `Basic Auth` (ການ authen ປົກກະຕິດ້ວຍ username password) ສຳລັບການພິສູດຕົວຕົນ ແຕ່ໃຫ້ໃຊ້ຮູບແບບມາດຕະຖານສາກົນແທນ(ຕົວຢ່າງ, JWT, OAuth).
+- [ ] ບໍ່ຄວນໃຊ້ `Basic Auth` (ການ authen ປົກກະຕິດ້ວຍ username password) ສຳລັບການພິສູດຕົວຕົນ ແຕ່ໃຫ້ໃຊ້ຮູບແບບມາດຕະຖານສາກົນແທນ.
 - [ ] ບໍ່ຕ້ອງເສຍເວລາສ້າງວິທີ Authentication ໃໝ່ຂຶ້ນມາ ໃຫ້ໃຊ້ທີ່ມີຢູ່ໃນມາດຕະຖານໄປເລີຍ.
 - [ ] ໃຫ້ມີການຈຳກັດຈຳນວນຄັ້ງໃນການພະຍາຍາມ authen ແລະ ສ້າງລະບົບລ໋ອກກໍລະນີພະຍາຍາມເກີນກຳນົດ.
 - [ ] ຂໍ້ມູນທີ່ສຳຄັນຄວນມີການເຂົ້າລະຫັດສະເໝີ.
-
-### JWT (JSON Web Token)
-
-- [ ] key ໃນການ generate token ຄວນມີຄວາມສັບຊ້ອນສູງ ເພື່ອປ້ອງກັນການ brute force ຫາຕົວເຂົ້າລະຫັດ.
-- [ ] ບໍ່ຄວນມີການແກະຂໍ້ມູນ ຫຼື ຂັ້ນຕອນການຖອດຂໍ້ມູນໃນຝັ່ງ client. ໃຫ້ມີສະເພາະໃນ server ເທົ່ານັ້ນ ໂດຍອາດໃຊ້ວິທີເຂົ້າລະຫັດດ້ວຍ HS256 ຫຼື RS256 ແທນ.
-- [ ] ພະຍາຍາມໃຫ້ token ໝົດອາຍຸໄວທີ່ສຸດເທົ່າທີ່ຈະເປັນໄປໄດ້ (`TTL`, `RTTL`).
-- [ ] ບໍ່ຄວນເກັບຂໍ້ມູນທີ່ສຳຄັນໃນ payload ຂອງ JWT ເພາະອາດຈະຖືກແກະໄດ້ [ງ່າຍ](https://jwt.io/#debugger-io).
-- [ ] ຫຼີກເວັ້ນການເກັບຮັກສາຂໍ້ມູນຫຼາຍເກີນໄປ. JWT ມັກຈະຖືກແບ່ງປັນໃນ headers ແລະພວກເຂົາມີຂອບເຂດຈໍາກັດ.
 
 ## ການເຂົ້າເຖິງ
 
@@ -67,6 +59,7 @@ Checklist ທີ່ຕ້ອງໃຫ້ຄວາມສຳຄັນເມື່�
 - [ ] ຕັ້ງ `Content-Security-Policy: default-src 'none'` ໃນ header.
 - [ ] ເອົາ fingerprinting headers ອອກ - `X-Powered-By`, `Server`, `X-AspNet-Version` ໆລໆ.
 - [ ] ກຳນົດ content-type ໃນ response ເຊັ່ນຖ້າຕ້ອງການຂໍ້ມູນທີ່ເປັນ json ກັບໄປ ກໍເຊັດ `content-type` ເປັນ `application/json` ໄປເລີຍ.
+- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
 - [ ] ບໍ່ຕ້ອງສົ່ງຂໍ້ມູນສຳຄັນກັບໄປຫາ client (`credentials`, `Passwords`, `security tokens`).
 - [ ] ຕອບ status code ທີ່ກົງກັບ operation ກັບໄປ (ຕົວຢ່າງ, `200 OK`, `400 Bad Request`, `401 Unauthorized`, `405 Method Not Allowed` ... ໆລໆ).
 
@@ -92,6 +85,35 @@ Checklist ທີ່ຕ້ອງໃຫ້ຄວາມສຳຄັນເມື່�
 ## ເບິ່ງສິ່ງນີ້ດ້ວຍ:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - ຊຸດແຫຼ່ງຂໍ້ມູນທີ່ເປັນປະໂຫຍດໃນການສ້າງ API RESTful HTTP+JSON.
+- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+
+---
+
+## API Security Best Practices (Advanced)
+
+### Rate Limiting & Abuse Prevention
+- [ ] Implement sliding window rate limiting per API key and IP.
+- [ ] Use exponential backoff for repeated failed authentication attempts.
+- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
+- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+
+### GraphQL-Specific Security
+- [ ] Disable introspection in production environments.
+- [ ] Implement query depth limiting to prevent nested query attacks.
+- [ ] Use query cost analysis to prevent resource exhaustion.
+- [ ] Whitelist allowed queries in production when possible.
+
+### Secrets Management
+- [ ] Rotate API keys and secrets on a regular schedule.
+- [ ] Use hardware security modules (HSM) for signing operations.
+- [ ] Implement secret scanning in CI/CD pipelines.
+- [ ] Never commit secrets to version control - use environment variables or secret managers.
+
+### Zero Trust Architecture
+- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
+- [ ] Validate all requests even from internal services.
+- [ ] Use short-lived tokens with automatic refresh.
+- [ ] Implement request signing for sensitive operations.
 
 ---
 
