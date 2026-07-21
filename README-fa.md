@@ -88,7 +88,7 @@
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - یک مجموعه از منابع مفید برای ساختن APIهای RESTful با HTTP و JSON -
 - شما به JWT نیازی ندارید؛ تنها کافیست از یک کلید تصادفی ساخته شده استفاده کنید. اگر نیاز به استفاده از رمزنگاری نامتقارن یا جلوگیری از دستکاری دارید:
-- )[جایگزین های JWT]https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt)
+- [جایگزین های JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt)
 
 ## دستورالعمل های امنیت API (پیشرفته)
 
@@ -111,10 +111,10 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هرگز رمز ها را در مخزن های کنترل نسخه قرار ندهید و از متغیرهای محیطی یا ابزارهای مدیریت رمز استفاده کنید.
 
 ### معماری بدون اعتماد
-- [ ] پیاده سازی TLS دوطرفه (mTLS) را برای ارتباطات سرویس به سرویس درنظر بگیرید.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-- [ ] همه درخواست هارا اعتبارسنجی کنید حتی درخواست های داخلی.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-- [ ] از توکن ها با طول عمر کوتاه با قابلیت تازه‌سازی خودکار استفاده کنید.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-- [ ] برای عملیات های حساس امضا درخواست ها را مدنظر قرار دهید.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;پیاده سازی TLS دوطرفه (mTLS) را برای ارتباطات سرویس به سرویس درنظر بگیرید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;همه درخواست هارا اعتبارسنجی کنید حتی درخواست های داخلی.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از توکن ها با طول عمر کوتاه با قابلیت تازه‌سازی خودکار استفاده کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای عملیات های حساس امضا درخواست ها را مدنظر قرار دهید.
 
 ---
 
