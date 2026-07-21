@@ -61,7 +61,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هدر `'Content-Security-Policy: default-src 'none` را ارسال کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هدرهایی که به نوعی اثرانگشت برجای می‌گذارند را حذف کنید، مثلا `X-Powered-By`، `Server` و ‍`X-AspNet-Version`.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مقدار `content-type` را برای پاسخ اجباری کنید. اگر `application/json` برمیگردانید، پس `content-type` پاسخ، `application/json` است.
-- [ ] از ارائه اطلاعات و متن خطا های با جزعیات داخلی به کاربر بپرهیزید و از پیام های خطای عمومی و ساده استفاده کنید. تنها اطلاعات با جزعیات را در سمت سرور ثبت کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از ارائه اطلاعات و متن خطا های با جزعیات داخلی به کاربر بپرهیزید و از پیام های خطای عمومی و ساده استفاده کنید. تنها اطلاعات با جزعیات را در سمت سرور ثبت کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اطلاعات حساس مثل `داده‌های اعتبارسنجی`، `رمز های عبور` و `توکن‌های امنیتی` را برنگردانید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;با توجه به عملیات انجام‌شده، status code مناسب را برگردانِد. مثلا `200 OK`، `400 Bad Request`، `401 Unauthorized` و `405 Method Not Allowed`.
 
@@ -88,7 +88,7 @@
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - یک مجموعه از منابع مفید برای ساختن APIهای RESTful با HTTP و JSON -
 - شما به JWT نیازی ندارید؛ تنها کافیست از یک کلید تصادفی ساخته شده استفاده کنید. اگر نیاز به استفاده از رمزنگاری نامتقارن یا جلوگیری از دستکاری دارید:
-- )[جایگزین های JWT]https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt)
+- [جایگزین های JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt)
 
 ## دستورالعمل های امنیت API (پیشرفته)
 
@@ -111,10 +111,10 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هرگز رمز ها را در مخزن های کنترل نسخه قرار ندهید و از متغیرهای محیطی یا ابزارهای مدیریت رمز استفاده کنید.
 
 ### معماری بدون اعتماد
-- [ ] پیاده سازی TLS دوطرفه (mTLS) را برای ارتباطات سرویس به سرویس درنظر بگیرید.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-- [ ] همه درخواست هارا اعتبارسنجی کنید حتی درخواست های داخلی.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-- [ ] از توکن ها با طول عمر کوتاه با قابلیت تازه‌سازی خودکار استفاده کنید.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-- [ ] برای عملیات های حساس امضا درخواست ها را مدنظر قرار دهید.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;پیاده سازی TLS دوطرفه (mTLS) را برای ارتباطات سرویس به سرویس درنظر بگیرید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;همه درخواست هارا اعتبارسنجی کنید حتی درخواست های داخلی.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از توکن ها با طول عمر کوتاه با قابلیت تازه‌سازی خودکار استفاده کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای عملیات های حساس امضا درخواست ها را مدنظر قرار دهید.
 
 ---
 
