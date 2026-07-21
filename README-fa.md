@@ -23,7 +23,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;لیست های دایرکتوری را خاموش کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای APIهای خصوصی، فقط از IPها/میزبانهای لیست سفید اجازه دسترسی داشته باشید.
 
-## Authorization
+## مجوز
 
 ### OAuth
 
@@ -61,11 +61,11 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هدر `'Content-Security-Policy: default-src 'none` را ارسال کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هدرهایی که به نوعی اثرانگشت برجای می‌گذارند را حذف کنید، مثلا `X-Powered-By`، `Server` و ‍`X-AspNet-Version`.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;مقدار `content-type` را برای پاسخ اجباری کنید. اگر `application/json` برمیگردانید، پس `content-type` پاسخ، `application/json` است.
-- [ ] Do not return overly specific error messages to the client that could reveal implementation details, use generic messages instead, and log detailed information only on the server side.
+- [ ] از ارائه اطلاعات و متن خطا های با جزعیات داخلی به کاربر بپرهیزید و از پیام های خطای عمومی و ساده استفاده کنید. تنها اطلاعات با جزعیات را در سمت سرور ثبت کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;اطلاعات حساس مثل `داده‌های اعتبارسنجی`، `رمز های عبور` و `توکن‌های امنیتی` را برنگردانید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;با توجه به عملیات انجام‌شده، status code مناسب را برگردانِد. مثلا `200 OK`، `400 Bad Request`، `401 Unauthorized` و `405 Method Not Allowed`.
 
-## CI & CD
+## ادغام و استقرار مداوم
 
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;طراحی و پیاده سازی خودتان را با پوشش تست‌های unit/integration بازرسی کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از یک پروسه‌ی مرور کد استفاده کنید و خود-تاییدی را نادیده بگیرید.
@@ -74,7 +74,7 @@
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;وابستگی‌هایتان (نرم افزار و سیستم عامل، هردو) را برای آسیب‌پذیری‌های شناخته شده، چک کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;برای دپلوی‌هایتان، یک راه‌حل با قابلیت عقبگرد (rollback) طراحی کنید.
 
-## Monitoring
+## نظارت
 
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از لاگین های متمرکز برای همه سرویس ها و مؤلفه ها استفاده کنید.
 - [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از agent ها برای مانیتور همه ترافیک, خطاها, درخواست‌ها و پاسخ‌ها استفاده کنید.
@@ -87,35 +87,34 @@
 ## نگاهی بیاندازید به:
 
 - [yosriady/api-development-tools](https://github.com/yosriady/api-development-tools) - یک مجموعه از منابع مفید برای ساختن APIهای RESTful با HTTP و JSON -
-- You don't need JWT, just use a randomly generated API key. If you need asymmetric encryption or tamper prevention, [here are some alternatives to JWT](https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt/).
+- شما به JWT نیازی ندارید؛ تنها کافیست از یک کلید تصادفی ساخته شده استفاده کنید. اگر نیاز به استفاده از رمزنگاری نامتقارن یا جلوگیری از دستکاری دارید:
+- )[جایگزین های JWT]https://kevin.burke.dev/kevin/things-to-use-instead-of-jwt)
 
----
+## دستورالعمل های امنیت API (پیشرفته)
 
-## API Security Best Practices (Advanced)
+### محودیت میزان و جلوگیری از سوءاستفاده
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;محدودیت میزان برای کلید API و IP را با الگوریتم پنجره شناور پیاده‌سازی کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از تکینک عقب‌ نشینی نمایی برای جلوگیری از درخواست های تکراری ناموفق اعتبارسنجی استفاده کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;پیاده‌سازی چالش های تشخیص ربات یااثبات کار را برای فعالییت های مشکوک در نظر داشته باشید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;نظارت و هشدار را بعد از تشخیص الگوهای مشکوک استفاده از API(زمان، حجم، مکان‌های اتصال نهایی) را درنظر داشته باشید.
 
-### Rate Limiting & Abuse Prevention
-- [ ] Implement sliding window rate limiting per API key and IP.
-- [ ] Use exponential backoff for repeated failed authentication attempts.
-- [ ] Implement CAPTCHA or proof-of-work challenges after suspicious activity.
-- [ ] Monitor and alert on unusual API usage patterns (time, volume, endpoints).
+### امنیت مختص به GraphQL
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;را در محیط های عملیاتی غیرفعال کنید `introspection`
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;محدودیت عمق پرس و جو را برای جلوگیری از حملات مبتنی برای پرس و جو های تو‌در‌تو در نظر داشته باشید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هزینه های مربوط به پرس‌وجو را برای جلوگیری از اتمام منابع تحلیل کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;تاحد امکان پرس‌و‌جو های مجاز را به صورت لیست سفید در محیط های عملیاتی قرار بدهید.
 
-### GraphQL-Specific Security
-- [ ] Disable introspection in production environments.
-- [ ] Implement query depth limiting to prevent nested query attacks.
-- [ ] Use query cost analysis to prevent resource exhaustion.
-- [ ] Whitelist allowed queries in production when possible.
+### مدیریت اعتبارات و رمزها
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;چرخش و تعویض کلید های API را در بازهای زمانی مرتبط در نظر داشته باشید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;از مولفه سخت‌افزاری امنیتی (HSM) برای عملیات های امضا استفاده کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;در چرخه های استقرار و ادغام مداوم رمز ها و اعتبارات را بررسی کنید.
+- [ ] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;هرگز رمز ها را در مخزن های کنترل نسخه قرار ندهید و از متغیرهای محیطی یا ابزارهای مدیریت رمز استفاده کنید.
 
-### Secrets Management
-- [ ] Rotate API keys and secrets on a regular schedule.
-- [ ] Use hardware security modules (HSM) for signing operations.
-- [ ] Implement secret scanning in CI/CD pipelines.
-- [ ] Never commit secrets to version control - use environment variables or secret managers.
-
-### Zero Trust Architecture
-- [ ] Implement mutual TLS (mTLS) for service-to-service communication.
-- [ ] Validate all requests even from internal services.
-- [ ] Use short-lived tokens with automatic refresh.
-- [ ] Implement request signing for sensitive operations.
+### معماری بدون اعتماد
+- [ ] پیاده سازی TLS دوطرفه (mTLS) را برای ارتباطات سرویس به سرویس درنظر بگیرید.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- [ ] همه درخواست هارا اعتبارسنجی کنید حتی درخواست های داخلی.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- [ ] از توکن ها با طول عمر کوتاه با قابلیت تازه‌سازی خودکار استفاده کنید.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- [ ] برای عملیات های حساس امضا درخواست ها را مدنظر قرار دهید.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ---
 
